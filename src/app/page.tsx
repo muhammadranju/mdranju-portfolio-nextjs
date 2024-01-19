@@ -1,3 +1,4 @@
+"use client";
 import { FeatureThree } from "@/ui/FeatureThree";
 import Footer from "@/ui/Footer";
 import HeroSection from "@/ui/HeroSection";

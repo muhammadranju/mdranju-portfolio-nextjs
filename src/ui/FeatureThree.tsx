@@ -8,7 +8,7 @@ export function FeatureThree() {
         <div className="mx-auto max-w-xl text-center">
           <div className="mx-auto inline-flex rounded-full bg-gray-100 px-4 py-1.5">
             <p className="text-xs font-semibold uppercase tracking-widest text-black">
-              100+ Tailwind Components
+              I have done all of projects
             </p>
           </div>
           <h2 className="mt-6 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">

@@ -16,7 +16,7 @@ export function Projects() {
           >
             <img
               src={items?.image}
-              className="z-0 h-full w-full rounded-md object-cover"
+              className=" h-full w-full rounded-md object-cover"
               alt={items?.title}
             />
             <div className="absolute inset-0 rounded-md bg-gradient-to-t from-gray-900 to-transparent"></div>
@@ -43,6 +43,13 @@ export function Projects() {
             </div>
           </div>
         ))}
+      </div>
+      <div className=" flex justify-center  text-center">
+        <Link href={"/projects"}>
+          <button className="rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white  shadow-sm hover:bg-indigo-500">
+            View More
+          </button>
+        </Link>
       </div>
     </div>
   );
