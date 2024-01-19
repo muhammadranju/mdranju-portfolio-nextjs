@@ -10,6 +10,16 @@
     "avatar": "https://avatars.githubusercontent.com/u/80270685?v=4"
   },
   {
+    "category": "Portfolio-Website",
+    "title": "My Portfolio website made by next.js",
+    "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/vgpapyaihzee4nyzmgp9",
+    "details": "Portfolio website made by next.js and ui design is tailwindcss, shadcnui and devui components",
+    "liveLink": "https://mdranju.netlify.app/",
+    "author": "Muhammad Ranju",
+    "sourceCode": "https://github.com/muhammadranju/portfolio-nextjs",
+    "avatar": "https://avatars.githubusercontent.com/u/80270685?v=4"
+  },
+  {
     "category": "E-commerce add-to-cart",
     "title": "Real live e-commerce add-to-cart feature",
     "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/sshlc1cgothvu1efxjq0",
@@ -22,7 +32,7 @@
   {
     "category": "E-commerce frontend",
     "title": " Frontend Template",
-    "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/bezeo9tllqpqjudjjhlf",
+    "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/waggkpjhyk8lzfccnxcu",
     "details": " This project is demo for practice this Template is download from themeForest it's a paid Template I'm Download nulled version",
     "liveLink": "",
     "author": "Muhammad Ranju",
