@@ -21,7 +21,6 @@ function Products() {
             </p>
           </div>
 
-          {/* posts */}
           <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 rounded lg:grid-cols-3">
             {posts.map((post) => (
               <div key={post?.title} className="border">
@@ -58,7 +57,7 @@ function Products() {
                     </div>
                     {post.liveLink ? (
                       <div>
-                        <button className="rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        <button className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white border-white border-collapse shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                           <Link href={post.liveLink} target="_blank">
                             Live Demo
                           </Link>
