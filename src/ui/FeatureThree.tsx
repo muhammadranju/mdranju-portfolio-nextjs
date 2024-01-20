@@ -3,7 +3,7 @@ import { DollarSign, Zap, Moon, Filter } from "lucide-react";
 
 export function FeatureThree() {
   return (
-    <div className=" bg-slate-100 w-full py-10 mt-10 mb-5">
+    <div className="  w-full py-10 mt-10 mb-5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
         <div className="mx-auto max-w-xl text-center">
           <div className="mx-auto inline-flex rounded-full bg-gray-100 px-4 py-1.5">
@@ -11,10 +11,10 @@ export function FeatureThree() {
               I have done all of projects
             </p>
           </div>
-          <h2 className="mt-6 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+          <h2 className="mt-6 text-3xl font-bold leading-tightsm:text-4xl lg:text-5xl">
             DevUI helps you build beautiful website
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-gray-600">
+          <p className="mt-4 text-base leading-relaxed ">
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
             sint. Velit officia consequat duis enim velit mollit.
           </p>
@@ -24,10 +24,8 @@ export function FeatureThree() {
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <DollarSign className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold text-black">
-              Secured Payments
-            </h3>
-            <p className="mt-4 text-sm text-gray-600">
+            <h3 className="mt-8 text-lg font-semibold">Secured Payments</h3>
+            <p className="mt-4 text-sm ">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
             </p>
@@ -36,10 +34,8 @@ export function FeatureThree() {
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <Zap className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold text-black">
-              Fast & Easy to Load
-            </h3>
-            <p className="mt-4 text-sm text-gray-600">
+            <h3 className="mt-8 text-lg font-semibold ">Fast & Easy to Load</h3>
+            <p className="mt-4 text-sm ">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
             </p>
@@ -48,10 +44,8 @@ export function FeatureThree() {
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <Moon className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold text-black">
-              Light & Dark Version
-            </h3>
-            <p className="mt-4 text-sm text-gray-600">
+            <h3 className="mt-8 text-lg font-semibold">Light & Dark Version</h3>
+            <p className="mt-4 text-sm">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
             </p>
@@ -60,10 +54,8 @@ export function FeatureThree() {
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <Filter className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold text-black">
-              Filter Blocks
-            </h3>
-            <p className="mt-4 text-sm text-gray-600">
+            <h3 className="mt-8 text-lg font-semibold ">Filter Blocks</h3>
+            <p className="mt-4 text-sm ">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
             </p>

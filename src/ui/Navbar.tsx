@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { ModeToggle } from "@/components/ui/ModeToggle";
 
 const menuItems = [
   {
@@ -25,7 +26,8 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className="relative w-full bg-white">
+    <div className="relative w-full">
+      <div className="bg-background text-foreground" />
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <Link href="/">
           <div className="inline-flex items-center space-x-0 mt-3">
@@ -44,7 +46,7 @@ function Navbar() {
               </svg>
             </span>
 
-            <span className="font-bold">MDR</span>
+            <span className="font-bold ">MDR</span>
           </div>
         </Link>
         <div className="hidden grow items-start lg:flex">
@@ -53,7 +55,7 @@ function Navbar() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-gray-900"
+                  className="inline-flex items-center text-sm font-semibold hover:text-gray-900"
                 >
                   {item.name}
                   <span>
@@ -78,6 +80,9 @@ function Navbar() {
             Log In
           </button>
         </div>
+        <div className="m-2">
+          <ModeToggle />
+        </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
         </div>
@@ -101,7 +106,7 @@ function Navbar() {
                         />
                       </svg>
                     </span>
-                    <span className="font-bold">DevUI</span>
+                    <span className="font-bold">MDR</span>
                   </div>
                   <div className="-mr-2">
                     <button

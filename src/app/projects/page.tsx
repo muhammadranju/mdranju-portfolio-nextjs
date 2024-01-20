@@ -11,10 +11,10 @@ function Products() {
       <div>
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
-            <p className="text-3xl font-bold text-gray-900 md:text-5xl md:leading-10">
+            <p className="text-3xl font-bold  md:text-5xl md:leading-10">
               Resources and insights
             </p>
-            <p className="max-w-4xl text-base text-gray-600 md:text-xl">
+            <p className="max-w-4xl text-base  md:text-xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
               veritatis voluptates neque itaque repudiandae sint, explicabo
               assumenda quam ratione placeat?
@@ -31,13 +31,13 @@ function Products() {
                   alt=""
                 />
                 <div className="min-h-min p-3">
-                  <p className="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
+                  <p className="mt-4 w-full text-xs font-semibold leading-tight ">
                     #{post?.category.toLocaleLowerCase()}
                   </p>
-                  <p className="mt-4 flex-1 text-base font-semibold text-gray-900">
+                  <p className="mt-4 flex-1 text-base font-semibold">
                     {post?.title}
                   </p>
-                  <p className="mt-2 w-full text-sm leading-normal text-gray-600">
+                  <p className="mt-2 w-full text-sm leading-normal ">
                     {post?.details}
                   </p>
                   <div className="mt-4 flex space-x-3 ">
@@ -47,10 +47,10 @@ function Products() {
                       alt={post?.author}
                     />
                     <div>
-                      <p className="text-sm font-semibold leading-tight text-gray-900">
+                      <p className="text-sm font-semibold leading-tight">
                         {post?.author}
                       </p>
-                      <span className="text-sm leading-tight text-gray-600">
+                      <span className="text-sm leading-tight">
                         <Link href={post.sourceCode} target="_blank">
                           View Code
                         </Link>

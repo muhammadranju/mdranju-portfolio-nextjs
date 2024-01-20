@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 function HeroSection() {
   return (
-    <div className="relative w-full bg-white">
+    <div className="relative w-full">
       <div className="mx-auto max-w-7xl lg:px-8">
         <div className="flex flex-col justify-center px-4 py-10 lg:px-6">
           <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">
             Hi there🙂
           </div>
-          <h1 className="mt-3 max-w-4xl text-4xl font-extrabold tracking-tight text-black md:text-4xl lg:text-6xl">
+          <h1 className="mt-3 max-w-4xl text-4xl font-extrabold tracking-tight md:text-4xl lg:text-6xl">
             Muhammad Ranju.
           </h1>
           <h2 className="mt-6 max-w-3xl font-medium text-2xl text-gray-900-700">
