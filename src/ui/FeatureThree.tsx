@@ -4,6 +4,7 @@ import { DollarSign, Zap, Moon, Filter } from "lucide-react";
 export function FeatureThree() {
   return (
     <div className="  w-full py-10 mt-10 mb-5">
+      <hr className="my-8   w-full" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
         <div className="mx-auto max-w-xl text-center">
           <div className="mx-auto inline-flex rounded-full bg-gray-100 px-4 py-1.5">
