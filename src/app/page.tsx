@@ -8,6 +8,7 @@ import { Projects } from "@/ui/Projects";
 function about() {
   return (
     <>
+      <title>Home</title>
       {/* <div className="bg-zinc-950 dark:bg-white" /> */}
 
       <Navbar />

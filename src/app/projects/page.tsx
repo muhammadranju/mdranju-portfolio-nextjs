@@ -7,6 +7,7 @@ import posts from "@/data/data.json";
 function Products() {
   return (
     <>
+      <title>Products</title>
       <Navbar />
       <div>
         <div className="mx-auto max-w-7xl px-2">

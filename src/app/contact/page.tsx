@@ -5,6 +5,7 @@ import Navbar from "@/ui/Navbar";
 function contact() {
   return (
     <>
+      <title>Contact</title>
       <Navbar />
       <div>
         <div className="mx-auto max-w-7xl px-4">
