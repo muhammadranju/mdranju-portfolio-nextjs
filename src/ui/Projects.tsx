@@ -2,10 +2,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-
 import posts from "@/data/data.json";
-
-posts.pop();
 export function Projects() {
   return (
     <div className=" w-full bg-inherit py-10 mt-10 mb-5">
