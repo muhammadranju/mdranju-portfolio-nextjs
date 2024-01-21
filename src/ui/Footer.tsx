@@ -1,48 +1,12 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+const d = new Date();
+let year = d.getFullYear();
 function Footer() {
   return (
     <>
-      <hr className="my-6" />
-      <footer className="w-full mt-10 p-6 ">
-        <div className="mx-auto flex max-w-6xl flex-col items-start space-x-8 md:flex-row">
-          <div className="w-full px-4 md:w-1/2 lg:px-0">
-            <h1 className="max-w-sm text-3xl font-bold">
-              Subscribe to our Newsletter
-            </h1>
-            <form
-              action=""
-              className="mt-4 inline-flex w-full items-center md:w-3/4"
-            >
-              <input
-                className="flex h-10 w-full rounded-md border  bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                type="email"
-                placeholder="Email"
-              ></input>
-              <button
-                type="button"
-                className="ml-4 rounded-full bg-black px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </form>
-          </div>
-          <div className="mt-8 grid grid-cols-2 gap-6 md:mt-0 lg:w-3/4 lg:grid-cols-3">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="mb-8 lg:mb-0">
-                <p className="mb-6 text-lg font-semibold ">Company</p>
-                <ul className="flex flex-col space-y-4 text-[14px] font-medium ">
-                  <li>About us</li>
-                  <li>Company History</li>
-                  <li>Our Team</li>
-                  <li>Our Vision</li>
-                  <li>Press Release</li>
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+      <footer className="w-full mt-10 p-2 ">
         <hr className="my-4" />
         <div className="mx-auto max-w-6xl items-center justify-between px-4 md:flex lg:px-0">
           <Link href={"/"}>
@@ -97,14 +61,14 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                 </svg>
               </span>
 
-              <span className="ml- text-lg font-bold">R</span>
+              <span className=" text-lg font-bold">R</span>
             </div>
           </Link>
           <div className="mt-4 md:mt-0">
             <p className="text-sm font-medium">
-              © 2023{" "}
+              © {year}
               <Link href="https://github.com/muhammadranju" target="_blank">
-                <span className="font-bold">Muhammad Ranju</span>
+                <span className="font-bold"> Muhammad Ranju</span>
               </Link>
               . All rights reserved.
             </p>
