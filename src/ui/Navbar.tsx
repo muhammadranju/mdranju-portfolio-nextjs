@@ -5,10 +5,10 @@ import Link from "next/link";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
 const menuItems = [
-  {
-    name: "Projects",
-    href: "/projects",
-  },
+  // {
+  //   name: "Projects",
+  //   href: "/projects",
+  // },
   {
     name: "About",
     href: "/about",
@@ -95,7 +95,34 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
           </div>
         </Link>
         <div className="hidden grow items-start lg:flex">
+          {/* <ul className="ml-12 inline-flex space-x-8">
+            {menuItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center text-sm font-semibold hover:text-gray-500"
+                >
+                  {item.name}
+                  <span>
+                    <ChevronDown className="ml-2 h-4 w-4" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul> */}
+
           <ul className="ml-12 inline-flex space-x-8">
+            <li>
+              <a
+                href="/projects"
+                className="inline-flex items-center text-sm font-semibold hover:text-gray-500"
+              >
+                Projects
+                <span>
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                </span>
+              </a>
+            </li>
             {menuItems.map((item) => (
               <li key={item.name}>
                 <Link
