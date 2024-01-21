@@ -5,7 +5,7 @@ import HeroSection from "@/ui/HeroSection";
 import Navbar from "@/ui/Navbar";
 import { Projects } from "@/ui/Projects";
 
-function about() {
+function home() {
   return (
     <>
       <title>Muhammad Ranju Official Portfolio Website</title>
@@ -20,4 +20,4 @@ function about() {
   );
 }
 
-export default about;
+export default home;
