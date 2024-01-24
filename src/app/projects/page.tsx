@@ -3,6 +3,7 @@ import Footer from "@/ui/Footer";
 import Navbar from "@/ui/Navbar";
 import Link from "next/link";
 import posts from "@/data/data.json";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Products() {
   return (
@@ -13,12 +14,10 @@ function Products() {
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
             <p className="text-3xl font-bold  md:text-5xl md:leading-10">
-              Resources and insights
+              Projects & Products
             </p>
             <p className="max-w-4xl text-base  md:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-              veritatis voluptates neque itaque repudiandae sint, explicabo
-              assumenda quam ratione placeat?
+              My many kind of project i have finished.
             </p>
           </div>
 

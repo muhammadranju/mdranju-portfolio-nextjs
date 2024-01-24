@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import posts from "@/data/data.json";
+import { Skeleton } from "@/components/ui/skeleton";
+
 export function Projects() {
   return (
     <div className=" w-full bg-inherit py-10 mt-10 mb-5">
