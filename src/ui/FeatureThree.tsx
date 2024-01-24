@@ -1,5 +1,5 @@
 import React from "react";
-import { DollarSign, Zap, Moon, Filter } from "lucide-react";
+import { Laptop, Hexagon, DatabaseZap, Code } from "lucide-react";
 
 export function FeatureThree() {
   return (
@@ -13,7 +13,7 @@ export function FeatureThree() {
             </p>
           </div>
           <h2 className="mt-6 text-3xl font-bold leading-tightsm:text-4xl lg:text-5xl">
-            DevUI helps you build beautiful website
+            Skills & Services
           </h2>
           <p className="mt-4 text-base leading-relaxed ">
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
@@ -23,9 +23,11 @@ export function FeatureThree() {
         <div className="mt-12 grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
-              <DollarSign className="h-9 w-9 text-gray-700" />
+              <Laptop className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold">Secured Payments</h3>
+            <h3 className="mt-8 text-lg font-semibold">
+              BackEnd Web Development
+            </h3>
             <p className="mt-4 text-sm ">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
@@ -33,9 +35,9 @@ export function FeatureThree() {
           </div>
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
-              <Zap className="h-9 w-9 text-gray-700" />
+              <Code className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold ">Fast & Easy to Load</h3>
+            <h3 className="mt-8 text-lg font-semibold ">Restful API</h3>
             <p className="mt-4 text-sm ">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
@@ -43,9 +45,9 @@ export function FeatureThree() {
           </div>
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
-              <Moon className="h-9 w-9 text-gray-700" />
+              <Hexagon className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold">Light & Dark Version</h3>
+            <h3 className="mt-8 text-lg font-semibold">Node.JS & Express</h3>
             <p className="mt-4 text-sm">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
@@ -53,9 +55,9 @@ export function FeatureThree() {
           </div>
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
-              <Filter className="h-9 w-9 text-gray-700" />
+              <DatabaseZap className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold ">Filter Blocks</h3>
+            <h3 className="mt-8 text-lg font-semibold ">MongoDB Database</h3>
             <p className="mt-4 text-sm ">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
               amet sint. Velit officia consequat duis enim velit mollit.
