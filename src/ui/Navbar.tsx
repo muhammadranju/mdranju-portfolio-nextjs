@@ -6,8 +6,8 @@ import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
 const menuItems = [
   {
-    name: "Projects",
-    href: "/projects",
+    name: "Works",
+    href: "/works",
   },
   {
     name: "About",

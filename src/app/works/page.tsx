@@ -3,12 +3,11 @@ import Footer from "@/ui/Footer";
 import Navbar from "@/ui/Navbar";
 import Link from "next/link";
 import posts from "@/data/data.json";
-import { Skeleton } from "@/components/ui/skeleton";
 
 function Products() {
   return (
     <>
-      <title>Products</title>
+      <title>Works - MDR</title>
       <Navbar />
       <div>
         <div className="mx-auto max-w-7xl px-2">

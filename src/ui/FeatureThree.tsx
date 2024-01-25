@@ -29,18 +29,18 @@ export function FeatureThree() {
               BackEnd Web Development
             </h3>
             <p className="mt-4 text-sm ">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+              Node.js, Express.js, MongoDB, Mongoose and more.
             </p>
           </div>
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <Code className="h-9 w-9 text-gray-700" />
             </div>
-            <h3 className="mt-8 text-lg font-semibold ">Restful API</h3>
+            <h3 className="mt-8 text-lg font-semibold ">RESTful API</h3>
             <p className="mt-4 text-sm ">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+              RESTful APIs are widely used in web development due to their
+              simplicity, scalability, and ease of integration with different
+              systems.
             </p>
           </div>
           <div>

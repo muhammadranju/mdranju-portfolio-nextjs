@@ -56,7 +56,7 @@ const users = [
 function about() {
   return (
     <>
-      <title>About</title>
+      <title>About - MDR</title>
       <Navbar />
       <h1 className="text-center">About</h1>
       <div>
