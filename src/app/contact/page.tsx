@@ -1,5 +1,3 @@
-"use client";
-
 function contact() {
   return (
     <>

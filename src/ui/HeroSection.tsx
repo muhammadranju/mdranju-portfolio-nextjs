@@ -1,3 +1,6 @@
+import Image from "next/image";
+import heroImage from "../../public/hero-image.jpeg";
+
 /* eslint-disable react/no-unescaped-entities */
 function HeroSection() {
   return (
@@ -16,7 +19,7 @@ function HeroSection() {
             </strong>
           </h2>
           <span className="mt-6 font-semibold">
-            My Self Muhammad Ranju I was working in Node.js Backend Development.
+            My Self Muhammad Ranju I'm working in Node.js Backend Development.
             it's a JavaScript Runtime at Node.js
             <br />
             Working on: - API Design & Development Like: - Chat API, E-commerce
@@ -33,11 +36,7 @@ function HeroSection() {
         </div>
         <hr className="my-8 w-full" />
         <div className="rounded-lg bg-gray-200 p-1">
-          <img
-            className="aspect-[3/2] w-full rounded-lg bg-gray-50 object-cover lg:aspect-auto lg:h-[400px]"
-            src="https://camo.githubusercontent.com/48420398d0640d223e9406f067b0a68225251040340d2b6acf1bb4c59db034e9/68747470733a2f2f7062732e7477696d672e636f6d2f70726f66696c655f62616e6e6572732f313233393634383731343634333233343831372f313637363331343230372f3135303078353030"
-            alt=""
-          />
+          <Image placeholder="blur" src={heroImage} alt="Hero Image" />
         </div>
       </div>
     </div>

@@ -1,11 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
-"use client";
 import React from "react";
 import Link from "next/link";
 import posts from "@/data/data.json";
-import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
 
-export function Projects() {
+export async function Projects() {
+  const product = await fetch(
+    "https://jsonplaceholder.typicode.com/posts?_limit=10"
+  );
+  const post = await product.json();
+  console.log(post);
+
   return (
     <div className=" w-full bg-inherit py-10 mt-10 mb-5">
       <hr className="my-6 w-full" />
@@ -15,6 +20,7 @@ export function Projects() {
             key={i}
             className="relative aspect-[16/9]  w-auto rounded-md md:aspect-auto md:h-[400px]"
           >
+            {/* <Image placeholder="blur" src={items?.image} alt="jf" /> */}
             <img
               src={items?.image}
               className="h-full  w-full rounded-md object-cover"
