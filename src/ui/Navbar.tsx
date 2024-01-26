@@ -112,18 +112,14 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
           </ul>
         </div>
         <div className="hidden space-x-2 lg:block">
-          <button
-            type="button"
-            className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Sign In
-          </button>
-          <button
-            type="button"
-            className="rounded-md border border-black px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Log In
-          </button>
+          <Link href={"/login"}>
+            <button
+              type="button"
+              className="rounded-md border border-black px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Log In
+            </button>
+          </Link>
         </div>
         <div className="m-2">
           <ModeToggle />
@@ -220,18 +216,14 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                   </nav>
                 </div>
                 <div className="mt-2 space-y-2">
-                  <button
-                    type="button"
-                    className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                  >
-                    Sign In
-                  </button>
-                  <button
-                    type="button"
-                    className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                  >
-                    Log In
-                  </button>
+                  <Link href={"/login"}>
+                    <button
+                      type="button"
+                      className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    >
+                      Log In
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

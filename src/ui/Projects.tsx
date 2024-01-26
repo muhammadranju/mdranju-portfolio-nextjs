@@ -9,7 +9,6 @@ export async function Projects() {
     "https://jsonplaceholder.typicode.com/posts?_limit=10"
   );
   const post = await product.json();
-  console.log(post);
 
   return (
     <div className=" w-full bg-inherit py-10 mt-10 mb-5">
@@ -52,7 +51,7 @@ export async function Projects() {
         ))}
       </div>
       <div className=" flex justify-center  text-center">
-        <Link href={"/projects"}>
+        <Link href={"/works"}>
           <button className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
             View More
           </button>
