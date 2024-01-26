@@ -1,12 +1,9 @@
 "use client";
-import Footer from "@/ui/Footer";
-import Navbar from "@/ui/Navbar";
 
 function contact() {
   return (
     <>
       <title>Contact - MDR</title>
-      <Navbar />
       <div>
         <div className="mx-auto max-w-7xl px-4">
           {/* Hero Map */}
@@ -125,7 +122,6 @@ function contact() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

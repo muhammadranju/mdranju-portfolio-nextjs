@@ -1,6 +1,4 @@
 "use client";
-import Footer from "@/ui/Footer";
-import Navbar from "@/ui/Navbar";
 import Link from "next/link";
 import posts from "@/data/data.json";
 
@@ -8,7 +6,6 @@ function Products() {
   return (
     <>
       <title>Works - MDR</title>
-      <Navbar />
       <div>
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
@@ -72,8 +69,6 @@ function Products() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

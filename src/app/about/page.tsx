@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Footer from "@/ui/Footer";
-import Navbar from "@/ui/Navbar";
 
 const users = [
   {
@@ -57,7 +55,6 @@ function about() {
   return (
     <>
       <title>About - MDR</title>
-      <Navbar />
       <h1 className="text-center">About</h1>
       <div>
         <div className="mx-auto max-w-7xl px-4">
@@ -129,7 +126,6 @@ function about() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
