@@ -25,7 +25,7 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-500/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75">
+    <header className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-500/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 ">
       <div className="relative w-full">
         <div className="bg-background text-foreground" />
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
@@ -95,18 +95,18 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
               <span className="font-bold">R</span>
             </div>
           </Link>
-          <div className="hidden grow items-start lg:flex">
+          <div className="hidden grow items-start lg:flex md:flex md:flex-grow flex-row justify-end space-x-1">
             <ul className="ml-12 inline-flex space-x-8">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center text-sm font-semibold hover:text-cyan-600"
+                    className="inline-flex items-center text-xl font-bold mr-5  hover:text-cyan-600"
                   >
                     {item.name}
-                    {/* <span>
-                    <ChevronDown className="ml-2 h-4 w-4" />
-                  </span> */}
+                    <span>
+                      <ChevronDown className="ml-2 h-4 w-4" />
+                    </span>
                   </Link>
                 </li>
               ))}
