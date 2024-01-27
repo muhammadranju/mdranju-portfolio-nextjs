@@ -1,12 +1,10 @@
 import Image from "next/image";
 import heroImage from "../../public/hero-image.jpeg";
-import { GithubIcon, Linkedin } from "lucide-react";
-import Link from "next/link";
 
 /* eslint-disable react/no-unescaped-entities */
 function HeroSection() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full ">
       <div className="mx-auto max-w-7xl lg:px-8">
         <div className="flex flex-col justify-center px-4 py-10 lg:px-6">
           <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">

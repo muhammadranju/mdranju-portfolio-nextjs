@@ -3,21 +3,20 @@ import { Laptop, Hexagon, DatabaseZap, Code } from "lucide-react";
 
 export function FeatureThree() {
   return (
-    <div className="  w-full py-10 mt-10 mb-5">
+    <div className="w-full py-10 mt-10 mb-5">
       <hr className="my-8   w-full" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
         <div className="mx-auto max-w-xl text-center">
           <div className="mx-auto inline-flex rounded-full bg-gray-100 px-4 py-1.5">
             <p className="text-xs font-semibold uppercase tracking-widest text-black">
-              I have done all of projects
+              I have done all of my skills
             </p>
           </div>
           <h2 className="mt-6 text-3xl font-bold leading-tightsm:text-4xl lg:text-5xl">
             Skills & Services
           </h2>
           <p className="mt-4 text-base leading-relaxed ">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit.
+            This are my working Skills & Services
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
@@ -28,40 +27,27 @@ export function FeatureThree() {
             <h3 className="mt-8 text-lg font-semibold">
               BackEnd Web Development
             </h3>
-            <p className="mt-4 text-sm ">
+            {/* <p className="mt-4 text-sm ">
               Node.js, Express.js, MongoDB, Mongoose and more.
-            </p>
+            </p> */}
           </div>
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <Code className="h-9 w-9 text-gray-700" />
             </div>
             <h3 className="mt-8 text-lg font-semibold ">RESTful API</h3>
-            <p className="mt-4 text-sm ">
-              RESTful APIs are widely used in web development due to their
-              simplicity, scalability, and ease of integration with different
-              systems.
-            </p>
           </div>
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <Hexagon className="h-9 w-9 text-gray-700" />
             </div>
             <h3 className="mt-8 text-lg font-semibold">Node.JS & Express</h3>
-            <p className="mt-4 text-sm">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
-            </p>
           </div>
           <div>
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gray-100">
               <DatabaseZap className="h-9 w-9 text-gray-700" />
             </div>
             <h3 className="mt-8 text-lg font-semibold ">MongoDB Database</h3>
-            <p className="mt-4 text-sm ">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
-            </p>
           </div>
         </div>
       </div>

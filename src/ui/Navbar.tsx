@@ -25,11 +25,10 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="z-50 mx-auto w-full max-w-screen-xl p-4">
-      {/* <nav className="relative mx-4 mt-6 rounded-[36px] border border-gray-200 bg-white/30 px-4 py-0 backdrop-blur-md backdrop-filter dark:border-gray-700/40 dark:bg-gray-800/30 sm:mx-6 md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:mx-8"> */}
+    <header className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-500/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75">
       <div className="relative w-full">
         <div className="bg-background text-foreground" />
-        <div className="mx-auto flex max-w-9xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
           <Link href="/">
             <div className="inline-flex items-center space-x-0 mt-3">
               <span className="bg-white rounded p-1 pr-0">
@@ -96,33 +95,33 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
               <span className="font-bold">R</span>
             </div>
           </Link>
-          <div className="hidden grow  md:flex md:flex-grow flex-row justify-end space-x-1 mr-5 lg:flex">
-            <ul className="ml-12 inline-flex  space-x-8">
+          <div className="hidden grow items-start lg:flex">
+            <ul className="ml-12 inline-flex space-x-8">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center text-xl font-semibold hover:text-cyan-600"
+                    className="inline-flex items-center text-sm font-semibold hover:text-cyan-600"
                   >
                     {item.name}
-                    <span>
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    </span>
+                    {/* <span>
+                    <ChevronDown className="ml-2 h-4 w-4" />
+                  </span> */}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           {/* <div className="hidden space-x-2 lg:block">
-            <Link href={"/login"}>
-              <button
-                type="button"
-                className="rounded-md border dark:bg-white border-black px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                Log In
-              </button>
-            </Link>
-          </div> */}
+          <Link href={"/login"}>
+            <button
+              type="button"
+              className="rounded-md border border-black px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Log In
+            </button>
+          </Link>
+        </div> */}
           <div className="m-2">
             <ModeToggle />
           </div>
@@ -218,22 +217,21 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                     </nav>
                   </div>
                   {/* <div className="mt-2 space-y-2">
-                    <Link href={"/login"}>
-                      <button
-                        type="button"
-                        className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                      >
-                        Log In
-                      </button>
-                    </Link>
-                  </div> */}
+                  <Link href={"/login"}>
+                    <button
+                      type="button"
+                      className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    >
+                      Log In
+                    </button>
+                  </Link>
+                </div> */}
                 </div>
               </div>
             </div>
           )}
         </div>
       </div>
-      {/* </nav> */}
     </header>
   );
 }

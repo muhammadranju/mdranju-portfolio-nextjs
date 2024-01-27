@@ -54,7 +54,7 @@ function about() {
   return (
     <>
       <title>About - MDR</title>
-      <h1 className="text-center">About</h1>
+
       <div>
         <div className="mx-auto max-w-7xl px-4">
           {/* Hiring Banner */}
