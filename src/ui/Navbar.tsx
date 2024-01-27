@@ -25,27 +25,29 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className="relative w-full">
-      <div className="bg-background text-foreground" />
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <Link href="/">
-          <div className="inline-flex items-center space-x-0 mt-3">
-            <span className="bg-white rounded p-1 pr-0">
-              <svg
-                width="30"
-                height="30"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.0"
-                viewBox="0 0 512.000000 512.000000"
-              >
-                <g
-                  transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                  fill="#000000"
-                  stroke="none"
+    <header className="z-50 mx-auto w-full max-w-screen-xl p-4">
+      {/* <nav className="relative mx-4 mt-6 rounded-[36px] border border-gray-200 bg-white/30 px-4 py-0 backdrop-blur-md backdrop-filter dark:border-gray-700/40 dark:bg-gray-800/30 sm:mx-6 md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:mx-8"> */}
+      <div className="relative w-full">
+        <div className="bg-background text-foreground" />
+        <div className="mx-auto flex max-w-9xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+          <Link href="/">
+            <div className="inline-flex items-center space-x-0 mt-3">
+              <span className="bg-white rounded p-1 pr-0">
+                <svg
+                  width="30"
+                  height="30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.0"
+                  viewBox="0 0 512.000000 512.000000"
                 >
-                  <path
-                    d="M2235 5104 c-591 -80 -1100 -334 -1510 -755 -267 -274 -430 -533
+                  <g
+                    transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="#000000"
+                    stroke="none"
+                  >
+                    <path
+                      d="M2235 5104 c-591 -80 -1100 -334 -1510 -755 -267 -274 -430 -533
 -582 -926 -3 -7 55 18 128 57 215 111 383 147 556 121 250 -39 369 -208 453
 -639 16 -83 60 -401 60 -434 0 -4 8 -8 18 -8 14 0 27 21 51 88 47 123 151 333
 212 427 246 378 528 562 874 568 93 2 116 -1 150 -18 49 -24 90 -99 101 -181
@@ -65,20 +67,20 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
 -276 -79 -497 -79 -159 -1 -207 3 -259 17 -189 54 -319 164 -372 315 -49 139
 -37 284 71 880 l68 377 -74 147 c-41 81 -74 150 -74 153 0 12 263 134 343 159
 123 40 247 54 327 35z"
-                  />
-                  <path
-                    d="M3860 3241 l-45 -6 -12 -75 c-7 -41 -51 -307 -97 -590 -110 -665
+                    />
+                    <path
+                      d="M3860 3241 l-45 -6 -12 -75 c-7 -41 -51 -307 -97 -590 -110 -665
 -106 -638 -89 -645 26 -9 210 -5 265 6 292 61 498 368 498 746 0 274 -114 484
 -295 542 -69 22 -159 31 -225 22z"
-                  />
-                  <path
-                    d="M101 3292 c-40 -137 -66 -265 -87 -422 -23 -175 -15 -554 14 -726 19
+                    />
+                    <path
+                      d="M101 3292 c-40 -137 -66 -265 -87 -422 -23 -175 -15 -554 14 -726 19
 -108 77 -353 86 -362 2 -2 2 44 -1 101 -9 161 14 331 149 1100 l22 127 -69
 141 c-39 77 -73 143 -76 145 -4 2 -21 -45 -38 -104z"
-                  />
-                </g>
-              </svg>
-              {/* <svg
+                    />
+                  </g>
+                </svg>
+                {/* <svg
                 width="30"
                 height="30"
                 viewBox="0 0 50 56"
@@ -90,66 +92,66 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                   fill="black"
                 />
               </svg> */}
-            </span>
-            <span className="font-bold">R</span>
-          </div>
-        </Link>
-        <div className="hidden grow items-start lg:flex">
-          <ul className="ml-12 inline-flex space-x-8">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={item.href}
-                  className="inline-flex items-center text-sm font-semibold hover:text-gray-500"
-                >
-                  {item.name}
-                  <span>
-                    <ChevronDown className="ml-2 h-4 w-4" />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="hidden space-x-2 lg:block">
-          <Link href={"/login"}>
-            <button
-              type="button"
-              className="rounded-md border border-black px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Log In
-            </button>
+              </span>
+              <span className="font-bold">R</span>
+            </div>
           </Link>
-        </div>
-        <div className="m-2">
-          <ModeToggle />
-        </div>
-        <div className="lg:hidden">
-          <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
-        </div>
-        {isMenuOpen && (
-          <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="px-5 pb-6 pt-5">
-                <div className="flex items-center justify-between">
-                  <Link href="/">
-                    <div className="inline-flex items-center space-x-2">
-                      <span className="bg-white rounded p-1 pr-0">
-                        <svg
-                          width="30"
-                          height="30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          version="1.0"
-                          viewBox="0 0 512.000000 512.000000"
-                        >
-                          <g
-                            transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                            fill="#000000"
-                            stroke="none"
+          <div className="hidden grow  md:flex md:flex-grow flex-row justify-end space-x-1 mr-5 lg:flex">
+            <ul className="ml-12 inline-flex  space-x-8">
+              {menuItems.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center text-xl font-semibold hover:text-cyan-600"
+                  >
+                    {item.name}
+                    <span>
+                      <ChevronDown className="ml-2 h-4 w-4" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* <div className="hidden space-x-2 lg:block">
+            <Link href={"/login"}>
+              <button
+                type="button"
+                className="rounded-md border dark:bg-white border-black px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              >
+                Log In
+              </button>
+            </Link>
+          </div> */}
+          <div className="m-2">
+            <ModeToggle />
+          </div>
+          <div className="lg:hidden">
+            <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+          </div>
+          {isMenuOpen && (
+            <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
+              <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="px-5 pb-6 pt-5">
+                  <div className="flex items-center justify-between">
+                    <Link href="/">
+                      <div className="inline-flex items-center space-x-2">
+                        <span className="bg-white rounded p-1 pr-0">
+                          <svg
+                            width="30"
+                            height="30"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            version="1.0"
+                            viewBox="0 0 512.000000 512.000000"
                           >
-                            <path
-                              d="M2235 5104 c-591 -80 -1100 -334 -1510 -755 -267 -274 -430 -533
+                            <g
+                              transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                              fill="#000000"
+                              stroke="none"
+                            >
+                              <path
+                                d="M2235 5104 c-591 -80 -1100 -334 -1510 -755 -267 -274 -430 -533
 -582 -926 -3 -7 55 18 128 57 215 111 383 147 556 121 250 -39 369 -208 453
 -639 16 -83 60 -401 60 -434 0 -4 8 -8 18 -8 14 0 27 21 51 88 47 123 151 333
 212 427 246 378 528 562 874 568 93 2 116 -1 150 -18 49 -24 90 -99 101 -181
@@ -169,68 +171,70 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
 -276 -79 -497 -79 -159 -1 -207 3 -259 17 -189 54 -319 164 -372 315 -49 139
 -37 284 71 880 l68 377 -74 147 c-41 81 -74 150 -74 153 0 12 263 134 343 159
 123 40 247 54 327 35z"
-                            />
-                            <path
-                              d="M3860 3241 l-45 -6 -12 -75 c-7 -41 -51 -307 -97 -590 -110 -665
+                              />
+                              <path
+                                d="M3860 3241 l-45 -6 -12 -75 c-7 -41 -51 -307 -97 -590 -110 -665
 -106 -638 -89 -645 26 -9 210 -5 265 6 292 61 498 368 498 746 0 274 -114 484
 -295 542 -69 22 -159 31 -225 22z"
-                            />
-                            <path
-                              d="M101 3292 c-40 -137 -66 -265 -87 -422 -23 -175 -15 -554 14 -726 19
+                              />
+                              <path
+                                d="M101 3292 c-40 -137 -66 -265 -87 -422 -23 -175 -15 -554 14 -726 19
 -108 77 -353 86 -362 2 -2 2 44 -1 101 -9 161 14 331 149 1100 l22 127 -69
 141 c-39 77 -73 143 -76 145 -4 2 -21 -45 -38 -104z"
-                            />
-                          </g>
-                        </svg>
-                      </span>
-                      <span className="font-bold">R</span>
-                    </div>
-                  </Link>
-                  <div className="-mr-2">
-                    <button
-                      type="button"
-                      onClick={toggleMenu}
-                      className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      <span className="sr-only">Close menu</span>
-                      <X className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                </div>
-                <div className="mt-6">
-                  <nav className="grid gap-y-4">
-                    {menuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
+                              />
+                            </g>
+                          </svg>
+                        </span>
+                        <span className="font-bold">R</span>
+                      </div>
+                    </Link>
+                    <div className="-mr-2">
+                      <button
+                        type="button"
+                        onClick={toggleMenu}
+                        className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                       >
-                        <span className="ml-3 text-base font-medium text-gray-900">
-                          {item.name}
-                        </span>
-                        <span>
-                          <ChevronRight className="ml-3 h-4 w-4" />
-                        </span>
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-                <div className="mt-2 space-y-2">
-                  <Link href={"/login"}>
-                    <button
-                      type="button"
-                      className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      Log In
-                    </button>
-                  </Link>
+                        <span className="sr-only">Close menu</span>
+                        <X className="h-6 w-6" aria-hidden="true" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="mt-6">
+                    <nav className="grid gap-y-4">
+                      {menuItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
+                        >
+                          <span className="ml-3 text-base font-medium text-gray-900">
+                            {item.name}
+                          </span>
+                          <span>
+                            <ChevronRight className="ml-3 h-4 w-4" />
+                          </span>
+                        </Link>
+                      ))}
+                    </nav>
+                  </div>
+                  {/* <div className="mt-2 space-y-2">
+                    <Link href={"/login"}>
+                      <button
+                        type="button"
+                        className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                      >
+                        Log In
+                      </button>
+                    </Link>
+                  </div> */}
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+      {/* </nav> */}
+    </header>
   );
 }
 
