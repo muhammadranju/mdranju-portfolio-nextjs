@@ -18,12 +18,12 @@ function HeroSection() {
           </h1>
           <h2 className="mt-6 max-w-3xl font-bold text-2xl">
             <strong>
-              I'm a JavaScript (Web,App) Backend API Developer at Node.JS
+              I'm a JavaScript back-end focused API Developer at Node.JS
             </strong>
           </h2>
           <span className="mt-6 font-bold">
-            My Self Muhammad Ranju I'm working in Node.js Backend Development.
-            it's a JavaScript Runtime at Node.js
+            My Self Muhammad Ranju I'm working in Node.js back-end api
+            Development.
             <br />
             Working on: - API Design & Development Like: - Chat API, E-commerce
             API, Blog API and more.

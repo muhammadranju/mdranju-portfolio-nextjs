@@ -12,7 +12,7 @@ export function FeatureThree() {
               I have done all of my skills
             </p>
           </div>
-          <h2 className="mt-6 text-3xl font-bold leading-tightsm:text-4xl lg:text-5xl">
+          <h2 className="mt-6 text-3xl font-bold leading-tightsm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-violet-500 via-30% to-sky-500 to-90%">
             Skills & Services
           </h2>
           <p className="mt-4 text-base leading-relaxed ">
