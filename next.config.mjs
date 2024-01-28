@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         // pathname: "/nodelove/image/upload/f_auto,q_auto/v1/portfolio/",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        // pathname: "/nodelove/image/upload/f_auto,q_auto/v1/portfolio/",
+      },
     ],
   },
 };

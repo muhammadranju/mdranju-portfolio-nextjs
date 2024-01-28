@@ -1,5 +1,5 @@
 [
-    {
+  {
     "category": "blog-api-2023",
     "title": "Blog API real-live experience",
     "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/ru061wp9lfzf08lpek0s",
@@ -9,7 +9,7 @@
     "sourceCode": "https://github.com/muhammadranju/blog-api-2023",
     "avatar": "https://avatars.githubusercontent.com/u/80270685?v=4"
   },
-    {
+  {
     "category": "E-commerce add-to-cart",
     "title": "Real live e-commerce add-to-cart feature",
     "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/sshlc1cgothvu1efxjq0",
@@ -34,7 +34,7 @@
     "title": "My Portfolio website made by next.js",
     "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/vgpapyaihzee4nyzmgp9",
     "details": "Portfolio website made by next.js and ui design is tailwindcss, shadcnui and devui components",
-    "liveLink": "https://mdranju.netlify.app/",
+    "liveLink": "https://muhammadranju.vercel.app/",
     "author": "Muhammad Ranju",
     "sourceCode": "https://github.com/muhammadranju/portfolio-nextjs",
     "avatar": "https://avatars.githubusercontent.com/u/80270685?v=4"
