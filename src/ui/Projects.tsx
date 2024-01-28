@@ -3,25 +3,25 @@ import React from "react";
 import Link from "next/link";
 import posts from "@/data/data.json";
 import Image from "next/image";
-
+import { getData } from "@/lib/getData";
 export async function Projects() {
-  const product = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=10"
-  );
-  const post = await product.json();
+  const posts = await getData();
 
   return (
     <div className=" w-full bg-inherit py-10 mt-10 mb-5">
       <hr className="my-6 w-full" />
       <div className="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-9 md:space-y-0 lg:grid-cols-4">
-        {posts.map((items, i) => (
+        {posts.map((items: any) => (
           <div
-            key={i}
+            key={items.title}
             className="relative aspect-[16/9]  w-auto rounded-md md:aspect-auto md:h-[400px]"
           >
             {/* <Image placeholder="blur" src={items?.image} alt="jf" /> */}
-            <img
+            <Image
               src={items?.image}
+              width={500}
+              height={500}
+              blurDataURL="blur"
               className="h-full  w-full rounded-md object-cover"
               alt={items?.title}
             />

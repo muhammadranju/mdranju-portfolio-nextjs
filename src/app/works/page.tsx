@@ -1,7 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
-import posts from "@/data/data.json";
+import { getData } from "@/lib/getData";
 
-function Products() {
+async function Products() {
+  const posts = await getData();
+
   return (
     <>
       <title>Works - MDR</title>
@@ -17,13 +20,23 @@ function Products() {
           </div>
 
           <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 rounded lg:grid-cols-3">
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <div key={post?.title} className="border">
-                <img
+                <Image
                   src={post?.image}
                   className="aspect-video w-full rounded"
-                  alt=""
+                  width={500}
+                  height={500}
+                  blurDataURL="blur"
+                  placeholder="blur"
+                  alt={post?.title}
                 />
+                {/* <img
+                  src={post?.image}
+                  
+                  className="aspect-video w-full rounded"
+                  alt=""
+                /> */}
                 <div className="min-h-min p-3">
                   <p className="mt-4 w-full text-xs font-semibold leading-tight ">
                     #{post?.category.toLocaleLowerCase()}
