@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import posts from "@/data/data.json";
 import { getData } from "@/lib/getData";
 
 async function Products() {
-  const posts = await getData();
+  // const posts = await getData();
 
   return (
     <>
@@ -11,10 +12,11 @@ async function Products() {
       <div>
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
-            <p className="text-3xl font-bold  md:text-5xl md:leading-10">
+            <p className="text-3xl font-bold  md:text-5xl md:leading-10 leading-tightsm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-cyan-500 via-30% to-sky-500 to-90%">
               Projects & Products
             </p>
-            <p className="max-w-4xl text-base  md:text-xl">
+            <hr />
+            <p className="max-w-4xl text-base  md:text-xl ">
               My many kind of project i have finished.
             </p>
           </div>
@@ -31,12 +33,6 @@ async function Products() {
                   placeholder="blur"
                   alt={post?.title}
                 />
-                {/* <img
-                  src={post?.image}
-                  
-                  className="aspect-video w-full rounded"
-                  alt=""
-                /> */}
                 <div className="min-h-min p-3">
                   <p className="mt-4 w-full text-xs font-semibold leading-tight ">
                     #{post?.category.toLocaleLowerCase()}
@@ -48,9 +44,13 @@ async function Products() {
                     {post?.details}
                   </p>
                   <div className="mt-4 flex space-x-3 ">
-                    <img
+                    <Image
                       className="h-full w-10 rounded-lg"
                       src={post?.avatar}
+                      width={500}
+                      height={500}
+                      blurDataURL="blur"
+                      placeholder="blur"
                       alt={post?.author}
                     />
                     <div>

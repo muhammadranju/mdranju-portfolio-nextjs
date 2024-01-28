@@ -7,11 +7,11 @@ function contact() {
           {/* Hero Map */}
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
             <div className="mx-auto max-w-max rounded-full border p-1 px-3">
-              <p className="text-center text-xs font-semibold leading-normal md:text-sm">
+              <p className="text-center text-xs font-semibold leading-normal md:text-sm ">
                 Share your thoughts
               </p>
             </div>
-            <p className="text-center text-3xl font-bold  md:text-5xl md:leading-10">
+            <p className="text-center text-3xl font-bold  md:text-5xl md:leading-10  text-cyan-500">
               Love to hear from you
             </p>
             <p className="mx-auto max-w-4xl text-center text-base  md:text-xl">

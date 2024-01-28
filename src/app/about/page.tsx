@@ -63,7 +63,7 @@ function about() {
               <p className="text-sm font-semibold md:text-base">
                 Join our team &rarr;
               </p>
-              <p className="text-3xl font-bold md:text-4xl">
+              <p className="text-3xl font-bold md:text-4xl text-cyan-500">
                 We&apos;re just getting started
               </p>
               <p className="text-base md:text-lg">
