@@ -1,8 +1,7 @@
-import React from "react";
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-const d = new Date();
-let year = d.getFullYear();
+const date = new Date();
+let year = date.getFullYear();
+
 function Footer() {
   return (
     <>
@@ -67,11 +66,31 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
           <div className="mt-4 md:mt-0">
             <p className="text-sm font-medium">
               © {year}
-              <Link href="https://github.com/muhammadranju" target="_blank">
-                <span className="font-bold"> Muhammad Ranju</span>
-              </Link>
-              . All rights reserved.
+              <a href="https://github.com/muhammadranju" target="_blank">
+                <span className="font-bold text-indigo-500 hover:underline ml-1 mr-1">
+                  Muhammad Ranju.
+                </span>
+              </a>
+              All rights reserved.
             </p>
+            <small>
+              Design by{" "}
+              <a
+                href="https://ui.shadcn.com/"
+                target="_blank"
+                className="hover:underline mr-1"
+              >
+                ui.shadcn
+              </a>
+              &
+              <a
+                href="https://www.devui.io/"
+                target="_blank"
+                className="hover:underline ml-1"
+              >
+                devui
+              </a>
+            </small>
           </div>
         </div>
       </footer>
