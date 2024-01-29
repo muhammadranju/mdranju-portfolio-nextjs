@@ -52,7 +52,7 @@ export async function Projects() {
       </div>
       <div className=" flex justify-center  text-center">
         <Link href={"/works"}>
-          <button className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+          <button className="rounded-lg shadow-xl px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600 ">
             View More
           </button>
         </Link>
