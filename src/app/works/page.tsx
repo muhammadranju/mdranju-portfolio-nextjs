@@ -9,6 +9,7 @@ async function Products() {
   return (
     <>
       <title>Works - MDR</title>
+
       <div>
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
@@ -57,7 +58,7 @@ async function Products() {
                       <p className="text-sm font-semibold leading-tight">
                         {post?.author}
                       </p>
-                      <span className="text-sm leading-tight">
+                      <span className="text-sm leading-tight hover:underline hover:text-indigo-500">
                         <Link href={post.sourceCode} target="_blank">
                           View Code
                         </Link>
@@ -65,7 +66,7 @@ async function Products() {
                     </div>
                     {post.liveLink ? (
                       <div>
-                        <button className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white border-white border-collapse shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+                        <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
                           <Link href={post.liveLink} target="_blank">
                             Live Demo
                           </Link>

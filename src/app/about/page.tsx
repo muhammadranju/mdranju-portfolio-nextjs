@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const users = [
@@ -63,7 +64,7 @@ function about() {
               <p className="text-sm font-semibold md:text-base">
                 Join our team &rarr;
               </p>
-              <p className="text-3xl font-bold md:text-4xl text-cyan-500">
+              <p className="text-3xl font-bold md:text-4xl text-indigo-500">
                 We&apos;re just getting started
               </p>
               <p className="text-base md:text-lg">
@@ -73,23 +74,25 @@ function about() {
               </p>
               <button
                 type="button"
-                className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Join Now
               </button>
             </div>
             <div className="md:mt-o mt-10 w-full">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1605165566807-508fb529cf3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Getting Started"
                 className="rounded-lg"
+                width={700}
+                height={500}
               />
             </div>
           </div>
 
-          <hr className="mt-20" />
+          {/* <hr className="mt-20" /> */}
           {/* greetings */}
-          <div className="mt-16 flex items-center">
+          {/* <div className="mt-16 flex items-center">
             <div className="space-y-6 md:w-3/4">
               <div className="max-w-max rounded-full border p-1 px-3">
                 <p className="text-xs font-semibold leading-normal md:text-sm">
@@ -104,9 +107,9 @@ function about() {
               </p>
               <div></div>
             </div>
-          </div>
+          </div> */}
           {/* TEAM */}
-          <div className="grid grid-cols-1 gap-4 gap-y-6 border-b border-gray-300 py-12 pb-20 md:grid-cols-2 lg:grid-cols-4">
+          {/* <div className="grid grid-cols-1 gap-4 gap-y-6 border-b border-gray-300 py-12 pb-20 md:grid-cols-2 lg:grid-cols-4">
             {users.map((user) => (
               <div className="rounded-md border" key={user.name}>
                 <img
@@ -122,7 +125,7 @@ function about() {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </>
