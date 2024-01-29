@@ -3,9 +3,9 @@ import React from "react";
 import Link from "next/link";
 import posts from "@/data/data.json";
 import Image from "next/image";
-import { getData } from "@/lib/getData";
+// import { getData } from "@/lib/getData";
 export async function Projects() {
-  const posts = await getData();
+  // const posts = await getData();
 
   return (
     <div className=" w-full bg-inherit py-10 mt-10 mb-5">
