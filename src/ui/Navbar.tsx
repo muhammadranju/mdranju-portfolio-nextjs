@@ -25,13 +25,13 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-500/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 ">
+    <header className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-500/10 dark:border-slate-50/[0.06]  bg-gray-100 supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 ">
       <div className="relative w-full">
         <div className="bg-background text-foreground" />
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
           <Link href="/">
             <div className="inline-flex items-center space-x-0 mt-3">
-              <span className="bg-white rounded p-1 pr-0">
+              <span className="bg-gray-100 dark:text-white rounded p-1 pr-0">
                 <svg
                   width="30"
                   height="30"
@@ -92,7 +92,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                 />
               </svg> */}
               </span>
-              <span className="font-bold">R</span>
+              <span className="font-bold dark:text-white ">R</span>
             </div>
           </Link>
           <div className="hidden grow items-start lg:flex md:flex md:flex-grow flex-row justify-end space-x-1">
@@ -130,12 +130,12 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
           </div>
           {isMenuOpen && (
             <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-              <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="divide-y-2 divide-gray-50 rounded-lg bg-gray-100 shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="px-5 pb-6 pt-5">
                   <div className="flex items-center justify-between">
                     <Link href="/">
                       <div className="inline-flex items-center space-x-2">
-                        <span className="bg-white rounded p-1 pr-0">
+                        <span className="bg-gray-100 rounded p-1 pr-0">
                           <svg
                             width="30"
                             height="30"
@@ -184,7 +184,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                             </g>
                           </svg>
                         </span>
-                        <span className="font-bold">R</span>
+                        {/* <span className="font-bold text-white">R</span> */}
                       </div>
                     </Link>
                     <div className="-mr-2">

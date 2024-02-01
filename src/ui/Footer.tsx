@@ -9,7 +9,7 @@ function Footer() {
       <div className="mx-auto max-w-6xl items-center justify-between px-4 md:flex lg:px-0">
         <Link href={"/"}>
           <div className="inline-flex items-center">
-            <span className="bg-white rounded p-1 pr-0">
+            <span className="bg-gray-100 rounded p-1 pr-0">
               <svg
                 width="30"
                 height="30"
@@ -59,7 +59,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
               </svg>
             </span>
 
-            <span className=" text-lg font-bold">R</span>
+            <span className=" text-lg font-bold dark:text-white ">R</span>
           </div>
         </Link>
         <div className="mt-4 md:mt-0">
