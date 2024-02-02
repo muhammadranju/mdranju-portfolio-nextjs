@@ -7,11 +7,13 @@ import Image from "next/image";
 export async function Projects() {
   // const posts = await getData();
 
+  const post = posts.slice(0, 4);
+
   return (
     <div className=" w-full py-10 mb-5 ">
       {/* <hr className="my-6 w-full" /> */}
       <div className="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-9 md:space-y-0 lg:grid-cols-4">
-        {posts.map((items: any) => (
+        {post.map((items: any) => (
           <div
             key={items.title}
             className="relative aspect-[16/9] shadow-lg  w-auto rounded-md md:aspect-auto md:h-[400px]"
@@ -25,13 +27,20 @@ export async function Projects() {
               className="h-full  w-full rounded-md object-cover"
               alt={items?.title}
             />
+
             <div className="absolute inset-0 rounded-md bg-gradient-to-t from-gray-800 to-transparent"></div>
             <div className="absolute bottom-10 left-4 text-left">
               <small className="text-white font-bold">
                 {items?.category.toLowerCase()}
               </small>
-              <h1 className="text-lg font-medium text-white">{items?.title}</h1>
-              <p className="mt-2 text-sm text-white">{items?.details}</p>
+              <h1 className="text-lg font-medium text-white">
+                {items?.title}{" "}
+              </h1>
+              <p className="mt-2 text-sm text-white">
+                {items.details.length !== 12
+                  ? items?.details.slice(0, 36).concat("...")
+                  : items?.details}
+              </p>
               <Link href={items?.sourceCode} target="_blank">
                 <button className="mt-2 mr-5  inline-flex cursor-pointer items-center text-sm font-semibold text-white">
                   Source Code &rarr;
