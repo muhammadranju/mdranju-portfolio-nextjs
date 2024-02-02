@@ -8,13 +8,13 @@ export async function Projects() {
   // const posts = await getData();
 
   return (
-    <div className=" w-full bg-inherit py-10 mt-10 mb-5">
-      <hr className="my-6 w-full" />
+    <div className=" w-full bg-inherit py-10 mb-5 ">
+      {/* <hr className="my-6 w-full" /> */}
       <div className="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-9 md:space-y-0 lg:grid-cols-4">
         {posts.map((items: any) => (
           <div
             key={items.title}
-            className="relative aspect-[16/9]  w-auto rounded-md md:aspect-auto md:h-[400px]"
+            className="relative aspect-[16/9] shadow-lg  w-auto rounded-md md:aspect-auto md:h-[400px]"
           >
             {/* <Image placeholder="blur" src={items?.image} alt="jf" /> */}
             <Image

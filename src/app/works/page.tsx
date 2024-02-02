@@ -22,9 +22,9 @@ async function Products() {
             </p>
           </div>
 
-          <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 rounded lg:grid-cols-3">
+          <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3">
             {posts.map((post: any) => (
-              <div key={post?.title} className="border">
+              <div key={post?.title} className="border rounded shadow-lg ">
                 <Image
                   src={post?.image}
                   className="aspect-video w-full rounded"

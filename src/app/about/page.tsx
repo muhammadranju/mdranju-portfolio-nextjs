@@ -90,7 +90,7 @@ function about() {
             </div>
           </div>
 
-          {/* <hr className="mt-20" /> */}
+          <hr className="mt-10 mb-40" />
           {/* greetings */}
           {/* <div className="mt-16 flex items-center">
             <div className="space-y-6 md:w-3/4">

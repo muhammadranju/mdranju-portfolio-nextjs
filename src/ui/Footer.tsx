@@ -4,8 +4,8 @@ let year = date.getFullYear();
 
 function Footer() {
   return (
-    <footer className="w-full mt-10 p-2 ">
-      <hr className="my-4" />
+    <footer className="w-full mt-10 p-2 pt-5 dark:bg-gray-800/20 bg-gray-300/20">
+      {/* <hr className="my-4" /> */}
       <div className="mx-auto max-w-6xl items-center justify-between px-4 md:flex lg:px-0">
         <Link href={"/"}>
           <div className="inline-flex items-center">
