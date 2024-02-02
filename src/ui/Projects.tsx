@@ -3,10 +3,8 @@ import React from "react";
 import Link from "next/link";
 import posts from "@/data/data.json";
 import Image from "next/image";
-// import { getData } from "@/lib/getData";
-export async function Projects() {
-  // const posts = await getData();
 
+export async function Projects() {
   const post = posts.slice(0, 4);
 
   return (
@@ -18,7 +16,6 @@ export async function Projects() {
             key={items.title}
             className="relative aspect-[16/9] shadow-lg  w-auto rounded-md md:aspect-auto md:h-[400px]"
           >
-            {/* <Image placeholder="blur" src={items?.image} alt="jf" /> */}
             <Image
               src={items?.image}
               width={500}

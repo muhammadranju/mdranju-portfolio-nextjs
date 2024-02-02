@@ -1,11 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import posts from "@/data/data.json";
-import { getData } from "@/lib/getData";
 
-async function Products() {
-  // const posts = await getData();
-
+async function Works() {
   return (
     <>
       <title>Works - MDR</title>
@@ -59,15 +56,15 @@ async function Products() {
                         {post?.author}
                       </p>
                       <span className="text-sm leading-tight hover:underline hover:text-indigo-500">
-                        <Link href={post.sourceCode} target="_blank">
+                        <Link href={post?.sourceCode} target="_blank">
                           View Code
                         </Link>
                       </span>
                     </div>
-                    {post.liveLink ? (
+                    {post?.liveLink ? (
                       <div>
                         <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                          <Link href={post.liveLink} target="_blank">
+                          <Link href={post?.liveLink} target="_blank">
                             Live Demo
                           </Link>
                         </button>
@@ -86,4 +83,4 @@ async function Products() {
   );
 }
 
-export default Products;
+export default Works;
