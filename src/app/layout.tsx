@@ -27,7 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="bg-gray-100 dark:bg-slate-900 dark:text-gray-300 text-gray-800">
+          <div className="bg-gray-100 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]  dark:bg-slate-900 text-gray-800 dark:text-gray-100">
             {<Navbar />}
             {children}
             {<Footer />}

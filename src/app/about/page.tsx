@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { Badge } from "@radix-ui/themes";
 
 const users = [
   {
@@ -52,17 +53,23 @@ const users = [
   },
 ];
 function about() {
+  // <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
   return (
     <>
       <title>About - MDR</title>
 
       <div>
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl px-4 ">
           {/* Hiring Banner */}
           <div className="flex flex-col items-center gap-x-4 gap-y-4 py-16 md:flex-row">
             <div className="space-y-6">
-              <p className="text-sm font-semibold md:text-base">
-                Join our team &rarr;
+              <p
+                className="text-sm font-semibold md:text-base rounded "
+                color="orange"
+              >
+                <Badge color="blue" className="rounded p-2">
+                  Join our team &rarr;
+                </Badge>
               </p>
               <p className="text-3xl font-bold md:text-4xl text-indigo-500">
                 We&apos;re just getting started
