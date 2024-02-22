@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
+const resume = "My Resume";
 const menuItems = [
   {
     name: "Works",
@@ -118,7 +119,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                 type="button"
                 className="rounded-md border bg-green-400 hover:bg-green-500 text-black border-green-300 px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Download CV
+                {resume}
               </button>
             </Link>
           </div>
@@ -222,7 +223,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                         type="button"
                         className="w-full rounded-md bg-green-400 hover:bg-green-500 px-3 py-2 text-sm font-semibold text-black shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                       >
-                        Download CV
+                        {resume}
                       </button>
                     </Link>
                   </div>
