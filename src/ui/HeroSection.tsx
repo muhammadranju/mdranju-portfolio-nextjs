@@ -25,8 +25,9 @@ function HeroSection() {
             My Self Muhammad Ranju I'm working in Node.js back-end api
             Development.
             <br />
-            Working on: - API Design & Development Like: - Chat API, E-commerce
-            API, Blog API and more.
+            Working on: - API Design & Development Like: - Business Management
+            API | ECommerce API |Employee Management Software | Chat Server API
+            | Blog Server API's & many more.
           </span>
           <div className="flex gap-5 mt-5 border-white border-collapse rounded">
             <a href="https://twitter.com/muhammad_ranju" target="_blank">

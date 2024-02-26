@@ -10,7 +10,7 @@ const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 export const metadata: Metadata = {
   title: "Muhammad Ranju Official Portfolio Website",
   description:
-    "I'm a JavaScript (Web,App) Backend API Developer at Node.JS  My Self Muhammad Ranju I'm working in Node.js Backend Development. it's a JavaScript Runtime at Node.js  Working on: - API Design & Development Like: - Chat API, E-commerce API, Blog API and more.",
+    "I'm a JavaScript (Web,App) back-end focused API Developer. My Self Muhammad Ranju I'm working in Node.js Backend Development. It's a JavaScript Runtime at Node.js  Working on: - API Design & Development Like: - Business-Management-API | ECommerce-API |Employee-Management-Software | Chat-Server-API | Blog-Server-API & many more.",
 };
 
 export default function RootLayout({
