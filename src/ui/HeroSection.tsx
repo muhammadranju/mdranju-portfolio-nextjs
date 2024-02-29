@@ -26,7 +26,7 @@ function HeroSection() {
             Development.
             <br />
             Working on: - API Design & Development Like: - Business Management
-            API | ECommerce API |Employee Management Software | Chat Server API
+            API | E-Commerce API | Employee Management Software | Chat Server API
             | Blog Server API's & many more.
           </span>
           <div className="flex gap-5 mt-5 border-white border-collapse rounded">
