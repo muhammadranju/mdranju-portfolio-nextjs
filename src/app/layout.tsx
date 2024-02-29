@@ -5,12 +5,13 @@ import "./globals.css";
 import Navbar from "@/ui/Navbar";
 import Footer from "@/ui/Footer";
 
+import metaData from "@/data/metadata.json";
+
 const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 
 export const metadata: Metadata = {
-  title: "Muhammad Ranju Official Portfolio Website",
-  description:
-    "I'm a JavaScript (Web,App) back-end focused API Developer. My Self Muhammad Ranju I'm working in Node.js Backend Development. It's a JavaScript Runtime at Node.js  Working on: - API Design & Development Like: - Business-Management-API | ECommerce-API |Employee-Management-Software | Chat-Server-API | Blog-Server-API & many more.",
+  title: metaData.title,
+  description: metaData.description,
 };
 
 export default function RootLayout({
