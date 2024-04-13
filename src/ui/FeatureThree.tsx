@@ -16,7 +16,7 @@ export function FeatureThree() {
             Skills & Services
           </h2>
           <p className="mt-4 text-base leading-relaxed ">
-            This are my working Skills & Services
+            These are my working Skills & Services
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
