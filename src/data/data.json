@@ -20,6 +20,16 @@
     "avatar": "https://avatars.githubusercontent.com/u/80270685?v=4"
   },
   {
+    "category": "portfolio-landing-page",
+    "title": "Portfolio landing page design made in ony HTML and CSS",
+    "image": "https://res.cloudinary.com/nodelove/image/upload/v1722023612/portfolio/f2bjcq5erkwdtyopkkpp.png",
+    "details": "This Portfolio landing page is not reresponsive for mobile devices and any other devices, like laptop or tablet. reresponsiveness add will very soon.",
+    "liveLink": "https://muhammadranju.github.io/Batch10-Assignment-1",
+    "author": "Muhammad Ranju",
+    "sourceCode": "https://github.com/muhammadranju/Batch10-Assignment-1",
+    "avatar": "https://avatars.githubusercontent.com/u/80270685?v=4"
+  },
+  {
     "category": "E-commerce add-to-cart",
     "title": "Real live e-commerce add-to-cart feature",
     "image": "https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/portfolio/sshlc1cgothvu1efxjq0",
