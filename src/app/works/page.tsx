@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import posts from "@/data/data.json";
+import getProject from "@/config/config";
 
 async function Works() {
+  const posts = await getProject();
   return (
     <>
       <title>Works - MDR</title>
@@ -39,7 +40,9 @@ async function Works() {
                     {post?.title}
                   </p>
                   <p className="mt-2 w-full text-sm leading-normal ">
-                    {post?.details}
+                    {post.details.length !== 50
+                      ? post?.details.slice(0, 100).concat("...")
+                      : post?.details}
                   </p>
                   <div className="mt-4 flex space-x-3 ">
                     <Image
