@@ -88,8 +88,16 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
               className="hover:underline ml-1"
             >
               devui
-            </a>
-          </small>
+            </a></small>
+
+          <strong>
+            <a
+              href="../../muhammadranju.apk"
+              target="_blank"
+              className="hover:underline ml-1 font-bold	"
+              download="muhammadranju.apk"
+            >My App
+            </a></strong>
         </div>
       </div>
     </footer>
