@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import getProject from "@/config/config";
+import getProject from "@/api/cron/route";
 
 export async function Projects() {
   const result = await getProject();

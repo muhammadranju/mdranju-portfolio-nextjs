@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import getProject from "@/config/config";
+import getProject from "@/api/cron/route";
 
 async function Works() {
   const posts = await getProject();
