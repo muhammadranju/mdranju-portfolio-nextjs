@@ -36,12 +36,20 @@ async function Works() {
                   <p className="mt-4 w-full text-xs font-semibold leading-tight ">
                     #{post?.category.toLocaleLowerCase()}
                   </p>
-                  <p className="mt-4 flex-1 text-base font-semibold">
-                    {post?.title}
+                  <p
+                    className="mt-4 flex-1 text-base font-semibold"
+                    title={post?.title}
+                  >
+                    {post?.title.length > 40
+                      ? post?.title.substring(0, 50).concat("...")
+                      : post?.title}
                   </p>
-                  <p className="mt-2 w-full text-sm leading-normal ">
-                    {post.details.length !== 50
-                      ? post?.details.slice(0, 100).concat("...")
+                  <p
+                    className="mt-2 w-full text-sm leading-normal "
+                    title={post?.details}
+                  >
+                    {post?.details.length > 25
+                      ? post?.details.substring(0, 150).concat("...")
                       : post?.details}
                   </p>
                   <div className="mt-4 flex space-x-3 ">

@@ -31,10 +31,17 @@ export async function Projects() {
               <small className="text-white font-bold">
                 {post?.category.toLowerCase()}
               </small>
-              <h1 className="text-lg font-medium text-white">{post?.title} </h1>
-              <p className="mt-2 text-sm text-white">
-                {post.details.length !== 12
-                  ? post?.details.slice(0, 36).concat("...")
+              <h1
+                className="text-lg font-medium text-white"
+                title={post?.title}
+              >
+                {post?.title.length > 25
+                  ? post?.title.substring(0, 25).concat("...")
+                  : post?.title}
+              </h1>
+              <p className="mt-2 text-sm text-white" title={post?.details}>
+                {post.details.length > 25
+                  ? post?.details.substring(0, 65).concat("...")
                   : post?.details}
               </p>
               <Link href={post?.sourceCode} target="_blank">
