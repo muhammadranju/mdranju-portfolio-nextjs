@@ -48,7 +48,7 @@ async function Works() {
                     className="mt-2 w-full text-sm leading-normal "
                     title={post?.details}
                   >
-                    {post?.details.length > 25
+                    {post?.details.length > 150
                       ? post?.details.substring(0, 150).concat("...")
                       : post?.details}
                   </p>
