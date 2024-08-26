@@ -6,7 +6,7 @@ async function Works() {
   const posts = await getProject();
   return (
     <>
-      <title>Works - MDR</title>
+      <title>Project - MDR</title>
 
       <div>
         <div className="mx-auto max-w-7xl px-2">
