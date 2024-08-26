@@ -21,19 +21,20 @@ function HeroSection() {
               I'm a JavaScript back-end focused API Developer at Node.JS
             </strong>
           </h2>
-          <span className="mt-6 font-bold">
+          <p className="mt-6 font-bold">
             My Self Muhammad Ranju I'm working in Node.js back-end api
             Development.
-            <br />
-            Working on: - API Design & Development Like: - Business Management
-            API | E-Commerce API | Employee Management Software | Chat Server API
-            | Blog Server API's & many more.
-          </span>
+          </p>
+          <p className="font-medium text-base lg:w-4/5">
+            Working on: - E-Commerce API | Website Design and Development |
+            Business Management API | Blog Server API's & many more.
+          </p>
+
           <div className="flex gap-5 mt-5 border-white border-collapse rounded">
             <a href="https://twitter.com/muhammad_ranju" target="_blank">
               <span>
                 <svg
-                  className="h-6 w-6 fill-current"
+                  className="h-6 w-6 fill-current "
                   height="50"
                   viewBox="0 0 1200 1227"
                   width="50"
@@ -70,16 +71,16 @@ function HeroSection() {
               </span>
             </a>
           </div>
-          {/* <div className="mt-8">
+          <div className="mt-5">
             <button
               type="button"
-              className="rounded-md bg-black px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md border bg-green-400 hover:bg-green-500 text-black border-green-300 px-3 py-2  font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Download Resume
             </button>
-          </div> */}
+          </div>
         </div>
-        <hr className="my-8 w-full" />
+        <hr className="my-5 w-full -mt-3" />
         <div className="rounded-lg bg-gray-200 p-1">
           <Image placeholder="blur" src={heroImage} alt="Hero Image" />
         </div>
@@ -88,4 +89,10 @@ function HeroSection() {
   );
 }
 
+<button
+  type="button"
+  className="rounded-md border bg-green-400 hover:bg-green-500 text-black border-green-300 px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 w-40 focus-visible:outline-offset-2 focus-visible:outline-black"
+>
+  Download Resume
+</button>;
 export default HeroSection;
