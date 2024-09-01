@@ -68,7 +68,7 @@ export async function Projects() {
         ))}
       </div>
       <div className=" flex justify-center  text-center">
-        <Link href={"/works"}>
+        <Link href={"/projects"}>
           <button className="rounded-lg shadow-xl px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600 ">
             View More
           </button>

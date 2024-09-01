@@ -26,7 +26,7 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="sticky top-2 z-40 container rounded-full lg:border lg:border-slate-500/10  flex-none shadow-sm transition-colors duration-500 lg:z-50  dark:border-slate-50/[0.06]   bg-slate-50/60 backdrop-blur-2xl supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 ">
+    <header className="sticky top-2 z-40  mx-auto max-w-7xl rounded-full lg:border lg:border-slate-500/10  flex-none shadow-sm transition-colors duration-500 lg:z-50  dark:border-slate-50/[0.06]   bg-slate-50/60 backdrop-blur-2xl supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 ">
       <div className="relative w-full">
         <div className="bg-background text-foreground" />
         <div className="mx-auto flex container items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
