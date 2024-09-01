@@ -12,7 +12,7 @@ export async function Projects() {
     <div className=" w-full py-10 mb-5 flex flex-col items-center justify-center">
       {/* <hr className="my-6 w-full" /> */}
       <div className="mx-auto w-auto container  rounded-full bg-gray-100 px-4 py-1.5">
-        <p className="text-lg font-extrabold uppercase tracking-widest text-slate-900">
+        <p className="lg:text-lg text-sm font-extrabold uppercase tracking-widest text-slate-900">
           Hare are some of my projects I have done.
         </p>
       </div>
