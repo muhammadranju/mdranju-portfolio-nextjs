@@ -6,11 +6,16 @@ import getProject from "@/api/cron/route";
 
 export async function Projects() {
   const result = await getProject();
-  const post = result.slice(0, 4);
+  const post = result.slice(0, 8);
 
   return (
-    <div className=" w-full py-10 mb-5 ">
+    <div className=" w-full py-10 mb-5 flex flex-col items-center justify-center">
       {/* <hr className="my-6 w-full" /> */}
+      <div className="mx-auto w-auto container  rounded-full bg-gray-100 px-4 py-1.5">
+        <p className="text-lg font-extrabold uppercase tracking-widest text-slate-900">
+          Hare are some of my projects I have done.
+        </p>
+      </div>
       <div className="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-9 md:space-y-0 lg:grid-cols-4">
         {post.map((post: any) => (
           <div
