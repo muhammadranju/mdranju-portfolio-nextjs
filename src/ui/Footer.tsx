@@ -6,9 +6,9 @@ function Footer() {
   return (
     <footer className="w-full mt-10 p-2 pt-5 dark:bg-gray-800/50 bg-gray-200/50">
       {/* <hr className="my-4" /> */}
-      <div className="mx-auto max-w-6xl items-center justify-between px-4 md:flex lg:px-0">
+      <div className="mx-auto max-w-7xl items-center lg:justify-between px-4 md:flex lg:px-0">
         <Link href={"/"}>
-          <div className="inline-flex items-center">
+          <div className="lg:inline-flex items-center hidden">
             <span className="bg-gray-100 rounded p-1 pr-0">
               <svg
                 width="30"
@@ -62,7 +62,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
             <span className=" text-lg font-bold dark:text-white ">R</span>
           </div>
         </Link>
-        <div className="mt-4 md:mt-0">
+        <div className="md:mt-0 text-center lg:space-y-0 space-y-5">
           <p className="text-sm font-medium">
             © {year}
             <a href="https://github.com/muhammadranju" target="_blank">
@@ -72,32 +72,18 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
             </a>
             All rights reserved.
           </p>
-          <small>
-            Design by{" "}
-            <a
-              href="https://ui.shadcn.com/"
-              target="_blank"
-              className="hover:underline mr-1"
-            >
-              ui.shadcn
-            </a>
-            &
-            <a
-              href="https://www.devui.io/"
-              target="_blank"
-              className="hover:underline ml-1"
-            >
-              devui
-            </a></small>
 
           <strong>
             <a
               href="../../muhammadranju.apk"
               target="_blank"
-              className="hover:underline ml-1 font-bold	"
+              className="hover:underline underline-offset-4 ml-1 font-bold	"
               download="muhammadranju.apk"
-            >My App
-            </a></strong>
+            >
+              Download App
+              <i className="fa-solid fa-download ml-2"></i>
+            </a>
+          </strong>
         </div>
       </div>
     </footer>
