@@ -32,10 +32,6 @@ function HeroSection() {
             that make a difference. Thank you for visiting my portfolio. I hope
             you will like my work, Happy coding🧑🏻‍💻.
           </p>
-          <p className="font-medium text-base mt-5 ">
-            Working on: - E-Commerce API | Website Design and Development |
-            Business Management API | Blog Server API's & many more.
-          </p>
 
           <div className="flex gap-5 mt-5 border-white border-collapse rounded">
             <a href="https://github.com/muhammadranju" target="_blank">
@@ -88,7 +84,7 @@ function HeroSection() {
           </div>
         </div>
         <hr className="my-5 w-full -mt-3" />
-        <div className="rounded-lg bg-gray-500 p-[3px]">
+        <div className="rounded-lg lg:bg-gray-500 lg:p-[3px] px-2">
           <Image
             placeholder="blur"
             className="rounded-lg"
