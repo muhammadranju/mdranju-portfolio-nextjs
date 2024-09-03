@@ -9,10 +9,10 @@ export async function Projects() {
   const post = result.slice(0, 8);
 
   return (
-    <div className="max-w-7xl mx-auto py-10 mb-5 flex flex-col items-center justify-center">
+    <div className="max-w-7xl mx-auto py-10 mb-5 flex flex-col items-center justify-center lg:px-0 px-3">
       {/* <hr className="my-6 w-full" /> */}
-      <div className="mx-auto w-auto container  rounded-full bg-gray-200 dark:bg-slate-100 px-4 py-1.5">
-        <p className="lg:text-lg text-sm font-extrabold uppercase tracking-widest text-slate-900">
+      <div className="mx-auto w-auto container   rounded-full bg-gray-200 dark:bg-slate-100 px-4 py-1.5">
+        <p className="lg:text-lg text-sm font-extrabold uppercase text-center  tracking-widest text-slate-900">
           Hare are some of my projects I have done.
         </p>
       </div>
