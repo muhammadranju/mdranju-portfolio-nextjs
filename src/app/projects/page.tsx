@@ -1,27 +1,34 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import Link from "next/link";
 import getProject from "@/api/cron/route";
 
 async function Works() {
   const posts = await getProject();
+  const shuffledPosts = posts.sort(() => {
+    return Math.random() - 0.5;
+  });
   return (
     <>
       <title>Project - MDR</title>
 
       <div>
         <div className="mx-auto max-w-7xl px-2">
-          <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
-            <p className="text-3xl font-bold  md:text-5xl md:leading-10 leading-tightsm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-cyan-500 via-30% to-sky-500 to-90%">
+          <div className="flex flex-col  pb-10 pt-12 md:pt-24">
+            <p className="text-3xl font-bold  md:text-5xl md:leading-10 mb-8 leading-tightsm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-cyan-500 via-30% to-sky-500 to-90%">
               Projects & Products
             </p>
             <hr />
-            <p className="max-w-4xl text-base  md:text-xl ">
-              My many kind of project i have finished.
+            <p className="lg:max-w-4xl text-base  md:text-xl mt-8 mb-2">
+              Here is some kind of {posts.length} project's i have finished.
             </p>
+            <small className="">
+              * The project's are always show in randomly.
+            </small>
           </div>
 
           <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3">
-            {posts.map((post: any) => (
+            {shuffledPosts.map((post: any) => (
               <div key={post?.title} className="border rounded shadow-lg ">
                 <Image
                   src={post?.image}
@@ -41,7 +48,7 @@ async function Works() {
                     title={post?.title}
                   >
                     {post?.title.length > 40
-                      ? post?.title.substring(0, 50).concat("...")
+                      ? post?.title.substring(0, 38).concat("...")
                       : post?.title}
                   </p>
                   <p
@@ -52,6 +59,13 @@ async function Works() {
                       ? post?.details.substring(0, 150).concat("...")
                       : post?.details}
                   </p>
+
+                  <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
+                    <p className=" font-semibold capitalize">Tags:</p>
+                    <span className="text-sm ">React</span>,
+                    <span className="text-sm ">Node</span>,
+                    <span className="text-sm ">tailwindcss </span>
+                  </div>
                   <div className="mt-4 flex space-x-3 ">
                     <Image
                       className="h-full w-10 rounded-lg"
