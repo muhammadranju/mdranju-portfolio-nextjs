@@ -5,9 +5,7 @@ import getProject from "@/api/cron/route";
 
 async function Works() {
   const posts = await getProject();
-  const shuffledPosts = posts.sort(() => {
-    return Math.random() - 0.5;
-  });
+
   return (
     <>
       <title>Project - MDR</title>
@@ -22,13 +20,10 @@ async function Works() {
             <p className="lg:max-w-4xl text-base  md:text-xl mt-8 mb-2">
               Here is some kind of {posts.length} project's i have finished.
             </p>
-            <small className="">
-              * The project's are always show in randomly.
-            </small>
           </div>
 
           <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3">
-            {shuffledPosts.map((post: any) => (
+            {posts.map((post: any) => (
               <div key={post?.title} className="border rounded shadow-lg ">
                 <Image
                   src={post?.image}
@@ -60,12 +55,12 @@ async function Works() {
                       : post?.details}
                   </p>
 
-                  <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
+                  {/* <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
                     <p className=" font-semibold capitalize">Tags:</p>
                     <span className="text-sm ">React</span>,
                     <span className="text-sm ">Node</span>,
                     <span className="text-sm ">tailwindcss </span>
-                  </div>
+                  </div> */}
                   <div className="mt-4 flex space-x-3 ">
                     <Image
                       className="h-full w-10 rounded-lg"
