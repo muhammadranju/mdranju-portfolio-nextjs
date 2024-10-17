@@ -1,10 +1,27 @@
+"use client";
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import Link from "next/link";
 import getProject from "@/api/cron/route";
+import { useEffect, useState } from "react";
+import SkeletonUI from "@/ui/SkeletonUI";
+function Works() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isLoading, isSetLoading] = useState(false);
 
-async function Works() {
-  const posts = await getProject();
+  setTimeout(() => {
+    setLoading(false);
+    isSetLoading(true);
+  }, 1500);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getProject();
+      setPosts(data.project);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -21,8 +38,24 @@ async function Works() {
               Here is some kind of {posts.length} project's i have finished.
             </p>
           </div>
+          <div
+            className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 ${
+              loading ? "" : "hidden"
+            }`}
+          >
+            <SkeletonUI />
+            <SkeletonUI />
+            <SkeletonUI />
+            <SkeletonUI />
+            <SkeletonUI />
+            <SkeletonUI />
+          </div>
 
-          <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3">
+          <div
+            className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 ${
+              isLoading ? "" : "hidden"
+            }`}
+          >
             {posts.map((post: any) => (
               <div key={post?.title} className="border rounded shadow-lg ">
                 <Image

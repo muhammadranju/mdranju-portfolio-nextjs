@@ -1,22 +1,57 @@
-/* eslint-disable jsx-a11y/alt-text */
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import getProject from "@/api/cron/route";
+import { useEffect, useState } from "react";
+import SkeletonUI2 from "./SkeletonUI2";
 
-export async function Projects() {
-  const result = await getProject();
-  const post = result.slice(0, 8);
+export function Projects() {
+  const [result, setResult] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isLoading, isSetLoading] = useState(false);
+
+  setTimeout(() => {
+    setLoading(false);
+    isSetLoading(true);
+  }, 1500);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getProject();
+      setResult(data.project);
+    };
+    fetchData();
+  }, []);
+
+  const post = result?.slice(0, 8);
 
   return (
     <div className="max-w-7xl mx-auto py-10 mb-5 flex flex-col items-center justify-center lg:px-0 px-3">
-      {/* <hr className="my-6 w-full" /> */}
       <div className="mx-auto w-auto container   rounded-full bg-gray-200 dark:bg-slate-100 px-4 py-1.5">
         <p className="lg:text-lg text-sm font-extrabold uppercase text-center  tracking-widest text-slate-900">
           Hare are some of my projects I have done.
         </p>
       </div>
-      <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3  rounded-2xl lg:grid-cols-4">
+      <div
+        className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3  rounded-2xl lg:grid-cols-4 ${
+          loading ? "" : "hidden"
+        }`}
+      >
+        <SkeletonUI2 />
+        <SkeletonUI2 />
+        <SkeletonUI2 />
+        <SkeletonUI2 />
+        <SkeletonUI2 />
+        <SkeletonUI2 />
+        <SkeletonUI2 />
+        <SkeletonUI2 />
+      </div>
+      <div
+        className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3  rounded-2xl lg:grid-cols-4 ${
+          isLoading ? "" : "hidden"
+        }`}
+      >
         {post.map((post: any) => (
           <div key={post?.title} className="border rounded shadow-lg ">
             <Image
