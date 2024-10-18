@@ -36,7 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="bg-slate-100 bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]  dark:bg-[#0b112b] text-gray-800 dark:text-gray-200">
+          <div className="bg-slate-100 min-h-screen bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]  dark:bg-[#0b112b] text-gray-800 dark:text-gray-200">
             {<Navbar />}
             {children}
             {<Footer />}
