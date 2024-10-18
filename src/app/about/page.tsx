@@ -87,9 +87,14 @@ function about() {
               </div>
               <p className="text-3xl font-bold  md:text-4xl">Meet our team</p>
               <p className="max-w-4xl text-base  md:text-xl">
-                Our philosophy is simple — hire a team of diverse, passionate
-                people and foster a culture that empowers you to do your best
-                work.
+                Our team is made up of passionate and skilled professionals
+                dedicated to delivering top-notch web development solutions.
+                With expertise in both frontend and backend development, we work
+                collaboratively to create seamless, user-friendly websites and
+                applications. Whether it's building dynamic interfaces or
+                developing complex server-side logic, our team is committed to
+                providing high-quality, efficient results tailored to your
+                needs.
               </p>
               <div></div>
             </div>
