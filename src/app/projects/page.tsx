@@ -8,17 +8,12 @@ import SkeletonUI from "@/ui/SkeletonUI";
 function Works() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isLoading, isSetLoading] = useState(false);
-
-  setTimeout(() => {
-    setLoading(false);
-    isSetLoading(true);
-  }, 1500);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getProject();
       setPosts(data.project);
+      setLoading(false);
     };
     fetchData();
   }, [posts]);
@@ -38,101 +33,100 @@ function Works() {
               Here is some kind of {posts.length} project's i have finished.
             </p>
           </div>
-          <div
-            className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 ${
-              loading ? "" : "hidden"
-            }`}
-          >
-            <SkeletonUI />
-            <SkeletonUI />
-            <SkeletonUI />
-            <SkeletonUI />
-            <SkeletonUI />
-            <SkeletonUI />
-          </div>
+          {loading && (
+            <div
+              className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 `}
+            >
+              <SkeletonUI />
+              <SkeletonUI />
+              <SkeletonUI />
+              <SkeletonUI />
+              <SkeletonUI />
+              <SkeletonUI />
+            </div>
+          )}
+          {!loading && (
+            <div
+              className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 `}
+            >
+              {posts.map((post: any) => (
+                <div
+                  key={post?.title}
+                  className="border  rounded-xl shadow-md dark:bg-slate-900 bg-slate-100  "
+                >
+                  <Image
+                    src={post?.image}
+                    className="aspect-video w-full  rounded-t-xl"
+                    width={500}
+                    height={500}
+                    blurDataURL="blur"
+                    placeholder="blur"
+                    alt={post?.title}
+                  />
+                  <div className="min-h-min p-3">
+                    <p className="mt-4 w-full text-xs font-semibold leading-tight ">
+                      #{post?.category.toLocaleLowerCase()}
+                    </p>
+                    <p
+                      className="mt-4 flex-1 text-base font-semibold"
+                      title={post?.title}
+                    >
+                      {post?.title.length > 40
+                        ? post?.title.substring(0, 38).concat("...")
+                        : post?.title}
+                    </p>
+                    <p
+                      className="mt-2 w-full text-sm leading-normal "
+                      title={post?.details}
+                    >
+                      {post?.details.length > 150
+                        ? post?.details.substring(0, 150).concat("...")
+                        : post?.details}
+                    </p>
 
-          <div
-            className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 ${
-              isLoading ? "" : "hidden"
-            }`}
-          >
-            {posts.map((post: any) => (
-              <div
-                key={post?.title}
-                className="border  rounded-xl shadow-md dark:bg-slate-900 bg-slate-100  "
-              >
-                <Image
-                  src={post?.image}
-                  className="aspect-video w-full  rounded-t-xl"
-                  width={500}
-                  height={500}
-                  blurDataURL="blur"
-                  placeholder="blur"
-                  alt={post?.title}
-                />
-                <div className="min-h-min p-3">
-                  <p className="mt-4 w-full text-xs font-semibold leading-tight ">
-                    #{post?.category.toLocaleLowerCase()}
-                  </p>
-                  <p
-                    className="mt-4 flex-1 text-base font-semibold"
-                    title={post?.title}
-                  >
-                    {post?.title.length > 40
-                      ? post?.title.substring(0, 38).concat("...")
-                      : post?.title}
-                  </p>
-                  <p
-                    className="mt-2 w-full text-sm leading-normal "
-                    title={post?.details}
-                  >
-                    {post?.details.length > 150
-                      ? post?.details.substring(0, 150).concat("...")
-                      : post?.details}
-                  </p>
-
-                  {/* <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
+                    {/* <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
                     <p className=" font-semibold capitalize">Tags:</p>
                     <span className="text-sm ">React</span>,
                     <span className="text-sm ">Node</span>,
                     <span className="text-sm ">tailwindcss </span>
                   </div> */}
-                  <div className="mt-4 flex space-x-3 ">
-                    <Image
-                      className="h-full w-10 rounded-lg"
-                      src={post?.avatar}
-                      width={500}
-                      height={500}
-                      blurDataURL="blur"
-                      placeholder="blur"
-                      alt={post?.author}
-                    />
-                    <div>
-                      <p className="text-sm font-semibold leading-tight">
-                        {post?.author}
-                      </p>
-                      <span className="text-sm leading-tight hover:underline hover:text-indigo-500">
-                        <Link href={post?.sourceCode} target="_blank">
-                          View Code
-                        </Link>
-                      </span>
-                    </div>
-                    {post?.liveLink ? (
+                    <div className="mt-4 flex space-x-3 ">
+                      <Image
+                        className="h-full w-10 rounded-lg"
+                        src={post?.avatar}
+                        width={500}
+                        height={500}
+                        blurDataURL="blur"
+                        placeholder="blur"
+                        alt={post?.author}
+                      />
                       <div>
-                        <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                          <Link href={post?.liveLink} target="_blank">
-                            Live Demo
+                        <p className="text-sm font-semibold leading-tight">
+                          {post?.author}
+                        </p>
+                        <span className="text-sm leading-tight hover:underline hover:text-indigo-500">
+                          <Link href={post?.sourceCode} target="_blank">
+                            View Code
                           </Link>
-                        </button>
+                        </span>
                       </div>
-                    ) : (
-                      ""
-                    )}
+                      {post?.liveLink ? (
+                        <div>
+                          <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
+                            <Link href={post?.liveLink} target="_blank">
+                              Live Demo
+                            </Link>
+                          </button>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>

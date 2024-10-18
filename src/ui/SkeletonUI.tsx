@@ -10,6 +10,15 @@ const SkeletonUI = () => {
       <div className="skeleton h-4 dark:bg-slate-500 bg-slate-200 w-full"></div>
       <div className="skeleton h-4 dark:bg-slate-500 bg-slate-200 w-full"></div>
       <div className="skeleton h-4 dark:bg-slate-500 bg-slate-200 w-full"></div>
+
+      <div className="flex gap-3">
+        <div className="skeleton h-12 w-12 dark:bg-slate-500 bg-slate-200  shrink-0 rounded-xl"></div>
+        <div className="space-y-2 mt-1">
+          <div className="skeleton h-4 dark:bg-slate-500 bg-slate-200 w-28"></div>
+          <div className="skeleton h-4 dark:bg-slate-500 bg-slate-200 w-24"></div>
+        </div>
+        <div className="skeleton h-12 w-24 dark:bg-slate-500 bg-slate-200  shrink-0 rounded-xl"></div>
+      </div>
     </div>
   );
 };
