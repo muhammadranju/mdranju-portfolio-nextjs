@@ -57,10 +57,13 @@ function Works() {
             }`}
           >
             {posts.map((post: any) => (
-              <div key={post?.title} className="border rounded shadow-lg ">
+              <div
+                key={post?.title}
+                className="border  rounded-xl shadow-md dark:bg-slate-900 bg-slate-100  "
+              >
                 <Image
                   src={post?.image}
-                  className="aspect-video w-full rounded"
+                  className="aspect-video w-full  rounded-t-xl"
                   width={500}
                   height={500}
                   blurDataURL="blur"

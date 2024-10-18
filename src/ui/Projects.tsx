@@ -53,10 +53,13 @@ export function Projects() {
         }`}
       >
         {post.map((post: any) => (
-          <div key={post?.title} className="border rounded shadow-lg ">
+          <div
+            key={post?.title}
+            className="border  rounded-xl dark:bg-slate-900 bg-slate-100 shadow-md "
+          >
             <Image
               src={post?.image}
-              className="aspect-video w-full rounded"
+              className="aspect-video w-full rounded-t-xl"
               width={500}
               height={500}
               blurDataURL="blur"
