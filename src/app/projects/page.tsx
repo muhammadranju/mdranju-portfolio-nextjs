@@ -21,7 +21,7 @@ function Works() {
       setPosts(data.project);
     };
     fetchData();
-  }, []);
+  }, [posts]);
 
   return (
     <>

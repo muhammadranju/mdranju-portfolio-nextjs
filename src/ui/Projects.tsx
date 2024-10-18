@@ -22,7 +22,7 @@ export function Projects() {
       setResult(data.project);
     };
     fetchData();
-  }, []);
+  }, [result]);
 
   const post = result?.slice(0, 8);
 
