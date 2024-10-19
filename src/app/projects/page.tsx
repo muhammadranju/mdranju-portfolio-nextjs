@@ -16,11 +16,10 @@ function Works() {
       setLoading(false);
     };
     fetchData();
-  }, [posts]);
-
+  }, []);
   return (
     <>
-      <title>Project - MDR</title>
+      <title>Project's - MDR</title>
 
       <div>
         <div className="mx-auto max-w-7xl px-2">

@@ -17,7 +17,7 @@ export function Projects() {
       setLoading(false);
     };
     fetchData();
-  }, [result]);
+  }, []);
 
   const post = result?.slice(0, 8);
 
