@@ -6,6 +6,8 @@ import Navbar from "@/ui/Navbar";
 import Footer from "@/ui/Footer";
 
 import metaData from "@/data/metadata.json";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 
@@ -41,6 +43,15 @@ export default function RootLayout({
             {children}
             {<Footer />}
           </div>
+          <ToastContainer
+            autoClose={1500}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </ThemeProvider>
       </body>
     </html>

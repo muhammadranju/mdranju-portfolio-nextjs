@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { Badge } from "@radix-ui/themes";
+import Link from "next/link";
 
 const users = [
   {
@@ -58,12 +59,14 @@ function about() {
                 nad more technologies. I'm committed to delivering efficient,
                 high-quality solutions that meet the needs of clients and users.
               </p>
-              <button
-                type="button"
-                className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Join Now
-              </button>
+              <Link href="/contact">
+                <button
+                  type="button"
+                  className="btn rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5"
+                >
+                  Contact Us
+                </button>
+              </Link>
             </div>
             {/* <div className="md:mt-o mt-10  ">
               <Image
