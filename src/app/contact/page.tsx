@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 /* eslint-disable react/no-unescaped-entities */
+import { URL } from "@/api/cron/route";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
@@ -29,7 +30,7 @@ function contact() {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3030/v1/api/contact", {
+      const response = await fetch(`${URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
