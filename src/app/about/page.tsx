@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { Badge } from "@radix-ui/themes";
@@ -102,21 +103,24 @@ function about() {
             </div>
           </div>
           {/* TEAM */}
-          <div className="grid grid-cols-1 gap-4 gap-y-6 border-b border-gray-300 py-12 pb-20 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 gap-y-6 border-b border-gray-300 py-8 pb-12 md:grid-cols-2 lg:grid-cols-4">
             {users.map((user) => (
               <div
-                className=" rounded-xl  border p-3 dark:bg-slate-900 bg-slate-100"
+                className=" rounded-xl  border p-3 dark:bg-slate-900 bg-slate-100 "
                 key={user.name}
               >
-                <img
-                  src={user.image}
-                  alt={user.name}
-                  className="h-[300px] w-full rounded-xl object-cover"
-                />
+                <div className="w-full sm:w-[80%] lg:w-full h-[350px] overflow-hidden rounded-md relative cursor-pointer group">
+                  <img
+                    src={user.image}
+                    alt={user.name}
+                    className="w-full h-full object-cover group-hover:scale-[1.15] group-hover:rotate-[8deg] transition-all duration-300 ease-out"
+                  />
+                </div>
+
                 <p className="mt-6 w-full px-2 text-xl  font-semibold">
                   {user.name}
                 </p>
-                <p className="w-full px-2 pb-6 text-sm font-semibold ">
+                <p className="w-full px-2 pb-3 text-sm font-semibold ">
                   {user.position}
                 </p>
               </div>

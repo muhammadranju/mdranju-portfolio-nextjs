@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
@@ -46,12 +47,12 @@ function Works() {
           )}
           {!loading && (
             <div
-              className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 `}
+              className={`grid gap-6   gap-y-6 py-6 md:grid-cols-2  rounded-xl lg:grid-cols-3 `}
             >
               {posts.map((post: any) => (
                 <div
                   key={post?.title}
-                  className="border  rounded-xl shadow-md dark:bg-slate-900 bg-slate-100  "
+                  className="border h-full  rounded-xl shadow-md dark:bg-slate-900 bg-slate-100 "
                 >
                   <Image
                     src={post?.image}

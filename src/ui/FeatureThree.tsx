@@ -1,5 +1,7 @@
+"use client";
+
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+
 const imageLink = {
   react: (
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
