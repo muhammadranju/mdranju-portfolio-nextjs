@@ -108,7 +108,11 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
 
           <div className={`dropdown `}>
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+              {isMenuOpen ? (
+                <X onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+              ) : (
+                <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+              )}
             </div>
             <ul
               tabIndex={0}
