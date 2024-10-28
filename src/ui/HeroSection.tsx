@@ -17,20 +17,17 @@ function HeroSection() {
             </span>
           </h1>
           <h2 className="mt-6 font-bold text-2xl">
-            <strong>
-              I am a JavaScript back-end focused API Developer at Node.JS
-            </strong>
+            <strong>I am a JavaScript BackEnd Developer at Node.JS</strong>
           </h2>
           <p className="mt-6  text-base font-medium lg:w-4/5">
             Welcome to my Portfolio. I hope you well to visit, I am Muhammad
-            Ranju I'm working in Node.js back-end api development. I have 3+
-            years of experience in Node.js, Express.js, MongoDB, React.js
-            Next.js and other related technologies. I have worked on various
-            projects, including E-Commerce API, Website Design and Development,
-            Business Management API, Blog Server API's & many more. I am
-            passionate about learning new technologies and building solutions
-            that make a difference. Thank you for visiting my portfolio. I hope
-            you will like my work, Happy coding🧑🏻‍💻.
+            Ranju I'm working BackEnd in Node.js and FontEnd in React.js. I have
+            2+ years of experience in Node.js, Express.js, MongoDB, React.js and
+            other related technologies. I have worked on various projects,
+            including E-Commerce API, Website Design and Development and many
+            more. I am passionate about learning new technologies and building
+            solutions that make a difference. Thank you for visiting my
+            portfolio. I hope you will like my work, Happy coding🧑🏻‍💻.
           </p>
 
           <div className="flex gap-5 mt-5 border-white border-collapse rounded">
