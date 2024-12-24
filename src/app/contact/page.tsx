@@ -3,6 +3,8 @@
 
 /* eslint-disable react/no-unescaped-entities */
 import { URL } from "@/api/cron/route";
+import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
@@ -71,7 +73,18 @@ function contact() {
   return (
     <>
       <title>Contact - MDR</title>
-      <div>
+
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.1}
+        duration={3}
+        repeatDelay={1}
+        className={cn(
+          "[mask-image:radial-gradient(1200px_circle_at_center,white,transparent)]",
+          "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12"
+        )}
+      />
+      <div className="z-50">
         <div className="mx-auto max-w-7xl px-4">
           {/* Hero Map */}
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">

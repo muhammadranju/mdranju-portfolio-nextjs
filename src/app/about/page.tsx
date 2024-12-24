@@ -4,23 +4,23 @@ import React from "react";
 import { Badge } from "@radix-ui/themes";
 import Link from "next/link";
 
-const users = [
-  {
-    name: "Md. Ranju",
-    image: "https://avatars.githubusercontent.com/u/80270685?v=4",
-    position: "Full Stack Web Developer ",
-  },
-  {
-    name: "Mukit Hossen",
-    image: "../../../team/Mukit.jpg",
-    position: "Frontend Developer",
-  },
-  {
-    name: "Saidur Rahman Shifat",
-    image: "../../../team/Shifat.jpg",
-    position: "Frontend Developer",
-  },
-];
+// const users = [
+//   {
+//     name: "Md. Ranju",
+//     image: "https://avatars.githubusercontent.com/u/80270685?v=4",
+//     position: "Web Application Developer",
+//   },
+//   {
+//     name: "Mukit Hossen",
+//     image: "../../../team/Mukit.jpg",
+//     position: "Frontend Developer",
+//   },
+//   {
+//     name: "Saidur Rahman Shifat",
+//     image: "../../../team/Shifat.jpg",
+//     position: "Frontend Developer",
+//   },
+// ];
 function about() {
   return (
     <>
@@ -68,6 +68,7 @@ function about() {
                 </button>
               </Link>
             </div>
+
             {/* <div className="md:mt-o mt-10  ">
               <Image
                 src="https://res.cloudinary.com/nodelove/image/upload/v1719253849/mdranju/i2f3rcfyeuw1q3xuddyg.jpg"
@@ -79,9 +80,9 @@ function about() {
             </div> */}
           </div>
 
-          <hr className="mt-10 mb-4" />
+          {/* <hr className="mt-10 mb-4" /> */}
           {/* greetings */}
-          <div className="mt-16 flex items-center">
+          {/* <div className="mt-16 flex items-center">
             <div className="space-y-6 md:w-3/4">
               <div className="max-w-max rounded-full border p-1 px-3">
                 <p className="text-xs font-semibold leading-normal md:text-sm">
@@ -101,9 +102,9 @@ function about() {
               </p>
               <div></div>
             </div>
-          </div>
+          </div> */}
           {/* TEAM */}
-          <div className="grid grid-cols-1 gap-4 gap-y-6 border-b border-gray-300 py-8 pb-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* <div className="grid grid-cols-1 gap-4 gap-y-6 border-b border-gray-300 py-8 pb-12 md:grid-cols-2 lg:grid-cols-4">
             {users.map((user) => (
               <div
                 className=" rounded-xl  border p-3 dark:bg-slate-900 bg-slate-100 "
@@ -125,7 +126,7 @@ function about() {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

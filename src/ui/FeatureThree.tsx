@@ -1,4 +1,6 @@
 "use client";
+import { useTheme } from "next-themes";
+import { MagicCard } from "@/components/ui/magic-card";
 
 /* eslint-disable react/no-unescaped-entities */
 
@@ -20,8 +22,9 @@ const imageLink = {
 };
 
 export function FeatureThree() {
+  const { theme } = useTheme();
   return (
-    <div className="w-full py-20  dark:bg-gray-800/20 bg-gray-300/20">
+    <div className="w-full py-20  dark:bg-slate-900/30 bg-gray-300/20">
       {/* <hr className="my-8   w-full" /> */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
         <div className="mx-auto max-w-xl text-center">
@@ -38,41 +41,56 @@ export function FeatureThree() {
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
-          <div className="border-gray-500 rounded-lg p-5 border">
-            <div className="mx-auto flex h-20 w-20  items-center justify-center rounded-full ">
-              {imageLink.react}
-            </div>
-            <h3 className="mt-8 text-lg font-semibold">React.js</h3>
+          {/*  */}
+          <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1"}>
+            <div className="rounded-lg p-5">
+              <div className="mx-auto flex h-20 w-20  items-center justify-center rounded-full ">
+                {imageLink.react}
+              </div>
+              <h3 className="mt-8 text-lg font-semibold">React.js</h3>
 
-            <p className="mt-4 text-sm ">React.js for Frontend development.</p>
-          </div>
-          <div className="border-gray-500 rounded-lg p-5 border">
-            <div className="mx-auto flex h-20 w-20 items-center  justify-center rounded-full ">
-              {imageLink.next}
+              <p className="mt-4 text-sm ">
+                React.js for Frontend development.
+              </p>
             </div>
-            <h3 className="mt-8 text-lg font-semibold ">Next.js</h3>
-            <p className="mt-4 text-sm ">
-              Next.js for frontend and backend both development.
-            </p>
-          </div>
-          <div className="border-gray-500 rounded-lg p-5 border">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full ">
-              {imageLink.node}
+          </MagicCard>
+
+          <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1 "}>
+            <div className="rounded-lg p-5">
+              <div className="mx-auto flex h-20 w-20 items-center  justify-center rounded-full ">
+                {imageLink.next}
+              </div>
+              <h3 className="mt-8 text-lg font-semibold ">Next.js</h3>
+              <p className="mt-4 text-sm ">
+                Next.js for frontend and backend both development.
+              </p>
             </div>
-            <h3 className="mt-8 text-lg font-semibold">Node.JS & Express.js</h3>
-            <p className="mt-4 text-sm ">
-              Node.JS & Express.js for backend API's development.
-            </p>
-          </div>
-          <div className="border-gray-500 rounded-lg p-5 border">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full ">
-              {imageLink.mongodb}
+          </MagicCard>
+          <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1 "}>
+            <div className="rounded-lg p-5">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full ">
+                {imageLink.node}
+              </div>
+              <h3 className="mt-8 text-lg font-semibold">
+                Node.JS & Express.js
+              </h3>
+              <p className="mt-4 text-sm ">
+                Node.JS & Express.js for backend API's development.
+              </p>
             </div>
-            <h3 className="mt-8 text-lg font-semibold ">MongoDB Database</h3>
-            <p className="mt-4 text-sm ">
-              MongoDB for backend API's Database Management.
-            </p>
-          </div>
+          </MagicCard>
+
+          <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1 "}>
+            <div className="rounded-lg p-5">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full ">
+                {imageLink.mongodb}
+              </div>
+              <h3 className="mt-8 text-lg font-semibold ">MongoDB Database</h3>
+              <p className="mt-4 text-sm ">
+                MongoDB for backend API's Database Management.
+              </p>
+            </div>
+          </MagicCard>
         </div>
       </div>
     </div>

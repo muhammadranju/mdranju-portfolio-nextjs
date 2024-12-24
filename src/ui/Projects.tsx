@@ -5,6 +5,10 @@ import Image from "next/image";
 import getProject from "@/api/cron/route";
 import { useEffect, useState } from "react";
 import SkeletonUI2 from "./SkeletonUI2";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import RippleButton from "@/components/ui/ripple-button";
+import InteractiveHoverButton from "@/components/ui/interactive-hover-button";
 
 export function Projects() {
   const [result, setResult] = useState([]);
@@ -65,7 +69,7 @@ export function Projects() {
                   title={post?.title}
                 >
                   {post?.title.length > 40
-                    ? post?.title.substring(0, 50).concat("...")
+                    ? post?.title.substring(0, 30).concat("...")
                     : post?.title}
                 </p>
                 <p
@@ -78,19 +82,20 @@ export function Projects() {
                 </p>
                 <div className="mt-4  flex justify-center items-center space-x-10 ">
                   <div>
-                    <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-slate-700 text-white hover:bg-indigo-600">
-                      <Link href={post?.sourceCode} target="_blank">
+                    <Link href={post?.sourceCode} target="_blank">
+                      <RippleButton rippleColor="#ADD8E6">
                         View Code
-                      </Link>
-                    </button>
+                      </RippleButton>
+                    </Link>
                   </div>
                   {post?.liveLink ? (
                     <div>
-                      <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                        <Link href={post?.liveLink} target="_blank">
+                      <Link href={post?.liveLink} target="_blank">
+                        <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
                           Live Demo
-                        </Link>
-                      </button>
+                          {/* <InteractiveHoverButton /> */}
+                        </button>
+                      </Link>
                     </div>
                   ) : (
                     ""
@@ -104,9 +109,7 @@ export function Projects() {
 
       <div className=" flex justify-center items-center  text-center">
         <Link href={"/projects"}>
-          <button className="rounded-lg shadow-xl px-3 py-2.5 text-base font-semibold bg-indigo-500 text-white hover:bg-indigo-600 ">
-            More Project
-          </button>
+          <RainbowButton> More Project</RainbowButton>
         </Link>
       </div>
     </div>

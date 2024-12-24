@@ -6,6 +6,7 @@ import Link from "next/link";
 import getProject from "@/api/cron/route";
 import { useEffect, useState } from "react";
 import SkeletonUI from "@/ui/SkeletonUI";
+import ShineBorder from "@/components/ui/shine-border";
 function Works() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -50,80 +51,85 @@ function Works() {
               className={`grid gap-6   gap-y-6 py-6 md:grid-cols-2  rounded-xl lg:grid-cols-3 `}
             >
               {posts.map((post: any) => (
-                <div
-                  key={post?.title}
-                  className="border h-full  rounded-xl shadow-md dark:bg-slate-900 bg-slate-100 "
+                <ShineBorder
+                  className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl"
+                  color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
                 >
-                  <Image
-                    src={post?.image}
-                    className="aspect-video w-full  rounded-t-xl"
-                    width={500}
-                    height={500}
-                    blurDataURL="blur"
-                    placeholder="blur"
-                    alt={post?.title}
-                  />
-                  <div className="min-h-min p-3">
-                    <p className="mt-4 w-full text-xs font-semibold leading-tight ">
-                      #{post?.category.toLocaleLowerCase()}
-                    </p>
-                    <p
-                      className="mt-4 flex-1 text-base font-semibold"
-                      title={post?.title}
-                    >
-                      {post?.title.length > 40
-                        ? post?.title.substring(0, 38).concat("...")
-                        : post?.title}
-                    </p>
-                    <p
-                      className="mt-2 w-full text-sm leading-normal "
-                      title={post?.details}
-                    >
-                      {post?.details.length > 150
-                        ? post?.details.substring(0, 150).concat("...")
-                        : post?.details}
-                    </p>
+                  <div
+                    key={post?.title}
+                    className="border h-full  rounded-xl shadow-xl dark:bg-slate-900 bg-slate-100 "
+                  >
+                    <Image
+                      src={post?.image}
+                      className="aspect-video w-full  rounded-t-xl"
+                      width={500}
+                      height={500}
+                      blurDataURL="blur"
+                      placeholder="blur"
+                      alt={post?.title}
+                    />
+                    <div className="min-h-min p-3">
+                      <p className="mt-4 w-full text-xs font-semibold leading-tight ">
+                        #{post?.category.toLocaleLowerCase()}
+                      </p>
+                      <p
+                        className="mt-4 flex-1 text-base font-semibold"
+                        title={post?.title}
+                      >
+                        {post?.title.length > 40
+                          ? post?.title.substring(0, 38).concat("...")
+                          : post?.title}
+                      </p>
+                      <p
+                        className="mt-2 w-full text-sm leading-normal "
+                        title={post?.details}
+                      >
+                        {post?.details.length > 150
+                          ? post?.details.substring(0, 150).concat("...")
+                          : post?.details}
+                      </p>
 
-                    {/* <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
+                      {/* <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
                     <p className=" font-semibold capitalize">Tags:</p>
                     <span className="text-sm ">React</span>,
                     <span className="text-sm ">Node</span>,
                     <span className="text-sm ">tailwindcss </span>
                   </div> */}
-                    <div className="mt-4 flex space-x-3 ">
-                      <Image
-                        className="h-full w-10 rounded-lg"
-                        src={post?.avatar}
-                        width={500}
-                        height={500}
-                        blurDataURL="blur"
-                        placeholder="blur"
-                        alt={post?.author}
-                      />
-                      <div>
-                        <p className="text-sm font-semibold leading-tight">
-                          {post?.author}
-                        </p>
-                        <span className="text-sm leading-tight hover:underline hover:text-indigo-500">
-                          <Link href={post?.sourceCode} target="_blank">
-                            View Code
-                          </Link>
-                        </span>
-                      </div>
-                      {post?.liveLink ? (
+                      <div className="mt-4 flex space-x-3 ">
+                        <Image
+                          className="h-full w-10 rounded-lg"
+                          src={post?.avatar}
+                          width={500}
+                          height={500}
+                          blurDataURL="blur"
+                          placeholder="blur"
+                          alt={post?.author}
+                        />
                         <div>
-                          <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                            <Link href={post?.liveLink} target="_blank">
-                              Live Demo
+                          <p className="text-sm font-semibold leading-tight">
+                            {post?.author}
+                          </p>
+                          <span className="text-sm leading-tight hover:underline hover:text-indigo-500">
+                            <Link href={post?.sourceCode} target="_blank">
+                              View Code
                             </Link>
-                          </button>
+                          </span>
                         </div>
-                      ) : (
-                        ""
-                      )}
+                        {post?.liveLink ? (
+                          <div>
+                            <Link href={post?.liveLink} target="_blank">
+                              <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
+                                Live Demo
+                              </button>
+                            </Link>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </ShineBorder>
               ))}
             </div>
           )}

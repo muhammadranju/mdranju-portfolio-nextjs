@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="w-full mt-10 p-2 pt-5 dark:bg-gray-800/50 bg-gray-200/50 sticky top-[100vh]">
       {/* <hr className="my-4" /> */}
-      <div className="mx-auto max-w-7xl items-center lg:justify-between px-4 md:flex lg:px-0">
+      <div className="mx-auto max-w-7xl items-center lg:justify-between px-4 md:flex lg:px-0 w-11/12 md:w-11/12 lg:w-11/12  xl:container">
         <Link href={"/"}>
           <div className="lg:inline-flex items-center hidden">
             <span className="bg-gray-100 rounded p-1 pr-0">

@@ -1,3 +1,4 @@
+import Meteors from "@/components/ui/meteors";
 import { FeatureThree } from "@/ui/FeatureThree";
 import HeroSection from "@/ui/HeroSection";
 import { Projects } from "@/ui/Projects";
