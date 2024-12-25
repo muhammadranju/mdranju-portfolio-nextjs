@@ -20,7 +20,7 @@ export const ContentUs = () => {
           width={500}
           height={500}
           className="object-cover w-full h-56 rounded-xl shadow-lg lg:shadow-none md:h-96 lg:h-full"
-          src="https://avatars.githubusercontent.com/u/80270685?v=4"
+          src="https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/mdranju/s8ngdbn4krci0tthwyon"
           alt=""
         />
       </div>
