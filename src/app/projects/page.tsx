@@ -74,11 +74,11 @@ function Works() {
                         #{post?.category.toLocaleLowerCase()}
                       </p>
                       <div>
-                        <Link href={`/project/${post?._id}`} target="_blank">
+                        {/* <Link href={`/project/${post?._id}`} target="_blank">
                           <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
                             View Project
                           </button>
-                        </Link>
+                        </Link> */}
                       </div>
                       <p
                         className="mt-4 flex-1 text-base font-semibold"
