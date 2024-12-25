@@ -20,7 +20,6 @@ function Works() {
     fetchData();
   }, []);
 
-  console.log(posts);
   return (
     <>
       <title>Project's - MDR</title>
@@ -58,7 +57,7 @@ function Works() {
                   color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
                 >
                   <div
-                    key={post?.title}
+                    key={post?._id}
                     className="border h-full  rounded-xl shadow-xl dark:bg-slate-900 bg-slate-100 "
                   >
                     <Image
@@ -74,6 +73,13 @@ function Works() {
                       <p className="mt-4 w-full text-xs font-semibold leading-tight ">
                         #{post?.category.toLocaleLowerCase()}
                       </p>
+                      <div>
+                        <Link href={`/project/${post?._id}`} target="_blank">
+                          <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
+                            View Project
+                          </button>
+                        </Link>
+                      </div>
                       <p
                         className="mt-4 flex-1 text-base font-semibold"
                         title={post?.title}

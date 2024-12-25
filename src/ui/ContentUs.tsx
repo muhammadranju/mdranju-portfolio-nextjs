@@ -1,4 +1,5 @@
 import BoxReveal from "@/components/ui/box-reveal";
+import Ranju from "../../public/mdranju.jpg";
 import ShinyButton from "@/components/ui/shiny-button";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,8 +21,9 @@ export const ContentUs = () => {
           width={500}
           height={500}
           className="object-cover w-full h-56 rounded-xl shadow-lg lg:shadow-none md:h-96 lg:h-full"
-          src="https://res.cloudinary.com/nodelove/image/upload/f_auto,q_auto/v1/mdranju/s8ngdbn4krci0tthwyon"
-          alt=""
+          placeholder="blur"
+          src={Ranju}
+          alt="Md Ranju Images"
         />
       </div>
       <div className="relative flex flex-col items-start w-full  mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
