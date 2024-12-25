@@ -19,6 +19,8 @@ function Works() {
     };
     fetchData();
   }, []);
+
+  console.log(posts);
   return (
     <>
       <title>Project's - MDR</title>
@@ -52,7 +54,7 @@ function Works() {
             >
               {posts.map((post: any) => (
                 <ShineBorder
-                  className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl"
+                  className="relative flex h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl"
                   color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
                 >
                   <div
@@ -88,13 +90,17 @@ function Works() {
                           ? post?.details.substring(0, 150).concat("...")
                           : post?.details}
                       </p>
+                      {/* {post?.tags.length > 0 ? (
+                        <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
+                          <p className=" font-semibold capitalize">Tags:</p>
+                          {post?.tags.map((tag: any) => (
+                            <span className="text-sm ">{tag}</span>
+                          ))}
+                        </div>
+                      ) : (
+                        ""
+                      )} */}
 
-                      {/* <div className="flex flex-row justify-center lowercase items-center mt-4 space-x-2">
-                    <p className=" font-semibold capitalize">Tags:</p>
-                    <span className="text-sm ">React</span>,
-                    <span className="text-sm ">Node</span>,
-                    <span className="text-sm ">tailwindcss </span>
-                  </div> */}
                       <div className="mt-4 flex space-x-3 ">
                         <Image
                           className="h-full w-10 rounded-lg"

@@ -3,6 +3,7 @@
 import React from "react";
 import { Badge } from "@radix-ui/themes";
 import Link from "next/link";
+import { ContentUs } from "@/ui/ContentUs";
 
 // const users = [
 //   {
@@ -28,8 +29,7 @@ function about() {
 
       <div>
         <div className="mx-auto max-w-7xl px-4 ">
-          {/* Hiring Banner */}
-          <div className=" flex lg:flex-row flex-col gap-10 justify-between py-16">
+          {/* <div className=" flex  lg:flex-row flex-col gap-10 justify-between py-16">
             <div className="space-y-6 w-full">
               <p
                 className="text-sm font-semibold md:text-base rounded "
@@ -68,17 +68,8 @@ function about() {
                 </button>
               </Link>
             </div>
-
-            {/* <div className="md:mt-o mt-10  ">
-              <Image
-                src="https://res.cloudinary.com/nodelove/image/upload/v1719253849/mdranju/i2f3rcfyeuw1q3xuddyg.jpg"
-                alt="Getting Started"
-                className="rounded-full"
-                width={700}
-                height={500}
-              />
-            </div> */}
-          </div>
+          </div> */}
+          <ContentUs />
 
           {/* <hr className="mt-10 mb-4" /> */}
           {/* greetings */}

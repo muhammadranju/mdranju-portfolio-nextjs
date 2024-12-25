@@ -49,7 +49,7 @@ export function Projects() {
           {post.map((post: any) => (
             <div
               key={post?.title}
-              className="border  rounded-xl dark:bg-slate-900 bg-slate-100 shadow-md "
+              className="group relative border rounded-xl dark:bg-slate-900 bg-slate-100 shadow-md"
             >
               <Image
                 src={post?.image}
@@ -61,7 +61,7 @@ export function Projects() {
                 alt={post?.title}
               />
               <div className="min-h-min p-3">
-                <p className="mt-4 w-full text-xs font-semibold leading-tight ">
+                <p className="mt-4 w-full text-xs font-semibold leading-tight">
                   #{post?.category.toLocaleLowerCase()}
                 </p>
                 <p
@@ -73,34 +73,30 @@ export function Projects() {
                     : post?.title}
                 </p>
                 <p
-                  className="mt-2 w-full text-sm leading-normal "
+                  className="mt-2 w-full text-sm leading-normal"
                   title={post?.details}
                 >
                   {post?.details.length > 150
                     ? post?.details.substring(0, 80).concat("...")
                     : post?.details}
                 </p>
-                <div className="mt-4  flex justify-center items-center space-x-10 ">
+              </div>
+              {/* Button Container */}
+              <div className="absolute inset-x-0 bottom-3 flex justify-center items-center space-x-10 transition-all duration-300 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0">
+                <div>
+                  <Link href={post?.sourceCode} target="_blank">
+                    <RippleButton rippleColor="#ADD8E6">View Code</RippleButton>
+                  </Link>
+                </div>
+                {post?.liveLink ? (
                   <div>
-                    <Link href={post?.sourceCode} target="_blank">
-                      <RippleButton rippleColor="#ADD8E6">
-                        View Code
-                      </RippleButton>
+                    <Link href={post?.liveLink} target="_blank">
+                      <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
+                        Live Demo
+                      </button>
                     </Link>
                   </div>
-                  {post?.liveLink ? (
-                    <div>
-                      <Link href={post?.liveLink} target="_blank">
-                        <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                          Live Demo
-                          {/* <InteractiveHoverButton /> */}
-                        </button>
-                      </Link>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
+                ) : null}
               </div>
             </div>
           ))}

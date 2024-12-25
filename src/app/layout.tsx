@@ -8,6 +8,7 @@ import Footer from "@/ui/Footer";
 import metaData from "@/data/metadata.json";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
 
 const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 
@@ -38,6 +39,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* <ScrollToTop /> */}
           {/* <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
           {/* <div className="absolute top-0 z-[-2] bg-white min-h-screen w-full dark:bg-[#000000] dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] dark:bg-[size:20px_20px] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"> */}
           <div className="bg-slate-100 min-h-screen bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]  dark:bg-[#0b112b] text-gray-800 dark:text-gray-200 ">

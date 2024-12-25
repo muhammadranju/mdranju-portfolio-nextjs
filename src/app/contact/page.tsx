@@ -1,10 +1,12 @@
 "use client";
 /* eslint-disable react-hooks/rules-of-hooks */
-
 /* eslint-disable react/no-unescaped-entities */
 import { URL } from "@/api/cron/route";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+import { AnimatedSubscribeButton } from "@/components/ui/animated-subscribe-button";
+
 import { cn } from "@/lib/utils";
+import { CheckIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
@@ -17,6 +19,8 @@ function contact() {
     email: "",
     message: "",
   });
+
+  const [error, setError] = useState("");
   const buttonRef = useRef(null);
 
   const handleInputChange = (event: any) => {
@@ -40,6 +44,18 @@ function contact() {
         body: JSON.stringify(formData),
       });
 
+      if (formData.firstName === "") {
+        setError("First Name is required!");
+      } else if (formData.lastName === "") {
+        setError("Last Name is required!");
+      } else if (formData.email === "") {
+        setError("Email is required!");
+      } else if (formData.phone === "") {
+        setError("Phone number is required!");
+      } else if (formData.message === "") {
+        setError("Message is required!");
+      }
+
       const data = await response.json();
 
       if (data.success) {
@@ -51,6 +67,7 @@ function contact() {
           phone: "",
           message: "",
         });
+        setError("");
       } else {
         toast.error(data.message);
       }
@@ -58,16 +75,17 @@ function contact() {
       console.log(error);
     }
 
-    if (
-      !formData.firstName ||
-      !formData.email ||
-      !formData.lastName ||
-      !formData.message
-    ) {
-      return toast.error("Please fill all the fields!");
-    }
+    // if (
+    //   !formData.firstName ||
+    //   !formData.email ||
+    //   !formData.lastName ||
+    //   !formData.message
+    // ) {
+    //   return toast.error("Please fill all the fields!");
+    // }
   };
 
+  console.log(error);
   // };
 
   return (
@@ -111,13 +129,14 @@ function contact() {
                   <p className="text-2xl font-bold md:text-4xl md:leading-10  text-indigo-500">
                     Get in touch
                   </p>
+
                   <p className="mt-4 text-lg ">
                     Our friendly team would love to hear from you.
                   </p>
                   <form
                     action=""
                     onSubmit={handleSubmit}
-                    className="mt-8 space-y-4 rounded-xl  border p-6 pb-10 dark:bg-slate-900 bg-slate-100"
+                    className="mt-8 space-y-4 rounded-xl  border p-6 pb-5 dark:bg-slate-900 bg-slate-100"
                   >
                     <div className="grid w-full gap-y-4 md:gap-x-4 lg:grid-cols-2">
                       <div className="grid w-full  items-center gap-1.5">
@@ -136,6 +155,11 @@ function contact() {
                           value={formData.firstName}
                           onChange={handleInputChange}
                         />
+                        <span className="text-xs text-red-500">
+                          {error.includes("First Name")
+                            ? "First Name is required!"
+                            : ""}
+                        </span>
                       </div>
                       <div className="grid w-full  items-center gap-1.5">
                         <label
@@ -153,6 +177,11 @@ function contact() {
                           value={formData.lastName}
                           onChange={handleInputChange}
                         />
+                        <span className="text-xs text-red-500">
+                          {error.includes("Last Name")
+                            ? "Last Name is required!"
+                            : ""}
+                        </span>
                       </div>
                     </div>
                     <div className="grid w-full  items-center gap-1.5">
@@ -171,6 +200,9 @@ function contact() {
                         value={formData.email}
                         onChange={handleInputChange}
                       />
+                      <span className="text-xs text-red-500">
+                        {error.includes("Email") ? "Email is required!" : ""}
+                      </span>
                     </div>
                     <div className="grid w-full  items-center gap-1.5">
                       <label
@@ -188,6 +220,11 @@ function contact() {
                         value={formData.phone}
                         placeholder="Phone number"
                       />
+                      <span className="text-xs text-red-500">
+                        {error.includes("Phone number")
+                          ? "Phone number is required!"
+                          : ""}
+                      </span>
                     </div>
                     <div className="grid w-full  items-center gap-1.5">
                       <label
@@ -205,14 +242,36 @@ function contact() {
                         value={formData.message}
                         onChange={handleInputChange}
                       />
+                      <span className="text-xs text-red-500">
+                        {error.includes("Message")
+                          ? "Message is required!"
+                          : ""}
+                      </span>
                     </div>
-                    <button
+                    {/* <button
                       type="submit"
                       ref={buttonRef}
                       className=" btn w-full rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                     >
                       Send Message
-                    </button>
+                    </button> */}
+                    <AnimatedSubscribeButton
+                      buttonColor="#6366f1 "
+                      buttonTextColor="#ffffff"
+                      subscribeStatus={false}
+                      initialText={
+                        <span className="group inline-flex items-center">
+                          Send Message{" "}
+                          <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
+                      }
+                      changeText={
+                        <span className="group inline-flex items-center">
+                          <CheckIcon className="mr-2 size-4" />
+                          {error ? "Message Sent Failed!" : "Message Sended"}
+                        </span>
+                      }
+                    />
                   </form>
                 </div>
               </div>
@@ -220,8 +279,8 @@ function contact() {
                 alt="Contact us"
                 width={500}
                 height={500}
-                className="hidden h-3/5 w-full rounded-lg object-cover lg:block"
-                src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&h=800&q=80"
+                className="hidden w-full rounded-lg object-cover drop-shadow-xl lg:block"
+                src="./Mention-bro.svg"
               />
             </div>
           </div>
