@@ -41,16 +41,15 @@ export function FeatureThree() {
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
-          {/*  */}
-          <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1"}>
+       
+          <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1 "}>
             <div className="rounded-lg p-5">
-              <div className="mx-auto flex h-20 w-20  items-center justify-center rounded-full ">
-                {imageLink.react}
+              <div className="mx-auto flex h-20 w-20 items-center  justify-center rounded-full ">
+              {imageLink.react}
               </div>
-              <h3 className="mt-8 text-lg font-semibold">React.js</h3>
-
+              <h3 className="mt-8 text-lg font-semibold ">React.js</h3>
               <p className="mt-4 text-sm ">
-                React.js for Frontend development.
+                React.js for Frontend and User-Interface Development.
               </p>
             </div>
           </MagicCard>
@@ -62,10 +61,11 @@ export function FeatureThree() {
               </div>
               <h3 className="mt-8 text-lg font-semibold ">Next.js</h3>
               <p className="mt-4 text-sm ">
-                Next.js for frontend and backend both development.
+                Next.js for Frontend and Backend Both Development.
               </p>
             </div>
           </MagicCard>
+
           <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1 "}>
             <div className="rounded-lg p-5">
               <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full ">
@@ -75,7 +75,7 @@ export function FeatureThree() {
                 Node.JS & Express.js
               </h3>
               <p className="mt-4 text-sm ">
-                Node.JS & Express.js for backend API's development.
+                Node.JS & Express.js for Backend API's Development.
               </p>
             </div>
           </MagicCard>
@@ -87,7 +87,7 @@ export function FeatureThree() {
               </div>
               <h3 className="mt-8 text-lg font-semibold ">MongoDB Database</h3>
               <p className="mt-4 text-sm ">
-                MongoDB for backend API's Database Management.
+                MongoDB for Backend API's Database Management.
               </p>
             </div>
           </MagicCard>

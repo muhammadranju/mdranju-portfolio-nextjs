@@ -3,18 +3,6 @@ import heroImage from "../../public/hero-image.jpeg";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import SparklesText from "@/components/ui/sparkles-text";
-import MorphingText from "@/components/ui/morphing-text";
-const texts = [
-  "Hello",
-  "Morphing",
-  "Text",
-  "Animation",
-  "React",
-  "Component",
-  "Smooth",
-  "Transition",
-  "Engaging",
-];
 /* eslint-disable react/no-unescaped-entities */
 function HeroSection() {
   return (
@@ -76,11 +64,13 @@ function HeroSection() {
             >
               Download Resume
             </button> */}
+            <a href="https://docs.google.com/document/d/1cG2oQ9FdfZuDy9EUKx6txxy60nDFtt6zR-yqo1LeHpM" target="_blank">
             <ShimmerButton className="shadow-2xl">
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
-                Download Resume
+                My Resume
               </span>
             </ShimmerButton>
+            </a>
           </div>
         </div>
         <hr className="my-5 w-full -mt-3" />

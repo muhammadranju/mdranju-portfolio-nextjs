@@ -5,10 +5,8 @@ import Image from "next/image";
 import getProject from "@/api/cron/route";
 import { useEffect, useState } from "react";
 import SkeletonUI2 from "./SkeletonUI2";
-import { BorderBeam } from "@/components/ui/border-beam";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import RippleButton from "@/components/ui/ripple-button";
-import InteractiveHoverButton from "@/components/ui/interactive-hover-button";
 
 export function Projects() {
   const [result, setResult] = useState([]);
@@ -23,7 +21,7 @@ export function Projects() {
     fetchData();
   }, []);
 
-  const post = result?.slice(0, 8);
+  const post = result?.slice(0, 6);
 
   return (
     <div className="max-w-7xl mx-auto py-10 mb-5 flex flex-col items-center justify-center lg:px-0 px-3">
@@ -33,19 +31,19 @@ export function Projects() {
         </p>
       </div>
       {loading && (
-        <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3 rounded-2xl lg:grid-cols-4">
+        <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3 rounded-2xl lg:grid-cols-3">
+       
           <SkeletonUI2 />
           <SkeletonUI2 />
           <SkeletonUI2 />
           <SkeletonUI2 />
           <SkeletonUI2 />
-          <SkeletonUI2 />
-          <SkeletonUI2 />
-          <SkeletonUI2 />
-        </div>
+          <SkeletonUI2 /> 
+          
+         </div>
       )}
       {!loading && (
-        <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3 rounded-2xl lg:grid-cols-4">
+        <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3 rounded-2xl lg:grid-cols-3">
           {post.map((post: any) => (
             <div
               key={post?.title}

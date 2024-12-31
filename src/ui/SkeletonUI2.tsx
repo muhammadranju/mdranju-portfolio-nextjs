@@ -2,19 +2,17 @@ import React from "react";
 
 const SkeletonUI2 = () => {
   return (
-    <div className="flex w-full flex-col gap-4 dark:bg-slate-800 bg-slate-300  p-5 rounded-xl">
-      <div className="skeleton  dark:bg-slate-500 bg-slate-200  h-40 w-64"></div>
-      <div className="skeleton  dark:bg-slate-500 bg-slate-200  h-4 w-28 "></div>
-      <div className="skeleton  dark:bg-slate-500 bg-slate-200  h-4 w-full"></div>
-      <div className="skeleton  dark:bg-slate-500 bg-slate-200  h-4 w-full"></div>
-      <div className="skeleton  dark:bg-slate-500 bg-slate-200  h-4 w-full"></div>
-      <div className="skeleton  dark:bg-slate-500 bg-slate-200  h-4 w-full"></div>
+    <div className="group relative border rounded-xl dark:bg-slate-800 bg-slate-300 shadow-md animate-pulse">
+  <div className="aspect-video w-full rounded-t-xl dark:bg-slate-500 bg-slate-200 h-64" />
+  <div className="p-3">
+    <div className="mt-4 w-3/5 h-4 dark:bg-slate-500 bg-slate-200 rounded-xl" />
+    <div className="mt-4 h-4 dark:bg-slate-500 bg-slate-200 w-3/4 rounded-xl" />
+    <div className="mt-4 w-full h-4 dark:bg-slate-500 bg-slate-200 rounded-xl" />
+    <div className="mt-4 w-full h-4 dark:bg-slate-500 bg-slate-200 rounded-xl" />
+  </div>
+ 
+</div>
 
-      <div className="flex gap-3 justify-around items-center">
-        <div className="skeleton h-10 w-24 dark:bg-slate-500 bg-slate-200  shrink-0 rounded-xl"></div>
-        <div className="skeleton h-10 w-24 dark:bg-slate-500 bg-slate-200  shrink-0 rounded-xl"></div>
-      </div>
-    </div>
   );
 };
 

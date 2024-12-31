@@ -50,7 +50,8 @@ function Works() {
           {!loading && (
             <div
               className={`grid gap-6   gap-y-6 py-6 md:grid-cols-2  rounded-xl lg:grid-cols-3 `}
-            >
+              >
+             
               {posts.map((post: any) => (
                 <ShineBorder
                   className="relative flex h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl"
