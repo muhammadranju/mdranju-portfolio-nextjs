@@ -7,6 +7,11 @@ import getProject from "@/api/cron/route";
 import { useEffect, useState } from "react";
 import SkeletonUI from "@/ui/SkeletonUI";
 import ShineBorder from "@/components/ui/shine-border";
+import { MdOpenInNew } from "react-icons/md";
+import { FaCode, FaGithub } from "react-icons/fa6";
+
+import { format } from "date-fns";
+
 function Works() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -50,16 +55,15 @@ function Works() {
           {!loading && (
             <div
               className={`grid gap-6   gap-y-6 py-6 md:grid-cols-2  rounded-xl lg:grid-cols-3 `}
-              >
-             
+            >
               {posts.map((post: any) => (
                 <ShineBorder
-                  className="relative flex h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl"
+                  className="relative flex lg:h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl"
                   color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
                 >
                   <div
                     key={post?._id}
-                    className="border h-full  rounded-xl shadow-xl dark:bg-slate-900 bg-slate-100 "
+                    className="border h-full group  rounded-xl shadow-xl dark:bg-slate-900 bg-slate-100 "
                   >
                     <Image
                       src={post?.image}
@@ -122,20 +126,33 @@ function Works() {
                           <p className="text-sm font-semibold leading-tight">
                             {post?.author}
                           </p>
-                          <span className="text-sm leading-tight hover:underline hover:text-indigo-500">
-                            <Link href={post?.sourceCode} target="_blank">
+                          <span className="text-xs leading-tight ">
+                            {/* <Link href={post?.sourceCode} target="_blank">
                               View Code
-                            </Link>
+                            </Link> */}
+                            Added:{" "}
+                            {format(new Date(post?.createdAt), "dd/MM/yyyy")}
                           </span>
                         </div>
+
+                        <div>
+                          <Link href={post?.sourceCode} target="_blank">
+                            <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-slate-800 text-white hover:bg-slate-700/90">
+                            <FaGithub className="font-extrabold text-lg" /> Code 
+                            </button>
+                          </Link>
+                        </div>
                         {post?.liveLink ? (
-                          <div>
-                            <Link href={post?.liveLink} target="_blank">
-                              <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                                Live Demo
-                              </button>
-                            </Link>
-                          </div>
+                          <>
+                            <div>
+                              <Link href={post?.liveLink} target="_blank">
+                                <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-indigo-500 text-white hover:bg-indigo-600">
+                                <MdOpenInNew className="font-extrabold text-lg" /> Live
+                                  
+                                </button>
+                              </Link>
+                            </div>
+                          </>
                         ) : (
                           ""
                         )}

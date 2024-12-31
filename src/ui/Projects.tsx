@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import SkeletonUI2 from "./SkeletonUI2";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import RippleButton from "@/components/ui/ripple-button";
+import {  FaGithub } from "react-icons/fa6";
+import { MdOpenInNew } from "react-icons/md";
 
 export function Projects() {
   const [result, setResult] = useState([]);
@@ -32,15 +34,13 @@ export function Projects() {
       </div>
       {loading && (
         <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3 rounded-2xl lg:grid-cols-3">
-       
           <SkeletonUI2 />
           <SkeletonUI2 />
           <SkeletonUI2 />
           <SkeletonUI2 />
           <SkeletonUI2 />
-          <SkeletonUI2 /> 
-          
-         </div>
+          <SkeletonUI2 />
+        </div>
       )}
       {!loading && (
         <div className="grid gap-6 gap-y-10 py-6 md:grid-cols-2 lg:px-0 px-3 rounded-2xl lg:grid-cols-3">
@@ -82,15 +82,25 @@ export function Projects() {
               {/* Button Container */}
               <div className="absolute inset-x-0 bottom-3 flex justify-center items-center space-x-10 transition-all duration-300 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0">
                 <div>
-                  <Link href={post?.sourceCode} target="_blank">
-                    <RippleButton rippleColor="#ADD8E6">View Code</RippleButton>
+                  <Link
+                    href={post?.sourceCode}
+                    target="_blank"
+                    className="flex gap-x-1 items-center"
+                  >
+                    {/* <RippleButton rippleColor="#ADD8E6" className="flex gap-x-1 items-center">
+                      <FaCode className="font-extrabold text-lg" />
+                      View Code
+                    </RippleButton> */}
+                    <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-slate-800 text-white hover:bg-slate-700">
+                    <FaGithub  className="font-extrabold text-lg" />  GitHub 
+                    </button>
                   </Link>
                 </div>
                 {post?.liveLink ? (
                   <div>
                     <Link href={post?.liveLink} target="_blank">
-                      <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                        Live Demo
+                      <button className="rounded-lg  flex gap-x-1 items-center shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-indigo-500 text-white hover:bg-indigo-600">
+                      <MdOpenInNew className="font-extrabold text-lg" />  Live 
                       </button>
                     </Link>
                   </div>

@@ -28,10 +28,7 @@ export const ContentUs = () => {
       </div>
       <div className="relative flex flex-col items-start w-full  mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
         <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-          {/* <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl sm:leading-none">
-            About Me
-          </h2> */}
-          <BoxReveal boxColor={"#6366f1"} duration={0.5}>
+                   <BoxReveal boxColor={"#6366f1"} duration={0.5}>
             <p className="text-[2rem] font-semibold rounded-lg">
               About Me<span className="text-[#6366f1]">.</span>
             </p>
