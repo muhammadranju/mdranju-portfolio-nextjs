@@ -11,6 +11,8 @@ import { MdOpenInNew } from "react-icons/md";
 import { FaCode, FaGithub } from "react-icons/fa6";
 
 import { format } from "date-fns";
+import Meteors from "@/components/ui/meteors";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 function Works() {
   const [posts, setPosts] = useState([]);
@@ -29,7 +31,8 @@ function Works() {
     <>
       <title>Project's - MDR</title>
 
-      <div>
+      <div className="relative overflow-hidden  py-20">
+        <Meteors number={30} />
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col  pb-10 pt-12 md:pt-24">
             <p className="text-3xl font-bold  md:text-5xl md:leading-10 mb-8 leading-tightsm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-cyan-500 via-30% to-sky-500 to-90%">
@@ -136,20 +139,45 @@ function Works() {
                         </div>
 
                         <div>
-                          <Link href={post?.sourceCode} target="_blank">
-                            <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-slate-800 text-white hover:bg-slate-700/90">
-                            <FaGithub className="font-extrabold text-lg" /> Code 
-                            </button>
+                          <Link
+                            href={post?.sourceCode}
+                            target="_blank"
+                            className="transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0"
+                          >
+                            {/* <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-slate-800 text-white hover:bg-slate-700/90">
+                              <FaGithub className="font-extrabold text-lg" />{" "}
+                              Code
+                            </button> */}
+                            <HoverBorderGradient
+                              containerClassName="rounded-lg"
+                              as="button"
+                              className="dark:bg-slate-800 bg-slate-100 text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+                            >
+                              <FaGithub className="font-extrabold text-lg " />{" "}
+                              {/* Code */}
+                            </HoverBorderGradient>
                           </Link>
                         </div>
                         {post?.liveLink ? (
                           <>
                             <div>
-                              <Link href={post?.liveLink} target="_blank">
-                                <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-indigo-500 text-white hover:bg-indigo-600">
-                                <MdOpenInNew className="font-extrabold text-lg" /> Live
-                                  
-                                </button>
+                              <Link
+                                href={post?.liveLink}
+                                target="_blank"
+                                className="transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0"
+                              >
+                                {/* <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-indigo-500 text-white hover:bg-indigo-600">
+                                  <MdOpenInNew className="font-extrabold text-lg" />{" "}
+                                  Live
+                                </button> */}
+                                <HoverBorderGradient
+                                  containerClassName="rounded-lg"
+                                  as="button"
+                                  className="dark:bg-indigo-500 bg-slate-100 text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+                                >
+                                  <MdOpenInNew className="font-extrabold text-lg " />{" "}
+                                  {/* Live */}
+                                </HoverBorderGradient>
                               </Link>
                             </div>
                           </>

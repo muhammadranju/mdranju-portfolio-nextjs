@@ -106,7 +106,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
 
   return (
     <div
-      className={cn("lg:text-2xl text-xl font-bold", className)}
+      className={cn("lg:text-base text-xl font-bold", className)}
       {...props}
       style={
         {

@@ -4,6 +4,8 @@ import React from "react";
 import { Badge } from "@radix-ui/themes";
 import Link from "next/link";
 import { ContentUs } from "@/ui/ContentUs";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 // const users = [
 //   {
@@ -28,7 +30,7 @@ function about() {
       <title>About - MDR</title>
 
       <div>
-        <div className="mx-auto max-w-7xl px-4 ">
+        <div className="mx-auto max-w-7xl px-4 lg:py-20">
           {/* <div className=" flex  lg:flex-row flex-col gap-10 justify-between py-16">
             <div className="space-y-6 w-full">
               <p
@@ -69,7 +71,10 @@ function about() {
               </Link>
             </div>
           </div> */}
+         
           <ContentUs />
+          <BackgroundBeams />
+            
 
           {/* <hr className="mt-10 mb-4" /> */}
           {/* greetings */}

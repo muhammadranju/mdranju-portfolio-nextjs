@@ -102,7 +102,7 @@ function contact() {
           "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12"
         )}
       />
-      <div className="z-50">
+      <div className="z-50 py-20">
         <div className="mx-auto max-w-7xl px-4">
           {/* Hero Map */}
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">

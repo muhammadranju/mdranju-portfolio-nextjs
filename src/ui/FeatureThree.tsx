@@ -25,6 +25,7 @@ export function FeatureThree() {
   const { theme } = useTheme();
   return (
     <div className="w-full py-20  dark:bg-slate-900/30 bg-gray-300/20">
+    
       {/* <hr className="my-8   w-full" /> */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
         <div className="mx-auto max-w-xl text-center">

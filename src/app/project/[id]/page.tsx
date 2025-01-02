@@ -68,7 +68,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <div>
+    <div className=" lg:py-20">
       <h1>{project.title}</h1>
       <p>{project.details}</p>
       {project.image && <img src={project.image} alt={project.title} />}

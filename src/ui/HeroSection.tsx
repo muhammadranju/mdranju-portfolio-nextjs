@@ -3,14 +3,32 @@ import heroImage from "../../public/hero-image.jpeg";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import SparklesText from "@/components/ui/sparkles-text";
+import { Spotlight } from "@/components/ui/spotlight";
+import { FlipWords } from "@/components/ui/flip-words";
 /* eslint-disable react/no-unescaped-entities */
+const words = [
+  "Javascript.",
+  "React.js",
+  "Node.js",
+  "Frontend.",
+  "Backend.",
+  "Next.js",
+];
 function HeroSection() {
   return (
-    <div className="relative w-full mb-20">
+    <div className="relative w-full py-20 bg-slate-90 antialiased  overflow-hidden ">
+
+      <div className="-z-20 dark:flex hidden">
+        <Spotlight
+          className="-top-32 left-0 md:left-80 md:-top-20 -z-0"
+          fill="white"
+        />
+      </div>
+
       <div className="mx-auto max-w-7xl lg:px-8">
         <div className="flex flex-col justify-center px-4 py-10 lg:px-6">
           <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">
-            Hey there!🙂
+            <SparklesText className="mx-2 text-xl" text="Hey there!🙂" />
           </div>
           <h1 className="mt-3 max-w-4xl text-4xl font-extrabold tracking-tight md:text-4xl lg:text-6xl flex">
             <span className="mr-3 font-medium">I'm</span>
@@ -18,24 +36,15 @@ function HeroSection() {
               Muhammad Ranju
             </span>
           </h1>
-          <h2 className="mt-6 font-bold lg:text-2xl text-xl hidden lg:flex flex-row items-center">
-            <span className="lg:text-2xl text-xl">
+          <h2 className="mt-6 font-bold lg:text-2xl text-xl flex flex-row items-center">
+            <span className="lg:text-2xl text-lg">
               I am a Web App Developer in
             </span>
-            <div>
-              <SparklesText className="mx-2 text-2xl" text="JavaScript." />
+            <div className="text-slate-900">
+              <FlipWords words={words} />
             </div>
           </h2>
 
-          <h2 className="mt-6 font-bold lg:hidden lg:text-2xl text-xl flex flex-row items-center">
-            <span className="lg:text-2xl text-xl">
-              I am a Web Application Developer in
-              <SparklesText
-                className="lg:text-2xl text-3xl"
-                text="JavaScript."
-              />
-            </span>
-          </h2>
           <p className="mt-5  text-base font-medium lg:w-4/5">
             Welcome to my Portfolio. I hope you well to visit, I am Muhammad
             Ranju I'm working BackEnd in Node.js and FontEnd in React.js. I have
@@ -64,12 +73,15 @@ function HeroSection() {
             >
               Download Resume
             </button> */}
-            <a href="https://docs.google.com/document/d/1cG2oQ9FdfZuDy9EUKx6txxy60nDFtt6zR-yqo1LeHpM" target="_blank">
-            <ShimmerButton className="shadow-2xl">
-              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
-                My Resume
-              </span>
-            </ShimmerButton>
+            <a
+              href="https://docs.google.com/document/d/1cG2oQ9FdfZuDy9EUKx6txxy60nDFtt6zR-yqo1LeHpM"
+              target="_blank"
+            >
+              <ShimmerButton className="shadow-2xl">
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
+                  My Resume
+                </span>
+              </ShimmerButton>
             </a>
           </div>
         </div>

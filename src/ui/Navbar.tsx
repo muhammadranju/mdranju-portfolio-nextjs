@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
+
 const resume = "My Resume";
 const menuItems = [
   {
@@ -26,7 +27,7 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="sticky lg:top-3 top-0 z-40  mx-auto max-w-7xl rounded-full lg:border lg:border-slate-500/10  flex-none shadow-sm transition-colors duration-500 lg:z-50  dark:border-slate-50/[0.06]   bg-slate-50/5 backdrop-blur-2xl supports-backdrop-blur:bg-white/10 dark:bg-slate-900/5 ">
+    <header className="sticky lg:top-3 top-0 z-40  mx-auto max-w-7xl rounded-full lg:border lg:border-slate-500/10  flex-none shadow-sm transition-colors duration-500 lg:z-50  dark:border-slate-50/[0.06]   bg-slate-50/5 backdrop-blur-2xl supports-backdrop-blur:bg-white/10 dark:bg-slate-900/5 -mb-20">
       <div className="relative w-full">
         <div className="bg-background text-foreground" />
         <div className="mx-auto flex container items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
@@ -129,6 +130,8 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                 >
                   <span className="ml-3 text-base font-medium text-slate-900 dark:text-slate-100">
                     {item.name}
+                    
+
                   </span>
                   <span>
                     <ChevronRight className="ml-3 h-4 w-4" />
