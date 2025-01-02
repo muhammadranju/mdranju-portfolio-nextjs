@@ -65,6 +65,16 @@ const config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		keyframes: {
+			spotlight: {
+				"0%": {
+				  opacity: '0',
+				  transform: "translate(-72%, -62%) scale(0.5)",
+				},
+				"100%": {
+				  opacity: '1',
+				  transform: "translate(-50%,-40%) scale(1)",
+				},
+			  },
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -157,7 +167,7 @@ const config = {
   			shine: 'shine var(--duration) infinite linear',
   			meteor: 'meteor 5s linear infinite',
   			rainbow: 'rainbow var(--speed, 2s) infinite linear',
-  			rippling: 'rippling var(--duration) ease-out'
+  			rippling: 'rippling var(--duration) ease-out',
   		}
   	}
   },
