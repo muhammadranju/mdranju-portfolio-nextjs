@@ -71,10 +71,8 @@ function about() {
               </Link>
             </div>
           </div> */}
-         
+
           <ContentUs />
-          <BackgroundBeams />
-            
 
           {/* <hr className="mt-10 mb-4" /> */}
           {/* greetings */}

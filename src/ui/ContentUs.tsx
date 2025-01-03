@@ -21,13 +21,15 @@ export const ContentUs = () => {
         <Image
           width={500}
           height={500}
-          className="object-cover z-10  w-full h-56 rounded-xl shadow-lg lg:shadow-none md:h-96 lg:h-full"
+          className="object-cover z-50 overflow-hidden w-full h-56 rounded-xl shadow-lg lg:shadow-none md:h-96 lg:h-full"
           placeholder="blur"
           src={Ranju}
           alt="Md Ranju Images"
         />
       </div>
+
       <div className="relative flex flex-col items-start w-full z-10  mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
+        <BackgroundBeams />
         <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5 z-10">
           <BoxReveal boxColor={"#6366f1"} duration={0.5}>
             <p className="text-[2rem] font-semibold rounded-lg">
@@ -49,7 +51,7 @@ export const ContentUs = () => {
             Development, allowing me to build dynamic, responsive websites and
             applications from the ground up. My skill set spans a variety of
             programming languages and frameworks, including HTML, CSS,
-            JavaScript, and Node.JS backend nad more technologies. I'm committed
+            JavaScript, and Node.JS backend and more technologies. I'm committed
             to delivering efficient, high-quality solutions that meet the needs
             of clients and users.
           </p>
@@ -60,7 +62,6 @@ export const ContentUs = () => {
           </div>
         </div>
       </div>
-    
     </div>
   );
 };

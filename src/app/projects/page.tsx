@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import SkeletonUI from "@/ui/SkeletonUI";
 import ShineBorder from "@/components/ui/shine-border";
 import { MdOpenInNew } from "react-icons/md";
-import { FaCode, FaGithub } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
 
 import { format } from "date-fns";
 import Meteors from "@/components/ui/meteors";
@@ -31,7 +31,7 @@ function Works() {
     <>
       <title>Project's - MDR</title>
 
-      <div className="relative overflow-hidden  py-20">
+      <div className="relative overflow-hidden  dark:bg-[#020617]  py-20">
         <Meteors number={30} />
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col  pb-10 pt-12 md:pt-24">

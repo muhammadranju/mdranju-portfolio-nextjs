@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import { toast } from "react-toastify";
 
 function contact() {
@@ -102,7 +104,7 @@ function contact() {
           "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12"
         )}
       />
-      <div className="z-50 py-20">
+      <div className="z-50 py-20 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
         <div className="mx-auto max-w-7xl px-4">
           {/* Hero Map */}
           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
@@ -133,6 +135,19 @@ function contact() {
                   <p className="mt-4 text-lg ">
                     Our friendly team would love to hear from you.
                   </p>
+                  <div className="space-y-2 mt-3">
+                    <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                      <MdEmail className="mr-2" /> Email: mdranju23@gmail.com
+                    </div>
+                    <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                      <FaPhone className="mr-2" />
+                      Number: +91 9876543210
+                    </div>
+                    <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                      <FaLocationDot className="mr-2" />
+                      Location: Rajshahi, Bangladesh
+                    </div>
+                  </div>
                   <form
                     action=""
                     onSubmit={handleSubmit}
@@ -145,6 +160,7 @@ function contact() {
                           htmlFor="first_name"
                         >
                           First Name
+                          <span className="text-xs text-red-500">*</span>
                         </label>
                         <input
                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
@@ -167,6 +183,7 @@ function contact() {
                           htmlFor="last_name"
                         >
                           Last Name
+                          <span className="text-xs text-red-500">*</span>{" "}
                         </label>
                         <input
                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
@@ -189,7 +206,7 @@ function contact() {
                         className="text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="email"
                       >
-                        Email
+                        Email<span className="text-xs text-red-500">*</span>
                       </label>
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
@@ -209,7 +226,8 @@ function contact() {
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="phone_number"
                       >
-                        Phone number <small>(Optional)</small>
+                        Phone number
+                        <span className="text-xs text-red-500">*</span>
                       </label>
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
@@ -231,7 +249,7 @@ function contact() {
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="message"
                       >
-                        Message
+                        Message<span className="text-xs text-red-500">*</span>
                       </label>
                       <textarea
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"

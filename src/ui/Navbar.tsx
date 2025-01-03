@@ -8,6 +8,10 @@ import { ModeToggle } from "@/components/ui/ModeToggle";
 const resume = "My Resume";
 const menuItems = [
   {
+    name: "Home",
+    href: "/",
+  },
+  {
     name: "Projects",
     href: "/projects",
   },
@@ -130,8 +134,6 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                 >
                   <span className="ml-3 text-base font-medium text-slate-900 dark:text-slate-100">
                     {item.name}
-                    
-
                   </span>
                   <span>
                     <ChevronRight className="ml-3 h-4 w-4" />
