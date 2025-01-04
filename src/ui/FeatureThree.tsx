@@ -42,9 +42,9 @@ export function FeatureThree() {
             These are my working Skills & Services I have done.
           </p>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-y-8 lg:px-0 px-6 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
           <MagicCard gradientColor={theme === "dark" ? "#1e293b" : "#cbd5e1 "}>
-            <div className="rounded-lg p-5">
+            <div className="rounded-lg p-5 w-full">
               <div className="mx-auto flex h-20 w-20 items-center  justify-center rounded-full ">
                 {imageLink.react}
               </div>

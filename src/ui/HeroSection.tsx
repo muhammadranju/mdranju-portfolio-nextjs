@@ -16,6 +16,9 @@ import SparklesText from "@/components/ui/sparkles-text";
 import { Spotlight } from "@/components/ui/spotlight";
 import { FlipWords } from "@/components/ui/flip-words";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
+import Link from "next/link";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+
 /* eslint-disable react/no-unescaped-entities */
 const words = [
   "Javascript.",
@@ -27,7 +30,7 @@ const words = [
 ];
 function HeroSection() {
   return (
-    <div className="relative w-full py-20 pt-32 dark:bg-[#020617]  antialiased  overflow-hidden ">
+    <div className="relative w-full lg:py-20 lg:pt-32 pt-10 dark:bg-[#020617]  antialiased  overflow-hidden ">
       <div className="-z-20 dark:flex hidden">
         <Spotlight
           className="-top-32 left-0 md:left-80 md:-top-20 -z-0"
@@ -85,16 +88,28 @@ function HeroSection() {
             >
               Download Resume
             </button> */}
-              <a
-                href="https://docs.google.com/document/d/1cG2oQ9FdfZuDy9EUKx6txxy60nDFtt6zR-yqo1LeHpM"
-                target="_blank"
-              >
-                <ShimmerButton className="shadow-2xl">
-                  <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
-                    Download Resume
-                  </span>
-                </ShimmerButton>
-              </a>
+              <div className="flex mt-5 gap-x-2 border-white border-collapse rounded">
+                <a
+                  href="https://docs.google.com/document/d/1cG2oQ9FdfZuDy9EUKx6txxy60nDFtt6zR-yqo1LeHpM"
+                  target="_blank"
+                >
+                  <ShimmerButton className="shadow-2xl">
+                    <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
+                      Download Resume
+                    </span>
+                  </ShimmerButton>
+                </a>
+
+                <Link href="/contact">
+                  <HoverBorderGradient
+                    containerClassName="rounded-full"
+                    as="button"
+                    className="dark:bg-slate-900 lg:py-3 py-1.5 bg-white text-black dark:text-white flex items-center space-x-2"
+                  >
+                    <span>Contact Me</span>
+                  </HoverBorderGradient>
+                </Link>
+              </div>
             </div>
           </div>
 
