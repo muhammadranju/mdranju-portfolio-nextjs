@@ -15,6 +15,10 @@ const menuItems = [
     name: "Projects",
     href: "/projects",
   },
+  // {
+  //   name: "Experience",
+  //   href: "/experience",
+  // },
   {
     name: "About",
     href: "/about",
@@ -95,7 +99,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center text-xl font-bold mr-5  hover:text-gray-500   hover:underline hover:underline-offset-4 "
+                    className="inline-flex items-center text-lg font-bold mr-5  hover:text-gray-500   hover:underline hover:underline-offset-4 "
                   >
                     {item.name}
                     <span>

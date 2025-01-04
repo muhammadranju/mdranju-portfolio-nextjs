@@ -22,11 +22,11 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 /* eslint-disable react/no-unescaped-entities */
 const words = [
   "Javascript.",
-  "React.js",
   "Node.js",
-  "Frontend.",
-  "Backend.",
+  "React.js",
   "Next.js",
+  "Backend.",
+  "Frontend.",
 ];
 function HeroSection() {
   return (
@@ -50,23 +50,25 @@ function HeroSection() {
                 Muhammad Ranju
               </span>
             </h1>
-            <h2 className="mt-6 font-bold lg:text-2xl md:text-xl sm:text-sm flex flex-row items-center">
+            <h2 className="mt-6 font-bold lg:text-2xl md:text-xl sm:text-lg flex flex-row items-center">
               <span className="">I am a Web App Developer in</span>
               <div className="text-slate-900">
                 <FlipWords words={words} />
               </div>
             </h2>
-
             <p className="mt-5  text-base font-medium lg:w-4/5">
-              Welcome to my Portfolio. I hope you well to visit, I am Muhammad
-              Ranju I'm working BackEnd in Node.js and FontEnd in React.js. I
-              have 2+ years of experience in Node.js, Express.js, MongoDB,
-              React.js and other related technologies. I have worked on various
-              projects, including E-Commerce API, Website Design and Development
-              and many more. I am passionate about learning new technologies and
-              building solutions that make a difference. Thank you for visiting
-              my portfolio. I hope you will like my work, Happy coding🧑🏻‍💻.
+              Welcome to my portfolio! I hope you enjoy your visit. I specialize
+              in Back-End development with Node.js and Front-End development
+              with React.js. I have worked on various projects, including a Real
+              Link Shortener, E-Commerce APIs, React-based Website Design and
+              Development, and more.
+              <br />I am passionate about learning new technologies and building
+              solutions that make a difference. Thank you for visiting my
+              portfolio! I hope you like my work. Happy coding! 🧑🏻‍💻
             </p>
+
+            {/*I have 2+ years of experience in Node.js, Express.js, MongoDB,
+              React.js and other related technologies. */}
             <div className="flex gap-5 mt-5 border-white border-collapse rounded">
               <a href="https://github.com/muhammadranju" target="_blank">
                 <FaGithub className="h-7 w-7" />
@@ -120,17 +122,17 @@ function HeroSection() {
 
             <OrbitingCircles iconSize={40}>
               <FaNode className="text-green-500 lg:text-8xl text-3xl" />
-              <DiMongodb className="text-green-500 lg:text-8xl text-3xl" />
+              <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
               <SiExpress className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
-              <FaReact className="text-blue-500 lg:text-8xl text-3xl" />
+              <FaReact className="text-sky-500 lg:text-8xl text-3xl" />
               <SiTailwindcss className="text-cyan-500 lg:text-8xl text-3xl" />
               <SiNextdotjs className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
               <RiJavascriptFill className="text-yellow-500 lg:text-8xl text-3xl" />
-              <DiMongodb className="text-green-500 lg:text-8xl text-3xl" />
             </OrbitingCircles>
 
             <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
-              <FaReact className="text-blue-500 lg:text-8xl text-3xl" />
+              <FaReact className="text-sky-500 lg:text-8xl text-3xl" />
+              <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
               <RiJavascriptFill className="text-yellow-500 lg:text-8xl text-3xl" />
               <SiExpress className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
               <SiNextdotjs className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />

@@ -4,6 +4,7 @@
 import { URL } from "@/api/cron/route";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { AnimatedSubscribeButton } from "@/components/ui/animated-subscribe-button";
+import { Button } from "@/components/ui/moving-border";
 
 import { cn } from "@/lib/utils";
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
@@ -137,11 +138,11 @@ function contact() {
                   </p>
                   <div className="space-y-2 mt-3">
                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      <MdEmail className="mr-2" /> Email: mdranju23@gmail.com
+                      <MdEmail className="mr-2" /> Email: muhamadranju@gmail.com
                     </div>
                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                       <FaPhone className="mr-2" />
-                      Number: +91 9876543210
+                      Number: +8801799301290
                     </div>
                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                       <FaLocationDot className="mr-2" />
@@ -266,14 +267,14 @@ function contact() {
                           : ""}
                       </span>
                     </div>
-                    {/* <button
+                    <button
                       type="submit"
                       ref={buttonRef}
                       className=" btn w-full rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                     >
                       Send Message
-                    </button> */}
-                    <AnimatedSubscribeButton
+                    </button>
+                    {/* <AnimatedSubscribeButton
                       buttonColor="#6366f1 "
                       buttonTextColor="#ffffff"
                       subscribeStatus={false}
@@ -289,7 +290,7 @@ function contact() {
                           {error ? "Message Sent Failed!" : "Message Sended"}
                         </span>
                       }
-                    />
+                    /> */}
                   </form>
                 </div>
               </div>

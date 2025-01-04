@@ -9,6 +9,7 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 export const ContentUs = () => {
   return (
     <div className="relative flex flex-col-reverse rounded-xl py-16 my-20 pt-20 lg:dark:bg-slate-900 lg:bg-slate-100 lg:pt-0 lg:flex-col lg:pb-0">
+      <BackgroundBeams />
       <div className="inset-y-0 top-0 right-0 z-0 w-full  rounded-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
         <svg
           className="absolute left-0 hidden h-full z-10 dark:text-slate-900 text-slate-100 transform -translate-x-1/2 lg:block"
@@ -29,7 +30,6 @@ export const ContentUs = () => {
       </div>
 
       <div className="relative flex flex-col items-start w-full z-10  mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
-        <BackgroundBeams />
         <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5 z-10">
           <BoxReveal boxColor={"#6366f1"} duration={0.5}>
             <p className="text-[2rem] font-semibold rounded-lg">
@@ -46,14 +46,15 @@ export const ContentUs = () => {
             I began my journey into web development in 2021, the same year I
             completed my Higher Secondary Certificate (HSC). Currently, I am
             pursuing further studies at Degree College while continuing to
-            develop my skills in both frontend and backend technologies. Over
-            the past few years, I have honed my expertise in Web App
-            Development, allowing me to build dynamic, responsive websites and
-            applications from the ground up. My skill set spans a variety of
-            programming languages and frameworks, including HTML, CSS,
-            JavaScript, and Node.JS backend and more technologies. I'm committed
-            to delivering efficient, high-quality solutions that meet the needs
-            of clients and users.
+            enhance my skills in both front-end and back-end technologies.
+            <br />
+            Over the past few years, I have honed my expertise in Web
+            Application Development, enabling me to build dynamic, responsive
+            websites and applications from the ground up. My skill set spans
+            various programming languages and frameworks, including HTML, CSS,
+            JavaScript, Node.js, React.js, Next.js, MongoDB and more. I am
+            committed to delivering efficient, high-quality solutions that meet
+            the needs of clients and users alike.
           </p>
           <div className="flex items-center z-10">
             <Link href="/contact">
