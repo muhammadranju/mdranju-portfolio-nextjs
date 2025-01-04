@@ -39,18 +39,16 @@ function HeroSection() {
         <div className="flex lg:flex-row flex-col  justify-center px-4 py-10 lg:px-6">
           <div className="flex flex-col justify-center px-4 py-10 ">
             <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">
-              <SparklesText className="mx-2 text-xl" text="Hey there!🙂" />
+              <SparklesText className="mx-2 " text="Hey there!🙂" />
             </div>
-            <h1 className="mt-3 max-w-4xl text-4xl font-extrabold tracking-tight md:text-4xl lg:text-6xl flex">
+            <h1 className="mt-3 max-w-4xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-6xl flex">
               <span className="mr-3 font-medium">I'm</span>
               <span className=" text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
                 Muhammad Ranju
               </span>
             </h1>
-            <h2 className="mt-6 font-bold lg:text-2xl text-xl flex flex-row items-center">
-              <span className="lg:text-2xl text-lg">
-                I am a Web App Developer in
-              </span>
+            <h2 className="mt-6 font-bold lg:text-2xl md:text-xl sm:text-sm flex flex-row items-center">
+              <span className="">I am a Web App Developer in</span>
               <div className="text-slate-900">
                 <FlipWords words={words} />
               </div>
