@@ -36,7 +36,7 @@ function Works() {
         <Meteors number={30} />
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col  pb-10 pt-12 md:pt-24">
-            <p className="text-3xl font-bold  md:text-5xl md:leading-10 mb-8 leading-tightsm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-cyan-500 via-30% to-sky-500 to-90%">
+            <p className="text-3xl font-bold  md:text-5xl md:leading-10 mb-8 leading-tightsm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-cyan-500 via-30% to-sky-500 to-90% z-50">
               Projects & Products
             </p>
             <hr />

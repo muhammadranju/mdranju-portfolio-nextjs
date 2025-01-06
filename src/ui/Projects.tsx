@@ -31,11 +31,17 @@ export function Projects() {
     <div className="bg-slate-100 dark:bg-[#020617] ">
       <div className="max-w-7xl  mx-auto py-20 flex flex-col items-center justify-center px-4 lg:px-6">
         {/* Title Section */}
-        <div className="w-full max-w-3xl mx-auto rounded-full bg-gray-200 dark:bg-slate-100 px-4 py-2">
-          <p className="lg:text-lg text-sm font-extrabold uppercase text-center tracking-widest text-slate-900">
+        <h2 className=" text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 from-10% via-violet-500 via-30% to-sky-500 to-90%">
+          My Projects
+        </h2>
+        {/* <div className="w-full max-w-3xl mx-auto rounded-full bg-gray-200 dark:bg-slate-100 px-4 py-2">
+          <p className="lg:text-lg text-sm font-extrabol d uppercase text-center tracking-widest text-slate-900">
             Here are some of my projects I have done.
           </p>
-        </div>
+        </div> */}
+        <p className="mt-4 text-base leading-relaxed ">
+          Here are some of my projects I have done.
+        </p>
 
         {/* Skeleton UI */}
         {loading && (

@@ -31,20 +31,26 @@ const words = [
 function HeroSection() {
   return (
     <div className="relative w-full lg:py-20 lg:pt-32 pt-10 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
-      <div className="-z-20 dark:flex hidden">
+      <div className="z-0 dark:flex hidden">
         <Spotlight
           className="-top-32 left-0 md:left-80 md:-top-20 -z-0"
-          fill="white"
+          fill="#6366f1"
+        />
+      </div>
+      <div className="z-0 dark:hidden flex">
+        <Spotlight
+          className="-top-32 left-0 md:left-80 md:-top-20 -z-0"
+          fill="#a5b4fc"
         />
       </div>
 
-      <div className="mx-auto max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-7xl lg:px-8 ">
         <div className="flex lg:flex-row flex-col  justify-center px-4 py-10 lg:px-6">
-          <div className="flex flex-col justify-center px-4 py-10 ">
+          <div className="flex flex-col justify-center px-4 py-10 z-50 ">
             <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">
               <SparklesText className="mx-2 " text="Hey there!🙂" />
             </div>
-            <h1 className="mt-3 max-w-4xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-6xl flex">
+            <h1 className="mt-3 max-w-4xl text-3xl  font-extrabold tracking-tight md:text-4xl lg:text-6xl flex">
               <span className="mr-3 font-medium">I'm</span>
               <span className=" text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
                 Muhammad Ranju
@@ -59,12 +65,15 @@ function HeroSection() {
             <p className="mt-5  text-base font-medium lg:w-4/5">
               Welcome to my portfolio! I hope you enjoy your visit. I specialize
               in Back-End development with Node.js and Front-End development
-              with React.js. I have worked on various projects, including a Real
-              Link Shortener, E-Commerce APIs, React-based Website Design and
-              Development, and more.
+              with React.js. I have worked on various projects, including a Real{" "}
+              <span className="text-indigo-600">Link-Shortener</span>,
+              E-Commerce APIs,{" "}
+              <span className="text-indigo-600">React-based</span> Website
+              Design and Development, and more.
               <br />I am passionate about learning new technologies and building
               solutions that make a difference. Thank you for visiting my
-              portfolio! I hope you like my work. Happy coding! 🧑🏻‍💻
+              portfolio! I hope you like my work.{" "}
+              <span className="text-yellow-500">Happy coding!</span> 🧑🏻‍💻
             </p>
 
             {/*I have 2+ years of experience in Node.js, Express.js, MongoDB,

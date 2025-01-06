@@ -2,7 +2,7 @@
 import { useTheme } from "next-themes";
 import { MagicCard } from "@/components/ui/magic-card";
 import { BorderBeam } from "@/components/ui/border-beam";
-import Marquee from "@/components/ui/marquee";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 /* eslint-disable react/no-unescaped-entities */
 
