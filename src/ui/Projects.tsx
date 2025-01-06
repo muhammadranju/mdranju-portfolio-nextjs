@@ -10,6 +10,7 @@ import RippleButton from "@/components/ui/ripple-button";
 import { FaGithub } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { HiViewGridAdd } from "react-icons/hi";
 
 export function Projects() {
   const [result, setResult] = useState([]);
@@ -27,7 +28,7 @@ export function Projects() {
   const post = result?.slice(0, 6);
 
   return (
-    <div className=" dark:bg-[#020617] ">
+    <div className="bg-slate-100 dark:bg-[#020617] ">
       <div className="max-w-7xl  mx-auto py-20 flex flex-col items-center justify-center px-4 lg:px-6">
         {/* Title Section */}
         <div className="w-full max-w-3xl mx-auto rounded-full bg-gray-200 dark:bg-slate-100 px-4 py-2">
@@ -87,7 +88,7 @@ export function Projects() {
                   </p>
                 </div>
                 {/* Button Container */}
-                <div className="absolute inset-x-0 bottom-3 flex justify-center items-center space-x-10 transition-all duration-300 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0">
+                <div className="absolute inset-x-0 bottom-3 flex justify-center items-center space-x-2 transition-all duration-300 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0">
                   <div>
                     <Link
                       href={post?.sourceCode}
@@ -122,6 +123,23 @@ export function Projects() {
                       </Link>
                     </div>
                   )}
+                  <div>
+                    <Link
+                      href={`/project/${post?._id}`}
+                      className="flex gap-x-1 items-center"
+                    >
+                      {/* <button className="flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-slate-800 text-white hover:bg-slate-700"> */}
+                      <HoverBorderGradient
+                        containerClassName="rounded-lg"
+                        as="button"
+                        className="dark:bg-slate-800 bg-slate-100 text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+                      >
+                        <HiViewGridAdd className="font-extrabold text-lg mr-1" />{" "}
+                        Details
+                      </HoverBorderGradient>
+                      {/* </button> */}
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

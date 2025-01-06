@@ -9,6 +9,7 @@ import SkeletonUI from "@/ui/SkeletonUI";
 import ShineBorder from "@/components/ui/shine-border";
 import { MdOpenInNew } from "react-icons/md";
 import { FaGithub } from "react-icons/fa6";
+import { HiViewGridAdd } from "react-icons/hi";
 
 import { format } from "date-fns";
 import Meteors from "@/components/ui/meteors";
@@ -31,7 +32,7 @@ function Works() {
     <>
       <title>Project's - MDR</title>
 
-      <div className="relative overflow-hidden  dark:bg-[#020617]  py-20">
+      <div className="relative overflow-hidden bg-slate-100 dark:bg-[#020617]  py-20">
         <Meteors number={30} />
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col  pb-10 pt-12 md:pt-24">
@@ -115,9 +116,9 @@ function Works() {
                         ""
                       )} */}
 
-                      <div className="mt-4 flex space-x-3 ">
+                      <div className="mt-4 flex lg:space-x-3 space-x-2 ">
                         <Image
-                          className="h-full w-10 rounded-lg"
+                          className="h-full lg:w-10 w-8 rounded-lg"
                           src={post?.avatar}
                           width={500}
                           height={500}
@@ -126,13 +127,10 @@ function Works() {
                           alt={post?.author}
                         />
                         <div>
-                          <p className="text-sm font-semibold leading-tight">
+                          <p className="text-xs font-semibold leading-tight">
                             {post?.author}
                           </p>
                           <span className="text-xs leading-tight ">
-                            {/* <Link href={post?.sourceCode} target="_blank">
-                              View Code
-                            </Link> */}
                             Added:{" "}
                             {format(new Date(post?.createdAt), "dd/MM/yyyy")}
                           </span>
@@ -151,7 +149,7 @@ function Works() {
                             <HoverBorderGradient
                               containerClassName="rounded-lg"
                               as="button"
-                              className="dark:bg-slate-800 bg-slate-100 text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+                              className="dark:bg-slate-800 bg-slate-200 text-slate-900 dark:text-slate-100 flex items-center space-x-2"
                             >
                               <FaGithub className="font-extrabold text-lg " />{" "}
                               {/* Code */}
@@ -173,7 +171,7 @@ function Works() {
                                 <HoverBorderGradient
                                   containerClassName="rounded-lg"
                                   as="button"
-                                  className="dark:bg-indigo-500 bg-slate-100 text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+                                  className="dark:bg-indigo-500 bg-indigo-500 text-slate-100 dark:text-slate-100 flex items-center space-x-2"
                                 >
                                   <MdOpenInNew className="font-extrabold text-lg " />{" "}
                                   {/* Live */}
@@ -184,6 +182,25 @@ function Works() {
                         ) : (
                           ""
                         )}
+                        <div>
+                          <Link
+                            href={`/project/${post?._id}`}
+                            className="transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0"
+                          >
+                            {/* <button className="inset-x-0 flex gap-x-1 items-center rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 bg-slate-800 text-white hover:bg-slate-700/90">
+                              <FaGithub className="font-extrabold text-lg" />{" "}
+                              Code
+                            </button> */}
+                            <HoverBorderGradient
+                              containerClassName="rounded-lg"
+                              as="button"
+                              className="dark:bg-slate-800 bg-slate-200 text-slate-900 dark:text-slate-100 flex items-center space-x-2"
+                            >
+                              <HiViewGridAdd className="font-extrabold text-lg " />{" "}
+                              {/* Code */}
+                            </HoverBorderGradient>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
