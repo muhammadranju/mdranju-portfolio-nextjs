@@ -1,11 +1,7 @@
-import { Button } from "@/components/ui/button";
 import ShinyButton from "@/components/ui/shiny-button";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import Link from "next/link";
-
-/* eslint-disable react/no-unescaped-entities */
 const HireMe = () => {
-  const springOptions = { bounce: 0.1 };
   return (
     <div className="flex flex-col text-center items-center justify-center space-y-3 my-16">
       <h1 className="text-3xl">
@@ -18,7 +14,7 @@ const HireMe = () => {
           Next Project!
         </TextShimmer>
       </h1>
-      <p className="max-w-2xl">
+      <p className="lg:max-w-2xl lg:px-0 px-3">
         I have a proven track record of delivering high-quality, efficient, and
         user-friendly web applications.
       </p>

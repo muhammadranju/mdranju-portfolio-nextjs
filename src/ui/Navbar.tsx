@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
+import { usePathname } from "next/navigation";
 
-const resume = "My Resume";
 const menuItems = [
   {
     name: "Home",
@@ -30,7 +29,7 @@ const menuItems = [
 ];
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const pathname = usePathname();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -95,19 +94,26 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
           </Link>
           <div className="hidden grow items-start lg:flex md:flex md:flex-grow flex-row justify-end space-x-1">
             <ul className="ml-12 inline-flex space-x-8">
-              {menuItems.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center text-lg font-bold mr-5  hover:text-gray-500   hover:underline hover:underline-offset-4 "
-                  >
-                    {item.name}
-                    <span>
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    </span>
-                  </Link>
-                </li>
-              ))}
+              {menuItems.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (pathname.startsWith(item.href) && item.href !== "/");
+                return (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className={`inline-flex items-center text-lg font-bold px-2  dark:hover:text-slate-500 hover:text-slate-400 transition-all ease-in-out duration-150 ${
+                        isActive ? "underline underline-offset-4 " : ""
+                      }`}
+                    >
+                      {item.name}
+                      <span>
+                        <ChevronDown className="ml-1 h-4 w-4" />
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -125,25 +131,32 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
             </div>
             <ul
               tabIndex={0}
-              className={`menu menu-sm dropdown-content bg-slate-100 dark:bg-slate-900 rounded-box z-[1] mt- w-52 px-6 py-5 shadow right-0 text-lg gap-3 font-medium ${
+              className={`menu menu-sm dropdown-content z-[1000] bg-slate-100 dark:bg-slate-900 rounded-box  mt- w-52 px-6 py-5 shadow right-0 text-lg gap-3 font-medium ${
                 isMenuOpen ? "block" : "hidden"
               }`}
             >
-              {menuItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={toggleMenu}
-                  className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-800"
-                >
-                  <span className="ml-3 text-base font-medium text-slate-900 dark:text-slate-100">
-                    {item.name}
-                  </span>
-                  <span>
-                    <ChevronRight className="ml-3 h-4 w-4" />
-                  </span>
-                </Link>
-              ))}
+              {menuItems.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (pathname.startsWith(item.href) && item.href !== "/");
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={toggleMenu}
+                    className={`-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-800 ${
+                      isActive ? "underline underline-offset-4 " : ""
+                    }`}
+                  >
+                    <span className="ml-3 text-base font-medium text-slate-900 dark:text-slate-100">
+                      {item.name}
+                    </span>
+                    <span>
+                      <ChevronRight className="ml-3 h-4 w-4" />
+                    </span>
+                  </Link>
+                );
+              })}
             </ul>
           </div>
         </div>
