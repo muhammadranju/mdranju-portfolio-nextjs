@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Magnetic } from "@/components/ui/magnetic";
+import ShinyButton from "@/components/ui/shiny-button";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import Link from "next/link";
 
@@ -23,26 +23,7 @@ const HireMe = () => {
         user-friendly web applications.
       </p>
       <Link href="/contact">
-        <Magnetic
-          intensity={0.2}
-          springOptions={springOptions}
-          actionArea="global"
-          range={200}
-        >
-          <button
-            type="button"
-            className="inline-flex items-center rounded-lg border border-zinc-100 bg-slate-900 px-4 py-2 text-sm text-slate-100 transition-all duration-200 hover:bg-slate-800 dark:border-zinc-900 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-300"
-          >
-            <Magnetic
-              intensity={0.1}
-              springOptions={springOptions}
-              actionArea="global"
-              range={200}
-            >
-              <span>Hire me</span>
-            </Magnetic>
-          </button>
-        </Magnetic>
+        <ShinyButton>Hire me</ShinyButton>
       </Link>
     </div>
   );
