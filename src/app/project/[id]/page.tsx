@@ -7,7 +7,6 @@ import { FaGithub } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 import Link from "next/link";
-import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 async function getProject(id: string) {
   try {

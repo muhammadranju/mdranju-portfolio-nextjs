@@ -15,7 +15,10 @@ import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
 const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 
 export const metadata: Metadata = {
-  title: metaData.title,
+  title: {
+    default: metaData.title,
+    template: `%s - MDR`,
+  },
   description: metaData.description,
   keywords: metaData.keywords,
   openGraph: {
