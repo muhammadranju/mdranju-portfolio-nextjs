@@ -10,6 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import metaData from "@/data/metadata.json";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
 
 const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 
@@ -85,6 +86,7 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <ScrollToTop />
       </body>
     </html>
   );

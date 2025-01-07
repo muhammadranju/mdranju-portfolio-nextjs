@@ -14,6 +14,7 @@ import { HiViewGridAdd } from "react-icons/hi";
 import { format } from "date-fns";
 import Meteors from "@/components/ui/meteors";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import ScrollProgress from "@/components/ui/scroll-progress";
 
 function Works() {
   const [posts, setPosts] = useState([]);
@@ -33,6 +34,7 @@ function Works() {
       <title>Project's - MDR</title>
 
       <div className="relative overflow-hidden bg-slate-100 dark:bg-[#020617]  py-20">
+        <ScrollProgress className="top-[0px]" />
         <Meteors number={30} />
         <div className="mx-auto max-w-7xl px-2">
           <div className="flex flex-col  pb-10 pt-12 md:pt-24">
