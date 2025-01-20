@@ -3,30 +3,29 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import getProject from "@/api/cron/route";
-import { useEffect, useState } from "react";
 import SkeletonUI2 from "./SkeletonUI2";
 import { RainbowButton } from "@/components/ui/rainbow-button";
-import RippleButton from "@/components/ui/ripple-button";
 import { FaGithub } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { HiViewGridAdd } from "react-icons/hi";
 
+import { useQuery } from "@tanstack/react-query";
+
 export function Projects() {
-  const [result, setResult] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { data, isLoading, isError, error, isFetched } = useQuery({
+    queryKey: ["project"],
+    queryFn: async () => {
+      return await getProject();
+    },
+    staleTime: 60000,
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getProject();
-      setResult(data.project);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  if (isError) {
+    return <div>{String(error)}</div>;
+  }
 
-  const post = result?.slice(0, 6);
-
+  const post = data?.project?.slice(0, 6);
   return (
     <div className="bg-slate-100 dark:bg-[#020617] ">
       <div className="max-w-7xl  mx-auto py-20 flex flex-col items-center justify-center px-4 lg:px-6">
@@ -44,7 +43,7 @@ export function Projects() {
         </p>
 
         {/* Skeleton UI */}
-        {loading && (
+        {isLoading && (
           <div className="grid gap-6 py-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl mx-auto">
             <SkeletonUI2 />
             <SkeletonUI2 />
@@ -56,9 +55,9 @@ export function Projects() {
         )}
 
         {/* Project Cards */}
-        {!loading && (
+        {!isLoading && (
           <div className="grid gap-6 py-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl mx-auto">
-            {post.map((post: any) => (
+            {post?.map((post: any) => (
               <div
                 key={post?.title}
                 className="group relative border rounded-xl dark:bg-slate-900 bg-slate-100 shadow-md"

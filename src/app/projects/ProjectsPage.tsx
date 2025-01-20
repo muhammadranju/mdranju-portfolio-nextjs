@@ -1,10 +1,7 @@
-/* eslint-disable react/jsx-key */
 "use client";
-/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import Link from "next/link";
 import getProject from "@/api/cron/route";
-import { useEffect, useState } from "react";
 import SkeletonUI from "@/ui/SkeletonUI";
 import ShineBorder from "@/components/ui/shine-border";
 import { MdOpenInNew } from "react-icons/md";
@@ -15,19 +12,16 @@ import { format } from "date-fns";
 import Meteors from "@/components/ui/meteors";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import ScrollProgress from "@/components/ui/scroll-progress";
+import { useQuery } from "@tanstack/react-query";
 
 function Project() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getProject();
-      setPosts(data.project);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  const { data, isLoading, isError, error, isFetched } = useQuery({
+    queryKey: ["projects"],
+    queryFn: async () => {
+      return await getProject();
+    },
+    staleTime: 60000,
+  });
 
   return (
     <>
@@ -41,10 +35,12 @@ function Project() {
             </p>
             <hr />
             <p className="lg:max-w-4xl text-base  md:text-xl mt-8 mb-2">
-              Here is some kind of {posts.length} project's i have finished.
+              Here is some kind of {data?.project?.length} project&apos;s i have
+              finished.
             </p>
           </div>
-          {loading && (
+
+          {isLoading && (
             <div
               className={`grid gap-6 gap-y-10 py-6 md:grid-cols-2  rounded lg:grid-cols-3 `}
             >
@@ -56,19 +52,17 @@ function Project() {
               <SkeletonUI />
             </div>
           )}
-          {!loading && (
+          {!isLoading && (
             <div
               className={`grid gap-6   gap-y-6 py-6 md:grid-cols-2  rounded-xl lg:grid-cols-3 `}
             >
-              {posts.map((post: any) => (
+              {data?.project?.map((post: any) => (
                 <ShineBorder
+                  key={post?._id}
                   className="relative flex lg:h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl"
                   color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
                 >
-                  <div
-                    key={post?._id}
-                    className="border h-full group  rounded-xl shadow-xl dark:bg-slate-900 bg-slate-100 "
-                  >
+                  <div className="border h-full group  rounded-xl shadow-xl dark:bg-slate-900 bg-slate-100 ">
                     <Image
                       src={post?.image}
                       className="aspect-video w-full  rounded-t-xl"

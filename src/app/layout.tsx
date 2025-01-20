@@ -11,6 +11,7 @@ import metaData from "@/data/metadata.json";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
+import QueryProvider from "@/utils/Provider";
 
 const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 
@@ -59,13 +60,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={space_Grotesk.className}>
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
-        />
+        /> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -74,7 +75,8 @@ export default function RootLayout({
         >
           <div className="bg-slate-100 dark:bg-[#020617] min-h-screen bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]   text-gray-800 dark:text-gray-200 ">
             {<Navbar />}
-            {children}
+            <QueryProvider>{children}</QueryProvider>
+
             {<Footer />}
           </div>
           <ToastContainer
