@@ -1,18 +1,18 @@
 "use client";
+import getProject from "@/api/cron/route";
+import ShineBorder from "@/components/ui/shine-border";
+import SkeletonUI from "@/ui/SkeletonUI";
 import Image from "next/image";
 import Link from "next/link";
-import getProject from "@/api/cron/route";
-import SkeletonUI from "@/ui/SkeletonUI";
-import ShineBorder from "@/components/ui/shine-border";
-import { MdOpenInNew } from "react-icons/md";
 import { FaGithub } from "react-icons/fa6";
 import { HiViewGridAdd } from "react-icons/hi";
+import { MdOpenInNew } from "react-icons/md";
 
-import { format } from "date-fns";
-import Meteors from "@/components/ui/meteors";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import Meteors from "@/components/ui/meteors";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { useQuery } from "@tanstack/react-query";
+import { format } from "date-fns";
 
 function Project() {
   const { data, isLoading, isError, error, isFetched } = useQuery({
@@ -76,13 +76,7 @@ function Project() {
                       <p className="mt-4 w-full text-xs font-semibold leading-tight ">
                         #{post?.category.toLocaleLowerCase()}
                       </p>
-                      <div>
-                        {/* <Link href={`/project/${post?._id}`} target="_blank">
-                          <button className="rounded-lg shadow-md px-3 py-2.5 text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-600">
-                            View Project
-                          </button>
-                        </Link> */}
-                      </div>
+                      <div></div>
                       <p
                         className="mt-4 flex-1 text-base font-semibold"
                         title={post?.title}

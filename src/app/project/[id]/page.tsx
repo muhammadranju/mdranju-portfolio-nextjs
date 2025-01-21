@@ -1,12 +1,12 @@
 import { URL } from "@/api/cron/route";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { format } from "date-fns";
 import { Metadata } from "next";
 import Image from "next/image";
-import { format } from "date-fns";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { FaGithub } from "react-icons/fa6";
-import { MdOpenInNew } from "react-icons/md";
-import { IoIosArrowBack } from "react-icons/io";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa6";
+import { IoIosArrowBack } from "react-icons/io";
+import { MdOpenInNew } from "react-icons/md";
 
 async function getProject(id: string) {
   try {

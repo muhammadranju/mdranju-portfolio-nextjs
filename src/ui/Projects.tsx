@@ -1,14 +1,13 @@
 "use client";
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import getProject from "@/api/cron/route";
-import SkeletonUI2 from "./SkeletonUI2";
-import { RainbowButton } from "@/components/ui/rainbow-button";
-import { FaGithub } from "react-icons/fa6";
-import { MdOpenInNew } from "react-icons/md";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import Image from "next/image";
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa6";
 import { HiViewGridAdd } from "react-icons/hi";
+import { MdOpenInNew } from "react-icons/md";
+import SkeletonUI2 from "./SkeletonUI2";
 
 import { useQuery } from "@tanstack/react-query";
 

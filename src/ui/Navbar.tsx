@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { ModeToggle } from "@/components/ui/ModeToggle";
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const menuItems = [
   {
