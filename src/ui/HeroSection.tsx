@@ -10,6 +10,7 @@ import {
 import { DiMongodb } from "react-icons/di";
 import { RiJavascriptFill } from "react-icons/ri";
 import { SiExpress, SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import { BiLogoTypescript } from "react-icons/bi";
 
 import ShimmerButton from "@/components/ui/shimmer-button";
 import SparklesText from "@/components/ui/sparkles-text";
@@ -130,19 +131,22 @@ function HeroSection() {
             </span>
 
             <OrbitingCircles iconSize={40}>
-              <FaNode className="text-green-500 lg:text-8xl text-3xl" />
-              <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
-              <SiExpress className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
+              <BiLogoTypescript className="text-sky-600 lg:text-8xl text-3xl" />
+              <FaNode className="text-lime-500 lg:text-8xl text-3xl" />
               <FaReact className="text-sky-500 lg:text-8xl text-3xl" />
+              <SiExpress className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
               <SiTailwindcss className="text-cyan-500 lg:text-8xl text-3xl" />
               <SiNextdotjs className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
+              <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
               <RiJavascriptFill className="text-yellow-500 lg:text-8xl text-3xl" />
             </OrbitingCircles>
 
             <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
               <FaReact className="text-sky-500 lg:text-8xl text-3xl" />
               <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
+              <BiLogoTypescript className="text-sky-600 lg:text-8xl text-3xl" />
               <RiJavascriptFill className="text-yellow-500 lg:text-8xl text-3xl" />
+              <FaNode className="text-lime-500 lg:text-8xl text-3xl" />
               <SiExpress className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
               <SiNextdotjs className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
               <SiTailwindcss className="text-cyan-500 lg:text-8xl text-3xl" />
