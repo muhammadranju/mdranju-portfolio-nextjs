@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ContentUs } from "@/ui/ContentUs";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import SplashCursor from "@/components/ui/SplashCursor";
 
 // const users = [
 //   {
@@ -27,6 +28,7 @@ import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-w
 function About() {
   return (
     <>
+      <SplashCursor />
       <div>
         <div className="mx-auto max-w-7xl px-4 lg:py-20">
           {/* <div className=" flex  lg:flex-row flex-col gap-10 justify-between py-16">

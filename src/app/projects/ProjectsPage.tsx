@@ -13,6 +13,7 @@ import Meteors from "@/components/ui/meteors";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 function Project() {
   const { data, isLoading, isError, error, isFetched } = useQuery({
@@ -35,8 +36,13 @@ function Project() {
             </p>
             <hr />
             <p className="lg:max-w-4xl text-base  md:text-xl mt-8 mb-2">
-              Here is some kind of {data?.project?.length} project&apos;s i have
-              finished.
+              Here is some kind of{" "}
+              <NumberTicker
+                value={data?.project?.length || 0}
+                className="whitespace-pre-wrap text-base md:text-xl font-medium tracking-tighter text-black dark:text-white"
+              />{" "}
+              {/* {data?.project?.length} */}
+              project&apos;s i have finished.
             </p>
           </div>
 
