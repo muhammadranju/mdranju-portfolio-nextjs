@@ -8,8 +8,6 @@ import { FaGithub } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdOpenInNew } from "react-icons/md";
 
-import Noise from "@/components/Noise/Noise";
-
 async function getProject(id: string) {
   try {
     const response = await fetch(`${URL}/project/${id}`, { cache: "no-store" }); // Ensure fresh data
