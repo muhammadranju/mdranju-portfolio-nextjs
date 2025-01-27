@@ -126,7 +126,7 @@ function Contact() {
                   </p>
                   <div className="space-y-2 mt-3">
                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                      <MdEmail className="mr-2" /> Email: muhamadranju@gmail.com
+                      <MdEmail className="mr-2" /> Email: mdranju23@gmail.com
                     </div>
                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                       <FaPhone className="mr-2" />

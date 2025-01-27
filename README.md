@@ -8,13 +8,20 @@ This is a provisional README file for the `mdranju-portfolio-nextjs` project. Th
 
 ```
 /e:/mdranju-portfolio-nextjs/
-├── components/
-├── pages/
-├── public/
-├── styles/
+├── src/
+├─── api/
+├─── app/
+├─── components/
+├─── config/
+├─── data/
+├─── lib/
+├─── ui/   
+├─── utils/   
 ├── README.md
 ├── package.json
-└── next.config.js
+├── next.config.js
+├── tailwind.config.js
+└── tsconfig.json
 ```
 
 ## Getting Started
