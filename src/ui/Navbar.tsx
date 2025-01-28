@@ -4,6 +4,9 @@ import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import DashboardMenu from "./DashboardMenu/DashboardMenu";
+
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 const menuItems = [
   {
@@ -26,6 +29,10 @@ const menuItems = [
     name: "Contact",
     href: "/contact",
   },
+  // {
+  //   name: "Login",
+  //   href: "/api/auth/login",
+  // },
 ];
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,6 +40,7 @@ function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const { isAuthenticated } = useKindeBrowserClient();
   return (
     <header className="sticky lg:top-3 top-0 z-50  mx-auto max-w-7xl rounded-full lg:border lg:border-slate-500/10  flex-none shadow-sm transition-colors duration-500 lg:z-50  dark:border-slate-50/[0.06]   bg-slate-50/5 backdrop-blur-2xl supports-backdrop-blur:bg-white/10 dark:bg-slate-900/5 -mb-20">
       <div className="relative w-full">
@@ -93,7 +101,7 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
             </div>
           </Link>
           <div className="hidden grow items-start lg:flex md:flex md:flex-grow flex-row justify-end space-x-1">
-            <ul className="ml-12 inline-flex space-x-8">
+            <ul className="ml-12 inline-flex space-x-8 justify-center items-center">
               {menuItems.map((item) => {
                 const isActive =
                   pathname === item.href ||
@@ -114,6 +122,13 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                   </li>
                 );
               })}
+              {isAuthenticated && (
+                <li
+                  className={`inline-flex items-center text-lg font-bold px-2  dark:hover:text-slate-500 hover:text-slate-400 transition-all ease-in-out duration-150 `}
+                >
+                  <DashboardMenu />
+                </li>
+              )}
             </ul>
           </div>
 
@@ -122,12 +137,24 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
           </div>
 
           <div className={`dropdown `}>
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              {isMenuOpen ? (
-                <X onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
-              ) : (
-                <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
-              )}
+            <div className="flex justify-center items-center">
+              <div className=" lg:hidden">
+                {isAuthenticated && <DashboardMenu />}
+              </div>
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost lg:hidden"
+              >
+                {isMenuOpen ? (
+                  <X onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+                ) : (
+                  <Menu
+                    onClick={toggleMenu}
+                    className="h-6 w-6 cursor-pointer"
+                  />
+                )}
+              </div>
             </div>
             <ul
               tabIndex={0}

@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
 import QueryProvider from "@/utils/Provider";
+import { AuthProvider } from "./AuthProvider";
 
 const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
 
@@ -75,7 +76,9 @@ export default function RootLayout({
         >
           <div className="bg-slate-100 dark:bg-[#020617] min-h-screen bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]   text-gray-800 dark:text-gray-200 ">
             {<Navbar />}
-            <QueryProvider>{children}</QueryProvider>
+            <AuthProvider>
+              <QueryProvider>{children}</QueryProvider>
+            </AuthProvider>
 
             {<Footer />}
           </div>
