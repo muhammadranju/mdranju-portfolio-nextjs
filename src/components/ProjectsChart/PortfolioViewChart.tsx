@@ -1,14 +1,5 @@
 "use client";
-import React from "react";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 const data = [
   {
@@ -54,32 +45,20 @@ const data = [
     amt: 2100,
   },
 ];
-
-const ProjectsChart = () => {
+const PortfolioViewChart = () => {
   return (
     <div className="w-full lg:h-64 h-44 lg:my-10">
-      <span className="flex float-end">Portfolio Viewers</span>
+      <span className="flex float-end">Section Chart</span>
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart
-          width={500}
-          height={400}
-          data={data}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
+        <BarChart width={150} height={40} data={data}>
+          <Bar dataKey="uv" fill="#312e81" />
           <XAxis dataKey="name" />
+
           <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#312e81" />
-        </AreaChart>
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-export default ProjectsChart;
+export default PortfolioViewChart;

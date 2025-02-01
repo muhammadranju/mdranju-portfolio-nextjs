@@ -1,4 +1,8 @@
+import BackButton from "@/components/BackButton/BackButton";
+import ProjectsTable from "@/components/ProjectsTable/ProjectsTable";
+import { Button } from "@/components/ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -16,9 +20,13 @@ const GetAllProjects = async () => {
     redirect("/");
   }
   return (
-    <div className="relative overflow-hidden bg-slate-100 dark:bg-[#020617]  h-screen">
-      <div className="mx-auto max-w-7xl px-2 ">
-        <div className="pb-10 pt-12 md:pt-36">Projects</div>
+    <div className="relative overflow-hidden bg-slate-100 dark:bg-[#020617] ">
+      <div className="mx-auto max-w-full px-10 ">
+        <div className="pt-24 md:pt-36 flex justify-between items-center">
+          <h2 className="lg:text-3xl font-bold">Project Dashboard</h2>
+          <BackButton />
+        </div>
+        <ProjectsTable />
       </div>
     </div>
   );
