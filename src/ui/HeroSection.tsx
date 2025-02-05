@@ -1,5 +1,6 @@
 import Image from "next/image";
-import heroImage from "../../public/hero-image.jpeg";
+import { BiLogoTypescript } from "react-icons/bi";
+import { DiMongodb } from "react-icons/di";
 import {
   FaGithub,
   FaLinkedin,
@@ -7,18 +8,18 @@ import {
   FaReact,
   FaXTwitter,
 } from "react-icons/fa6";
-import { DiMongodb } from "react-icons/di";
 import { RiJavascriptFill } from "react-icons/ri";
 import { SiExpress, SiNextdotjs, SiTailwindcss } from "react-icons/si";
-import { BiLogoTypescript } from "react-icons/bi";
+import heroImage from "../../public/hero-image.jpeg";
 
+import { FlipWords } from "@/components/ui/flip-words";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import SparklesText from "@/components/ui/sparkles-text";
 import { Spotlight } from "@/components/ui/spotlight";
-import { FlipWords } from "@/components/ui/flip-words";
-import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import Link from "next/link";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { MdDownload } from "react-icons/md";
 
 /* eslint-disable react/no-unescaped-entities */
 const words = [
@@ -94,20 +95,16 @@ function HeroSection() {
               </a>
             </div>
             <div className="mt-5">
-              {/* <button
-              type="button"
-              className="rounded-md border bg-green-400 hover:bg-green-500 text-black border-green-300 px-3 py-2  font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Download Resume
-            </button> */}
               <div className="flex mt-5 gap-x-2 border-white border-collapse rounded">
                 <a
-                  href="https://docs.google.com/document/d/1cG2oQ9FdfZuDy9EUKx6txxy60nDFtt6zR-yqo1LeHpM"
+                  href="../../full_stack_developer_resume.pdf"
                   target="_blank"
+                  download="full_stack_developer_resume_of_mdranju.pdf"
                 >
                   <ShimmerButton className="shadow-2xl">
-                    <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
-                      Download Resume
+                    <span className="whitespace-pre-wrap flex items-center text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
+                      My Resume
+                      <MdDownload className="ml-1 " />
                     </span>
                   </ShimmerButton>
                 </a>
