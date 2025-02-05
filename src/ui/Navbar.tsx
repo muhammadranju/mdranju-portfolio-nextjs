@@ -38,7 +38,7 @@ const menuItems = [
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const pathname = usePathname();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
