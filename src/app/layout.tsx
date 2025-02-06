@@ -61,13 +61,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={space_Grotesk.className}>
-        {/* <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        /> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -92,8 +85,8 @@ export default function RootLayout({
             pauseOnHover
           />
         </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
+        {/* <Analytics /> */}
+        {/* <SpeedInsights /> */}
         <ScrollToTop />
       </body>
     </html>
