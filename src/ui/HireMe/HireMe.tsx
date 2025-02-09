@@ -3,7 +3,7 @@ import { TextShimmer } from "@/components/ui/text-shimmer";
 import Link from "next/link";
 const HireMe = () => {
   return (
-    <section className="relative  py-16">
+    <section className="relative  py-16 dark:bg-slate-900/30 bg-gray-100/40">
       <div className="flex flex-col text-center items-center justify-center space-y-3 ">
         <h1 className="text-3xl">
           Hire me to build your {""}

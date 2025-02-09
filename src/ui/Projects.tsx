@@ -64,7 +64,7 @@ export function Projects() {
                 <Image
                   src={post?.image}
                   className="aspect-video w-full rounded-t-xl"
-                  width={500}
+                  width={700}
                   height={500}
                   blurDataURL="blur"
                   placeholder="blur"

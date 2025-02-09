@@ -54,7 +54,7 @@ function HeroSection() {
             </div>
             <h1 className="mt-3 max-w-4xl text-3xl  font-extrabold tracking-tight md:text-4xl lg:text-6xl flex">
               <span className="mr-3 font-medium">I'm</span>
-              <span className=" text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
                 Muhammad Ranju
               </span>
             </h1>
@@ -81,16 +81,25 @@ function HeroSection() {
             {/*I have 2+ years of experience in Node.js, Express.js, MongoDB,
               React.js and other related technologies. */}
             <div className="flex gap-5 mt-5 border-white border-collapse rounded">
-              <a href="https://github.com/muhammadranju" target="_blank">
+              <a
+                href="https://github.com/muhammadranju"
+                aria-label="GitHub Icon"
+                target="_blank"
+              >
                 <FaGithub className="h-7 w-7" />
               </a>
               <a
                 href="https://www.linkedin.com/in/muhammadranju"
                 target="_blank"
+                aria-label="Linkedin Icon"
               >
                 <FaLinkedin className="h-7 w-7" />
               </a>
-              <a href="https://twitter.com/muhammad_ranju" target="_blank">
+              <a
+                href="https://twitter.com/muhammad_ranju"
+                aria-label="Twitter Icon"
+                target="_blank"
+              >
                 <FaXTwitter className="h-7 w-7" />
               </a>
             </div>

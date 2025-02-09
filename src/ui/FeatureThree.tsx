@@ -8,18 +8,30 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 const imageLink = {
   react: (
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
+    <img
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+      alt="react"
+    />
   ),
   next: (
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" />
+    <img
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+      alt="next"
+    />
   ),
 
   node: (
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
+    <img
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+      alt="node"
+    />
   ),
 
   mongodb: (
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-plain-wordmark.svg" />
+    <img
+      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-plain-wordmark.svg"
+      alt="mongodb"
+    />
   ),
 };
 
@@ -28,7 +40,7 @@ export function FeatureThree() {
 
   const effectiveTheme = theme === "system" ? resolvedTheme : theme;
   return (
-    <div className="w-full py-20   dark:bg-slate-900/30 bg-gray-300/20">
+    <div className="w-full py-20 dark:bg-slate-900/30 bg-gray-100/40">
       {/* <hr className="my-8   w-full" /> */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
         <div className="mx-auto max-w-xl text-center">
