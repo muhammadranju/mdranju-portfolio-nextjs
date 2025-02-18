@@ -9,7 +9,9 @@ const ProjectsTable = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
     const getProjects = async () => {
-      const res = await fetch("http://localhost:3030/v2/api/projects");
+      const res = await fetch(
+        "https://portfolio-project-api-sooty.vercel.app/v2/api/projects"
+      );
       const data = await res.json();
       setProjects(data?.data);
     };

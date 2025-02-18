@@ -1,11 +1,11 @@
 "use client";
 import { ModeToggle } from "@/components/ui/ModeToggle";
-import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import DashboardMenu from "./DashboardMenu/DashboardMenu";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
@@ -131,14 +131,13 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className={`inline-flex items-center text-lg font-bold px-2  dark:hover:text-slate-500 hover:text-slate-400 transition-all ease-in-out duration-150 ${
-                        isActive ? "underline underline-offset-4 " : ""
+                      className={`inline-flex items-center text-lg font-semibold px-2  hover:underline underline-offset-4 dark:hover:text-indigo-500 hover:text-indigo-400 transition-all ease-in-out duration-150 ${
+                        isActive
+                          ? "font-bold text-indigo-600 dark:text-indigo-600"
+                          : ""
                       }`}
                     >
                       {item.name}
-                      <span>
-                        <ChevronDown className="ml-1 h-4 w-4" />
-                      </span>
                     </Link>
                   </li>
                 );
