@@ -16,12 +16,12 @@ const ProjectAdd = () => {
     liveUrl: "",
     image: "",
     category: "",
-    tags: [],
+    tags: "",
     author: "",
     createdAt: "",
     sourceCode: "",
     liveLink: "",
-    longDetails: "",
+    // longDetails: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -45,7 +45,7 @@ const ProjectAdd = () => {
       body: JSON.stringify({
         title: project.title,
         details: project.description,
-        longDetails: project.longDetails,
+        // longDetails: project.longDetails,
         sourceCode: project.frontendUrl,
         backendSourceCode: project.backendUrl,
         liveLink: project.liveUrl,
@@ -74,12 +74,12 @@ const ProjectAdd = () => {
         liveUrl: "",
         image: "",
         category: "",
-        tags: [],
+        tags: "",
         author: "",
         createdAt: "",
         sourceCode: "",
         liveLink: "",
-        longDetails: "",
+        // longDetails: "",
       });
       setTimeout(() => {
         router.push("/dashboard/projects");

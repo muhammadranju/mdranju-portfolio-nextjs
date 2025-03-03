@@ -2,6 +2,7 @@
 import getProject from "@/config/config";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 /* eslint-disable react/no-unescaped-entities */
@@ -81,12 +82,12 @@ const ProjectsTable = () => {
                 )}
               </td>
               <td className="px-6 py-4">
-                <a
-                  href="#"
+                <Link
+                  href={`/dashboard/projects/${project._id}`}
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
                   Edit
-                </a>
+                </Link>
               </td>
             </tr>
           ))}
