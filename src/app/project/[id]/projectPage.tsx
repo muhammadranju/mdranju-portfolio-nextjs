@@ -2,7 +2,6 @@
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { format } from "date-fns";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
@@ -12,6 +11,7 @@ type Project = {
   id: string;
   title: string;
   details: string;
+  backendSourceCode: string;
   tags: string[];
   category: string;
   author: string;
@@ -110,6 +110,18 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
               <FaGithub className="font-extrabold text-lg mr-2" /> Github
             </HoverBorderGradient>
           </a>
+          {project?.backendSourceCode && (
+            <a href={project?.backendSourceCode} target="_blank">
+              <HoverBorderGradient
+                containerClassName="rounded-lg"
+                as="button"
+                className="dark:bg-slate-800 bg-slate-100  text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+              >
+                <FaGithub className="font-extrabold text-lg mr-2" /> Backend
+              </HoverBorderGradient>
+            </a>
+          )}
+
           {project?.liveLink && (
             <a href={project?.liveLink} target="_blank">
               <HoverBorderGradient

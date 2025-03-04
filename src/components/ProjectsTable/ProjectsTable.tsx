@@ -1,6 +1,5 @@
 "use client";
-import getProject from "@/config/config";
-import { useQuery } from "@tanstack/react-query";
+import { URL_V2 } from "@/api/cron/route";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,9 +9,7 @@ const ProjectsTable = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
     const getProjects = async () => {
-      const res = await fetch(
-        "https://portfolio-project-api-sooty.vercel.app/v2/api/projects"
-      );
+      const res = await fetch(`${URL_V2}/projects`);
       const data = await res.json();
       setProjects(data?.data);
     };
