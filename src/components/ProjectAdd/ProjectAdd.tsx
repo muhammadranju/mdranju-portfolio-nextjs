@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { Button } from "../ui/button";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { URL_V2 } from "@/api/cron/route";
 
 const BaseURL = "http://localhost:3030/v2/api/projects";
 
@@ -62,7 +63,7 @@ const ProjectAdd = () => {
     setIsLoading(true);
     e.preventDefault();
 
-    const response = await fetch(BaseURL, {
+    const response = await fetch(`${URL_V2}/projects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
