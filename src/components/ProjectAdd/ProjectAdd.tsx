@@ -1,13 +1,135 @@
+// "use client";
+// import { useRouter } from "next/navigation";
+// import { useEffect, useState } from "react";
+// import { toast } from "react-toastify";
+// import { Button } from "../ui/button";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
+// import { URL_V2 } from "@/api/cron/route";
+
+// const BaseURL = "http://localhost:3030/v2/api/projects";
+
+// const ProjectAdd = () => {
+//   const [value, setValue] = useState("");
+//   const [project, setProject] = useState<any>({
+//     title: "",
+//     description: "",
+//     longDescription: value,
+//     frontendUrl: "",
+//     backendUrl: "",
+//     liveUrl: "",
+//     image: "",
+//     category: "",
+//     tags: "",
+//     author: "",
+//     createdAt: "",
+//     sourceCode: "",
+//     liveLink: "",
+//     // longDetails: "",
+//   });
+
+//   useEffect(() => {
+//     const element = document.getElementById("myElement");
+//     console.log(element);
+//   }, []); // Empty dependency array means it runs once on mount
+//   const [isLoading, setIsLoading] = useState(false);
+//   const router = useRouter();
+
+//   const toolbarOptions = [
+//     ["bold", "italic", "underline", "strike"], // toggled buttons
+//     ["blockquote", "code-block"],
+//     ["link", "image", "video", "formula"],
+
+//     [{ header: 1 }, { header: 2 }], // custom button values
+//     [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
+//     [{ script: "sub" }, { script: "super" }], // superscript/subscript
+//     [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+//     [{ direction: "rtl" }], // text direction
+
+//     [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+//     [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+//     [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+//     [{ font: [] }],
+//     [{ align: [] }],
+
+//     ["clean"], // remove formatting button
+//   ];
+
+//   const handleChange = (e: any) => {
+//     setProject({
+//       ...project,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+
+//   const handelProjectSubmit = async (e: any) => {
+//     setIsLoading(true);
+//     e.preventDefault();
+
+//     const response = await fetch(`${URL_V2}/projects`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Accept: "application/json",
+//       },
+//       body: JSON.stringify({
+//         title: project.title,
+//         details: project.description,
+//         longDetails: value,
+//         sourceCode: project.frontendUrl,
+//         backendSourceCode: project.backendUrl,
+//         liveLink: project.liveUrl,
+//         image: project.image,
+//         category: project.category,
+//         tags: project.tags,
+//         author: "Md. Ranju",
+//         avatar: "https://avatars.githubusercontent.com/u/80270685?v=4",
+//         createdAt: project.createdAt,
+//       }),
+//     });
+
+//     if (!response.ok) {
+//       setIsLoading(false);
+//       throw new Error("Failed to fetch data");
+//     }
+//     if (response.status === 201) {
+//       setIsLoading(false);
+//       toast.success("Project added successfully!");
+//       setProject({
+//         title: "",
+//         description: "",
+//         longDescription: "",
+//         frontendUrl: "",
+//         backendUrl: "",
+//         liveUrl: "",
+//         image: "",
+//         category: "",
+//         tags: "",
+//         author: "",
+//         createdAt: "",
+//         sourceCode: "",
+//         liveLink: "",
+//         // longDetails: "",
+//       });
+//       setTimeout(() => {
+//         router.push("/dashboard/projects");
+//       }, 300);
+//       return;
+//     }
+//   };
+
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { Button } from "../ui/button";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+import "react-quill/dist/quill.snow.css"; // CSS can stay static
 import { URL_V2 } from "@/api/cron/route";
 
-const BaseURL = "http://localhost:3030/v2/api/projects";
+// Dynamically import ReactQuill with SSR disabled
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const ProjectAdd = () => {
   const [value, setValue] = useState("");
@@ -25,31 +147,28 @@ const ProjectAdd = () => {
     createdAt: "",
     sourceCode: "",
     liveLink: "",
-    // longDetails: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false); // Add client-side check
   const router = useRouter();
 
+  // Set isClient to true only on the client side
   const toolbarOptions = [
-    ["bold", "italic", "underline", "strike"], // toggled buttons
+    ["bold", "italic", "underline", "strike"],
     ["blockquote", "code-block"],
     ["link", "image", "video", "formula"],
-
-    [{ header: 1 }, { header: 2 }], // custom button values
+    [{ header: 1 }, { header: 2 }],
     [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-    [{ script: "sub" }, { script: "super" }], // superscript/subscript
-    [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-    [{ direction: "rtl" }], // text direction
-
-    [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+    [{ script: "sub" }, { script: "super" }],
+    [{ indent: "-1" }, { indent: "+1" }],
+    [{ direction: "rtl" }],
+    [{ size: ["small", false, "large", "huge"] }],
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-    [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+    [{ color: [] }, { background: [] }],
     [{ font: [] }],
     [{ align: [] }],
-
-    ["clean"], // remove formatting button
+    ["clean"],
   ];
 
   const handleChange = (e: any) => {
@@ -106,15 +225,14 @@ const ProjectAdd = () => {
         createdAt: "",
         sourceCode: "",
         liveLink: "",
-        // longDetails: "",
       });
+      setValue("");
       setTimeout(() => {
         router.push("/dashboard/projects");
       }, 300);
       return;
     }
   };
-
   return (
     <form
       onSubmit={handelProjectSubmit}
