@@ -3,14 +3,17 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { Button } from "../ui/button";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const BaseURL = "http://localhost:3030/v2/api/projects";
 
 const ProjectAdd = () => {
+  const [value, setValue] = useState("");
   const [project, setProject] = useState<any>({
     title: "",
     description: "",
-    longDescription: "",
+    longDescription: value,
     frontendUrl: "",
     backendUrl: "",
     liveUrl: "",
@@ -23,8 +26,30 @@ const ProjectAdd = () => {
     liveLink: "",
     // longDetails: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+
+  const toolbarOptions = [
+    ["bold", "italic", "underline", "strike"], // toggled buttons
+    ["blockquote", "code-block"],
+    ["link", "image", "video", "formula"],
+
+    [{ header: 1 }, { header: 2 }], // custom button values
+    [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
+    [{ script: "sub" }, { script: "super" }], // superscript/subscript
+    [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+    [{ direction: "rtl" }], // text direction
+
+    [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+    [{ font: [] }],
+    [{ align: [] }],
+
+    ["clean"], // remove formatting button
+  ];
 
   const handleChange = (e: any) => {
     setProject({
@@ -36,6 +61,7 @@ const ProjectAdd = () => {
   const handelProjectSubmit = async (e: any) => {
     setIsLoading(true);
     e.preventDefault();
+
     const response = await fetch(BaseURL, {
       method: "POST",
       headers: {
@@ -45,7 +71,7 @@ const ProjectAdd = () => {
       body: JSON.stringify({
         title: project.title,
         details: project.description,
-        // longDetails: project.longDetails,
+        longDetails: value,
         sourceCode: project.frontendUrl,
         backendSourceCode: project.backendUrl,
         liveLink: project.liveUrl,
@@ -129,6 +155,20 @@ const ProjectAdd = () => {
           value={project.description}
           onChange={handleChange}
         ></textarea>
+      </div>
+      <div className="mb-6">
+        <label
+          htmlFor="description"
+          className="block mb-2 cursor-pointer text-sm font-medium text-slate-900 dark:text-white"
+        >
+          Long Description
+        </label>
+        <ReactQuill
+          modules={{ toolbar: toolbarOptions }}
+          theme="snow"
+          value={value}
+          onChange={setValue}
+        />
       </div>
 
       <div className="mb-6">

@@ -6,11 +6,13 @@ import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdOpenInNew } from "react-icons/md";
+import parse from "html-react-parser";
 
 type Project = {
   id: string;
   title: string;
   details: string;
+  longDetails: string;
   backendSourceCode: string;
   tags: string[];
   category: string;
@@ -32,6 +34,8 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
   const handelClick = () => {
     router.back();
   };
+
+  console.log(project);
   return (
     <div className=" p-8 max-w-7xl mx-auto mt-28 mb-10 dark:bg-[#020617] bg-slate-100 rounded-xl border-[1px] dark:border-slate-500/10 border-slate-500/5 ">
       <div className="pb-5">
@@ -65,6 +69,8 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
         <p className=" mt-2 lg:max-w-5xl lg:text-base text-sm ">
           {project?.details}
         </p>
+        {parse(project?.longDetails)}
+
         {project?.tags.length > 0 && (
           <div className="flex mt-4">
             <div>
