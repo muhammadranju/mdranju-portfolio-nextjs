@@ -69,7 +69,7 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
         <p className=" mt-2 lg:max-w-5xl lg:text-base text-sm ">
           {project?.details}
         </p>
-        {parse(project?.longDetails)}
+        {project?.longDetails && parse(project?.longDetails)}
 
         {project?.tags.length > 0 && (
           <div className="flex mt-4">
