@@ -36,7 +36,7 @@ export const ContentUs = () => {
               About Me<span className="text-[#6366f1]">.</span>
             </p>
           </BoxReveal>
-          <p className="pr-5 mb-5 text-base dark:text-gray-200 text-slate-900 md:text-lg">
+          <p className="pr-5 mb-5 text-base font-bold dark:text-gray-200 text-slate-900 md:text-lg">
             Hi, I'm{" "}
             <span className="text-xl font-bold md:text-2xl text-indigo-500">
               {" "}

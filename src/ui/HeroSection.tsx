@@ -52,8 +52,8 @@ function HeroSection() {
             <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">
               <SparklesText className="mx-2 " text="Hey there!🙂" />
             </div>
-            <h1 className="mt-3 max-w-4xl text-3xl  font-extrabold tracking-tight md:text-4xl lg:text-6xl flex">
-              <span className="mr-3 font-medium">I'm</span>
+            <h1 className="mt-3 max-w-4xl text-3xl  font-black tracking-tight md:text-4xl lg:text-6xl flex">
+              <span className="mr-3">I'm</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
                 Muhammad Ranju
               </span>
@@ -64,7 +64,7 @@ function HeroSection() {
                 <FlipWords words={words} />
               </div>
             </h2>
-            <p className="mt-5  text-base font-medium lg:w-4/5">
+            <p className="mt-5  text-base font-semibold lg:w-4/5">
               Welcome to my portfolio! I hope you enjoy your visit. I specialize
               in Back-End development with Node.js and Front-End development
               with React.js. I have worked on various projects, including a Real{" "}

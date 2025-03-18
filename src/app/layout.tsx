@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/ui/Navbar";
 import Footer from "@/ui/Footer";
@@ -14,7 +14,10 @@ import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
 import QueryProvider from "@/utils/Provider";
 import { AuthProvider } from "./AuthProvider";
 
-const space_Grotesk = Space_Grotesk({ subsets: ["latin"], weight: "700" });
+const space_Grotesk = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: {
