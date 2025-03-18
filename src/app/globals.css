@@ -94,3 +94,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  margin-bottom: 0.5rem !important;
+}
+.prose p,
+.prose ul,
+.prose li {
+  margin-bottom: 0.25rem !important;
+  margin-top: 0.25rem !important;
+}

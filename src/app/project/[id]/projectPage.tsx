@@ -35,7 +35,6 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
     router.back();
   };
 
-  console.log(project);
   return (
     <div className=" p-8 max-w-7xl mx-auto mt-28 mb-10 dark:bg-[#020617] bg-slate-100 rounded-xl border-[1px] dark:border-slate-500/10 border-slate-500/5 ">
       <div className="pb-5">
@@ -67,9 +66,23 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
           {project?.title}
         </h2>
         <p className=" mt-2 lg:max-w-5xl lg:text-base text-sm ">
+          <span className="font-bold text-lg mr-3">Short Description:-</span>{" "}
           {project?.details}
         </p>
-        {project?.longDetails && parse(project?.longDetails)}
+
+        <hr className="my-5" />
+
+        <span className="text-2xl">Description:</span>
+        <div
+          className="prose max-w-full prose-headings:mb-2 prose-p:mb-1 prose-ul:mt-1 prose-ul:mb-1 prose-li:my-0 
+  prose-headings:text-gray-900 dark:prose-headings:text-gray-100 
+  prose-p:text-gray-700 dark:prose-p:text-gray-300 
+  prose-ul:text-gray-700 dark:prose-ul:text-gray-300 
+  prose-li:text-gray-600 dark:prose-li:text-gray-400 
+  prose-img:rounded-lg"
+        >
+          {project?.longDetails && parse(project?.longDetails)}
+        </div>
 
         {project?.tags.length > 0 && (
           <div className="flex mt-4">
