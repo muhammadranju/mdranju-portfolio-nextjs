@@ -1,17 +1,15 @@
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import Footer from "@/ui/Footer";
+import Navbar from "@/ui/Navbar";
 import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/ui/Navbar";
-import Footer from "@/ui/Footer";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import metaData from "@/data/metadata.json";
+import QueryProvider from "@/utils/Provider";
+import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
-import QueryProvider from "@/utils/Provider";
 import { AuthProvider } from "./AuthProvider";
 
 const space_Grotesk = Source_Sans_3({

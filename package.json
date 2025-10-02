@@ -65,5 +65,8 @@
     "shadcn-ui": "^0.9.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
