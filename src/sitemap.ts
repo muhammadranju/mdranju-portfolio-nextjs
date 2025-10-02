@@ -3,19 +3,19 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://mdranju.xyz",
+      url: "https://ranju.vercel.app",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://mdranju.xyz/projects",
+      url: "https://ranju.vercel.app/projects",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://mdranju.xyz/about",
+      url: "https://ranju.vercel.app/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
