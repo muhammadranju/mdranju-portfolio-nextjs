@@ -1,15 +1,14 @@
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import Footer from "@/ui/Footer";
-import Navbar from "@/ui/Navbar";
 import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
+import { Toaster } from "@/components/ui/sonner";
 import metaData from "@/data/metadata.json";
+import Footer from "@/ui/Footer/Footer";
+import Navbar from "@/ui/Navbar/Navbar";
 import QueryProvider from "@/utils/Provider";
 import ScrollToTop from "@/utils/ScrollToTop/ScrollToTop";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./AuthProvider";
 
 const space_Grotesk = Source_Sans_3({
@@ -68,27 +67,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="bg-slate-100 dark:bg-[#020617] min-h-screen bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]   text-gray-800 dark:text-gray-200 ">
-            {<Navbar />}
+          <div className="bg-slate-100 dark:bg-[#020617] min-h-screen bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]   text-gray-800 dark:text-gray-200 relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-blue-500/20 animate-gradient" />
+            <Navbar />
             <AuthProvider>
               <QueryProvider>{children}</QueryProvider>
             </AuthProvider>
-
-            {<Footer />}
+            <Footer />
           </div>
-          <ToastContainer
-            autoClose={1500}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+          <Toaster />
+          <ScrollToTop />
         </ThemeProvider>
-        {/* <Analytics /> */}
-        {/* <SpeedInsights /> */}
-        <ScrollToTop />
       </body>
     </html>
   );

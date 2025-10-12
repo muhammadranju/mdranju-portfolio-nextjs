@@ -1,12 +1,12 @@
 "use client";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { format } from "date-fns";
+import parse from "html-react-parser";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdOpenInNew } from "react-icons/md";
-import parse from "html-react-parser";
 
 type Project = {
   id: string;
@@ -36,9 +36,8 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
   };
 
   return (
-    <div className=" p-8 max-w-7xl mx-auto mt-28 mb-10 dark:bg-[#020617] bg-slate-100 rounded-xl border-[1px] dark:border-slate-500/10 border-slate-500/5 ">
+    <div className=" p-8 max-w-7xl mx-auto mt-28 mb-10 dark:bg-[#020617] bg-slate-100 rounded-xl border-[1px] dark:border-slate-100/30 border-slate-500/5 shadow-lg  ">
       <div className="pb-5">
-        {/* <Link href="/projects"> */}
         <HoverBorderGradient
           onClick={handelClick}
           containerClassName="rounded-full"
@@ -47,7 +46,6 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
         >
           <IoIosArrowBack className="font-extrabold text-lg mr-1 -ml-2" /> Back
         </HoverBorderGradient>
-        {/* </Link> */}
       </div>
       <div className="bg-blue-100 w-full h-full rounded-lg drop-shadow-md overflow-hidden">
         <Image
@@ -92,7 +90,7 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                 {project?.tags.map((tag: string) => (
                   <button
                     key={tag}
-                    className="w-fit h-10 px-2 flex text-xs items-center justify-center border rounded-full "
+                    className="w-fit h-6 px-5 flex text-xs items-center justify-center border rounded-full "
                   >
                     {tag}
                   </button>
