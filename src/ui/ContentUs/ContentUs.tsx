@@ -1,11 +1,9 @@
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import BoxReveal from "@/components/ui/box-reveal";
-import Ranju from "../../public/mdranju.jpg";
 import ShinyButton from "@/components/ui/shiny-button";
 import Image from "next/image";
 import Link from "next/link";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 
-/* eslint-disable react/no-unescaped-entities */
 export const ContentUs = () => {
   return (
     <div className="relative flex flex-col-reverse rounded-xl py-16 my-20 pt-20 lg:dark:bg-slate-900 lg:bg-slate-100 lg:pt-0 lg:flex-col lg:pb-0">
@@ -24,7 +22,7 @@ export const ContentUs = () => {
           height={500}
           className="object-cover z-50 overflow-hidden w-full h-56 rounded-xl shadow-lg lg:shadow-none md:h-96 lg:h-full"
           placeholder="blur"
-          src={Ranju}
+          src={"/mdranju.jpg"}
           alt="Md Ranju Images"
         />
       </div>
@@ -37,7 +35,7 @@ export const ContentUs = () => {
             </p>
           </BoxReveal>
           <p className="pr-5 mb-5 text-base font-bold dark:text-gray-200 text-slate-900 md:text-lg">
-            Hi, I'm{" "}
+            Hi, I&apos;m{" "}
             <span className="text-xl font-bold md:text-2xl text-indigo-500">
               {" "}
               Md. Ranju

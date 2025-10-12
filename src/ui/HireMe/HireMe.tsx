@@ -10,7 +10,7 @@ const HireMe = () => {
           {/* <span className="text-indigo-500">next project</span>! */}
           <TextShimmer
             duration={2.5}
-            className="text-3xl font-medium [--base-color:theme(colors.blue.600)] [--base-gradient-color:theme(colors.blue.200)] dark:[--base-color:theme(colors.blue.700)] dark:[--base-gradient-color:theme(colors.blue.400)]"
+            className="text-3xl font-medium [--base-color:theme(colors.indigo.600)] [--base-gradient-color:theme(colors.blue.200)] dark:[--base-color:theme(colors.indigo.700)] dark:[--base-gradient-color:theme(colors.indigo.400)]"
           >
             Next Project!
           </TextShimmer>
