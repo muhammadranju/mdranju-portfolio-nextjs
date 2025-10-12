@@ -10,8 +10,8 @@ import {
 } from "react-icons/fa6";
 import { RiJavascriptFill } from "react-icons/ri";
 import { SiExpress, SiNextdotjs, SiTailwindcss } from "react-icons/si";
-import heroImage from "../../public/hero-image.jpeg";
-
+import heroImage from "../../../public/hero-image.jpg";
+import { Highlighter } from "@/components/ui/highlighter";
 import { FlipWords } from "@/components/ui/flip-words";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
@@ -23,12 +23,12 @@ import { MdDownload } from "react-icons/md";
 
 /* eslint-disable react/no-unescaped-entities */
 const words = [
-  "Javascript.",
+  "Full-Stack",
+  "Backend",
+  "Frontend",
+  "Next.js",
   "Node.js",
   "React.js",
-  "Next.js",
-  "Backend.",
-  "Frontend.",
 ];
 function HeroSection() {
   return (
@@ -46,36 +46,47 @@ function HeroSection() {
         />
       </div>
 
-      <div className="mx-auto max-w-7xl lg:px-8 ">
-        <div className="flex lg:flex-row flex-col  justify-center px-4 py-10 lg:px-6">
-          <div className="flex flex-col justify-center px-4 py-10 lg:z-40 ">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex lg:flex-row flex-col  justify-center py-10">
+          <div className="flex flex-col justify-center  py-10 lg:z-40 relative ">
             <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">
               <SparklesText className="mx-2 " text="Hey there!🙂" />
             </div>
             <h1 className="mt-3 max-w-4xl text-3xl  font-black tracking-tight md:text-4xl lg:text-6xl flex">
               <span className="mr-3">I'm</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-600/20 to-90%">
                 Muhammad Ranju
               </span>
             </h1>
             <h2 className="mt-6 font-bold lg:text-2xl md:text-xl sm:text-lg flex flex-row items-center">
-              <span className="">I am a Web App Developer in</span>
-              <div className="text-slate-900">
+              <span className="">I'm a</span>
+              <div className="">
                 <FlipWords words={words} />
+                Developer.
               </div>
             </h2>
             <p className="mt-5  text-base font-semibold lg:w-4/5">
               Welcome to my portfolio! I hope you enjoy your visit. I specialize
               in Back-End development with Node.js and Front-End development
               with React.js. I have worked on various projects, including a Real{" "}
-              <span className="text-indigo-600">Link-Shortener</span>,
-              E-Commerce APIs,{" "}
-              <span className="text-indigo-600">React-based</span> Website
-              Design and Development, and more.
-              <br />I am passionate about learning new technologies and building
-              solutions that make a difference. Thank you for visiting my
-              portfolio! I hope you like my work.{" "}
-              <span className="text-yellow-500">Happy coding!</span> 🧑🏻‍💻
+              <Highlighter action="highlight" color="#4f46e5" multiline={true}>
+                LMS System, E-Commerce, Link-Shortener,
+              </Highlighter>{" "}
+              <Highlighter action="underline" color="#f5f5f5" isView={true}>
+                Using Modern Technologies like
+              </Highlighter>{" "}
+              <Highlighter action="highlight" color="#7e22ce">
+                React.js, Next.js, Shadcn
+              </Highlighter>{" "}
+              <Highlighter action="highlight" color="#FF9800" padding={2}>
+                , Tailwindcss, MongoDB,
+              </Highlighter>{" "}
+              and more. I am passionate about learning new technologies and
+              building solutions that make a difference. Thank you for visiting
+              my portfolio! <br /> I hope you like my work.{" "}
+              <Highlighter action="underline" color="#FF9800">
+                Happy coding! 🧑🏻‍💻
+              </Highlighter>{" "}
             </p>
 
             {/*I have 2+ years of experience in Node.js, Express.js, MongoDB,
@@ -131,7 +142,7 @@ function HeroSection() {
             </div>
           </div>
 
-          <div className="relative flex px-20 lg:h-[500px] h-[330px] w-full  flex-col items-center justify-center overflow-hidden ">
+          <div className="relative flex px-20 lg:h-[500px] h-[430px] w-full  flex-col items-center justify-center overflow-hidden ">
             <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center lg:text-8xl text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-black">
               Skills
             </span>
@@ -158,8 +169,11 @@ function HeroSection() {
               <SiTailwindcss className="text-cyan-500 lg:text-8xl text-3xl" />
             </OrbitingCircles>
           </div>
+
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/0 via-transparent to-blue-500/20 animate-gradient" />
         </div>
         <hr className="my-5 w-full -mt-3" />
+
         <div className="rounded-lg lg:bg-gray-500 lg:p-[3px] px-2">
           <Image
             placeholder="blur"
@@ -173,10 +187,4 @@ function HeroSection() {
   );
 }
 
-<button
-  type="button"
-  className="rounded-md border bg-green-400 hover:bg-green-500 text-black border-green-300 px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 w-40 focus-visible:outline-offset-2 focus-visible:outline-black"
->
-  Download Resume
-</button>;
 export default HeroSection;

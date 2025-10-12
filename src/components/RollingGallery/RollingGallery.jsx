@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import {
   motion,
-  useMotionValue,
   useAnimation,
+  useMotionValue,
   useTransform,
 } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import "./RollingGallery.scss";
 
 const IMGS = [

@@ -22,7 +22,7 @@ import { SiHyperskill } from "react-icons/si";
 
 const DashboardMenu = () => {
   const { user, getPermissions } = useKindeBrowserClient();
-  const { permissions } = getPermissions();
+  const permissions = getPermissions?.()?.permissions ?? [];
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>

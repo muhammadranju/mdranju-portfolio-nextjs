@@ -84,6 +84,9 @@
     --color-4: 195 100% 63%;
     --color-5: 90 100% 63%;
   }
+  .theme {
+    --animate-line-shadow: line-shadow 15s linear infinite;
+  }
 }
 
 @layer base {
@@ -108,4 +111,15 @@
 .prose li {
   margin-bottom: 0.25rem !important;
   margin-top: 0.25rem !important;
+}
+
+@theme inline {
+  @keyframes line-shadow {
+  0% {
+    background-position: 0 0;
+    }
+  100% {
+    background-position: 100% -100%;
+    }
+  }
 }

@@ -1,7 +1,7 @@
-import { FeatureThree } from "@/ui/FeatureThree";
-import HeroSection from "@/ui/HeroSection";
+import { FeatureThree } from "@/ui/FeatureCard/FeatureThree";
+import HeroSection from "@/ui/HeroSection/HeroSection";
 import HireMe from "@/ui/HireMe/HireMe";
-import { Projects } from "@/ui/Projects";
+import { Projects } from "@/ui/Projects/Projects";
 
 function home() {
   return (

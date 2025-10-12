@@ -1,18 +1,15 @@
 "use client";
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react/no-unescaped-entities */
 import { URL } from "@/api/cron/route";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
-import { AnimatedSubscribeButton } from "@/components/ui/animated-subscribe-button";
-import { Button } from "@/components/ui/moving-border";
+import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
-import { CheckIcon, ChevronRightIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -72,7 +69,8 @@ function Contact() {
         });
         setError("");
       } else {
-        toast.error(data.message);
+        toast.error(data.massage);
+        console.log(data?.massage);
       }
     } catch (error) {
       console.log(error);
@@ -82,7 +80,6 @@ function Contact() {
   return (
     <>
       {/* <title>Contact - MDR</title> */}
-
       <AnimatedGridPattern
         numSquares={30}
         maxOpacity={0.1}
@@ -102,14 +99,14 @@ function Contact() {
                 Share your thoughts
               </p>
             </div>
-            <p className="text-center text-3xl font-bold  md:text-5xl md:leading-10  text-cyan-500">
+            <p className="text-center text-3xl font-bold  md:text-5xl md:leading-10  text-indigo-500">
               Love to hear from you
             </p>
             <p className="mx-auto max-w-4xl text-center text-base  md:text-xl columns-1">
-              I think it's great that you're open to hearing from others!
-              Sharing thoughts fosters connection and creativity. Whether it's a
-              deep insight, casual chat, or random idea, communication builds
-              understanding.
+              I think it&apos;s great that you&apos;re open to hearing from
+              others! Sharing thoughts fosters connection and creativity.
+              Whether it&apos;s a deep insight, casual chat, or random idea,
+              communication builds understanding.
             </p>
           </div>
           <div className="mx-auto max-w-7xl">
@@ -140,7 +137,7 @@ function Contact() {
                   <form
                     action=""
                     onSubmit={handleSubmit}
-                    className="mt-8 space-y-4 rounded-xl  border p-6 pb-5 dark:bg-slate-900 bg-slate-100"
+                    className="mt-8 space-y-4 rounded-xl  border p-6 pb-5 dark:bg-slate-900 bg-slate-100 shadow-lg "
                   >
                     <div className="grid w-full gap-y-4 md:gap-x-4 lg:grid-cols-2">
                       <div className="grid w-full  items-center gap-1.5">
@@ -255,30 +252,16 @@ function Contact() {
                           : ""}
                       </span>
                     </div>
-                    <button
-                      type="submit"
+
+                    <Button
                       ref={buttonRef}
-                      className=" btn w-full rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                      size="lg"
+                      className="bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/50 glow-effect text-lg px-8 w-full transition-colors duration-500 ease-in-out  "
                     >
                       Send Message
-                    </button>
-                    {/* <AnimatedSubscribeButton
-                      buttonColor="#6366f1 "
-                      buttonTextColor="#ffffff"
-                      subscribeStatus={false}
-                      initialText={
-                        <span className="group inline-flex items-center">
-                          Send Message{" "}
-                          <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                        </span>
-                      }
-                      changeText={
-                        <span className="group inline-flex items-center">
-                          <CheckIcon className="mr-2 size-4" />
-                          {error ? "Message Sent Failed!" : "Message Sended"}
-                        </span>
-                      }
-                    /> */}
+                      <ArrowRight className="ml-2 h-5  w-5" />
+                    </Button>
+                    
                   </form>
                 </div>
               </div>
