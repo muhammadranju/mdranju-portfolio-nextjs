@@ -6,6 +6,9 @@ import { Button } from "../ui/button";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css"; // CSS can stay static
 import { URL_V2 } from "@/api/cron/route";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Save } from "lucide-react";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -123,11 +126,11 @@ const ProjectAdd = () => {
         >
           Project Title
         </label>
-        <input
+        <Input
           type="text"
           id="title"
           name="title"
-          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-background"
           placeholder="Enter your title"
           required
           value={project.title}
@@ -141,17 +144,17 @@ const ProjectAdd = () => {
         >
           Description
         </label>
-        <textarea
+        <Textarea
           name="description"
           id="description"
           cols={30}
           rows={5}
-          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-background"
           placeholder="Enter your description"
           required
           value={project.description}
           onChange={handleChange}
-        ></textarea>
+        ></Textarea>
       </div>
       <div className="mb-6">
         <label
@@ -164,6 +167,8 @@ const ProjectAdd = () => {
           modules={{ toolbar: toolbarOptions }}
           theme="snow"
           value={value}
+          className="bg-background border border-slate-700 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Enter your long description"
           onChange={setValue}
         />
       </div>
@@ -175,11 +180,11 @@ const ProjectAdd = () => {
         >
           Frontend Source Code URL
         </label>
-        <input
+        <Input
           type="text"
           name="frontendUrl"
           id="frontendUrl"
-          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-background"
           placeholder="Enter your frontend source code url"
           value={project.frontendUrl}
           onChange={handleChange}
@@ -192,11 +197,11 @@ const ProjectAdd = () => {
         >
           Backend Source Code URL <small> (optional)</small>
         </label>
-        <input
+        <Input
           type="text"
           id="backendUrl"
           name="backendUrl"
-          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-background"
           placeholder="Enter your backend source code url"
           value={project.backendUrl}
           onChange={handleChange}
@@ -209,11 +214,11 @@ const ProjectAdd = () => {
         >
           Live URL <small> (optional)</small>
         </label>
-        <input
+        <Input
           type="text"
           id="liveUrl"
           name="liveUrl"
-          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-background"
           placeholder="Enter your live url"
           value={project.liveUrl}
           onChange={handleChange}
@@ -228,11 +233,11 @@ const ProjectAdd = () => {
           >
             Category
           </label>
-          <input
+          <Input
             type="text"
             id="category"
             name="category"
-            className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-background"
             placeholder="Enter category e.g. React-Nextjs-Tailwind-Nodejs"
             required
             value={project.category}
@@ -246,11 +251,11 @@ const ProjectAdd = () => {
           >
             Tags
           </label>
-          <input
+          <Input
             type="text"
             name="tags"
             id="tags"
-            className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-background"
             placeholder="Enter tags e.g. react, nextjs, tailwind, etc"
             required
             value={project.tags}
@@ -265,11 +270,11 @@ const ProjectAdd = () => {
         >
           Project Image
         </label>
-        <input
+        <Input
           type="text"
           name="image"
           id="image"
-          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-background"
           placeholder="Enter your project image"
           required
           value={project.image}
@@ -278,8 +283,21 @@ const ProjectAdd = () => {
       </div>
 
       <div className="flex justify-center">
-        <Button className="w-full">
-          {isLoading ? "Submitting..." : "Submit Project"}
+        <Button
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <Save />
+              Submitting...
+            </>
+          ) : (
+            <>
+              <Save />
+              Submit Project
+            </>
+          )}
         </Button>
       </div>
     </form>

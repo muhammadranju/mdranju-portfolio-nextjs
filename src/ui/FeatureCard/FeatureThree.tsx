@@ -2,7 +2,7 @@
 import FeatureCard from "./FeatureCard";
 export function FeatureThree() {
   return (
-    <div className="w-full py-10 dark:bg-[#020617]/20  bg-gray-100/40 relative overflow-hidden">
+    <div className="w-full py-10 dark:bg-[#020617]/20  bg-gray-100/40 relative overflow-hidden z-50">
       {/*  */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-500/5 animate-gradient" />
       <div className="absolute top-20 -left-1/3 w-1/2 h-[500px] dark:bg-blue-500/10 bg-gray-500/20 rounded-full blur-3xl animate-pulse" />
