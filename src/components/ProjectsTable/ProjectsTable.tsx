@@ -3,8 +3,9 @@ import { URL_V2 } from "@/api/cron/route";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FiEdit, FiExternalLink } from "react-icons/fi";
+import ProjectSkeleton from "./ProjectSkeleton";
 
-/* eslint-disable react/no-unescaped-entities */
 const ProjectsTable = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
@@ -15,6 +16,7 @@ const ProjectsTable = () => {
     };
     getProjects();
   }, []);
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg my-10">
       <table className="w-full text-sm text-left rtl:text-right text-slate-500 dark:text-slate-400">
@@ -41,53 +43,62 @@ const ProjectsTable = () => {
           </tr>
         </thead>
         <tbody>
-          {projects?.map((project: any) => (
-            <tr
-              key={project?._id}
-              className="odd:bg-white odd:dark:bg-slate-900 even:bg-slate-50 even:dark:bg-slate-900/50 border-b dark:border-slate-700 border-slate-200"
-            >
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white"
+          {/* <ProjectSkeleton /> */}
+          {projects.length === 0 && <ProjectSkeleton range={8} />}
+          {projects.length > 0 &&
+            projects?.map((project: any) => (
+              <tr
+                key={project?._id}
+                className="odd:bg-white odd:dark:bg-slate-900 even:bg-slate-50 even:dark:bg-slate-900/50 border-b dark:border-slate-700 border-slate-200"
               >
-                <Image
-                  src={project?.image}
-                  className="w-10 h-10 rounded-md"
-                  width={50}
-                  height={50}
-                  alt={project?.title}
-                />
-              </th>
-              <td className="px-6 py-4">{project?.title}</td>
-              <td className="px-6 py-4">
-                {project?.details.length > 100
-                  ? project?.details.substring(0, 100).concat("...")
-                  : project?.details}
-              </td>
-              <td className="px-6 py-4">{project?.category}</td>
-              <td className="px-6 py-4">
-                {project?.liveLink ? (
-                  <a
-                    href={project?.liveLink}
-                    target="_blank"
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white"
+                >
+                  <Image
+                    src={project?.image}
+                    className="w-24 h-16 rounded-md object-cover"
+                    width={50}
+                    height={50}
+                    alt={project?.title}
+                  />
+                </th>
+
+                <td className="px-6 py-4">
+                  {project?.title.length > 50
+                    ? project?.title.substring(0, 40).concat("...")
+                    : project?.title}
+                  {/* {project?.title} */}
+                </td>
+                <td className="px-6 py-4 w-1/3">
+                  {project?.details.length > 150
+                    ? project?.details.substring(0, 200).concat("...")
+                    : project?.details}
+                </td>
+                <td className="px-6 py-4">{project?.category}</td>
+                <td className="px-6 py-4">
+                  {project?.liveLink ? (
+                    <a
+                      href={project?.liveLink}
+                      target="_blank"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <FiExternalLink className="mr-2 h-4 w-4" />
+                    </a>
+                  ) : (
+                    ""
+                  )}
+                </td>
+                <td className="px-6 py-4">
+                  <Link
+                    href={`/dashboard/projects/${project._id}`}
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
-                    {project?.liveLink}
-                  </a>
-                ) : (
-                  ""
-                )}
-              </td>
-              <td className="px-6 py-4">
-                <Link
-                  href={`/dashboard/projects/${project._id}`}
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Edit
-                </Link>
-              </td>
-            </tr>
-          ))}
+                    <FiEdit className="mr-2 h-4 w-4" />
+                  </Link>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
