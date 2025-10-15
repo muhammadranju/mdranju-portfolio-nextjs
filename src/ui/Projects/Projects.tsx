@@ -7,9 +7,10 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import { TfiReceipt } from "react-icons/tfi";
 import HomeSkeletonCard from "../Skeletons/HomeSkeletonCard";
+import { useQuery } from "@tanstack/react-query";
 
 export function Projects() {
   const { data, isLoading, isError, error, isFetched } = useQuery({
