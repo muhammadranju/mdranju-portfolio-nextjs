@@ -71,9 +71,16 @@ export function Projects() {
           className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-indigo-700"
           variants={itemVariants as any}
         >
-          <TextAnimate animation="blurInUp" by="word">
-            My Projects
-          </TextAnimate>
+          <motion.p
+            className="text-3xl font-bold md:text-5xl md:leading-10 leading-tight sm:text-4xl lg:text-5xl text-indigo-700 lg:z-50"
+            variants={itemVariants as any}
+            whileHover={{ y: -5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <TextAnimate animation="blurInUp" by="word">
+              Projects & Portfolio
+            </TextAnimate>
+          </motion.p>
         </motion.h4>
 
         <motion.p
