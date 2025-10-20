@@ -15,8 +15,8 @@ This is a provisional README file for the `mdranju-portfolio-nextjs` project. Th
 ├─── config/
 ├─── data/
 ├─── lib/
-├─── ui/   
-├─── utils/   
+├─── ui/
+├─── utils/
 ├── README.md
 ├── package.json
 ├── next.config.js
@@ -88,6 +88,3 @@ This project is licensed under the MIT License.
 ## Contact
 
 For any inquiries, please contact mdranju23@gmail.com.
-
-![Screenshot1](./public/home.jpeg)
-![Screenshot2](./public/home2.jpeg)
