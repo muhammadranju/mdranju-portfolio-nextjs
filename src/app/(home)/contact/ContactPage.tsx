@@ -1,15 +1,741 @@
+// "use client";
+// import { URL } from "@/api/cron/route";
+// import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+// import { Button } from "@/components/ui/button";
+// import ShinyButton from "@/components/ui/shiny-button";
+// import { TextAnimate } from "@/components/ui/text-animate";
+
+// import { cn } from "@/lib/utils";
+// import { ArrowRight } from "lucide-react";
+// import Image from "next/image";
+// import { useRef, useState } from "react";
+// import { FaLocationDot, FaPhone } from "react-icons/fa6";
+// import { MdEmail } from "react-icons/md";
+// import { toast } from "sonner";
+
+// function Contact() {
+//   const [formData, setFormData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     phone: "",
+//     email: "",
+//     message: "",
+//   });
+
+//   const [error, setError] = useState("");
+//   const buttonRef = useRef(null);
+
+//   const handleInputChange = (event: any) => {
+//     const { name, value } = event.target;
+
+//     setFormData({
+//       ...formData,
+//       [name]: value,
+//     });
+//   };
+
+//   const handleSubmit = async (event: any) => {
+//     event.preventDefault();
+
+//     try {
+//       const response = await fetch(`${URL}/contact`, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(formData),
+//       });
+
+//       if (formData.firstName === "") {
+//         setError("First Name is required!");
+//       } else if (formData.lastName === "") {
+//         setError("Last Name is required!");
+//       } else if (formData.email === "") {
+//         setError("Email is required!");
+//       } else if (formData.phone === "") {
+//         setError("Phone number is required!");
+//       } else if (formData.message === "") {
+//         setError("Message is required!");
+//       }
+
+//       const data = await response.json();
+
+//       if (data.success) {
+//         toast.success(data.massage);
+//         setFormData({
+//           firstName: "",
+//           lastName: "",
+//           email: "",
+//           phone: "",
+//           message: "",
+//         });
+//         setError("");
+//       } else {
+//         toast.error(data.massage);
+//         console.log(data?.massage);
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   return (
+//     <>
+//       {/* <title>Contact - MDR</title> */}
+//       <AnimatedGridPattern
+//         numSquares={30}
+//         maxOpacity={0.1}
+//         duration={3}
+//         repeatDelay={1}
+//         className={cn(
+//           "[mask-image:radial-gradient(1200px_circle_at_center,white,transparent)]",
+//           "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12"
+//         )}
+//       />
+//       <div className="z-50 py-20 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
+//         <div className="mx-auto max-w-7xl px-4">
+//           {/* Hero Map */}
+//           <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
+//             <div className="mx-auto max-w-max rounded-full border p-1 px-3">
+//               <p className="text-center text-xs font-semibold leading-normal md:text-sm ">
+//                 Share your thoughts
+//               </p>
+//             </div>
+//             <p className="text-center text-3xl font-bold  md:text-5xl md:leading-10  text-indigo-500">
+//               <TextAnimate animation="blurInUp" by="word">
+//                 Love to hear from you
+//               </TextAnimate>
+//             </p>
+//             <p className="mx-auto max-w-4xl text-center text-base  md:text-xl columns-1">
+//               <TextAnimate animation="blurInUp" by="word">
+//                 I think it&apos;s great that you&apos;re open to hearing from
+//                 others! Sharing thoughts fosters connection and creativity.
+//                 Whether it&apos;s a deep insight, casual chat, or random idea,
+//                 communication builds understanding.
+//               </TextAnimate>
+//             </p>
+//           </div>
+//           <div className="mx-auto max-w-7xl">
+//             <div className="grid items-center justify-items-center gap-x-4 gap-y-10 lg:grid-cols-2">
+//               {/* contact from */}
+//               <div className="flex items-center justify-center">
+//                 <div className="px-2 md:px-12">
+//                   <p className="text-2xl font-bold md:text-4xl md:leading-10  text-indigo-500">
+//                     <TextAnimate animation="blurInUp" by="word">
+//                       Get in touch
+//                     </TextAnimate>
+//                   </p>
+
+//                   <p className="mt-4 text-lg ">
+//                     <TextAnimate animation="blurInUp" by="word">
+//                       Our friendly team would love to hear from you.
+//                     </TextAnimate>
+//                   </p>
+//                   <div className="space-y-2 mt-3">
+//                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+//                       <MdEmail className="mr-2" /> Email: mdranju23@gmail.com
+//                     </div>
+//                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+//                       <FaPhone className="mr-2" />
+//                       Number: +8801799301290
+//                     </div>
+//                     <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+//                       <FaLocationDot className="mr-2" />
+//                       Location: Rajshahi, Bangladesh
+//                     </div>
+//                   </div>
+//                   <form
+//                     action=""
+//                     onSubmit={handleSubmit}
+//                     className="mt-8 space-y-4 rounded-xl  border p-6 pb-5 shadow-md "
+//                   >
+//                     <div className="grid w-full gap-y-4 md:gap-x-4 lg:grid-cols-2">
+//                       <div className="grid w-full  items-center gap-1.5">
+//                         <label
+//                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                           htmlFor="first_name"
+//                         >
+//                           First Name
+//                           <span className="text-xs text-red-500">*</span>
+//                         </label>
+//                         <input
+//                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                           type="text"
+//                           id="first_name"
+//                           name="firstName"
+//                           placeholder="First Name"
+//                           value={formData.firstName}
+//                           onChange={handleInputChange}
+//                         />
+//                         <span className="text-xs text-red-500">
+//                           {error.includes("First Name")
+//                             ? "First Name is required!"
+//                             : ""}
+//                         </span>
+//                       </div>
+//                       <div className="grid w-full  items-center gap-1.5">
+//                         <label
+//                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                           htmlFor="last_name"
+//                         >
+//                           Last Name
+//                           <span className="text-xs text-red-500">*</span>{" "}
+//                         </label>
+//                         <input
+//                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                           type="text"
+//                           id="last_name"
+//                           placeholder="Last Name"
+//                           name="lastName"
+//                           value={formData.lastName}
+//                           onChange={handleInputChange}
+//                         />
+//                         <span className="text-xs text-red-500">
+//                           {error.includes("Last Name")
+//                             ? "Last Name is required!"
+//                             : ""}
+//                         </span>
+//                       </div>
+//                     </div>
+//                     <div className="grid w-full  items-center gap-1.5">
+//                       <label
+//                         className="text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                         htmlFor="email"
+//                       >
+//                         Email<span className="text-xs text-red-500">*</span>
+//                       </label>
+//                       <input
+//                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                         type="text"
+//                         id="email"
+//                         placeholder="Email"
+//                         name="email"
+//                         value={formData.email}
+//                         onChange={handleInputChange}
+//                       />
+//                       <span className="text-xs text-red-500">
+//                         {error.includes("Email") ? "Email is required!" : ""}
+//                       </span>
+//                     </div>
+//                     <div className="grid w-full  items-center gap-1.5">
+//                       <label
+//                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                         htmlFor="phone_number"
+//                       >
+//                         Phone number
+//                         <span className="text-xs text-red-500">*</span>
+//                       </label>
+//                       <input
+//                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                         type="number"
+//                         id="phone_number"
+//                         name="phone"
+//                         onChange={handleInputChange}
+//                         value={formData.phone}
+//                         placeholder="Phone number"
+//                       />
+//                       <span className="text-xs text-red-500">
+//                         {error.includes("Phone number")
+//                           ? "Phone number is required!"
+//                           : ""}
+//                       </span>
+//                     </div>
+//                     <div className="grid w-full  items-center gap-1.5">
+//                       <label
+//                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                         htmlFor="message"
+//                       >
+//                         Message<span className="text-xs text-red-500">*</span>
+//                       </label>
+//                       <textarea
+//                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                         id="message"
+//                         placeholder="Leave us a message"
+//                         cols={20}
+//                         name="message"
+//                         value={formData.message}
+//                         onChange={handleInputChange}
+//                       />
+//                       <span className="text-xs text-red-500">
+//                         {error.includes("Message")
+//                           ? "Message is required!"
+//                           : ""}
+//                       </span>
+//                     </div>
+//                     <ShinyButton className="w-full py-3" ref={buttonRef}>
+//                       Send Message
+//                     </ShinyButton>
+//                   </form>
+//                 </div>
+//               </div>
+//               <Image
+//                 alt="Contact us"
+//                 width={500}
+//                 height={500}
+//                 placeholder="blur"
+//                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+//                 className="hidden w-full rounded-lg object-cover drop-shadow-xl lg:block"
+//                 src="./Mention-bro.svg"
+//               />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default Contact;
+
+// "use client";
+// import { URL } from "@/api/cron/route";
+// import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+// import { Button } from "@/components/ui/button";
+// import ShinyButton from "@/components/ui/shiny-button";
+// import { TextAnimate } from "@/components/ui/text-animate";
+
+// import { cn } from "@/lib/utils";
+// import { ArrowRight } from "lucide-react";
+// import Image from "next/image";
+// import { useRef, useState } from "react";
+// import { motion } from "framer-motion"; // Added for elegant animations
+// import { FaLocationDot, FaPhone } from "react-icons/fa6";
+// import { MdEmail } from "react-icons/md";
+// import { toast } from "sonner";
+
+// const containerVariants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.15,
+//       delayChildren: 0.2,
+//     },
+//   },
+// } as const;
+
+// const itemVariants = {
+//   hidden: { opacity: 0, y: 50, scale: 0.95 },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     scale: 1,
+//     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+//   },
+// } as const;
+
+// function Contact() {
+//   const [formData, setFormData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     phone: "",
+//     email: "",
+//     message: "",
+//   });
+
+//   const [error, setError] = useState("");
+//   const buttonRef = useRef(null);
+
+//   const handleInputChange = (
+//     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     const { name, value } = event.target;
+
+//     setFormData({
+//       ...formData,
+//       [name]: value,
+//     });
+//   };
+
+//   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+//     event.preventDefault();
+
+//     // Validate before fetch
+//     if (formData.firstName === "") {
+//       setError("First Name is required!");
+//       return;
+//     } else if (formData.lastName === "") {
+//       setError("Last Name is required!");
+//       return;
+//     } else if (formData.email === "") {
+//       setError("Email is required!");
+//       return;
+//     } else if (formData.phone === "") {
+//       setError("Phone number is required!");
+//       return;
+//     } else if (formData.message === "") {
+//       setError("Message is required!");
+//       return;
+//     }
+//     setError("");
+
+//     try {
+//       const response = await fetch(`${URL}/contact`, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(formData),
+//       });
+
+//       const data = await response.json();
+
+//       if (data.success) {
+//         toast.success(data.massage);
+//         setFormData({
+//           firstName: "",
+//           lastName: "",
+//           email: "",
+//           phone: "",
+//           message: "",
+//         });
+//       } else {
+//         toast.error(data.massage);
+//         console.log(data?.massage);
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   return (
+//     <>
+//       <AnimatedGridPattern
+//         numSquares={30}
+//         maxOpacity={0.1}
+//         duration={3}
+//         repeatDelay={1}
+//         className={cn(
+//           "[mask-image:radial-gradient(1200px_circle_at_center,white,transparent)]",
+//           "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12"
+//         )}
+//       />
+//       <motion.div
+//         className="z-50 py-20 bg-slate-100 dark:bg-[#020617] antialiased overflow-hidden"
+//         variants={containerVariants}
+//         initial="hidden"
+//         whileInView="visible"
+//         viewport={{ once: true, amount: 0.2 }}
+//       >
+//         <div className="mx-auto max-w-7xl px-4">
+//           {/* Hero Map */}
+//           <motion.div
+//             className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24"
+//             variants={itemVariants}
+//           >
+//             <motion.div
+//               className="mx-auto max-w-max rounded-full border p-1 px-3"
+//               variants={itemVariants}
+//               whileHover={{ scale: 1.05 }}
+//               transition={{ type: "spring", stiffness: 400 }}
+//             >
+//               <p className="text-center text-xs font-semibold leading-normal md:text-sm">
+//                 Share your thoughts
+//               </p>
+//             </motion.div>
+//             <motion.p
+//               className="text-center text-3xl font-bold md:text-5xl md:leading-10 text-indigo-500"
+//               variants={itemVariants}
+//               whileHover={{ y: -5 }}
+//               transition={{ type: "spring", stiffness: 300 }}
+//             >
+//               <TextAnimate animation="blurInUp" by="word">
+//                 Love to hear from you
+//               </TextAnimate>
+//             </motion.p>
+//             <motion.p
+//               className="mx-auto max-w-4xl text-center text-base md:text-xl columns-1"
+//               variants={itemVariants}
+//             >
+//               <TextAnimate animation="blurInUp" by="word">
+//                 I think it&apos;s great that you&apos;re open to hearing from
+//                 others! Sharing thoughts fosters connection and creativity.
+//                 Whether it&apos;s a deep insight, casual chat, or random idea,
+//                 communication builds understanding.
+//               </TextAnimate>
+//             </motion.p>
+//           </motion.div>
+//           <div className="mx-auto max-w-7xl">
+//             <motion.div
+//               className="grid items-center justify-items-center gap-x-4 gap-y-10 lg:grid-cols-2"
+//               variants={itemVariants}
+//             >
+//               {/* contact from */}
+//               <motion.div
+//                 className="flex items-center justify-center"
+//                 variants={itemVariants}
+//               >
+//                 <motion.div
+//                   className="px-2 md:px-12"
+//                   variants={itemVariants}
+//                   whileHover={{ x: 5 }}
+//                   transition={{ type: "spring", stiffness: 200 }}
+//                 >
+//                   <motion.p
+//                     className="text-2xl font-bold md:text-4xl md:leading-10 text-indigo-500"
+//                     variants={itemVariants}
+//                   >
+//                     <TextAnimate animation="blurInUp" by="word">
+//                       Get in touch
+//                     </TextAnimate>
+//                   </motion.p>
+
+//                   <motion.p className="mt-4 text-lg" variants={itemVariants}>
+//                     <TextAnimate animation="blurInUp" by="word">
+//                       Our friendly team would love to hear from you.
+//                     </TextAnimate>
+//                   </motion.p>
+//                   <motion.div
+//                     className="space-y-2 mt-3"
+//                     variants={itemVariants}
+//                   >
+//                     <motion.div
+//                       className="flex text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                       whileHover={{ x: 5 }}
+//                       transition={{ type: "spring", stiffness: 300 }}
+//                     >
+//                       <MdEmail className="mr-2" /> Email: mdranju23@gmail.com
+//                     </motion.div>
+//                     <motion.div
+//                       className="flex text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                       whileHover={{ x: 5 }}
+//                       transition={{ type: "spring", stiffness: 300 }}
+//                     >
+//                       <FaPhone className="mr-2" />
+//                       Number: +8801799301290
+//                     </motion.div>
+//                     <motion.div
+//                       className="flex text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                       whileHover={{ x: 5 }}
+//                       transition={{ type: "spring", stiffness: 300 }}
+//                     >
+//                       <FaLocationDot className="mr-2" />
+//                       Location: Rajshahi, Bangladesh
+//                     </motion.div>
+//                   </motion.div>
+//                   <motion.form
+//                     action=""
+//                     onSubmit={handleSubmit}
+//                     className="mt-8 space-y-4 rounded-xl border p-6 pb-5 shadow-md"
+//                     variants={itemVariants}
+//                   >
+//                     <div className="grid w-full gap-y-4 md:gap-x-4 lg:grid-cols-2">
+//                       <motion.div
+//                         className="grid w-full items-center gap-1.5"
+//                         whileHover={{ scale: 1.02 }}
+//                         transition={{ type: "spring", stiffness: 400 }}
+//                       >
+//                         <label
+//                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                           htmlFor="first_name"
+//                         >
+//                           First Name
+//                           <span className="text-xs text-red-500">*</span>
+//                         </label>
+//                         <motion.input
+//                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                           type="text"
+//                           id="first_name"
+//                           name="firstName"
+//                           placeholder="First Name"
+//                           value={formData.firstName}
+//                           onChange={handleInputChange}
+//                           whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+//                           transition={{ type: "spring", stiffness: 300 }}
+//                         />
+//                         <span className="text-xs text-red-500">
+//                           {error.includes("First Name")
+//                             ? "First Name is required!"
+//                             : ""}
+//                         </span>
+//                       </motion.div>
+//                       <motion.div
+//                         className="grid w-full items-center gap-1.5"
+//                         whileHover={{ scale: 1.02 }}
+//                         transition={{ type: "spring", stiffness: 400 }}
+//                       >
+//                         <label
+//                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                           htmlFor="last_name"
+//                         >
+//                           Last Name
+//                           <span className="text-xs text-red-500">*</span>{" "}
+//                         </label>
+//                         <motion.input
+//                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                           type="text"
+//                           id="last_name"
+//                           placeholder="Last Name"
+//                           name="lastName"
+//                           value={formData.lastName}
+//                           onChange={handleInputChange}
+//                           whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+//                           transition={{ type: "spring", stiffness: 300 }}
+//                         />
+//                         <span className="text-xs text-red-500">
+//                           {error.includes("Last Name")
+//                             ? "Last Name is required!"
+//                             : ""}
+//                         </span>
+//                       </motion.div>
+//                     </div>
+//                     <motion.div
+//                       className="grid w-full items-center gap-1.5"
+//                       whileHover={{ scale: 1.02 }}
+//                       transition={{ type: "spring", stiffness: 400 }}
+//                     >
+//                       <label
+//                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                         htmlFor="email"
+//                       >
+//                         Email<span className="text-xs text-red-500">*</span>
+//                       </label>
+//                       <motion.input
+//                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                         type="text"
+//                         id="email"
+//                         placeholder="Email"
+//                         name="email"
+//                         value={formData.email}
+//                         onChange={handleInputChange}
+//                         whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+//                         transition={{ type: "spring", stiffness: 300 }}
+//                       />
+//                       <span className="text-xs text-red-500">
+//                         {error.includes("Email") ? "Email is required!" : ""}
+//                       </span>
+//                     </motion.div>
+//                     <motion.div
+//                       className="grid w-full items-center gap-1.5"
+//                       whileHover={{ scale: 1.02 }}
+//                       transition={{ type: "spring", stiffness: 400 }}
+//                     >
+//                       <label
+//                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                         htmlFor="phone_number"
+//                       >
+//                         Phone number
+//                         <span className="text-xs text-red-500">*</span>
+//                       </label>
+//                       <motion.input
+//                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                         type="number"
+//                         id="phone_number"
+//                         name="phone"
+//                         onChange={handleInputChange}
+//                         value={formData.phone}
+//                         placeholder="Phone number"
+//                         whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+//                         transition={{ type: "spring", stiffness: 300 }}
+//                       />
+//                       <span className="text-xs text-red-500">
+//                         {error.includes("Phone number")
+//                           ? "Phone number is required!"
+//                           : ""}
+//                       </span>
+//                     </motion.div>
+//                     <motion.div
+//                       className="grid w-full items-center gap-1.5"
+//                       whileHover={{ scale: 1.02 }}
+//                       transition={{ type: "spring", stiffness: 400 }}
+//                     >
+//                       <label
+//                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+//                         htmlFor="message"
+//                       >
+//                         Message<span className="text-xs text-red-500">*</span>
+//                       </label>
+//                       <motion.textarea
+//                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+//                         id="message"
+//                         placeholder="Leave us a message"
+//                         cols={20}
+//                         name="message"
+//                         value={formData.message}
+//                         onChange={handleInputChange}
+//                         whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+//                         transition={{ type: "spring", stiffness: 300 }}
+//                       />
+//                       <span className="text-xs text-red-500">
+//                         {error.includes("Message")
+//                           ? "Message is required!"
+//                           : ""}
+//                       </span>
+//                     </motion.div>
+//                     <motion.div
+//                       variants={itemVariants}
+//                       whileHover={{ scale: 1.05, y: -2 }}
+//                       transition={{ type: "spring", stiffness: 300 }}
+//                     >
+//                       <ShinyButton className="w-full py-3" ref={buttonRef}>
+//                         Send Message
+//                       </ShinyButton>
+//                     </motion.div>
+//                   </motion.form>
+//                 </motion.div>
+//               </motion.div>
+//               <motion.div
+//                 className="flex items-center justify-center"
+//                 variants={itemVariants}
+//                 whileHover={{ scale: 1.02, rotateY: 5 }}
+//                 transition={{ type: "spring", stiffness: 300 }}
+//               >
+//                 <Image
+//                   alt="Contact us"
+//                   width={500}
+//                   height={500}
+//                   placeholder="blur"
+//                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+//                   className="hidden w-full rounded-lg object-cover drop-shadow-xl lg:block "
+//                   src="./Mention-bro.svg"
+//                 />
+//               </motion.div>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </motion.div>
+//     </>
+//   );
+// }
+
+// export default Contact;
+
 "use client";
 import { URL } from "@/api/cron/route";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { Button } from "@/components/ui/button";
+import ShinyButton from "@/components/ui/shiny-button";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { toast } from "sonner";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+} as const;
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+} as const;
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -23,7 +749,9 @@ function Contact() {
   const [error, setError] = useState("");
   const buttonRef = useRef(null);
 
-  const handleInputChange = (event: any) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
 
     setFormData({
@@ -32,8 +760,27 @@ function Contact() {
     });
   };
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    // Validate before fetch
+    if (formData.firstName === "") {
+      setError("First Name is required!");
+      return;
+    } else if (formData.lastName === "") {
+      setError("Last Name is required!");
+      return;
+    } else if (formData.email === "") {
+      setError("Email is required!");
+      return;
+    } else if (formData.phone === "") {
+      setError("Phone number is required!");
+      return;
+    } else if (formData.message === "") {
+      setError("Message is required!");
+      return;
+    }
+    setError("");
 
     try {
       const response = await fetch(`${URL}/contact`, {
@@ -43,18 +790,6 @@ function Contact() {
         },
         body: JSON.stringify(formData),
       });
-
-      if (formData.firstName === "") {
-        setError("First Name is required!");
-      } else if (formData.lastName === "") {
-        setError("Last Name is required!");
-      } else if (formData.email === "") {
-        setError("Email is required!");
-      } else if (formData.phone === "") {
-        setError("Phone number is required!");
-      } else if (formData.message === "") {
-        setError("Message is required!");
-      }
 
       const data = await response.json();
 
@@ -67,7 +802,6 @@ function Contact() {
           phone: "",
           message: "",
         });
-        setError("");
       } else {
         toast.error(data.massage);
         console.log(data?.massage);
@@ -79,7 +813,6 @@ function Contact() {
 
   return (
     <>
-      {/* <title>Contact - MDR</title> */}
       <AnimatedGridPattern
         numSquares={30}
         maxOpacity={0.1}
@@ -90,57 +823,118 @@ function Contact() {
           "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12"
         )}
       />
-      <div className="z-50 py-20 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
+      <motion.div
+        className="z-50 py-20 bg-slate-100 dark:bg-[#020617] antialiased overflow-hidden"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="mx-auto max-w-7xl px-4">
           {/* Hero Map */}
-          <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
-            <div className="mx-auto max-w-max rounded-full border p-1 px-3">
-              <p className="text-center text-xs font-semibold leading-normal md:text-sm ">
+          <motion.div
+            className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24"
+            variants={itemVariants}
+          >
+            <motion.div
+              className="mx-auto max-w-max rounded-full border p-1 px-3"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              <p className="text-center text-xs font-semibold leading-normal md:text-sm">
                 Share your thoughts
               </p>
-            </div>
-            <p className="text-center text-3xl font-bold  md:text-5xl md:leading-10  text-indigo-500">
-              Love to hear from you
-            </p>
-            <p className="mx-auto max-w-4xl text-center text-base  md:text-xl columns-1">
-              I think it&apos;s great that you&apos;re open to hearing from
-              others! Sharing thoughts fosters connection and creativity.
-              Whether it&apos;s a deep insight, casual chat, or random idea,
-              communication builds understanding.
-            </p>
-          </div>
+            </motion.div>
+            <motion.p
+              className="text-center text-3xl font-bold md:text-5xl md:leading-10 text-indigo-500"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <TextAnimate animation="blurInUp" by="word">
+                Love to hear from you
+              </TextAnimate>
+            </motion.p>
+            <motion.p
+              className="mx-auto max-w-4xl text-center text-base md:text-xl columns-1"
+              variants={itemVariants}
+            >
+              <TextAnimate animation="blurInUp" by="word">
+                I think it&apos;s great that you&apos;re open to hearing from
+                others! Sharing thoughts fosters connection and creativity.
+                Whether it&apos;s a deep insight, casual chat, or random idea,
+                communication builds understanding.
+              </TextAnimate>
+            </motion.p>
+          </motion.div>
           <div className="mx-auto max-w-7xl">
-            <div className="grid items-center justify-items-center gap-x-4 gap-y-10 lg:grid-cols-2">
+            <div className="flex flex-col lg:grid items-center justify-items-center gap-x-4 gap-y-10 lg:grid-cols-2">
               {/* contact from */}
-              <div className="flex items-center justify-center">
-                <div className="px-2 md:px-12">
-                  <p className="text-2xl font-bold md:text-4xl md:leading-10  text-indigo-500">
-                    Get in touch
-                  </p>
+              <motion.div
+                className="flex items-center justify-center order-2 lg:order-1"
+                variants={itemVariants}
+              >
+                <motion.div
+                  className="px-2 md:px-12 w-full"
+                  variants={itemVariants}
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                >
+                  <motion.p
+                    className="text-2xl font-bold md:text-4xl md:leading-10 text-indigo-500"
+                    variants={itemVariants}
+                  >
+                    <TextAnimate animation="blurInUp" by="word">
+                      Get in touch
+                    </TextAnimate>
+                  </motion.p>
 
-                  <p className="mt-4 text-lg ">
-                    Our friendly team would love to hear from you.
-                  </p>
-                  <div className="space-y-2 mt-3">
-                    <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                  <motion.p className="mt-4 text-lg" variants={itemVariants}>
+                    <TextAnimate animation="blurInUp" by="word">
+                      Our friendly team would love to hear from you.
+                    </TextAnimate>
+                  </motion.p>
+                  <motion.div
+                    className="space-y-2 mt-3"
+                    variants={itemVariants}
+                  >
+                    <motion.div
+                      className="flex text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                       <MdEmail className="mr-2" /> Email: mdranju23@gmail.com
-                    </div>
-                    <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    </motion.div>
+                    <motion.div
+                      className="flex text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                       <FaPhone className="mr-2" />
                       Number: +8801799301290
-                    </div>
-                    <div className="flex text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    </motion.div>
+                    <motion.div
+                      className="flex text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                       <FaLocationDot className="mr-2" />
                       Location: Rajshahi, Bangladesh
-                    </div>
-                  </div>
-                  <form
+                    </motion.div>
+                  </motion.div>
+                  <motion.form
                     action=""
                     onSubmit={handleSubmit}
-                    className="mt-8 space-y-4 rounded-xl  border p-6 pb-5 dark:bg-slate-900 bg-slate-100 shadow-lg "
+                    className="mt-8 space-y-4 rounded-xl border p-6 pb-5 shadow-md"
+                    variants={itemVariants}
                   >
                     <div className="grid w-full gap-y-4 md:gap-x-4 lg:grid-cols-2">
-                      <div className="grid w-full  items-center gap-1.5">
+                      <motion.div
+                        className="grid w-full items-center gap-1.5"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
                         <label
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                           htmlFor="first_name"
@@ -148,7 +942,7 @@ function Contact() {
                           First Name
                           <span className="text-xs text-red-500">*</span>
                         </label>
-                        <input
+                        <motion.input
                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
                           type="text"
                           id="first_name"
@@ -156,14 +950,20 @@ function Contact() {
                           placeholder="First Name"
                           value={formData.firstName}
                           onChange={handleInputChange}
+                          whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                          transition={{ type: "spring", stiffness: 300 }}
                         />
                         <span className="text-xs text-red-500">
                           {error.includes("First Name")
                             ? "First Name is required!"
                             : ""}
                         </span>
-                      </div>
-                      <div className="grid w-full  items-center gap-1.5">
+                      </motion.div>
+                      <motion.div
+                        className="grid w-full items-center gap-1.5"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
                         <label
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                           htmlFor="last_name"
@@ -171,7 +971,7 @@ function Contact() {
                           Last Name
                           <span className="text-xs text-red-500">*</span>{" "}
                         </label>
-                        <input
+                        <motion.input
                           className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
                           type="text"
                           id="last_name"
@@ -179,22 +979,28 @@ function Contact() {
                           name="lastName"
                           value={formData.lastName}
                           onChange={handleInputChange}
+                          whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                          transition={{ type: "spring", stiffness: 300 }}
                         />
                         <span className="text-xs text-red-500">
                           {error.includes("Last Name")
                             ? "Last Name is required!"
                             : ""}
                         </span>
-                      </div>
+                      </motion.div>
                     </div>
-                    <div className="grid w-full  items-center gap-1.5">
+                    <motion.div
+                      className="grid w-full items-center gap-1.5"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
                       <label
-                        className="text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="email"
                       >
                         Email<span className="text-xs text-red-500">*</span>
                       </label>
-                      <input
+                      <motion.input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
                         type="text"
                         id="email"
@@ -202,12 +1008,18 @@ function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
+                        whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       />
                       <span className="text-xs text-red-500">
                         {error.includes("Email") ? "Email is required!" : ""}
                       </span>
-                    </div>
-                    <div className="grid w-full  items-center gap-1.5">
+                    </motion.div>
+                    <motion.div
+                      className="grid w-full items-center gap-1.5"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
                       <label
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="phone_number"
@@ -215,7 +1027,7 @@ function Contact() {
                         Phone number
                         <span className="text-xs text-red-500">*</span>
                       </label>
-                      <input
+                      <motion.input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
                         type="number"
                         id="phone_number"
@@ -223,61 +1035,75 @@ function Contact() {
                         onChange={handleInputChange}
                         value={formData.phone}
                         placeholder="Phone number"
+                        whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       />
                       <span className="text-xs text-red-500">
                         {error.includes("Phone number")
                           ? "Phone number is required!"
                           : ""}
                       </span>
-                    </div>
-                    <div className="grid w-full  items-center gap-1.5">
+                    </motion.div>
+                    <motion.div
+                      className="grid w-full items-center gap-1.5"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
                       <label
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         htmlFor="message"
                       >
                         Message<span className="text-xs text-red-500">*</span>
                       </label>
-                      <textarea
-                        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+                      <motion.textarea
+                        className="flex h-32 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
                         id="message"
                         placeholder="Leave us a message"
-                        cols={20}
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
+                        whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       />
                       <span className="text-xs text-red-500">
                         {error.includes("Message")
                           ? "Message is required!"
                           : ""}
                       </span>
-                    </div>
-
-                    <Button
-                      ref={buttonRef}
-                      size="lg"
-                      className="bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/50 glow-effect text-lg px-8 w-full transition-colors duration-500 ease-in-out  "
+                    </motion.div>
+                    <motion.div
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
                     >
-                      Send Message
-                      <ArrowRight className="ml-2 h-5  w-5" />
-                    </Button>
-                    
-                  </form>
-                </div>
-              </div>
-              <Image
-                alt="Contact us"
-                width={500}
-                height={500}
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-                className="hidden w-full rounded-lg object-cover drop-shadow-xl lg:block"
-                src="./Mention-bro.svg"
-              />
+                      <ShinyButton className="w-full py-3" ref={buttonRef}>
+                        Send Message
+                      </ShinyButton>
+                    </motion.div>
+                  </motion.form>
+                </motion.div>
+              </motion.div>
+              {/* Big Contact Image at Bottom */}
+              <motion.div
+                className="flex items-center justify-center order-1 lg:order-2 w-full"
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, rotateY: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Image
+                  alt="Contact us"
+                  width={800}
+                  height={600}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                  className="w-full max-w-4xl h-[400px] lg:h-[600px] rounded-lg object-cover drop-shadow-xl"
+                  src="./Mention-bro.svg"
+                />
+              </motion.div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

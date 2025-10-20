@@ -1,4 +1,12 @@
-import Image from "next/image";
+import { FlipWords } from "@/components/ui/flip-words";
+import { Highlighter } from "@/components/ui/highlighter";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { OrbitingCircles } from "@/components/ui/orbiting-circles";
+import ShimmerButton from "@/components/ui/shimmer-button";
+import SparklesText from "@/components/ui/sparkles-text";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Sparkles } from "lucide-react";
+import Link from "next/link";
 import { BiLogoTypescript } from "react-icons/bi";
 import { DiMongodb } from "react-icons/di";
 import {
@@ -8,18 +16,9 @@ import {
   FaReact,
   FaXTwitter,
 } from "react-icons/fa6";
+import { MdDownload } from "react-icons/md";
 import { RiJavascriptFill } from "react-icons/ri";
 import { SiExpress, SiNextdotjs, SiTailwindcss } from "react-icons/si";
-import heroImage from "../../../public/hero-image.jpg";
-import { Highlighter } from "@/components/ui/highlighter";
-import { FlipWords } from "@/components/ui/flip-words";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { OrbitingCircles } from "@/components/ui/orbiting-circles";
-import ShimmerButton from "@/components/ui/shimmer-button";
-import SparklesText from "@/components/ui/sparkles-text";
-import { Spotlight } from "@/components/ui/spotlight";
-import Link from "next/link";
-import { MdDownload } from "react-icons/md";
 
 /* eslint-disable react/no-unescaped-entities */
 const words = [
@@ -32,7 +31,7 @@ const words = [
 ];
 function HeroSection() {
   return (
-    <div className="relative w-full lg:py-20 lg:pt-32 pt-10 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
+    <div className="relative w-full lg:py-36 lg:pt-40 pt-10 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
       <div className="z-0 dark:flex hidden">
         <Spotlight
           className="-top-32 left-0 md:left-80 md:-top-20 -z-0"
@@ -48,50 +47,37 @@ function HeroSection() {
 
       <div className="mx-auto max-w-7xl">
         <div className="flex lg:flex-row flex-col  justify-center py-10">
-          <div className="flex flex-col justify-center  py-10 lg:z-40 relative ">
-            <div className="mt-2 flex max-w-max items-center space-x-2 rounded-full border p-2">
-              <SparklesText className="mx-2 " text="Hey there!🙂" />
+          <div className="flex flex-col justify-center  py-10 lg:z-40 relative space-y-4">
+            <div className="mt-10 flex max-w-max items-center space-x-2 rounded-full border p-2">
+              <SparklesText className="mx-3" text="Hey there!🙂" />
             </div>
-            <h1 className="mt-3 max-w-4xl text-3xl  font-black tracking-tight md:text-4xl lg:text-6xl flex">
+            <h1 className="max-w-4xl text-3xl  font-black tracking-tight md:text-4xl lg:text-6xl flex">
               <span className="mr-3">I'm</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-600/20 to-90%">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-600/70 to-90%">
                 Muhammad Ranju
               </span>
             </h1>
-            <h2 className="mt-6 font-bold lg:text-2xl md:text-xl sm:text-lg flex flex-row items-center">
+            <h2 className="font-bold lg:text-2xl md:text-xl sm:text-lg flex flex-row items-center">
               <span className="">I'm a</span>
               <div className="">
                 <FlipWords words={words} />
                 Developer.
               </div>
             </h2>
-            <p className="mt-5  text-base font-semibold lg:w-4/5">
+            <p className=" text-base font-semibold lg:w-4/5">
               Welcome to my portfolio! I hope you enjoy your visit. I specialize
               in Back-End development with Node.js and Front-End development
               with React.js. I have worked on various projects, including a Real{" "}
-              <Highlighter action="highlight" color="#4f46e5" multiline={true}>
-                LMS System, E-Commerce, Link-Shortener,
-              </Highlighter>{" "}
-              <Highlighter action="underline" color="#f5f5f5" isView={true}>
-                Using Modern Technologies like
-              </Highlighter>{" "}
-              <Highlighter action="highlight" color="#7e22ce">
-                React.js, Next.js, Shadcn
-              </Highlighter>{" "}
-              <Highlighter action="highlight" color="#FF9800" padding={2}>
-                , Tailwindcss, MongoDB,
-              </Highlighter>{" "}
-              and more. I am passionate about learning new technologies and
-              building solutions that make a difference. Thank you for visiting
-              my portfolio! <br /> I hope you like my work.{" "}
+              LMS System, E-Commerce, Link-Shortener, Using Modern Technologies
+              like React.js, Next.js, Shadcn , Tailwindcss, MongoDB, and more. I
+              am passionate about learning new technologies and building
+              solutions that make a difference. Thank you for visiting my
+              portfolio! <br /> I hope you like my work.{" "}
               <Highlighter action="underline" color="#FF9800">
                 Happy coding! 🧑🏻‍💻
               </Highlighter>{" "}
             </p>
-
-            {/*I have 2+ years of experience in Node.js, Express.js, MongoDB,
-              React.js and other related technologies. */}
-            <div className="flex gap-5 mt-5 border-white border-collapse rounded">
+            <div className="flex  gap-x-5 border-white border-collapse rounded">
               <a
                 href="https://github.com/muhammadranju"
                 aria-label="GitHub Icon"
@@ -114,8 +100,8 @@ function HeroSection() {
                 <FaXTwitter className="h-7 w-7" />
               </a>
             </div>
-            <div className="mt-5">
-              <div className="flex mt-5 gap-x-2 border-white border-collapse rounded">
+            <div>
+              <div className="flex mt-4 gap-x-2 border-white border-collapse rounded">
                 <a
                   href="../../full_stack_developer_resume.pdf"
                   target="_blank"
@@ -133,9 +119,10 @@ function HeroSection() {
                   <HoverBorderGradient
                     containerClassName="rounded-full"
                     as="button"
-                    className="dark:bg-slate-900 lg:py-3 py-1.5 bg-white text-black dark:text-white flex items-center space-x-2"
+                    className="bg-slate-900 lg:py-3 py-1.5   text-white flex items-center space-x-2"
                   >
                     <span>Contact Me</span>
+                    <Sparkles className="h-4 w-4" />
                   </HoverBorderGradient>
                 </Link>
               </div>
@@ -147,18 +134,19 @@ function HeroSection() {
               Skills
             </span>
 
-            <OrbitingCircles iconSize={40}>
+            <OrbitingCircles iconSize={50}>
               <BiLogoTypescript className="text-sky-600 lg:text-8xl text-3xl" />
               <FaNode className="text-lime-500 lg:text-8xl text-3xl" />
               <FaReact className="text-sky-500 lg:text-8xl text-3xl" />
               <SiExpress className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
               <SiTailwindcss className="text-cyan-500 lg:text-8xl text-3xl" />
+
               <SiNextdotjs className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
               <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
               <RiJavascriptFill className="text-yellow-500 lg:text-8xl text-3xl" />
             </OrbitingCircles>
 
-            <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
+            <OrbitingCircles iconSize={40} radius={100} reverse speed={2}>
               <FaReact className="text-sky-500 lg:text-8xl text-3xl" />
               <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
               <BiLogoTypescript className="text-sky-600 lg:text-8xl text-3xl" />
@@ -170,18 +158,24 @@ function HeroSection() {
             </OrbitingCircles>
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/0 via-transparent to-blue-500/20 animate-gradient" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/0 via-transparent to-blue-500/20 animate-gradient z-0" />
         </div>
-        <hr className="my-5 w-full -mt-3" />
 
-        <div className="rounded-lg lg:bg-gray-500 lg:p-[3px] px-2">
+        {/* <hr className="my-5 w-full -mt-3" />
+        <div className="rounded-lg relative ">
           <Image
             placeholder="blur"
             className="rounded-lg"
             src={heroImage}
             alt="Hero Image"
           />
-        </div>
+          <BorderBeam
+            className="rounded-xl"
+            size={350}
+            duration={16}
+            delay={12}
+          />
+        </div> */}
       </div>
     </div>
   );

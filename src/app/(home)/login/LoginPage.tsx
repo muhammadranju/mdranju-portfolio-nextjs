@@ -1,10 +1,10 @@
 import { ArrowRight } from "lucide-react";
 export default function Login() {
   return (
-    <section>
-      <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-        <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
-          <div className="mb-2 flex justify-center">
+    <section className="  min-h-screen overflow-hidden">
+      <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24 mt-20">
+        <div className="xl:mx-auto xl:w-full xl:max-w-lg bg-slate-100 dark:bg-[#020617] p-5 pb-10 rounded-xl shadow border border-white/10">
+          <div className="mb-2 flex justify-center ">
             <div className="inline-flex items-center space-x-0 mt-3">
               <span className="bg-white rounded p-1 pr-0">
                 <svg
@@ -61,7 +61,11 @@ c25 -5 62 -24 83 -40 l38 -31 122 32 c156 41 364 52 492 26 205 -42 374 -172
           <h2 className="text-center text-2xl font-bold leading-tight">
             Sign in to your account
           </h2>
-          <form action="#" method="POST" className="mt-8">
+          <form
+            action="#"
+            method="POST"
+            className="mt-8 border border-black/10 rounded-xl   antialiased  overflow-hidden p-5"
+          >
             <div className="space-y-5">
               <div>
                 <label htmlFor="" className="text-base font-medium ">

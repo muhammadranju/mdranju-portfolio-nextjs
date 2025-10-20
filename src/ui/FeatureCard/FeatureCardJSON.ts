@@ -25,7 +25,8 @@ export const FeatureCardJSON = [
   },
   {
     title: "Redux",
-    description: "Redux is a predictable state container for JavaScript apps.",
+    description:
+      "Redux is a scalable and powerful global state management library. ",
     imageLink:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
   },
@@ -36,17 +37,18 @@ export const FeatureCardJSON = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
     isDark: "dark",
   },
+
   {
-    title: "TailwindCSS & ShadcnUI",
-    description: "TailwindCSS is a utility-first CSS framework.",
-    imageLink:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-  },
-  {
-    title: "SocketIO",
+    title: "Socket.io",
     description: "SocketIO is a real-time, bi-directional communication layer.",
     imageLink:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
     isDark: "dark",
+  },
+  {
+    title: "TailwindCSS & Shadcn",
+    description: "TailwindCSS framework and Shadcn UI component library.",
+    imageLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
   },
 ];
