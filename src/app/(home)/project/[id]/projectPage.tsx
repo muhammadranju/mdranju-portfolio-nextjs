@@ -135,7 +135,7 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
               <HoverBorderGradient
                 containerClassName="rounded-lg"
                 as="button"
-                className="dark:bg-slate-800 bg-slate-100  text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+                className="dark:bg-slate-900 bg-slate-100  text-slate-700 dark:text-slate-100 flex items-center space-x-2"
               >
                 <FaGithub className="font-extrabold text-lg mr-2" /> Github
               </HoverBorderGradient>
@@ -145,7 +145,7 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                 <HoverBorderGradient
                   containerClassName="rounded-lg"
                   as="button"
-                  className="dark:bg-slate-800 bg-slate-100  text-slate-700 dark:text-slate-100 flex items-center space-x-2"
+                  className="dark:bg-slate-900 bg-slate-100  text-slate-700 dark:text-slate-100 flex items-center space-x-2"
                 >
                   <FaGithub className="font-extrabold text-lg mr-2" /> Backend
                 </HoverBorderGradient>
@@ -157,7 +157,7 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                 <HoverBorderGradient
                   containerClassName="rounded-lg"
                   as="button"
-                  className="dark:bg-indigo-500 bg-indigo-500 text-slate-100 dark:text-slate-100 flex items-center space-x-2"
+                  className="dark:bg-indigo-600 bg-indigo-600 text-slate-100 dark:text-slate-100 flex items-center space-x-2"
                 >
                   <MdOpenInNew className="font-extrabold text-lg mr-2" /> Live
                 </HoverBorderGradient>
