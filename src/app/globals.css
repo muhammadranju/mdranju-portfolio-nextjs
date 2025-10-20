@@ -6,7 +6,9 @@
 /* body {
   font-family: "Geist", serif;
 } */
-
+/* * {
+  cursor: none !important;
+} */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -115,11 +117,11 @@
 
 @theme inline {
   @keyframes line-shadow {
-  0% {
-    background-position: 0 0;
+    0% {
+      background-position: 0 0;
     }
-  100% {
-    background-position: 100% -100%;
+    100% {
+      background-position: 100% -100%;
     }
   }
 }

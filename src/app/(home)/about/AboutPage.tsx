@@ -1,78 +1,222 @@
+"use client";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import BoxReveal from "@/components/ui/box-reveal";
+import { LightRays } from "@/components/ui/light-rays";
 import ShinyButton from "@/components/ui/shiny-button";
-import SplashCursor from "@/components/ui/SplashCursor";
 import Image from "next/image";
 import Link from "next/link";
+import { TextAnimate } from "@/components/ui/text-animate";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { motion } from "framer-motion"; // Ensure this import is after 'use client'
 import image from "../../../../public/mdranju.jpg";
+
+const Links = [
+  {
+    name: "GitHub",
+    href: "https://github.com/muhammadranju",
+    icon: FaGithub,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/muhammadranju",
+    icon: FaLinkedin,
+  },
+  {
+    name: "X",
+    href: "https://x.com/muhammad_ranju",
+    icon: BsTwitterX,
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/aminhossainranju",
+    icon: FaFacebook,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/aminhossainranju",
+    icon: FaInstagram,
+  },
+];
+
+const Skills = [
+  "JavaScript",
+  "TypeScript",
+  "Node.js",
+  "React.js",
+  "Next.js",
+  "Tailwind",
+  "shadcn/ui",
+  "Prism",
+  "PostgreSQL",
+  "MongoDB",
+];
 
 function About() {
   return (
-    <>
-      <div>
-        <div className="mx-auto max-w-7xl px-4 lg:py-20">
-          <div className="relative flex flex-col-reverse rounded-xl py-16 my-20 pt-20 lg:dark:bg-slate-900 lg:bg-slate-100 lg:pt-0 lg:flex-col lg:pb-0">
-            <BackgroundBeams />
-            <div className="inset-y-0 top-0 right-0 z-0 w-full  rounded-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
-              <svg
-                className="absolute left-0 hidden h-full z-10 dark:text-slate-900 text-slate-100 transform -translate-x-1/2 lg:block"
-                viewBox="0 0 100 100"
-                fill="currentColor"
-                preserveAspectRatio="none slice"
-              >
-                <path d="M50 0H100L50 100H0L50 0Z" />
-              </svg>
-              <Image
-                width={500}
-                height={500}
-                className="object-cover z-50 overflow-hidden w-full h-56 rounded-xl shadow-lg lg:shadow-none md:h-96 lg:h-full"
-                placeholder="blur"
-                src={image}
-                alt="Md Ranju Images"
-              />
-            </div>
+    <div className="relative overflow-hidden min-h-screen pt-10">
+      <BackgroundBeams className="z-0" />
+      <div className="mx-auto max-w-7xl px-4 py-20  relative">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-12 rounded-2xl p-8 lg:p-12 bg-gradient-to-br from-slate-50/80 to-indigo-50/80 dark:from-[#020617]/80 dark:to-[#020617]/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 shadow-xl">
+          {/* Profile Image Container - Card-like with full height display */}
+          <motion.div
+            className="relative w-full lg:w-1/2 h-[500px] lg:h-[700px] rounded-2xl overflow-hidden shadow-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200/50 dark:border-slate-700/50 flex items-center justify-center p-4" // Added card-like border, bg, padding; fixed heights to match image (500px mobile, 700px lg); flex center for full show inside "card"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileHover={{ scale: 1.05, rotateY: 5 }}
+          >
+            <Image
+              width={500}
+              height={700}
+              className="w-auto h-auto max-w-full max-h-full object-contain z-50 rounded-md" // w-auto h-auto to preserve original aspect; max-w-full max-h-full ensures it fits inside the card without cropping; object-contain for full visibility
+              placeholder="blur"
+              src={image}
+              alt="Md Ranju"
+            />
+            {/* Creative Beam Effect on Image */}
+            <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+          </motion.div>
 
-            <div className="relative flex flex-col items-start w-full z-10  mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
-              <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5 z-10">
-                <BoxReveal boxColor={"#6366f1"} duration={0.5}>
-                  <p className="text-[2rem] font-semibold rounded-lg">
-                    About Me<span className="text-[#6366f1]">.</span>
-                  </p>
-                </BoxReveal>
-                <p className="pr-5 mb-5 text-base font-bold dark:text-gray-200 text-slate-900 md:text-lg">
-                  Hi, I&apos;m{" "}
-                  <span className="text-xl font-bold md:text-2xl text-indigo-500">
-                    {" "}
-                    Md. Ranju
-                  </span>
-                  , a passionate Web Application Developer from Rajshahi,
-                  Bangladesh. I began my journey into web development in 2021,
-                  the same year I completed my Higher Secondary Certificate
-                  (HSC). Currently, I am pursuing further studies at Degree
-                  College while continuing to enhance my skills in both
-                  front-end and back-end technologies.
-                  <br />
-                  Over the past few years, I have honed my expertise in Web
-                  Application Development, enabling me to build dynamic,
-                  responsive websites and applications from the ground up. My
-                  skill set spans various programming languages and frameworks,
-                  including HTML, CSS, JavaScript, Node.js, React.js, Next.js,
-                  MongoDB and more. I am committed to delivering efficient,
-                  high-quality solutions that meet the needs of clients and
-                  users alike.
-                </p>
-                <div className="flex items-center z-10">
-                  <Link href="/contact">
-                    <ShinyButton>Contact Me</ShinyButton>
-                  </Link>
-                </div>
+          {/* Bio Content with Enhanced Animations */}
+          <motion.div
+            className="w-full lg:w-1/2 space-y-6"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
+            {/* Animated Title */}
+            <BoxReveal boxColor="#6366f1" duration={0.5}>
+              <motion.h1
+                className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-600/20 bg-clip-text text-transparent mb-4"
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+              >
+                About Me<span className="text-indigo-500 animate-pulse">.</span>
+              </motion.h1>
+            </BoxReveal>
+
+            {/* Greeting and Bio Text with Staggered Animation */}
+            <motion.p
+              className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: { transition: { staggerChildren: 0.1 } },
+              }}
+            >
+              Hi, I&apos;m{" "}
+              <motion.span
+                className="text-2xl font-bold text-indigo-500"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+              >
+                Md. Ranju
+              </motion.span>
+              <TextAnimate animation="fadeIn" by="character" className="inline">
+                , a passionate Web Application Developer based in Rajshahi,
+                Bangladesh. My journey in web development ignited in 2021—the
+                same year I earned my Higher Secondary Certificate (HSC). Today,
+                while pursuing my degree at Rajshahi College, I balance academic
+                pursuits with relentless innovation in full-stack development.
+              </TextAnimate>
+              <br />
+              <TextAnimate
+                animation="fadeIn"
+                by="character"
+                className="mt-4 block"
+              >
+                In the years since, I&apos;ve refined my craft to build
+                scalable, responsive web applications that prioritize
+                performance and user experience. My expertise now centers on
+                modern tools and frameworks, including JavaScript, TypeScript,
+                Node.js, React.js, Next.js, Tailwind CSS, shadcn/ui, Prism,
+                PostgreSQL, MongoDB, and more. I&apos;m fueled by a dedication
+                to architecting robust, intuitive solutions that drive real
+                impact for clients and users.
+              </TextAnimate>
+            </motion.p>
+
+            {/* Interactive Skills Grid */}
+            <motion.div
+              className="grid grid-cols-2 lg:grid-cols-5 gap-3 mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              {Skills.map((skill, index) => (
+                <motion.div
+                  key={skill}
+                  className="px-4 py-2 bg-white/60 dark:bg-slate-800/60 rounded-lg backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 text-center text-sm font-medium text-slate-700 dark:text-slate-300 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-default"
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  // transition={{ delay: index * 0.05 }}
+                >
+                  {skill}
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Social Links with Hover Effects */}
+            <motion.div
+              className="flex items-center gap-4 mt-6"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">
+                Connect With Me
+              </p>
+              <div className="flex items-center gap-x-3">
+                {Links.map((link, index) => (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    aria-label={link.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:bg-indigo-500/20 hover:border-indigo-500/30 transition-all duration-300 text-slate-700 dark:text-slate-300 hover:text-indigo-500"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    <link.icon className="h-5 w-5" />
+                  </motion.a>
+                ))}
               </div>
-            </div>
-          </div>
-          <SplashCursor />
+            </motion.div>
+
+            {/* Enhanced CTA Button */}
+            <motion.div
+              className="flex items-center mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Link href="/contact">
+                <ShinyButton className="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold shadow-lg hover:shadow-indigo-500/50 transform hover:-translate-y-1 transition-all duration-300">
+                  Let&apos;s Build Something Amazing
+                </ShinyButton>
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-    </>
+      <LightRays
+        color="#6366f120"
+        length="70vh"
+        speed={10}
+        count={7}
+        className="z-0"
+      />
+    </div>
   );
 }
 
