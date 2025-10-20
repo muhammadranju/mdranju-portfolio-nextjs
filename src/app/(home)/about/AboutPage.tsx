@@ -8,6 +8,7 @@ import Link from "next/link";
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import image from "../../../../public/mdranju.jpg";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 const Links = [
   {
@@ -126,10 +127,17 @@ function About() {
           >
             {/* Title - Removed complex BoxReveal for performance */}
             <motion.h1
-              className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent mb-4"
+              className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-400/30 bg-clip-text text-transparent mb-4"
               variants={fadeInUp as any}
             >
-              About Me<span className="text-indigo-500">.</span>
+              <motion.h2
+                className="inset-0 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-indigo-700"
+                variants={fadeInUp as any}
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                About Me<span className="text-indigo-500">.</span>
+              </motion.h2>
             </motion.h1>
 
             {/* Bio Text - Simplified animation */}
