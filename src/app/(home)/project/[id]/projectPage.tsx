@@ -37,9 +37,9 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
   };
 
   return (
-    <div className=" bg-slate-100 dark:bg-[#020617] relative  w-full  overflow-hidden antialiased ">
+    <div className="  relative  w-full  overflow-hidden antialiased lg:px-8  px-3">
       <Spotlight />
-      <div className=" p-8 max-w-7xl mx-auto mt-28 mb-10 dark:bg-[#020617] bg-slate-100 rounded-xl border-[1px] dark:border-slate-100/30 border-slate-500/5 shadow-lg    ">
+      <div className=" lg:p-8 p-3 max-w-7xl mx-auto mt-28 mb-10  rounded-xl border-[1px] dark:border-slate-100/30 border-slate-500/5 shadow-lg bg-slate-100 dark:bg-[#020617]   ">
         <div className="pb-5">
           <HoverBorderGradient
             onClick={handelClick}

@@ -47,7 +47,7 @@ function HeroSection() {
 
       <div className="mx-auto max-w-7xl">
         <div className="flex lg:flex-row flex-col  justify-center py-10">
-          <div className="flex flex-col justify-center  py-10 lg:z-40 relative space-y-4">
+          <div className="flex flex-col justify-center  py-10 lg:z-40 relative space-y-4 lg:px-0 px-3">
             <div className="mt-10 flex max-w-max items-center space-x-2 rounded-full border p-2">
               <SparklesText className="mx-3" text="Hey there!🙂" />
             </div>
