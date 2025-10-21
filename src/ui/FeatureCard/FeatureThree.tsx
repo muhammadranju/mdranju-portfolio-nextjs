@@ -95,7 +95,7 @@ export function FeatureThree() {
           </motion.p>
         </motion.div>
         <motion.div
-          className="mt-6 grid grid-cols-1 text-center sm:grid-cols-2 sm:gap-2 lg:grid-cols-4"
+          className="mt-6 grid grid-cols-1 text-center sm:grid-cols-2 lg:gap-3 gap-y-3 lg:grid-cols-4 lg:px-0 px-10"
           variants={itemVariants as any}
         >
           <FeatureCard />

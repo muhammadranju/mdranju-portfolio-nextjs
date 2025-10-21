@@ -84,7 +84,7 @@ export function Projects() {
         </motion.h4>
 
         <motion.p
-          className="mt-4 text-base leading-relaxed w-1/3 mx-auto text-center"
+          className="mt-4 text-base leading-relaxed lg:w-1/3 mx-auto text-center"
           variants={itemVariants as any}
         >
           <TextAnimate animation="blurInUp" by="word">
@@ -95,7 +95,7 @@ export function Projects() {
 
         {/* Project Cards */}
         <motion.div
-          className="grid gap-3 py-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl mx-auto"
+          className="grid gap-3 py-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl mx-auto lg:px-0 px-3"
           variants={itemVariants as any}
         >
           {isLoading && <HomeSkeletonCard />}

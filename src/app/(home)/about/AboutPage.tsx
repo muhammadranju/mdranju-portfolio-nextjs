@@ -100,7 +100,7 @@ function About() {
         >
           {/* Profile Image Container - Simplified animations */}
           <motion.div
-            className="relative w-full lg:w-1/2 h-[500px] lg:h-[700px] rounded-2xl overflow-hidden shadow-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200/50 dark:border-slate-700/50 flex items-center justify-center p-4"
+            className="relative w-full lg:w-1/2 h-[400px] lg:h-[700px] rounded-2xl overflow-hidden shadow-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200/50 dark:border-slate-700/50 flex items-center justify-center p-4"
             variants={fadeIn as any}
             whileHover={{
               scale: 1.02,
