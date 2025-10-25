@@ -96,11 +96,11 @@ export function LightRays({
   ...props
 }: LightRaysProps) {
   const [rays, setRays] = useState<LightRay[]>([]);
-  const cycleDuration = Math.max(speed, 0.1);
 
   useEffect(() => {
+    const cycleDuration = Math.max(speed, 0.1);
     setRays(createRays(count, cycleDuration));
-  }, [count, cycleDuration]);
+  }, [count, speed]);
 
   return (
     <div
