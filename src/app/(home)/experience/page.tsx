@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
     siteName: "Experience Page",
     type: "website",
-    url: "https://ranju.vercel.app/experience",
+    url: "https://mdranju.vercel.app/experience",
   },
   twitter: {
     title: "Experience Page",
