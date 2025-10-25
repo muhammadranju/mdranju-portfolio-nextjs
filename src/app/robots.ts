@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-export function robots(): MetadataRoute.Robots {
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
@@ -10,6 +10,6 @@ export function robots(): MetadataRoute.Robots {
         "/dashboard/*", // Blocks dashboard (private project management area)
       ],
     },
-    sitemap: "https://mdranju.vercel.app/sitemap.xml",
+    sitemap: "https://ranju.vercel.app/sitemap.xml",
   };
 }
