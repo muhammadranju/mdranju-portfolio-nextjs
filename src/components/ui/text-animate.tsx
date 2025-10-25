@@ -309,7 +309,7 @@ const TextAnimateBase = ({
   variants,
   className,
   segmentClassName,
-  as: Component = "p",
+  as: Component = "span",
   startOnView = true,
   once = false,
   by = "word",
