@@ -125,7 +125,6 @@ function About() {
             className="w-full lg:w-1/2 space-y-6"
             variants={fadeInUp as any}
           >
-            {/* Title - Removed complex BoxReveal for performance */}
             <motion.h1
               className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-400/30 bg-clip-text text-transparent mb-4"
               variants={fadeInUp as any}

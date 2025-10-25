@@ -45,7 +45,7 @@ export async function generateMetadata({
       ],
       siteName: "Md Ranju Portfolio",
       type: "website",
-      url: `https://ranju.vercel.app/project/${id}`,
+      url: `https://mdranju.vercel.app/project/${id}`,
     },
     twitter: {
       title,

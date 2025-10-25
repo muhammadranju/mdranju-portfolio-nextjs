@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "mdranju-portfolio-nextjs",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -54,6 +54,7 @@
     "recharts": "^2.15.1",
     "rough-notation": "^0.5.1",
     "sass": "^1.83.4",
+    "sharp": "^0.34.4",
     "sonner": "^2.0.7",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
