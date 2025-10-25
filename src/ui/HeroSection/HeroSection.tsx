@@ -1,12 +1,8 @@
 import { FlipWords } from "@/components/ui/flip-words";
 import { Highlighter } from "@/components/ui/highlighter";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
-import ShimmerButton from "@/components/ui/shimmer-button";
 import SparklesText from "@/components/ui/sparkles-text";
 import { Spotlight } from "@/components/ui/spotlight";
-import { Sparkles } from "lucide-react";
-import Link from "next/link";
 import { BiLogoTypescript } from "react-icons/bi";
 import { DiMongodb } from "react-icons/di";
 import {
@@ -16,7 +12,6 @@ import {
   FaReact,
   FaXTwitter,
 } from "react-icons/fa6";
-import { MdDownload } from "react-icons/md";
 import { RiJavascriptFill } from "react-icons/ri";
 import { SiExpress, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 
@@ -31,7 +26,7 @@ const words = [
 ];
 function HeroSection() {
   return (
-    <div className="relative w-full lg:py-36 lg:pt-40 pt-10 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
+    <div className="relative w-full lg:py-40 lg:pt-40 pt-10 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
       <div className="z-0 dark:flex hidden">
         <Spotlight
           className="-top-32 left-0 md:left-80 md:-top-20 -z-0"
@@ -49,7 +44,7 @@ function HeroSection() {
         <div className="flex lg:flex-row flex-col  justify-center py-10">
           <div className="flex flex-col justify-center  py-10 lg:z-40 relative space-y-4 lg:px-0 px-3">
             <div className="mt-10 flex max-w-max items-center space-x-2 rounded-full border p-2">
-              <SparklesText className="mx-3" text="Hey there!🙂" />
+              <SparklesText className="mx-3" text="Hey folks👋" />
             </div>
             <h1 className="max-w-4xl text-3xl  font-black tracking-tight md:text-4xl lg:text-6xl flex">
               <span className="mr-3">I'm</span>
@@ -100,7 +95,7 @@ function HeroSection() {
                 <FaXTwitter className="h-7 w-7" />
               </a>
             </div>
-            <div>
+            {/* <div>
               <div className="flex mt-4 gap-x-2 border-white border-collapse rounded">
                 <a
                   href="../../full_stack_developer_resume.pdf"
@@ -126,7 +121,7 @@ function HeroSection() {
                   </HoverBorderGradient>
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="relative flex px-20 lg:h-[500px] h-[430px] w-full  flex-col items-center justify-center overflow-hidden ">

@@ -73,9 +73,7 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
             </TextAnimate>
           </h2>
           <p className=" mt-2 lg:max-w-5xl lg:text-base text-sm ">
-            <TextAnimate animation="blurInUp" by="word">
-              {project?.details}
-            </TextAnimate>
+            {project?.details}
           </p>
 
           <hr className="my-5" />

@@ -2,6 +2,7 @@ import { FeatureThree } from "@/ui/FeatureCard/FeatureThree";
 import HeroSection from "@/ui/HeroSection/HeroSection";
 import HireMe from "@/ui/HireMe/HireMe";
 import { Projects } from "@/ui/Projects/Projects";
+import { ThreeDMarqueeComponent } from "@/ui/ThreeDMarqueeComponent/ThreeDMarqueeComponent";
 
 function home() {
   return (
@@ -10,6 +11,7 @@ function home() {
       <HeroSection />
       <FeatureThree />
       <Projects />
+      <ThreeDMarqueeComponent />
       <HireMe />
     </>
   );

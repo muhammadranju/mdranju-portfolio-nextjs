@@ -80,7 +80,7 @@ export function FeatureThree() {
             whileHover={{ y: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <TextAnimate animation="blurInUp" by="word">
+            <TextAnimate animation="blurIn" by="word">
               My Skills
             </TextAnimate>
           </motion.h2>
@@ -88,14 +88,14 @@ export function FeatureThree() {
             className="mt-4 px-10 text-base leading-relaxed"
             variants={itemVariants as any}
           >
-            <TextAnimate animation="blurInUp" by="word">
+            <TextAnimate animation="slideUp" by="word">
               Here are the skills I specialize in and the services I provide to
               help bring your ideas to life.
             </TextAnimate>
           </motion.p>
         </motion.div>
         <motion.div
-          className="mt-6 grid grid-cols-1 text-center sm:grid-cols-2 lg:gap-3 gap-y-3 lg:grid-cols-4 lg:px-0 px-10"
+          className="mt-6 grid grid-cols-1 text-center sm:grid-cols-2  gap-3 lg:grid-cols-4 lg:px-0 px-10"
           variants={itemVariants as any}
         >
           <FeatureCard />

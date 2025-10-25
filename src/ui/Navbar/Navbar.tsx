@@ -144,15 +144,16 @@ function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={toggleMenu}
-                    className={`-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-800 ${
-                      isActive ? "underline underline-offset-4 " : ""
-                    }`}
+                    className={`-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-800 `}
                   >
-                    <span className="ml-3 text-base font-medium text-slate-900 dark:text-slate-100">
+                    <span
+                      className={`ml-3 text-base font-medium ${
+                        isActive
+                          ? "font-bold text-indigo-600 dark:text-indigo-600 text-lg"
+                          : "text-slate-900 dark:text-slate-100"
+                      }`}
+                    >
                       {item.name}
-                    </span>
-                    <span>
-                      <ChevronRight className="ml-3 h-4 w-4" />
                     </span>
                   </Link>
                 );

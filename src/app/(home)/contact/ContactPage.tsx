@@ -148,7 +148,7 @@ function Contact() {
               whileHover={{ y: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <TextAnimate animation="blurInUp" by="word">
+              <TextAnimate animation="blurIn" by="word">
                 Love to hear from you
               </TextAnimate>
             </motion.p>
@@ -156,7 +156,7 @@ function Contact() {
               className="mx-auto max-w-4xl text-center text-base md:text-xl columns-1"
               variants={itemVariants}
             >
-              <TextAnimate animation="blurInUp" by="word">
+              <TextAnimate animation="slideUp" by="word">
                 I think it&apos;s great that you&apos;re open to hearing from
                 others! Sharing thoughts fosters connection and creativity.
                 Whether it&apos;s a deep insight, casual chat, or random idea,
@@ -181,13 +181,13 @@ function Contact() {
                     className="text-2xl font-bold md:text-4xl md:leading-10 text-indigo-700"
                     variants={itemVariants}
                   >
-                    <TextAnimate animation="blurInUp" by="word">
+                    <TextAnimate animation="blurIn" by="word">
                       Get in touch
                     </TextAnimate>
                   </motion.p>
 
                   <motion.p className="mt-4 text-lg" variants={itemVariants}>
-                    <TextAnimate animation="blurInUp" by="word">
+                    <TextAnimate animation="slideUp" by="word">
                       Our friendly team would love to hear from you.
                     </TextAnimate>
                   </motion.p>
