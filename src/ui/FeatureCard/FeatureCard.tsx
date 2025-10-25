@@ -40,7 +40,7 @@ const FeatureCard = () => {
       >
         <MagicCard
           gradientColor={effectiveTheme === "dark" ? "#334155" : "#e0e7ff"}
-          className="hover:shadow-lg duration-200 hover:scale-[1.02] border dark:border-white/15 border-black/10"
+          className="hover:shadow-lg duration-200 hover:scale-[1.02] border dark:border-white/15 border-black/10 lg:w-full md:w-fit sm:w-full"
         >
           <motion.div
             className="rounded-lg px-2 py-5 w-full"
@@ -49,7 +49,7 @@ const FeatureCard = () => {
           >
             <motion.div
               className="mx-auto flex h-20 w-20 pt-4 items-center justify-center rounded-full"
-              whileHover={{ scale: 1.1, rotate: 360 }}
+              whileHover={{ scale: 1.1, rotate: 20 }}
               transition={{ duration: 0.4, type: "spring" }}
             >
               <Image
@@ -65,7 +65,7 @@ const FeatureCard = () => {
               />
             </motion.div>
             <motion.h3
-              className="mt-4 text-xl font-semibold"
+              className="mt-4 text-xl font-semibold "
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -74,7 +74,7 @@ const FeatureCard = () => {
               {item.title}
             </motion.h3>
             <motion.p
-              className="mt-4 text-sm"
+              className="mt-4 text-sm lg:w-full md:w-4/5 sm:w-full text-center mx-auto"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}

@@ -1,7 +1,6 @@
 "use client";
 import getProject from "@/api/cron/route";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import ShinyButton from "@/components/ui/shiny-button";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -11,6 +10,7 @@ import { FaGithub } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 import { TfiReceipt } from "react-icons/tfi";
 import HomeSkeletonCard from "../Skeletons/HomeSkeletonCard";
+import ShinyButton from "@/components/ui/shiny-button";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,7 +65,7 @@ export function Projects() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div className="max-w-7xl mx-auto py-20 flex flex-col items-center justify-center">
+      <div className="max-w-7xl mx-auto pt-20 pb-5 flex flex-col items-center justify-center">
         {/* Title Section */}
         <motion.h4
           className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-indigo-700"
@@ -77,7 +77,7 @@ export function Projects() {
             whileHover={{ y: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <TextAnimate animation="blurInUp" by="word">
+            <TextAnimate animation="blurIn" by="word">
               Projects & Portfolio
             </TextAnimate>
           </motion.p>
@@ -87,7 +87,7 @@ export function Projects() {
           className="mt-4 text-base leading-relaxed lg:w-1/3 mx-auto text-center"
           variants={itemVariants as any}
         >
-          <TextAnimate animation="blurInUp" by="word">
+          <TextAnimate animation="slideUp" by="word">
             Showcasing some of my completed projects — along with many others
             I’ve had the pleasure of working on.
           </TextAnimate>

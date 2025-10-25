@@ -17,7 +17,7 @@ const HireMe = () => {
           </TextShimmer>
         </h1>
         <p className="lg:max-w-2xl lg:px-0 px-3">
-          <TextAnimate animation="blurInUp" by="word">
+          <TextAnimate animation="blurIn" by="word">
             I have a proven track record of delivering high-quality, efficient,
             and user-friendly web applications.
           </TextAnimate>
