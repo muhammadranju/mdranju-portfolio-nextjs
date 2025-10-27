@@ -27,7 +27,7 @@ const itemVariants = {
 export function FeatureThree() {
   return (
     <motion.div
-      className="w-full py-20 dark:bg-[#020617]/20 bg-gray-100/40 relative overflow-hidden"
+      className="w-full py-20  relative overflow-hidden border-t border-b border-slate-300/50 dark:border-slate-600/50"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

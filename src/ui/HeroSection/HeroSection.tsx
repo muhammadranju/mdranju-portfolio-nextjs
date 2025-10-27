@@ -26,7 +26,7 @@ const words = [
 ];
 function HeroSection() {
   return (
-    <div className="relative w-full lg:py-40 lg:pt-40 pt-10 bg-slate-100 dark:bg-[#020617]  antialiased  overflow-hidden ">
+    <div className="relative w-full lg:py-40 lg:pt-40 pt-10   antialiased  overflow-hidden ">
       <div className="z-0 dark:flex hidden">
         <Spotlight
           className="-top-32 left-0 md:left-80 md:-top-20 -z-0"

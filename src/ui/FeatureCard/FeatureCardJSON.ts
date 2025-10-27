@@ -24,6 +24,12 @@ export const FeatureCardJSON = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-plain-wordmark.svg",
   },
   {
+    title: "TailwindCSS & Shadcn",
+    description: "TailwindCSS framework and Shadcn UI component library.",
+    imageLink:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  },
+  {
     title: "Redux",
     description:
       "Redux is a scalable and powerful global state management library. ",
@@ -44,11 +50,5 @@ export const FeatureCardJSON = [
     imageLink:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
     isDark: "dark",
-  },
-  {
-    title: "TailwindCSS & Shadcn",
-    description: "TailwindCSS framework and Shadcn UI component library.",
-    imageLink:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
   },
 ];
