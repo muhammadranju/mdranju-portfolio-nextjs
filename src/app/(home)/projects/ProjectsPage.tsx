@@ -45,7 +45,7 @@ function Project() {
 
       <div className="mx-auto max-w-7xl px-2">
         <div className="flex flex-col  py-10 md:pt-24 space-y-3">
-          <p className="text-3xl font-bold  md:text-5xl md:leading-10 leading-tight sm:text-4xl lg:text-5xl text-indigo-700  lg:z-50">
+          <p className="text-3xl font-bold  md:text-5xl md:leading-10 w-fit leading-tight sm:text-4xl lg:text-5xl text-indigo-700  lg:z-50">
             <motion.h2
               className="inset-0 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-indigo-700"
               variants={fadeInUp as any}
@@ -79,7 +79,7 @@ function Project() {
               <ShineBorder
                 key={post?._id}
                 className="relative flex lg:h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-xl  bg-background shadow-md hover:shadow-lg duration-200 hover:scale-[1.02] border dark:border-white/15 border-black/10"
-                color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                color={["#6366f1", "#6006f1", "#7322f1"]}
               >
                 <div className="border h-full group rounded-xl shadow-xl bg-slate-100 dark:bg-[#020617] ">
                   <Image

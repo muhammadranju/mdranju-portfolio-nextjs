@@ -62,6 +62,7 @@ const fadeInUp = {
       ease: "easeOut",
     },
   },
+  repeat: 1,
 };
 
 const fadeIn = {
@@ -88,7 +89,7 @@ const staggerContainer = {
 
 function About() {
   return (
-    <div className="relative overflow-hidden min-h-screen pt-10 bg-slate-100 dark:bg-[#020617]">
+    <div className="relative overflow-hidden min-h-screen pt-10 bg-slate-50 dark:bg-[#020617]">
       <BackgroundBeams className="z-0" />
 
       <div className="mx-auto max-w-7xl px-4 py-20 relative">
@@ -237,7 +238,7 @@ function About() {
                   }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <ShinyButton className="px-8 py-4 rounded-full  text-white font-semibold shadow-lg  transition-all duration-300">
+                  <ShinyButton className="px-8 py-4 rounded-xl  text-white font-semibold shadow-lg  transition-all duration-300">
                     Let&apos;s Build Something Amazing
                   </ShinyButton>
                 </motion.div>
@@ -248,11 +249,11 @@ function About() {
       </div>
 
       <LightRays
-        color="#6366f120"
+        color="#6366f1"
         length="70vh"
-        speed={10}
-        count={7}
-        className="z-0"
+        speed={15}
+        count={12}
+        className="z-0 opacity-50"
       />
     </div>
   );

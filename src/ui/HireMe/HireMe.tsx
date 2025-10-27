@@ -4,7 +4,7 @@ import { TextShimmer } from "@/components/ui/text-shimmer";
 import Link from "next/link";
 const HireMe = () => {
   return (
-    <section className="relative  py-16 dark:bg-slate-900/30 bg-gray-100/40">
+    <section className="relative  py-16  overflow-hidden border-t border-slate-800/50 dark:border-slate-600/50">
       <div className="flex flex-col text-center items-center justify-center space-y-3 ">
         <h4 className="text-3xl font-semibold">
           Hire me to build your {""}
@@ -16,7 +16,7 @@ const HireMe = () => {
           </TextShimmer>
         </h4>
         <p className="lg:max-w-2xl lg:px-0 px-3">
-          <TextAnimate animation="blurIn" by="word">
+          <TextAnimate animation="fadeIn" by="word">
             I have a proven track record of delivering high-quality, efficient,
             and user-friendly web applications.
           </TextAnimate>

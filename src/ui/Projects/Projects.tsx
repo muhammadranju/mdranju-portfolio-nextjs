@@ -59,13 +59,13 @@ export function Projects() {
   const post = data?.project?.slice(0, 6);
   return (
     <motion.div
-      className="bg-slate-100 dark:bg-[#020617]"
+      className=""
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div className="max-w-7xl mx-auto pt-20 pb-5 flex flex-col items-center justify-center">
+      <div className=" mx-auto pt-20 pb-5 flex flex-col items-center justify-center mb-2 border-b  border-slate-200/50 dark:border-slate-700/50">
         {/* Title Section */}
         <motion.h4
           className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-indigo-700"
@@ -104,7 +104,7 @@ export function Projects() {
             post?.map((post: any, index: number) => (
               <motion.div
                 key={post?.title}
-                className="group relative rounded-xl bg-slate-100 dark:bg-[#020617] shadow-md duration-200 border dark:border-white/15 border-black/10"
+                className="group relative rounded-xl shadow-md duration-200 border dark:border-white/15 border-black/10"
                 variants={cardVariants as any}
                 custom={index}
                 initial="hidden"

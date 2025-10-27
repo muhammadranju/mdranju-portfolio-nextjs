@@ -22,19 +22,17 @@ export function ThreeDMarqueeComponent() {
   }, [data]);
 
   return (
-    <div className="relative mx-auto  flex h-screen w-full  flex-col items-center justify-center overflow-hidden rounded-3xl bg-slate-100 dark:bg-[#020617]">
-      <h2 className="relative z-20 mx-auto max-w-4xl text-center text-2xl font-bold text-balance text-white md:text-4xl lg:text-6xl">
+    <div className="relative mx-auto h-screen flex w-full  flex-col items-center justify-center overflow-hidden  ">
+      <h2 className="relative z-20 mx-auto max-w-4xl text-center text-2xl font-bold text-balance text-white md:text-3xl lg:text-5xl">
         Here is my design work{" "}
-        <span className="relative z-20 inline-block rounded-xl bg-blue-500/40 px-4 py-1 text-white underline decoration-sky-500 decoration-[6px] underline-offset-[16px] backdrop-blur-sm">
+        <span className="relative z-20 inline-block rounded-xl bg-blue-500/40 px-4 py-1 text-white  backdrop-blur-sm">
           project here
-        </span>{" "}
+        </span>
         👇.
       </h2>
-      <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-sm text-neutral-200 md:text-base">
+      <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-sm text-neutral-600 dark:text-neutral-100 md:text-base">
         I&apos;m a developer who loves to create beautiful and functional
-        designs. I&apos;m passionate about creating user-friendly and visually
-        appealing websites and applications. I&apos;m always looking for new
-        challenges and opportunities to grow my skills and knowledge.
+        designs.
       </p>
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -46,7 +44,7 @@ export function ThreeDMarqueeComponent() {
       </div>
 
       {/* overlay */}
-      <div className="absolute inset-0 z-10 h-full w-full bg-black/80 dark:bg-black/40" />
+      <div className="absolute inset-0 z-10 h-full w-full bg-black/30 dark:bg-black/40" />
       <ThreeDMarquee
         className="pointer-events-none absolute inset-0 h-full w-full"
         images={images}
