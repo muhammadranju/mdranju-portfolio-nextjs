@@ -1,13 +1,12 @@
 import Stats from "@/models/stats.model"; // Adjust path as needed
 import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
-
 import connectDB from "@/lib/db";
 import Visitor from "@/models/visitor.model";
 
 export async function GET(request: NextRequest) {
   try {
-    await connectDB(); // Connect to MongoDB if not already
+    await connectDB();
 
     const ip =
       request.ip ||
@@ -72,6 +71,7 @@ export async function GET(request: NextRequest) {
 
 // Optional: POST version if you prefer body-based tracking (e.g., for client-side)
 export async function POST(request: NextRequest) {
+  await connectDB();
   // Similar logic, but read body if needed (though headers are sufficient)
   return GET(request); // Reuse GET logic for simplicity
 }

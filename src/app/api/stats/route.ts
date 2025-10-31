@@ -1,28 +1,3 @@
-// import { NextResponse } from "next/server";
-// import Stats from "@/models/stats.model";
-// import connectDB from "@/lib/db";
-
-// export async function GET() {
-//   try {
-//     await connectDB();
-//     const stats = await Stats.findOne();
-
-//     return NextResponse.json(
-//       {
-//         success: true,
-//         data: stats,
-//         message: "Stats fetched successfully",
-//       },
-//       { status: 200 }
-//     );
-//   } catch (error) {
-//     return NextResponse.json(
-//       { success: false, error: "Failed to fetch stats" },
-//       { status: 500 }
-//     );
-//   }
-// }
-
 import { NextResponse } from "next/server";
 import Stats from "@/models/stats.model";
 import Visitor from "@/models/visitor.model"; // Import Visitor model for aggregation
