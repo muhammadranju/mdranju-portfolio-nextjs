@@ -1,14 +1,14 @@
 "use client";
+import { Save } from "lucide-react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { toast } from "react-toastify";
-import { Button } from "../ui/button";
-import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css"; // CSS can stay static
-import { URL_V2 } from "@/api/cron/route";
+// import { toast } from "react-toastify";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { Save } from "lucide-react";
+import { toast } from "sonner";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -63,7 +63,7 @@ const ProjectAdd = () => {
     setIsLoading(true);
     e.preventDefault();
 
-    const response = await fetch(`${URL_V2}/projects`, {
+    const response = await fetch(`/api/projects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -284,7 +284,7 @@ const ProjectAdd = () => {
 
       <div className="flex justify-center">
         <Button
-          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6"
           disabled={isLoading}
         >
           {isLoading ? (

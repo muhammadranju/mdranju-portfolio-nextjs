@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         "/dashboard/*", // Blocks dashboard (private project management area)
       ],
     },
-    sitemap: "https://ranju.vercel.app/sitemap.xml",
+    sitemap: "https://mdranju.vercel.app/sitemap.xml",
   };
 }

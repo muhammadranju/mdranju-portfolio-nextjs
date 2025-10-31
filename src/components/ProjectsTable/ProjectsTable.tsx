@@ -1,21 +1,70 @@
 "use client";
-import { URL_V2 } from "@/api/cron/route";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FiEdit, FiExternalLink } from "react-icons/fi";
+import {
+  FiEdit,
+  FiExternalLink,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 import ProjectSkeleton from "./ProjectSkeleton";
+import { Button } from "../ui/button";
 
 const ProjectsTable = () => {
   const [projects, setProjects] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 8;
+
   useEffect(() => {
     const getProjects = async () => {
-      const res = await fetch(`${URL_V2}/projects`);
+      const res = await fetch(`/api/projects`);
       const data = await res.json();
-      setProjects(data?.data);
+      setProjects(data?.data || []);
+      setCurrentPage(1); // Reset to first page on new fetch
     };
     getProjects();
   }, []);
+
+  // Calculate current projects for the page
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = projects.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
+
+  // Calculate total pages
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  // Handle page change
+  const handlePageChange = (pageNumber: number) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
+  // Handle previous/next
+  const handlePrevPage = () => handlePageChange(currentPage - 1);
+  const handleNextPage = () => handlePageChange(currentPage + 1);
+
+  // Generate page numbers (show 5 pages max, with ellipsis if more)
+  const getPageNumbers = () => {
+    const pages = [];
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage < maxVisiblePages - 1) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+
+    return pages;
+  };
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg my-10">
@@ -43,10 +92,9 @@ const ProjectsTable = () => {
           </tr>
         </thead>
         <tbody>
-          {/* <ProjectSkeleton /> */}
           {projects.length === 0 && <ProjectSkeleton range={8} />}
           {projects.length > 0 &&
-            projects?.map((project: any) => (
+            currentProjects?.map((project: any) => (
               <tr
                 key={project?._id}
                 className="odd:bg-white odd:dark:bg-slate-900 even:bg-slate-50 even:dark:bg-slate-900/50 border-b dark:border-slate-700 border-slate-200"
@@ -101,6 +149,48 @@ const ProjectsTable = () => {
             ))}
         </tbody>
       </table>
+
+      {/* Pagination Controls */}
+      {projects.length > 0 && totalPages > 1 && (
+        <div className="flex items-center justify-between bg-white border-t border-slate-200 px-6 py-3 sm:px-6 dark:bg-slate-800 dark:border-slate-700">
+          <div className="text-sm text-slate-700 dark:text-slate-400">
+            Page {currentPage} of {totalPages} ({projects.length} total
+            projects)
+          </div>
+          <div className="flex items-center space-x-1">
+            <Button
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+              className="px-3 py-2 rounded-md text-sm font-medium text-slate-500 bg-white border border-slate-300 hover:bg-slate-50 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <FiChevronLeft className="h-4 w-4" />
+            </Button>
+
+            {/* Page Numbers */}
+            {getPageNumbers().map((page) => (
+              <Button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`px-3 py-2 rounded-md text-sm font-medium border ${
+                  currentPage === page
+                    ? "z-10 bg-blue-50 border-blue-500 text-blue-600 dark:bg-blue-900 dark:border-blue-500 dark:text-blue-400"
+                    : "bg-white border-slate-300 text-slate-500 hover:bg-slate-50 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300"
+                }`}
+              >
+                {page}
+              </Button>
+            ))}
+
+            <Button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className="px-3 py-2 rounded-md text-sm font-medium text-slate-500 bg-white border border-slate-300 hover:bg-slate-50 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <FiChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
