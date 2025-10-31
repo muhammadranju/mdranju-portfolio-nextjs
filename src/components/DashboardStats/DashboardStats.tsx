@@ -79,7 +79,7 @@ const DashboardStats = () => {
               <Users className="w-4 h-4 text-yellow-600" />
             </div>
             <div className="text-3xl dark:text-slate-100">
-              <NumberTicker value={visitors?.totalVisitors || 0} />
+              <NumberTicker value={visitors?.totalVisitors || 100} />
             </div>
           </div>
         </Card>
@@ -90,7 +90,7 @@ const DashboardStats = () => {
               <CiViewBoard className="w-4 h-4 text-blue-600" />
             </div>
             <div className="text-3xl dark:text-slate-100">
-              <NumberTicker value={visitors?.totalVisits || 0} />
+              <NumberTicker value={visitors?.totalVisits || 100} />
             </div>
           </div>
         </Card>

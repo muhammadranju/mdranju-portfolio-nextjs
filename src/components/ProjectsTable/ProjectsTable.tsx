@@ -10,32 +10,43 @@ import {
 } from "react-icons/fi";
 import ProjectSkeleton from "./ProjectSkeleton";
 import { Button } from "../ui/button";
+import { useQuery } from "@tanstack/react-query";
+import getProject from "@/api/cron/route";
 
 const ProjectsTable = () => {
-  const [projects, setProjects] = useState([]);
+  // const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 8;
 
-  useEffect(() => {
-    const getProjects = async () => {
-      const res = await fetch(`/api/projects`);
-      const data = await res.json();
-      setProjects(data?.data || []);
-      setCurrentPage(1); // Reset to first page on new fetch
-    };
-    getProjects();
-  }, []);
+  const { data, isLoading } = useQuery({
+    queryKey: ["projects"],
+    queryFn: async () => {
+      return await getProject();
+    },
+    staleTime: 60000,
+  });
+  const projects = data?.project;
+
+  // useEffect(() => {
+  //   const getProjects = async () => {
+  //     const res = await fetch(`/api/projects`);
+  //     const data = await res.json();
+  //     setProjects(data?.data || []);
+  //     setCurrentPage(1); // Reset to first page on new fetch
+  //   };
+  //   getProjects();
+  // }, []);
 
   // Calculate current projects for the page
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = projects.slice(
+  const currentProjects = projects?.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
 
   // Calculate total pages
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const totalPages = Math.ceil(projects?.length / projectsPerPage);
 
   // Handle page change
   const handlePageChange = (pageNumber: number) => {
@@ -92,8 +103,8 @@ const ProjectsTable = () => {
           </tr>
         </thead>
         <tbody>
-          {projects.length === 0 && <ProjectSkeleton range={8} />}
-          {projects.length > 0 &&
+          {projects?.length === 0 && <ProjectSkeleton range={8} />}
+          {projects?.length > 0 &&
             currentProjects?.map((project: any) => (
               <tr
                 key={project?._id}
@@ -151,10 +162,10 @@ const ProjectsTable = () => {
       </table>
 
       {/* Pagination Controls */}
-      {projects.length > 0 && totalPages > 1 && (
+      {projects?.length > 0 && totalPages > 1 && (
         <div className="flex items-center justify-between bg-white border-t border-slate-200 px-6 py-3 sm:px-6 dark:bg-slate-800 dark:border-slate-700">
           <div className="text-sm text-slate-700 dark:text-slate-400">
-            Page {currentPage} of {totalPages} ({projects.length} total
+            Page {currentPage} of {totalPages} ({projects?.length} total
             projects)
           </div>
           <div className="flex items-center space-x-1">
@@ -167,7 +178,7 @@ const ProjectsTable = () => {
             </Button>
 
             {/* Page Numbers */}
-            {getPageNumbers().map((page) => (
+            {getPageNumbers()?.map((page) => (
               <Button
                 key={page}
                 onClick={() => handlePageChange(page)}

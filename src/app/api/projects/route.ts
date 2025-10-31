@@ -1,9 +1,12 @@
+import connectDB from "@/lib/db";
 import Project from "@/models/project.model";
 import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async () => {
   try {
-    const projects = await Project.find().find().sort({ createdAt: -1 }).exec();
+    await connectDB();
+    const projects = await Project.find().sort({ createdAt: -1 }).exec();
+
     return NextResponse.json(
       {
         status: 200,
@@ -16,7 +19,7 @@ export const GET = async () => {
     );
   } catch (error) {
     return NextResponse.json(
-      { error: "Failed to fetch projects" },
+      { error: "Failed to fetch projectsssss" },
       { status: 500 }
     );
   }
@@ -24,6 +27,7 @@ export const GET = async () => {
 
 export const POST = async (req: NextRequest) => {
   try {
+    await connectDB();
     const {
       title,
       details,
