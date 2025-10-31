@@ -84,7 +84,7 @@ export function Projects() {
         </motion.h4>
 
         <motion.p
-          className="mt-4 text-base leading-relaxed lg:w-1/3 mx-auto text-center"
+          className="mt-4 text-base leading-relaxed lg:w-1/3 w-[90%] w mx-auto text-center"
           variants={itemVariants as any}
         >
           <TextAnimate animation="slideUp" by="word">
