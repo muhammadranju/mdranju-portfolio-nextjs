@@ -1,7 +1,6 @@
 "use client";
 import getProject from "@/api/cron/route";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { LightRays } from "@/components/ui/light-rays";
 import Meteors from "@/components/ui/meteors";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import ScrollProgress from "@/components/ui/scroll-progress";
@@ -10,12 +9,12 @@ import { TextAnimate } from "@/components/ui/text-animate";
 import CardSkeleton from "@/ui/Skeletons/CardSkeleton";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 import { TfiReceipt } from "react-icons/tfi";
-import { motion } from "framer-motion";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -37,6 +36,7 @@ function Project() {
     },
     staleTime: 60000,
   });
+  const projects = data?.project;
 
   return (
     <div className="relative overflow-hidden bg-slate-100 dark:bg-[#020617]  py-20">
@@ -75,7 +75,7 @@ function Project() {
           {isLoading && <CardSkeleton />}
 
           {!isLoading &&
-            data?.project?.map((post: any) => (
+            projects?.map((post: any) => (
               <ShineBorder
                 key={post?._id}
                 className="relative flex lg:h-[450px] w-full flex-col items-center justify-center overflow-hidden rounded-xl  bg-background shadow-md hover:shadow-lg duration-200 hover:scale-[1.02] border dark:border-white/15 border-black/10"

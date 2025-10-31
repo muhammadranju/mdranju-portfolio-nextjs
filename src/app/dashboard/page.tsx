@@ -1,7 +1,8 @@
 import DashboardStats from "@/components/DashboardStats/DashboardStats";
-import PortfolioViewChart from "@/components/ProjectsChart/PortfolioViewChart";
-import ProjectsChart from "@/components/ProjectsChart/ProjectsChart";
-import ProjectsTable from "@/components/ProjectsTable/ProjectsTable";
+import {
+  PortfolioViewChart,
+  ProjectsChart,
+} from "@/components/ProjectsChart/PortfolioViewChart";
 import { Button } from "@/components/ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from "next/link";
@@ -38,7 +39,6 @@ const DashboardPage = async () => {
             <PortfolioViewChart />
             <ProjectsChart />
           </div>
-          {/* <ProjectsTable /> */}
         </div>
       </div>
     </div>

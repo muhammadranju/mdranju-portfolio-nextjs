@@ -1,20 +1,10 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"); */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  font-family: "Geist", serif;
-} */
-/* body {
-  font-family: "Space Grotesk", sans-serif;
-  font-optical-sizing: auto;
-} */
-* {
+/* * {
   cursor: none !important;
-}
+} */
 @theme inline {
   --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
     var(--delay, 0ms);

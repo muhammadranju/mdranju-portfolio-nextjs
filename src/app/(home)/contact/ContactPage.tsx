@@ -1,7 +1,9 @@
 "use client";
 import { URL } from "@/api/cron/route";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+import { Button } from "@/components/ui/button";
 import ShinyButton from "@/components/ui/shiny-button";
+import { Spinner } from "@/components/ui/spinner";
 import { TextAnimate } from "@/components/ui/text-animate";
 
 import { cn } from "@/lib/utils";
@@ -41,8 +43,7 @@ function Contact() {
     email: "",
     message: "",
   });
-
-  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const buttonRef = useRef(null);
 
   const handleInputChange = (
@@ -58,28 +59,10 @@ function Contact() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    // Validate before fetch
-    if (formData.firstName === "") {
-      setError("First Name is required!");
-      return;
-    } else if (formData.lastName === "") {
-      setError("Last Name is required!");
-      return;
-    } else if (formData.email === "") {
-      setError("Email is required!");
-      return;
-    } else if (formData.phone === "") {
-      setError("Phone number is required!");
-      return;
-    } else if (formData.message === "") {
-      setError("Message is required!");
-      return;
-    }
-    setError("");
+    setLoading(true);
 
     try {
-      const response = await fetch(`${URL}/contact`, {
+      const response = await fetch(`api/contacts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,9 +71,8 @@ function Contact() {
       });
 
       const data = await response.json();
-
+      console.log(data);
       if (data.success) {
-        toast.success(data.massage);
         setFormData({
           firstName: "",
           lastName: "",
@@ -98,11 +80,15 @@ function Contact() {
           phone: "",
           message: "",
         });
+        toast.success(data.massage);
+        setLoading(false);
       } else {
-        toast.error(data.massage);
-        console.log(data?.massage);
+        toast.error(data.error);
+        // console.log(data?.massage);
+        setLoading(false);
       }
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -249,11 +235,6 @@ function Contact() {
                           whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
                           transition={{ type: "spring", stiffness: 300 }}
                         />
-                        <span className="text-xs text-red-500">
-                          {error.includes("First Name")
-                            ? "First Name is required!"
-                            : ""}
-                        </span>
                       </motion.div>
                       <motion.div
                         className="grid w-full items-center gap-1.5"
@@ -278,11 +259,6 @@ function Contact() {
                           whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
                           transition={{ type: "spring", stiffness: 300 }}
                         />
-                        <span className="text-xs text-red-500">
-                          {error.includes("Last Name")
-                            ? "Last Name is required!"
-                            : ""}
-                        </span>
                       </motion.div>
                     </div>
                     <motion.div
@@ -307,9 +283,6 @@ function Contact() {
                         whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
                         transition={{ type: "spring", stiffness: 300 }}
                       />
-                      <span className="text-xs text-red-500">
-                        {error.includes("Email") ? "Email is required!" : ""}
-                      </span>
                     </motion.div>
                     <motion.div
                       className="grid w-full items-center gap-1.5"
@@ -325,7 +298,7 @@ function Contact() {
                       </label>
                       <motion.input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
-                        type="number"
+                        type="text"
                         id="phone_number"
                         name="phone"
                         onChange={handleInputChange}
@@ -334,11 +307,6 @@ function Contact() {
                         whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
                         transition={{ type: "spring", stiffness: 300 }}
                       />
-                      <span className="text-xs text-red-500">
-                        {error.includes("Phone number")
-                          ? "Phone number is required!"
-                          : ""}
-                      </span>
                     </motion.div>
                     <motion.div
                       className="grid w-full items-center gap-1.5"
@@ -361,20 +329,33 @@ function Contact() {
                         whileFocus={{ scale: 1.02, borderColor: "#6366f1" }}
                         transition={{ type: "spring", stiffness: 300 }}
                       />
-                      <span className="text-xs text-red-500">
-                        {error.includes("Message")
-                          ? "Message is required!"
-                          : ""}
-                      </span>
                     </motion.div>
                     <motion.div
                       variants={itemVariants}
                       whileHover={{ scale: 1.05, y: -2 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <ShinyButton className="w-full py-3" ref={buttonRef}>
-                        Send Message
-                      </ShinyButton>
+                      <Button
+                        className="w-full py-4 bg-primary text-primary-foreground hover:bg-primary/90"
+                        ref={buttonRef}
+                        disabled={
+                          loading ||
+                          !formData.firstName ||
+                          !formData.lastName ||
+                          !formData.email ||
+                          !formData.phone ||
+                          !formData.message
+                        }
+                      >
+                        {loading ? (
+                          <>
+                            <Spinner className="mr-2 size-6" />
+                            Sending...
+                          </>
+                        ) : (
+                          "Send Message"
+                        )}
+                      </Button>
                     </motion.div>
                   </motion.form>
                 </motion.div>
