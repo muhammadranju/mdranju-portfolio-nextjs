@@ -1,72 +1,108 @@
 "use client";
 
+import { SquareChartGantt, UserCircleIcon, Users } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CiViewBoard } from "react-icons/ci";
 import { Card } from "../ui/card";
+import { NumberTicker } from "../ui/number-ticker";
+
+interface Stats {
+  totalVisitors: number;
+  totalVisits: number;
+  monthlyVisitors: {
+    [key: string]: number;
+  };
+}
 
 const DashboardStats = () => {
+  const [contacts, setContacts] = useState(0);
+  const [projects, setProjects] = useState(0);
+  const [visitors, setVisitors] = useState<Stats | null>({
+    totalVisitors: 0,
+    totalVisits: 0,
+    monthlyVisitors: {
+      "10/2025": 0,
+    },
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [contactsRes, projectsRes, statsRes] = await Promise.all([
+          fetch(`/api/contacts`),
+          fetch(`/api/projects`),
+          fetch(`/api/stats`),
+        ]);
+
+        if (!contactsRes.ok) throw new Error("Failed to fetch contacts");
+        if (!projectsRes.ok) throw new Error("Failed to fetch projects");
+        if (!statsRes.ok) throw new Error("Failed to fetch stats");
+
+        const [{ count: contactsCount }, { count: projectsCount }, data] =
+          await Promise.all([
+            contactsRes.json(),
+            projectsRes.json(),
+            statsRes.json(),
+          ]);
+
+        setContacts(contactsCount || 0);
+        setProjects(projectsCount || 0);
+        setVisitors(data?.data);
+      } catch (error) {
+        console.error("Failed to fetch dashboard stats:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(visitors);
+
   return (
     <div className=" ">
-      <div className="grid gap-4 lg:gap-x-8 md:grid-cols-3 mt-5 ">
+      <div className="grid gap-4 lg:gap-x-8 md:grid-cols-4 mt-5 ">
         <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
-              <span>Published projects</span>
-              <svg
-                className="w-4 h-4 text-green-600"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <span>Total Projects</span>
+              <SquareChartGantt className="w-4 h-4 text-green-600" />
             </div>
-            <div className="text-3xl dark:text-slate-100">22</div>
+            <div className="text-3xl dark:text-slate-100">
+              <NumberTicker value={projects || 100} />
+            </div>
           </div>
         </Card>
         <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
-              <span>Draft projects</span>
-              <svg
-                className="w-4 h-4 text-yellow-500"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12 13a1 1 0 100 2h5a1 1 0 001-1V9a1 1 0 10-2 0v2.586l-4.293-4.293a1 1 0 00-1.414 0L8 9.586 3.707 5.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0L11 9.414 14.586 13H12z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <span>Total Visitors</span>
+              <Users className="w-4 h-4 text-yellow-600" />
             </div>
-            <div className="text-3xl dark:text-slate-100">0</div>
+            <div className="text-3xl dark:text-slate-100">
+              <NumberTicker value={visitors?.totalVisitors || 0} />
+            </div>
           </div>
         </Card>
         <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
-              <span>Padding projects</span>
-              <svg
-                className="w-4 h-4 text-yellow-600"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12 13a1 1 0 100 2h5a1 1 0 001-1V9a1 1 0 10-2 0v2.586l-4.293-4.293a1 1 0 00-1.414 0L8 9.586 3.707 5.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0L11 9.414 14.586 13H12z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <span>Total Views</span>
+              <CiViewBoard className="w-4 h-4 text-blue-600" />
             </div>
-            <div className="text-3xl dark:text-slate-100">0</div>
+            <div className="text-3xl dark:text-slate-100">
+              <NumberTicker value={visitors?.totalVisits || 0} />
+            </div>
+          </div>
+        </Card>
+        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
+          <div className="space-y-2">
+            <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
+              <span>Total Contacts</span>
+              <UserCircleIcon className="w-4 h-4 text-green-600" />
+            </div>
+            <div className="text-3xl dark:text-slate-100">
+              <NumberTicker value={contacts || 100} />
+            </div>
           </div>
         </Card>
       </div>
