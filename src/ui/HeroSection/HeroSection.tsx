@@ -4,7 +4,6 @@ import { Highlighter } from "@/components/ui/highlighter";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import SparklesText from "@/components/ui/sparkles-text";
 import { Spotlight } from "@/components/ui/spotlight";
-import { useEffect } from "react";
 import { BiLogoTypescript } from "react-icons/bi";
 import { DiMongodb } from "react-icons/di";
 import {
@@ -27,9 +26,6 @@ const words = [
   "React.js",
 ];
 function HeroSection() {
-  useEffect(() => {
-    fetch("/api/track-visit", { method: "GET" });
-  }, []);
   return (
     <div className="relative w-full lg:py-40 lg:pt-40 md:py-20 md:pt-0    antialiased  overflow-hidden ">
       <div className="z-0 dark:flex hidden">

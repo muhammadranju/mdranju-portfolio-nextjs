@@ -74,16 +74,16 @@ const projectSchema = new Schema<IProject>(
   { timestamps: true }
 );
 
-// projectSchema.pre<IProject>("save", function (next) {
-//   if (this.isModified("category")) {
-//     this.category = this.category.split(" ").join("-").toLowerCase();
-//   }
-//   next();
-// });
+projectSchema.pre<IProject>("save", function (next) {
+  if (this.isModified("category")) {
+    this.category = this.category.split(" ").join("-").toLowerCase();
+  }
+  next();
+});
 
 projectSchema.pre<IProject>("save", function (next) {
   if (this.isModified("title")) {
-    this.slug = slugify(this.title);
+    this.slug = slugify(this.title).toLowerCase();
   }
   next();
 });
