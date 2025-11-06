@@ -1,9 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import Stats from "@/models/stats.model";
 import Visitor from "@/models/visitor.model"; // Import Visitor model for aggregation
 import connectDB from "@/lib/db";
+import { handleOptions, corsResponse } from "@/lib/cors";
 
-export async function GET() {
+export async function OPTIONS(request: NextRequest) {
+  return handleOptions(request); // ✅ Handles preflight CORS request
+}
+
+export async function GET(request: NextRequest) {
   try {
     await connectDB();
     const stats = await Stats.findOne();
@@ -46,7 +51,7 @@ export async function GET() {
       return acc;
     }, {} as Record<string, number>);
 
-    return NextResponse.json(
+    return corsResponse(
       {
         success: true,
         data: {
@@ -56,13 +61,15 @@ export async function GET() {
         },
         message: "Stats fetched successfully",
       },
-      { status: 200 }
+      request,
+      200
     );
   } catch (error) {
     console.error("Error fetching stats:", error);
-    return NextResponse.json(
+    return corsResponse(
       { success: false, error: "Failed to fetch stats" },
-      { status: 500 }
+      request,
+      500
     );
   }
 }

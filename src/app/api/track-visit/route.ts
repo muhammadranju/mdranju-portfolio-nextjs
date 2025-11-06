@@ -4,6 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/db";
 import Visitor from "@/models/visitor.model";
 
+import { handleOptions, corsResponse } from "@/lib/cors";
+
+export async function OPTIONS(request: NextRequest) {
+  return handleOptions(request); // ✅ Handles preflight CORS request
+}
+
 export async function GET(request: NextRequest) {
   try {
     await connectDB();
@@ -50,7 +56,7 @@ export async function GET(request: NextRequest) {
       totalVisitors = stats?.totalVisitors || 0;
     }
 
-    return NextResponse.json(
+    return corsResponse(
       {
         success: true,
         totalVisitors,
@@ -58,13 +64,15 @@ export async function GET(request: NextRequest) {
           ? "Visit tracked (returning visitor)"
           : "New visitor tracked",
       },
-      { status: 200 }
+      request,
+      200
     );
   } catch (error) {
     console.error("Error tracking visitor:", error);
-    return NextResponse.json(
+    return corsResponse(
       { success: false, error: "Failed to track visit" },
-      { status: 500 }
+      request,
+      500
     );
   }
 }
