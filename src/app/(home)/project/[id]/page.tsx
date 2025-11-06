@@ -1,15 +1,18 @@
-import { URL } from "@/api/cron/route";
 import { Metadata } from "next";
 import ProjectPage from "./projectPage";
 
 async function getProject(id: string) {
   try {
-    const response = await fetch(`${URL}/project/${id}`, { cache: "no-store" }); // Ensure fresh data
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${id}`,
+      { cache: "no-store" }
+    ); // Ensure fresh data
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
     const data = await response.json();
-    return data.project; // Accessing the 'project' field directly
+    console.log(data);
+    return data.data; // Accessing the 'project' field directly
   } catch (error) {
     console.error("Error fetching project data:", error);
     return null;
@@ -64,6 +67,8 @@ export async function generateMetadata({
 
 const Project = async ({ params }: { params: { id: string } }) => {
   const project = await getProject(params.id);
+
+  console.log(project);
 
   if (!project) {
     return <div>Project not found.</div>;

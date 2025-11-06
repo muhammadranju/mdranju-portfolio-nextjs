@@ -48,6 +48,8 @@ export const POST = async (req: NextRequest) => {
       );
     }
 
+    const spitesTags = tags?.split(", ").map((tag: string) => tag.trim());
+    console.log(spitesTags);
     const project = new Project({
       title,
       details,
@@ -59,7 +61,7 @@ export const POST = async (req: NextRequest) => {
       backendSourceCode,
       image,
       avatar,
-      tags,
+      tags: spitesTags,
     });
     await project.save();
     return NextResponse.json(project, { status: 201 });

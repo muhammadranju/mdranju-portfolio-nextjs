@@ -32,6 +32,8 @@ type ProjectPageProps = {
 const ProjectPage = ({ project }: ProjectPageProps) => {
   const router = useRouter();
 
+  console.log(project);
+
   const handelClick = () => {
     router.back();
   };
@@ -90,7 +92,7 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
               {project?.longDetails && parse(project?.longDetails)}
             </div>
 
-            {project?.tags.length > 0 && (
+            {project?.tags?.length > 0 && (
               <div className="flex mt-4">
                 <div>
                   <div className="flex space-x-2 mt-2 flex-wrap items-center">
@@ -124,8 +126,8 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                     </TextAnimate>
                   </p>
                   <span className="text-xs leading-tight ">
-                    Added At:{" "}
-                    {format(new Date(project?.createdAt), "dd/MM/yyyy")}
+                    Added At: {format(project?.createdAt, "dd/MM/yyyy")}
+                    {/* Added At: {project?.createdAt} */}
                   </span>
                 </div>
               </div>

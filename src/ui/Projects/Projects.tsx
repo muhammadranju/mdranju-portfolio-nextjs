@@ -190,7 +190,7 @@ export function Projects() {
                   )}
                   <div>
                     <Link
-                      href={`/project/${post?._id}`}
+                      href={`/project/${post?.slug}`}
                       className="flex gap-x-1 items-center"
                     >
                       <HoverBorderGradient

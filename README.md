@@ -8,6 +8,10 @@
 
 A modern, responsive personal portfolio website showcasing skills, projects, and experiences. Built with Next.js for optimal performance and SEO, featuring sleek UI components from shadcn/ui and DevUI, all styled with Tailwind CSS. This site is currently under active development—stay tuned for more features!
 
+# Warning ⚠️
+
+- This is my personal portfolio website. Do not copy exactly as it is. You can use it as a reference or inspiration for your own portfolio.
+
 ## Table of Contents
 
 - [Features](#features)
