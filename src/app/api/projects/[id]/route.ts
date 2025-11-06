@@ -1,6 +1,10 @@
+import { handleOptions, corsResponse } from "@/lib/cors";
 import connectDB from "@/lib/db";
 import Project from "@/models/project.model";
 import { NextRequest, NextResponse } from "next/server";
+export async function OPTIONS(request: NextRequest) {
+  return handleOptions(request); // ✅ Handles preflight CORS request
+}
 
 export async function GET(
   request: NextRequest,
@@ -12,21 +16,22 @@ export async function GET(
     // const project = await Project.findById(params.id);
 
     if (!project) {
-      return NextResponse.json({ error: "Project not found" }, { status: 404 });
+      return corsResponse({ error: "Project not found" }, request, 404);
     }
 
-    return NextResponse.json(
+    return corsResponse(
       {
         success: true,
         data: project,
         message: "Project fetched successfully",
       },
-      { status: 200 }
+      request
     );
   } catch (error) {
-    return NextResponse.json(
+    return corsResponse(
       { error: error || "Failed to fetch project" },
-      { status: 500 }
+      request,
+      500
     );
   }
 }
@@ -43,9 +48,10 @@ export async function PUT(
     try {
       body = await request.json();
     } catch (err) {
-      return NextResponse.json(
+      return corsResponse(
         { success: false, message: "Invalid or empty JSON body" },
-        { status: 400 }
+        request,
+        400
       );
     }
 
@@ -68,7 +74,9 @@ export async function PUT(
     if (!project) {
       return NextResponse.json(
         { success: false, message: "Project not found" },
-        { status: 404 }
+        {
+          status: 404,
+        }
       );
     }
 
@@ -95,18 +103,20 @@ export async function PUT(
     // ✅ Save the updated project
     await project.save();
 
-    return NextResponse.json(
+    return corsResponse(
       {
         success: true,
         message: "Project updated successfully",
         data: project,
       },
-      { status: 200 }
+      request,
+      200
     );
   } catch (error) {
-    return NextResponse.json(
+    return corsResponse(
       { success: false, message: "Failed to update project", error },
-      { status: 500 }
+      request,
+      500
     );
   }
 }
