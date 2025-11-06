@@ -1,9 +1,7 @@
 "use client";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
-import ShinyButton from "@/components/ui/shiny-button";
 import getProject from "@/config/config";
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function ThreeDMarqueeComponent() {
