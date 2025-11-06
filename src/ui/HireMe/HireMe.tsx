@@ -6,7 +6,7 @@ const HireMe = () => {
   return (
     <section className="relative  py-16  overflow-hidden border-t border-slate-800/50 dark:border-slate-600/50">
       <div className="flex flex-col text-center items-center justify-center space-y-3 ">
-        <h4 className="text-3xl font-semibold">
+        <p className="text-3xl font-semibold">
           Hire me to build your {""}
           <TextShimmer
             duration={2.5}
@@ -14,7 +14,7 @@ const HireMe = () => {
           >
             Next Project!
           </TextShimmer>
-        </h4>
+        </p>
         <p className="lg:max-w-2xl lg:px-0 px-3">
           <TextAnimate animation="fadeIn" by="word">
             I have a proven track record of delivering high-quality, efficient,

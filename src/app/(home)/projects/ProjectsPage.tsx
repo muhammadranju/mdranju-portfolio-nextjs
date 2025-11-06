@@ -42,11 +42,12 @@ function Project() {
     fetch("/api/track-visit", { method: "GET" });
   }, []);
   return (
-    <div className="relative overflow-hidden bg-slate-100 dark:bg-[#020617]  py-20">
-      <ScrollProgress className="top-[0px]" />
+    <div className="relative overflow-hidden   py-20">
       <Meteors number={30} />
 
-      <div className="mx-auto max-w-7xl px-2">
+      <ScrollProgress className="top-[0px]" />
+
+      <div className="mx-auto max-w-7xl px-2 z-50">
         <div className="flex flex-col  py-10 md:pt-24 space-y-3">
           <p className="text-3xl font-bold  md:text-5xl md:leading-10 w-fit leading-tight sm:text-4xl lg:text-5xl text-indigo-700  lg:z-50">
             <motion.h2
@@ -174,7 +175,7 @@ function Project() {
                       )}
                       <div>
                         <Link
-                          href={`/project/${post?._id}`}
+                          href={`/project/${post?.slug}`}
                           className="transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:translate-y-0"
                         >
                           <HoverBorderGradient

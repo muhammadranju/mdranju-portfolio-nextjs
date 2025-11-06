@@ -8,10 +8,12 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
-const ProjectUpdate = ({ projectID }: any) => {
+const ProjectUpdate = ({ projectData }: any) => {
   const [project, setProject] = useState<any>(null);
-  const [value, setValue] = useState(projectID.longDetails);
+  const [value, setValue] = useState(projectData?.longDetails);
   const [isLoading, setIsLoading] = useState(false);
+
+  console.log(projectData);
 
   const toolbarOptions = [
     ["bold", "italic", "underline", "strike"], // toggled buttons
@@ -44,22 +46,22 @@ const ProjectUpdate = ({ projectID }: any) => {
   const handelProjectSubmit = async (e: any) => {
     setIsLoading(true);
     e.preventDefault();
-    const response = await fetch(`${URL_V2}/projects/${projectID._id}`, {
+    const response = await fetch(`/api/projects/${projectData._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify({
-        title: project.title,
-        details: project.description,
+        title: project?.title,
+        details: project?.description,
         longDetails: value,
-        sourceCode: project.frontendUrl,
-        backendSourceCode: project.backendSourceCode,
-        liveLink: project.liveUrl,
-        image: project.image,
-        category: project.category,
-        tags: project.tags,
+        sourceCode: project?.frontendUrl,
+        backendSourceCode: project?.backendSourceCode,
+        liveLink: project?.liveUrl,
+        image: project?.image,
+        category: project?.category,
+        tags: project?.tags,
         author: "Md. Ranju",
         avatar: "https://avatars.githubusercontent.com/u/80270685?v=4",
       }),
@@ -74,22 +76,6 @@ const ProjectUpdate = ({ projectID }: any) => {
     if (response.status === 200) {
       setIsLoading(false);
       toast.success("Project update successfully!");
-      setProject({
-        title: "",
-        description: "",
-        longDescription: "",
-        frontendUrl: "",
-        backendUrl: "",
-        liveUrl: "",
-        image: "",
-        category: "",
-        tags: "",
-        author: "",
-        createdAt: "",
-        sourceCode: "",
-        liveLink: "",
-        longDetails: "",
-      });
       return;
     }
     setIsLoading(false);
@@ -98,34 +84,32 @@ const ProjectUpdate = ({ projectID }: any) => {
   useEffect(() => {
     setIsLoading(true);
     setProject({
-      title: projectID.title,
-      description: projectID.details,
-      longDescription: projectID.longDetails,
-      frontendUrl: projectID.sourceCode,
-      backendSourceCode: projectID.backendSourceCode,
-      liveUrl: projectID.liveLink,
-      image: projectID.image,
-      category: projectID.category,
-      tags: projectID.tags,
-      sourceCode: projectID.sourceCode,
+      title: projectData?.title,
+      description: projectData?.details,
+      longDescription: projectData?.longDetails,
+      frontendUrl: projectData?.sourceCode,
+      backendSourceCode: projectData?.backendSourceCode,
+      liveUrl: projectData?.liveLink,
+      image: projectData?.image,
+      category: projectData?.category,
+      tags: projectData?.tags,
+      sourceCode: projectData?.sourceCode,
     });
     setIsLoading(false);
   }, [
-    projectID.title,
-    projectID.details,
-    projectID.longDetails,
-    projectID.sourceCode,
-    projectID.backendSourceCode,
-    projectID.liveLink,
-    projectID.image,
-    projectID.category,
-    projectID.tags,
+    projectData?.title,
+    projectData?.details,
+    projectData?.longDetails,
+    projectData?.sourceCode,
+    projectData?.backendSourceCode,
+    projectData?.liveLink,
+    projectData?.image,
+    projectData?.category,
+    projectData?.tags,
   ]);
 
   return (
     <>
-      {/* {!isLoading && <ProjectUpdateSkeleton />} */}
-
       <form
         onSubmit={handelProjectSubmit}
         className="border rounded-lg p-5 shadow-md border-slate-200 dark:border-slate-800 my-10"
@@ -144,7 +128,7 @@ const ProjectUpdate = ({ projectID }: any) => {
             placeholder="Enter your title"
             className="bg-background"
             required
-            // defaultValue={projectID.title}
+            // defaultValue={projectData.title}
             value={project?.title}
             onChange={handleChange}
           />
@@ -164,7 +148,7 @@ const ProjectUpdate = ({ projectID }: any) => {
             placeholder="Enter your description"
             className="bg-background"
             required
-            // defaultValue={projectID.details}
+            // defaultValue={projectData.details}
             value={project?.description}
             onChange={handleChange}
           ></Textarea>
@@ -198,7 +182,7 @@ const ProjectUpdate = ({ projectID }: any) => {
             id="sourceCode"
             className="bg-background"
             placeholder="Enter your frontend source code url"
-            // defaultValue={projectID.sourceCode}
+            // defaultValue={projectData.sourceCode}
             value={project?.sourceCode}
             onChange={handleChange}
           />
@@ -216,7 +200,7 @@ const ProjectUpdate = ({ projectID }: any) => {
             name="backendSourceCode"
             className="bg-background"
             placeholder="Enter your backend source code url"
-            // defaultValue={projectID.backendSourceCode}
+            // defaultValue={projectData.backendSourceCode}
             value={project?.backendSourceCode}
             onChange={handleChange}
           />
@@ -234,7 +218,7 @@ const ProjectUpdate = ({ projectID }: any) => {
             name="liveUrl"
             className="bg-background"
             placeholder="Enter your live url"
-            // defaultValue={projectID.liveLink}
+            // defaultValue={projectData.liveLink}
             value={project?.liveUrl}
             onChange={handleChange}
           />
@@ -255,7 +239,7 @@ const ProjectUpdate = ({ projectID }: any) => {
               className="bg-background"
               placeholder="Enter category e.g. React-Nextjs-Tailwind-Nodejs"
               required
-              // defaultValue={projectID.category}
+              // defaultValue={projectData.category}
               value={project?.category}
               onChange={handleChange}
             />
@@ -274,7 +258,7 @@ const ProjectUpdate = ({ projectID }: any) => {
               className="bg-background"
               placeholder="Enter tags e.g. react, nextjs, tailwind, etc"
               required
-              // defaultValue={projectID.tags}
+              // defaultValue={projectData.tags}
               value={project?.tags}
               onChange={handleChange}
             />
@@ -294,7 +278,7 @@ const ProjectUpdate = ({ projectID }: any) => {
             className="bg-background"
             placeholder="Enter your project image"
             required
-            // defaultValue={projectID.image}
+            // defaultValue={projectData.image}
             value={project?.image}
             onChange={handleChange}
           />

@@ -43,6 +43,7 @@
     "email-validator": "^2.0.4",
     "embla-carousel-react": "^8.0.0-rc19",
     "framer-motion": "^12.23.24",
+    "gsap": "^3.13.0",
     "html-react-parser": "^5.2.2",
     "lucide-react": "^0.545.0",
     "mongoose": "^8.19.2",
