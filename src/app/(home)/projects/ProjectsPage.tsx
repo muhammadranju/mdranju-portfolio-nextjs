@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { MdOpenInNew } from "react-icons/md";
 import { TfiReceipt } from "react-icons/tfi";
@@ -37,7 +38,9 @@ function Project() {
     staleTime: 60000,
   });
   const projects = data?.project;
-
+  useEffect(() => {
+    fetch("/api/track-visit", { method: "GET" });
+  }, []);
   return (
     <div className="relative overflow-hidden bg-slate-100 dark:bg-[#020617]  py-20">
       <ScrollProgress className="top-[0px]" />
