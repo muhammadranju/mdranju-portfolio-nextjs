@@ -29,9 +29,9 @@ const DashboardStats = () => {
     const fetchData = async () => {
       try {
         const [contactsRes, projectsRes, statsRes] = await Promise.all([
-          fetch(`/api/contacts`),
-          fetch(`/api/projects`),
-          fetch(`/api/stats`),
+          fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts`),
+          fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`),
+          fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/stats`),
         ]);
 
         if (!contactsRes.ok) throw new Error("Failed to fetch contacts");

@@ -68,7 +68,9 @@ export default function ContactPage() {
   const getContacts = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/contacts`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts`
+      );
       if (!res.ok) throw new Error("Failed to fetch contacts");
       const { data } = await res.json();
       setContacts(data || []);
@@ -130,13 +132,18 @@ export default function ContactPage() {
     setIsDeleting(true);
     if (!deletingContactId) return;
     try {
-      const res = await fetch(`/api/contacts/${deletingContactId}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts/${deletingContactId}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (res.ok) {
         toast.success("Contact deleted successfully");
         // Refresh list
-        const refreshRes = await fetch("/api/contacts");
+        const refreshRes = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts`
+        );
         const { data } = await refreshRes.json();
         setContacts(data || []);
         setIsDeleting(false);

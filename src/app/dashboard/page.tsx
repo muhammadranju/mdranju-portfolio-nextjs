@@ -15,7 +15,7 @@ const DashboardPage = async () => {
   const isLoggedIn = await isAuthenticated();
   const permission = await getPermission("create:post");
   if (!isLoggedIn) {
-    redirect("/api/auth/login");
+    redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login`);
   }
 
   if (!permission?.isGranted) {

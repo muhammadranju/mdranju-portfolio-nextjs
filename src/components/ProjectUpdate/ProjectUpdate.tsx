@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { URL_V2 } from "@/api/cron/route";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "sonner";
@@ -46,26 +45,29 @@ const ProjectUpdate = ({ projectData }: any) => {
   const handelProjectSubmit = async (e: any) => {
     setIsLoading(true);
     e.preventDefault();
-    const response = await fetch(`/api/projects/${projectData._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        title: project?.title,
-        details: project?.description,
-        longDetails: value,
-        sourceCode: project?.frontendUrl,
-        backendSourceCode: project?.backendSourceCode,
-        liveLink: project?.liveUrl,
-        image: project?.image,
-        category: project?.category,
-        tags: project?.tags,
-        author: "Md. Ranju",
-        avatar: "https://avatars.githubusercontent.com/u/80270685?v=4",
-      }),
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${projectData._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          title: project?.title,
+          details: project?.description,
+          longDetails: value,
+          sourceCode: project?.frontendUrl,
+          backendSourceCode: project?.backendSourceCode,
+          liveLink: project?.liveUrl,
+          image: project?.image,
+          category: project?.category,
+          tags: project?.tags,
+          author: "Md. Ranju",
+          avatar: "https://avatars.githubusercontent.com/u/80270685?v=4",
+        }),
+      }
+    );
 
     if (!response.ok) {
       setIsLoading(false);

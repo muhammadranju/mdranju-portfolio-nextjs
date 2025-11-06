@@ -1,5 +1,4 @@
 "use client";
-import getProject from "@/api/cron/route";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import ProjectSkeleton from "./ProjectSkeleton";
+import getProject from "@/config/config";
 
 // Define types for better TypeScript support
 interface Project {

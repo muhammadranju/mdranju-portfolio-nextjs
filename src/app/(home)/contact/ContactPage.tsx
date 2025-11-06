@@ -1,8 +1,6 @@
 "use client";
-import { URL } from "@/api/cron/route";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { Button } from "@/components/ui/button";
-import ShinyButton from "@/components/ui/shiny-button";
 import { Spinner } from "@/components/ui/spinner";
 import { TextAnimate } from "@/components/ui/text-animate";
 
@@ -62,13 +60,16 @@ function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch(`api/contacts`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
       console.log(data);

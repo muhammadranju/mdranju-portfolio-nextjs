@@ -1,11 +1,11 @@
 "use client";
-import getProject from "@/api/cron/route";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import Meteors from "@/components/ui/meteors";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import ShineBorder from "@/components/ui/shine-border";
 import { TextAnimate } from "@/components/ui/text-animate";
+import getProject from "@/config/config";
 import CardSkeleton from "@/ui/Skeletons/CardSkeleton";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
@@ -39,7 +39,9 @@ function Project() {
   });
   const projects = data?.project;
   useEffect(() => {
-    fetch("/api/track-visit", { method: "GET" });
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/track-visit`, {
+      method: "GET",
+    });
   }, []);
   return (
     <div className="relative overflow-hidden   py-20">

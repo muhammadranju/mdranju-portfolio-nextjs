@@ -10,12 +10,16 @@ export async function middleware(request: NextRequest) {
 
   // If not logged in, redirect to login
   if (!isLoggedIn) {
-    return NextResponse.redirect(new URL("/api/auth/login", request.url));
+    return NextResponse.redirect(
+      new URL(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login`, request.url)
+    );
   }
 
   // If permission denied, redirect to dashboard
   if (!permission?.isGranted) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(
+      new URL(`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard`, request.url)
+    );
   }
 
   return NextResponse.next();

@@ -63,27 +63,30 @@ const ProjectAdd = () => {
     setIsLoading(true);
     e.preventDefault();
 
-    const response = await fetch(`/api/projects`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        title: project.title,
-        details: project.description,
-        longDetails: value,
-        sourceCode: project.frontendUrl,
-        backendSourceCode: project.backendUrl,
-        liveLink: project.liveUrl,
-        image: project.image,
-        category: project.category,
-        tags: project.tags,
-        author: "Md. Ranju",
-        avatar: "https://avatars.githubusercontent.com/u/80270685?v=4",
-        createdAt: project.createdAt,
-      }),
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          title: project.title,
+          details: project.description,
+          longDetails: value,
+          sourceCode: project.frontendUrl,
+          backendSourceCode: project.backendUrl,
+          liveLink: project.liveUrl,
+          image: project.image,
+          category: project.category,
+          tags: project.tags,
+          author: "Md. Ranju",
+          avatar: "https://avatars.githubusercontent.com/u/80270685?v=4",
+          createdAt: project.createdAt,
+        }),
+      }
+    );
 
     if (!response.ok) {
       setIsLoading(false);

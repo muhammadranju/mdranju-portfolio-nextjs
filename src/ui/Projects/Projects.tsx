@@ -1,5 +1,4 @@
 "use client";
-import getProject from "@/api/cron/route";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { useQuery } from "@tanstack/react-query";
@@ -11,6 +10,7 @@ import { MdOpenInNew } from "react-icons/md";
 import { TfiReceipt } from "react-icons/tfi";
 import HomeSkeletonCard from "../Skeletons/HomeSkeletonCard";
 import ShinyButton from "@/components/ui/shiny-button";
+import getProject from "@/config/config";
 
 const containerVariants = {
   hidden: { opacity: 0 },
