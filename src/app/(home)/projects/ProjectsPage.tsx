@@ -1,5 +1,6 @@
 "use client";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { LightRays } from "@/components/ui/light-rays";
 import Meteors from "@/components/ui/meteors";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import ScrollProgress from "@/components/ui/scroll-progress";
@@ -45,7 +46,8 @@ function Project() {
   }, []);
   return (
     <div className="relative overflow-hidden   py-20">
-      <Meteors number={30} />
+      {/* <Meteors number={30} /> */}
+      <LightRays color="rgba(160, 210, 255, 0.2)" speed={10} count={12} />
 
       <ScrollProgress className="top-[0px]" />
 
