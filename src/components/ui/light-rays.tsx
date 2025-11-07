@@ -12,6 +12,7 @@ interface LightRaysProps extends React.HTMLAttributes<HTMLDivElement> {
   blur?: number;
   speed?: number;
   length?: string;
+  opacity?: number;
 }
 
 type LightRay = {
@@ -92,6 +93,7 @@ export function LightRays({
   blur = 36,
   speed = 5,
   length = "70vh",
+  opacity = 0.5,
   ref,
   ...props
 }: LightRaysProps) {
