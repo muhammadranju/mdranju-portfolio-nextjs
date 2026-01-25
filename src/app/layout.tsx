@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     template: `%s - MDR`,
   },
   description: metaData.description,
+  verification: {
+    google: "vIZ3abbGcvm9ATbnZwUk-MtZL3GCp30Y4oSx1YiWWrU",
+  },
   keywords: metaData.keywords,
   openGraph: {
     title: metaData.title,
