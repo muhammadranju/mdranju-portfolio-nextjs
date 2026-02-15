@@ -10,6 +10,7 @@ export async function OPTIONS(request: NextRequest) {
 export const GET = async (req: NextRequest) => {
   try {
     await connectDB();
+    console.log("data connection");
     const projects = await Project.find().sort({ createdAt: -1 }).exec();
 
     return corsResponse(
@@ -21,7 +22,7 @@ export const GET = async (req: NextRequest) => {
         project: projects,
       },
       req,
-      200
+      200,
     );
   } catch (error) {
     return corsResponse({ error: "Failed to fetch projects" }, req, 500);

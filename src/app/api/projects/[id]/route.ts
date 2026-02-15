@@ -2,18 +2,24 @@ import { handleOptions, corsResponse } from "@/lib/cors";
 import connectDB from "@/lib/db";
 import Project from "@/models/project.model";
 import { NextRequest, NextResponse } from "next/server";
+
 export async function OPTIONS(request: NextRequest) {
-  return handleOptions(request); // ✅ Handles preflight CORS request
+  return handleOptions(request);
 }
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+type RouteParams = {
+  id: string;
+};
+
+type RouteContext = {
+  params: Promise<RouteParams>;
+};
+
+export async function GET(request: NextRequest, context: RouteContext) {
   try {
     await connectDB();
-    const project = await Project.findOne({ slug: params.id });
-    // const project = await Project.findById(params.id);
+    const { id } = await context.params;
+    const project = await Project.findOne({ slug: id });
 
     if (!project) {
       return corsResponse({ error: "Project not found" }, request, 404);
@@ -25,33 +31,29 @@ export async function GET(
         data: project,
         message: "Project fetched successfully",
       },
-      request
+      request,
     );
   } catch (error) {
     return corsResponse(
       { error: error || "Failed to fetch project" },
       request,
-      500
+      500,
     );
   }
 }
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(request: NextRequest, context: RouteContext) {
   try {
     await connectDB();
 
-    // ✅ Safely parse JSON body
     let body;
     try {
       body = await request.json();
-    } catch (err) {
+    } catch {
       return corsResponse(
         { success: false, message: "Invalid or empty JSON body" },
         request,
-        400
+        400,
       );
     }
 
@@ -69,18 +71,18 @@ export async function PUT(
       avatar,
     } = body;
 
-    // ✅ Check if ID exists
-    const project = await Project.findById(params.id);
+    const { id } = await context.params;
+
+    const project = await Project.findById(id);
     if (!project) {
       return NextResponse.json(
         { success: false, message: "Project not found" },
         {
           status: 404,
-        }
+        },
       );
     }
 
-    // ✅ Update fields dynamically
     project.title = title ?? project.title;
     project.details = details ?? project.details;
     project.longDetails = longDetails ?? project.longDetails;
@@ -92,7 +94,6 @@ export async function PUT(
     project.image = image ?? project.image;
     project.avatar = avatar ?? project.avatar;
 
-    // ✅ Safe tags handling
     if (tags) {
       if (typeof tags === "string") {
         project.tags = tags.split(",").map((tag) => tag.trim());
@@ -100,7 +101,7 @@ export async function PUT(
         project.tags = tags;
       }
     }
-    // ✅ Save the updated project
+
     await project.save();
 
     return corsResponse(
@@ -110,13 +111,13 @@ export async function PUT(
         data: project,
       },
       request,
-      200
+      200,
     );
   } catch (error) {
     return corsResponse(
       { success: false, message: "Failed to update project", error },
       request,
-      500
+      500,
     );
   }
 }

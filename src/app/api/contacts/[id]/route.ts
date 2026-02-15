@@ -9,17 +9,19 @@ export async function OPTIONS(request: NextRequest) {
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> },
 ) {
   try {
     await connectDB();
 
-    const contact = await Contact.findById(params.id);
+    const { id } = await context.params;
+
+    const contact = await Contact.findById(id);
     if (!contact) {
       return corsResponse({ error: "Contact not found" }, request, 404);
     }
 
-    await Contact.deleteOne({ _id: params.id });
+    await Contact.deleteOne({ _id: id });
     return corsResponse({ message: "Contact deleted" }, request, 200);
   } catch (error) {
     console.error("Delete contact error:", error);

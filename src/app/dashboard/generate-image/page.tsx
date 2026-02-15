@@ -1,16 +1,17 @@
-"use client";
+ "use client";
 
-import type React from "react";
+ import type React from "react";
 
-import BackButton from "@/components/BackButton/BackButton";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Sparkles } from "lucide-react";
-import { useState } from "react";
+ import BackButton from "@/components/BackButton/BackButton";
+ import { Button } from "@/components/ui/button";
+ import { Input } from "@/components/ui/input";
+ import { Label } from "@/components/ui/label";
+ import { Textarea } from "@/components/ui/textarea";
+ import { Sparkles } from "lucide-react";
+ import { useState } from "react";
+ import Image from "next/image";
 
-export default function GenerateImagePage() {
+ export default function GenerateImagePage() {
   const [formData, setFormData] = useState({
     prompt: "",
     negativePrompt: "",
@@ -148,10 +149,12 @@ export default function GenerateImagePage() {
             <h2 className="text-xl font-semibold mb-4">Preview</h2>
             {generatedImage ? (
               <div className="space-y-4">
-                <img
+                <Image
                   src={generatedImage || "/placeholder.svg"}
-                  alt="Generated"
-                  className="w-full rounded-lg border border-border"
+                  alt="Generated preview"
+                  width={1024}
+                  height={1024}
+                  className="w-full h-auto rounded-lg border border-border object-contain"
                 />
                 <div className="flex gap-2">
                   <Button variant="outline" className="flex-1 bg-transparent">
