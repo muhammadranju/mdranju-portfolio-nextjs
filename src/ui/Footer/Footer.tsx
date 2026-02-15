@@ -24,10 +24,10 @@ function Footer() {
               href="https://github.com/muhammadranju"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Muhammad Ranju Github Profile"
+              aria-label="Md. Ranju Github Profile"
             >
               <span className="font-bold text-indigo-500 hover:underline ml-1 mr-1">
-                Muhammad Ranju.
+                Md. Ranju.
               </span>
             </a>
             All rights reserved.

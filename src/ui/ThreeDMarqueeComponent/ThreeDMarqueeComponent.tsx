@@ -2,10 +2,9 @@
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import getProject from "@/config/config";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 export function ThreeDMarqueeComponent() {
-  const [images, setImages] = useState([]);
   // const { data } = useQuery({
   //   queryKey: ["project"],
   //   queryFn: async () => {
@@ -22,10 +21,10 @@ export function ThreeDMarqueeComponent() {
     refetchOnMount: false,
   });
 
-  useEffect(() => {
-    const arrayImages = data?.project.map((item: any) => item.image);
-    setImages(arrayImages);
-  }, [data]);
+  const images = useMemo(
+    () => data?.project?.map((item: any) => item.image) ?? [],
+    [data]
+  );
 
   return (
     <div className="relative mx-auto flex w-full  flex-col items-center justify-center overflow-hidden lg:h-[500px] md:h-[300px] h-[300px] gap-4 lg:py-5 md:py-3 py-5">
