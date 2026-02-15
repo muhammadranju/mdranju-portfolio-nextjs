@@ -61,7 +61,7 @@ const DashboardStats = () => {
   return (
     <div className=" ">
       <div className="grid gap-4 lg:gap-x-8 md:grid-cols-4 mt-5 ">
-        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
+        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900/40">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
               <span>Total Projects</span>
@@ -72,7 +72,7 @@ const DashboardStats = () => {
             </div>
           </div>
         </Card>
-        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
+        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900/40">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
               <span>Total Visitors</span>
@@ -83,7 +83,7 @@ const DashboardStats = () => {
             </div>
           </div>
         </Card>
-        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
+        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900/40">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
               <span>Total Views</span>
@@ -94,7 +94,7 @@ const DashboardStats = () => {
             </div>
           </div>
         </Card>
-        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900">
+        <Card className="relative p-6 rounded-2xl bg-white/30 shadow dark:bg-slate-900/40">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-slate-500 dark:text-slate-400">
               <span>Total Contacts</span>

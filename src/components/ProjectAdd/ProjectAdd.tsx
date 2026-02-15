@@ -3,12 +3,22 @@ import { Save } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import "react-quill/dist/quill.snow.css"; // CSS can stay static
-// import { toast } from "react-toastify";
+import ReactDOM from "react-dom";
+import "react-quill/dist/quill.snow.css";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { toast } from "sonner";
+
+const reactDomAny = ReactDOM as any;
+if (typeof reactDomAny.findDOMNode !== "function") {
+  reactDomAny.findDOMNode = (instance: any) => {
+    if (instance && (instance as any).nodeType) {
+      return instance;
+    }
+    return null;
+  };
+}
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 

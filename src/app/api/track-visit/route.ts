@@ -1,8 +1,9 @@
-import Stats from "@/models/stats.model"; // Adjust path as needed
+import Stats from "@/models/stats.model";
 import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/db";
 import Visitor from "@/models/visitor.model";
+import Visit from "@/models/visit.model";
 
 import { handleOptions, corsResponse } from "@/lib/cors";
 
@@ -13,6 +14,8 @@ export async function OPTIONS(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     await connectDB();
+
+    await Visit.create({});
 
     const ip =
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
@@ -39,7 +42,7 @@ export async function GET(request: NextRequest) {
       const stats = await Stats.findOneAndUpdate(
         {},
         { $inc: { totalVisitors: 1, totalVisits: 1 } },
-        { upsert: true, new: true }
+        { upsert: true, new: true },
       );
 
       totalVisitors = stats.totalVisitors;
@@ -48,7 +51,7 @@ export async function GET(request: NextRequest) {
       await Stats.findOneAndUpdate(
         {},
         { $inc: { totalVisits: 1 } },
-        { upsert: true, new: true }
+        { upsert: true, new: true },
       );
 
       // Fetch current total visitors
@@ -65,14 +68,14 @@ export async function GET(request: NextRequest) {
           : "New visitor tracked",
       },
       request,
-      200
+      200,
     );
   } catch (error) {
     console.error("Error tracking visitor:", error);
     return corsResponse(
       { success: false, error: "Failed to track visit" },
       request,
-      500
+      500,
     );
   }
 }

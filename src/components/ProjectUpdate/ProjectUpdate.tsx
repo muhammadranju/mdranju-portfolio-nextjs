@@ -1,11 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
+
+const reactDomAny = ReactDOM as any;
+if (typeof reactDomAny.findDOMNode !== "function") {
+  reactDomAny.findDOMNode = (instance: any) => {
+    if (instance && (instance as any).nodeType) {
+      return instance;
+    }
+    return null;
+  };
+}
 
 const ProjectUpdate = ({ projectData }: any) => {
   const [project, setProject] = useState<any>(null);

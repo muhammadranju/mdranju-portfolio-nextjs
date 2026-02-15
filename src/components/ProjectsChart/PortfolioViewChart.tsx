@@ -1,144 +1,187 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
 import {
   Area,
   AreaChart,
   Bar,
   BarChart,
-  CartesianGrid,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
 
-const data2 = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-export const PortfolioViewChart = () => {
-  return (
-    <div className="w-full lg:h-64 h-44 lg:my-10">
-      <span className="flex float-end">Section Chart</span>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart width={150} height={40} data={data2}>
-          <Bar dataKey="uv" fill="#312e81" />
-          <XAxis dataKey="name" />
+type TooltipPayloadItem = {
+  value: number;
+};
 
-          <YAxis />
-        </BarChart>
-      </ResponsiveContainer>
+type ChartTooltipProps = {
+  active?: boolean;
+  label?: string;
+  payload?: TooltipPayloadItem[];
+};
+
+const VisitorsTooltip = ({ active, label, payload }: ChartTooltipProps) => {
+  if (!active || !payload || payload.length === 0) return null;
+  const value = payload[0]?.value ?? 0;
+  return (
+    <div className="rounded-md border border-slate-700 bg-slate-900/90 px-3 py-2 text-xs text-slate-100 shadow-lg">
+      <div className="mb-1 text-[10px] uppercase tracking-wide text-slate-400">
+        {label}
+      </div>
+      <div className="font-medium">
+        Visitors: <span className="text-indigo-300">{value}</span>
+      </div>
     </div>
   );
 };
 
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
+const PortfolioTooltip = ({ active, label, payload }: ChartTooltipProps) => {
+  if (!active || !payload || payload.length === 0) return null;
+  const value = payload[0]?.value ?? 0;
+  return (
+    <div className="rounded-md border border-slate-700 bg-slate-900/90 px-3 py-2 text-xs text-slate-100 shadow-lg">
+      <div className="mb-1 text-[10px] uppercase tracking-wide text-slate-400">
+        {label}
+      </div>
+      <div className="font-medium">
+        Views: <span className="text-indigo-300">{value}</span>
+      </div>
+    </div>
+  );
+};
+
+const fallbackVisitors = [
+  { name: "Jan", value: 0 },
+  { name: "Feb", value: 0 },
+  { name: "Mar", value: 0 },
+  { name: "Apr", value: 0 },
+  { name: "May", value: 0 },
+  { name: "Jun", value: 0 },
+  { name: "Jul", value: 0 },
+  { name: "Aug", value: 0 },
+  { name: "Sep", value: 0 },
+  { name: "Oct", value: 0 },
+  { name: "Nov", value: 0 },
+  { name: "Dec", value: 0 },
 ];
 
-export const ProjectsChart = () => {
+const fallbackProfileViews = fallbackVisitors;
+
+type MonthlyPoint = {
+  key: string;
+  month: string;
+  year: number;
+  count: number;
+};
+
+type MonthlyStatsResponse = {
+  success: boolean;
+  data?: {
+    visitors: MonthlyPoint[];
+    profileViews: MonthlyPoint[];
+  };
+};
+
+export const PortfolioViewChart = () => {
+  const { data } = useQuery<MonthlyStatsResponse>({
+    queryKey: ["monthly-stats"],
+    queryFn: async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/stats/monthly`,
+      );
+      if (!res.ok) {
+        throw new Error("Failed to fetch monthly stats");
+      }
+      return res.json();
+    },
+    staleTime: 60000,
+  });
+
+  const visitors =
+    data?.data?.visitors?.map((item) => ({
+      name: item.month,
+      value: item.count,
+    })) ?? fallbackVisitors;
+
+  const hasVisitorsData = visitors.some((item) => item.value > 0);
+
   return (
-    <div className="w-full lg:h-64 h-44 lg:my-10">
+    <div className="w-full lg:h-96 h-44 lg:my-10">
+      {hasVisitorsData ? (
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart width={150} height={40} data={visitors}>
+            <Bar dataKey="value" fill="#312e81" />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+            <YAxis axisLine={false} tickLine={false} />
+            <Tooltip content={<VisitorsTooltip />} cursor={false} />
+          </BarChart>
+        </ResponsiveContainer>
+      ) : (
+        <div className="flex h-full items-center justify-center text-xs text-slate-500">
+          No visitor data yet
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const ProjectsChart = () => {
+  const { data } = useQuery<MonthlyStatsResponse>({
+    queryKey: ["monthly-stats"],
+    queryFn: async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/stats/monthly`,
+      );
+      if (!res.ok) {
+        throw new Error("Failed to fetch monthly stats");
+      }
+      return res.json();
+    },
+    staleTime: 60000,
+  });
+
+  const profileViews =
+    data?.data?.profileViews?.map((item) => ({
+      name: item.month,
+      value: item.count,
+    })) ?? fallbackProfileViews;
+
+  const hasProfileViewsData = profileViews.some((item) => item.value > 0);
+
+  return (
+    <div className="w-full lg:h-96 h-44 lg:my-10">
       <span className="flex float-end">Portfolio Viewers</span>
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart
-          width={500}
-          height={400}
-          data={data}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#312e81" />
-        </AreaChart>
-      </ResponsiveContainer>
+      {hasProfileViewsData ? (
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart
+            width={500}
+            height={400}
+            data={profileViews}
+            margin={{
+              top: 10,
+              right: 30,
+              left: 0,
+              bottom: 0,
+            }}
+          >
+            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+            <YAxis className="border-none" axisLine={false} tickLine={false} />
+            <Tooltip content={<PortfolioTooltip />} cursor={false} />
+            <Area
+              type="monotone"
+              dataKey="value"
+              stroke="#8884d8"
+              fill="#312e81"
+              fillOpacity={0.5}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      ) : (
+        <div className="flex h-full items-center justify-center text-xs text-slate-500">
+          No profile view data yet
+        </div>
+      )}
     </div>
   );
 };
