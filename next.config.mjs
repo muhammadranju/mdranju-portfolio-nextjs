@@ -6,13 +6,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
         port: "",
-        // pathname: "/nodelove/image/upload/f_auto,q_auto/v1/portfolio/",
       },
       {
         protocol: "https",
         hostname: "res+.cloudinary.com",
         port: "",
-        // pathname: "/nodelove/image/upload/f_auto,q_auto/v1/portfolio/",
       },
       {
         protocol: "https",
@@ -37,6 +35,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "mdranju.xyz",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "assets.aceternity.com",
         port: "",
       },
     ],

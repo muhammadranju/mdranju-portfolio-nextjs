@@ -128,7 +128,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-- **Author**: Muhammad Ranju ([@muhammadranju](https://github.com/muhammadranju))
+- **Author**: Md. Ranju ([@muhammadranju](https://github.com/muhammadranju))
 - **Email**: [mdranju23@gmail.com](mailto:mdranju23@gmail.com)
 - **Issues**: Report bugs or suggest features [here](https://github.com/muhammadranju/mdranju-portfolio-nextjs/issues)
 
