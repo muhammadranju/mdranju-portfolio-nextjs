@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -32,35 +32,23 @@ export default function AnimatedGridPattern({
   ...props
 }: AnimatedGridPatternProps) {
   const id = useId();
-  const containerRef = useRef(null);
+  const containerRef = useRef<SVGSVGElement | null>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [squares, setSquares] = useState<{
-    id: number;
-    pos: number[];
-  }[]>([]);
+  const [squares, setSquares] = useState<
+    {
+      id: number;
+      pos: number[];
+    }[]
+  >([]);
 
-  useEffect(() => {
-    if (dimensions.width > 0 && dimensions.height > 0) {
-      setSquares(generateSquares(numSquares));
-    }
-  }, [numSquares, dimensions]);
-
-  function getPos() {
-    return [
+  const getPos = useCallback(
+    () => [
       Math.floor((Math.random() * dimensions.width) / width),
       Math.floor((Math.random() * dimensions.height) / height),
-    ];
-  }
+    ],
+    [dimensions.width, dimensions.height, width, height],
+  );
 
-  // Adjust the generateSquares function to return objects with an id, x, and y
-  function generateSquares(count: number) {
-    return Array.from({ length: count }, (_, i) => ({
-      id: i,
-      pos: getPos(),
-    }));
-  }
-
-  // Function to update a single square's position
   const updateSquarePosition = (id: number) => {
     setSquares((currentSquares) =>
       currentSquares.map((sq) =>
@@ -69,20 +57,25 @@ export default function AnimatedGridPattern({
               ...sq,
               pos: getPos(),
             }
-          : sq
-      )
+          : sq,
+      ),
     );
   };
 
-  // Update squares to animate in
   useEffect(() => {
     if (dimensions.width && dimensions.height) {
-      setSquares(generateSquares(numSquares));
+      const nextSquares = Array.from({ length: numSquares }, (_, i) => ({
+        id: i,
+        pos: getPos(),
+      }));
+      setSquares(nextSquares);
     }
-  }, [dimensions, numSquares]);
+  }, [dimensions, numSquares, getPos]);
 
-  // Resize observer to update container dimensions
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
         setDimensions({
@@ -92,16 +85,12 @@ export default function AnimatedGridPattern({
       }
     });
 
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
-    }
+    resizeObserver.observe(container);
 
     return () => {
-      if (containerRef.current) {
-        resizeObserver.unobserve(containerRef.current);
-      }
+      resizeObserver.unobserve(container);
     };
-  }, [containerRef]);
+  }, []);
 
   return (
     <svg
@@ -109,7 +98,7 @@ export default function AnimatedGridPattern({
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
-        className
+        className,
       )}
       {...props}
     >
