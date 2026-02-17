@@ -23,7 +23,6 @@ export default function ResumeUrlPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Resume data:", formData);
     // Add your database submission logic here
   };
 

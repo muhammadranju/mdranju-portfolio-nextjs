@@ -56,8 +56,6 @@ const DashboardStats = () => {
     fetchData();
   }, []);
 
-  console.log(visitors);
-
   return (
     <div className=" ">
       <div className="grid gap-4 lg:gap-x-8 md:grid-cols-4 mt-5 ">

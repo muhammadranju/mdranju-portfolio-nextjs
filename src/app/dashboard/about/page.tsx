@@ -28,7 +28,6 @@ export default function AboutPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("About data:", formData);
     // Add your database submission logic here
   };
 

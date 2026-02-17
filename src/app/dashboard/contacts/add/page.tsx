@@ -27,7 +27,6 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact data:", formData);
     // Add your database submission logic here
   };
 

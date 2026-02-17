@@ -45,7 +45,7 @@ function Contact() {
   const buttonRef = useRef(null);
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
 
@@ -68,11 +68,11 @@ function Contact() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       const data = await response.json();
-      console.log(data);
+
       if (data.success) {
         setFormData({
           firstName: "",
@@ -85,7 +85,6 @@ function Contact() {
         setLoading(false);
       } else {
         toast.error(data.error);
-        // console.log(data?.massage);
         setLoading(false);
       }
     } catch (error) {
@@ -103,7 +102,7 @@ function Contact() {
         repeatDelay={1}
         className={cn(
           "[mask-image:radial-gradient(1200px_circle_at_center,white,transparent)]",
-          "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12"
+          "inset-x-0 inset-y-[-50%] h-[100%] skew-y-12",
         )}
       />
       <motion.div

@@ -23,8 +23,6 @@ const ProjectUpdate = ({ projectData }: any) => {
   const [value, setValue] = useState(projectData?.longDetails);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(projectData);
-
   const toolbarOptions = [
     ["bold", "italic", "underline", "strike"], // toggled buttons
     ["blockquote", "code-block"],
@@ -77,7 +75,7 @@ const ProjectUpdate = ({ projectData }: any) => {
           author: "Md. Ranju",
           avatar: "https://avatars.githubusercontent.com/u/80270685?v=4",
         }),
-      }
+      },
     );
 
     if (!response.ok) {

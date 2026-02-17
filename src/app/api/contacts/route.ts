@@ -13,7 +13,6 @@ export async function GET(request: NextRequest) {
   try {
     await connectDB();
     const contact = await Contact.find().sort({ createdAt: -1 }).exec();
-    console.log(contact);
 
     return corsResponse(
       {
@@ -24,7 +23,7 @@ export async function GET(request: NextRequest) {
         data: contact,
       },
       request,
-      200
+      200,
     );
   } catch (error) {
     console.error("Get contact error:", error);
@@ -41,12 +40,12 @@ export async function POST(req: NextRequest) {
     }
 
     const validPhone = validNumber(phone);
-    console.log(phone);
+
     if (!validPhone.isValid) {
       return corsResponse(
         { error: "Invalid phone number, add your country code." },
         req,
-        400
+        400,
       );
     }
 
@@ -54,7 +53,7 @@ export async function POST(req: NextRequest) {
       return corsResponse(
         { error: "Invalid email, please try again." },
         req,
-        400
+        400,
       );
     }
 
@@ -74,7 +73,7 @@ export async function POST(req: NextRequest) {
         data: contact,
       },
       req,
-      201
+      201,
     );
   } catch (error) {
     console.error("Create contact error:", error);

@@ -26,7 +26,6 @@ export default function ChangeBioPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Bio data:", formData);
     // Add your database submission logic here
   };
 

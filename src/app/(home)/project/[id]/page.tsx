@@ -5,13 +5,13 @@ async function getProject(id: string) {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${id}`,
-      { cache: "no-store" }
+      { cache: "no-store" },
     ); // Ensure fresh data
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
     const data = await response.json();
-    console.log(data);
+
     return data.data; // Accessing the 'project' field directly
   } catch (error) {
     console.error("Error fetching project data:", error);
@@ -65,15 +65,9 @@ export async function generateMetadata({
   };
 }
 
-const Project = async ({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) => {
+const Project = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const project = await getProject(id);
-
-  console.log(project);
 
   if (!project) {
     return <div>Project not found.</div>;

@@ -90,7 +90,6 @@ export const POST = async (req: NextRequest) => {
     }
 
     const spitesTags = tags?.split(", ").map((tag: string) => tag.trim());
-    console.log(spitesTags);
     const project = new Project({
       title,
       details,
