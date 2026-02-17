@@ -10,7 +10,42 @@ export async function OPTIONS(request: NextRequest) {
 export const GET = async (req: NextRequest) => {
   try {
     await connectDB();
-    console.log("data connection");
+    const searchParams = req.nextUrl.searchParams;
+    const pageParam = searchParams.get("page");
+    const limitParam = searchParams.get("limit");
+
+    const page = pageParam ? parseInt(pageParam, 10) : 0;
+    const limit = limitParam ? parseInt(limitParam, 10) : 0;
+
+    if (page > 0 && limit > 0) {
+      const skip = (page - 1) * limit;
+
+      const [projects, total] = await Promise.all([
+        Project.find().sort({ createdAt: -1 }).skip(skip).limit(limit).exec(),
+        Project.countDocuments().exec(),
+      ]);
+
+      const totalPages = Math.max(1, Math.ceil(total / limit));
+      const hasMore = page < totalPages;
+
+      return corsResponse(
+        {
+          status: 200,
+          success: true,
+          count: projects.length,
+          total,
+          totalPages,
+          page,
+          limit,
+          hasMore,
+          message: "Projects fetched successfully",
+          project: projects,
+        },
+        req,
+        200,
+      );
+    }
+
     const projects = await Project.find().sort({ createdAt: -1 }).exec();
 
     return corsResponse(
@@ -18,6 +53,11 @@ export const GET = async (req: NextRequest) => {
         status: 200,
         success: true,
         count: projects?.length,
+        total: projects?.length,
+        totalPages: 1,
+        page: 1,
+        limit: projects?.length ?? 0,
+        hasMore: false,
         message: "Projects fetched successfully",
         project: projects,
       },
