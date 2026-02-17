@@ -32,140 +32,162 @@ type ProjectPageProps = {
 const ProjectPage = ({ project }: ProjectPageProps) => {
   const router = useRouter();
 
-  console.log(project);
-
   const handelClick = () => {
     router.back();
   };
 
   return (
-    <div className="bg-slate-100 dark:bg-[#020617] min-h-screen bg-[linear-gradient(to_right,#80808011_1px,transparent_1px),linear-gradient(to_bottom,#80808011_1px,transparent_1px)] bg-[size:14px_24px]   text-gray-800 dark:text-gray-200 relative ">
-      <div className="  relative  w-full  overflow-hidden antialiased lg:px-8  px-3">
+    <div className="relative min-h-screen bg-[#020617] text-gray-100">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_#1d4ed81a,_transparent_60%),radial-gradient(circle_at_bottom,_#4c1d9517,_transparent_55%)]" />
+      <div className="relative w-full overflow-hidden antialiased px-3 lg:px-8">
         <Spotlight />
-        <div className=" lg:p-8 p-3 max-w-7xl mx-auto mt-28 mb-10  rounded-xl border-[1px] dark:border-slate-100/30 border-slate-500/5 shadow-md bg-white dark:bg-[#020617]   ">
-          <div className="pb-5">
+        <div className="mx-auto mt-28 mb-10 max-w-7xl rounded-3xl border border-slate-800/80 bg-slate-900/70 shadow-[0_18px_60px_rgba(15,23,42,0.9)] backdrop-blur-2xl">
+          <div className="flex items-center justify-between border-b border-slate-800/70 px-4 py-4 lg:px-8 lg:py-6">
             <HoverBorderGradient
               onClick={handelClick}
               containerClassName="rounded-full"
               as="button"
-              className="dark:bg-slate-900 bg-white text-sm  text-slate-700 dark:text-slate-100 flex items-center"
+              className="flex items-center bg-slate-900/80 px-4 py-1.5 text-xs font-medium text-slate-100"
             >
-              <IoIosArrowBack className="font-extrabold text-lg mr-1 -ml-2" />{" "}
-              Back
+              <IoIosArrowBack className="mr-2 text-base" />
+              Back to projects
             </HoverBorderGradient>
-          </div>
-          <div className="bg-blue-100 w-full h-full rounded-lg drop-shadow-md overflow-hidden">
-            <Image
-              src={project?.image}
-              width={1080}
-              height={720}
-              alt={project?.title}
-              className="w-full "
-            />
-          </div>
-          <div className="mt-6">
-            <span className="p-2 text-xs mb-10 border-[2px] rounded-full flex items-center w-fit px-4">
-              #
-              <TextAnimate animation="blurInUp" by="word">
-                {project?.category}
-              </TextAnimate>
+            <span className="rounded-full bg-slate-900/60 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">
+              Featured case study
             </span>
-            <h2 className="lg:text-3xl text-xl font-bold mt-5 z-[1000]">
-              <TextAnimate animation="blurInUp" by="word">
-                {project?.title}
-              </TextAnimate>
-            </h2>
-            <p className=" mt-2 lg:max-w-5xl lg:text-base text-sm ">
-              {project?.details}
-            </p>
+          </div>
 
-            <hr className="my-5" />
+          <div className="grid gap-10 px-4 pb-8 pt-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:px-8 lg:pb-10 lg:pt-8">
+            <div className="space-y-6">
+              <div className="relative h-64 overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-900/80 sm:h-80 lg:h-[460px]">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-transparent to-emerald-400/10" />
+                <Image
+                  src={project?.image}
+                  width={1200}
+                  height={720}
+                  alt={project?.title}
+                  className="h-full w-full object-cover"
+                />
+              </div>
 
-            <div
-              className="prose max-w-full prose-headings:mb-2 prose-p:mb-1 prose-ul:mt-1 prose-ul:mb-1 prose-li:my-0
-  prose-headings:text-gray-900 dark:prose-headings:text-gray-100
-  prose-p:text-gray-700 dark:prose-p:text-gray-300
-  prose-ul:text-gray-700 dark:prose-ul:text-gray-300
-  prose-li:text-gray-600 dark:prose-li:text-gray-400
-  prose-img:rounded-lg"
-            >
-              {project?.longDetails && parse(project?.longDetails)}
+              <div className="space-y-4 lg:space-y-5">
+                <span className="inline-flex items-center gap-2 rounded-full border border-indigo-500/40 bg-indigo-500/5 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-indigo-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
+                  <TextAnimate animation="blurInUp" by="word">
+                    {project?.category}
+                  </TextAnimate>
+                </span>
+
+                <h1 className="text-balance text-2xl font-semibold leading-tight text-slate-50 sm:text-3xl lg:text-4xl">
+                  <TextAnimate animation="blurInUp" by="word">
+                    {project?.title}
+                  </TextAnimate>
+                </h1>
+
+                <p className="max-w-3xl text-sm leading-relaxed text-slate-300/90 lg:text-[15px]">
+                  {project?.details}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 lg:px-6 lg:py-5">
+                <div className="prose max-w-none text-sm leading-relaxed text-slate-200 prose-headings:mb-2 prose-headings:text-slate-50 prose-p:mb-3 prose-ul:mt-1 prose-ul:mb-3 prose-li:my-0 prose-strong:text-slate-50 prose-a:text-indigo-300 hover:prose-a:text-indigo-200 prose-img:rounded-xl">
+                  {project?.longDetails && parse(project?.longDetails)}
+                </div>
+              </div>
+
+              {project?.tags?.length > 0 && (
+                <div className="rounded-2xl border border-slate-800/70 bg-slate-900/70 px-4 py-4 lg:px-6 lg:py-5">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      Tags
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {project?.tags.map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-[11px] font-medium text-slate-100"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {project?.tags?.length > 0 && (
-              <div className="flex mt-4">
-                <div>
-                  <div className="flex space-x-2 mt-2 flex-wrap items-center">
-                    <span className="font-semibold ">Tags:</span>
-                    {project?.tags.map((tag: string) => (
-                      <button
-                        key={tag}
-                        className="w-fit h-6 px-5 flex text-xs items-center justify-center border rounded-full "
-                      >
-                        {tag}
-                      </button>
-                    ))}
+            <aside className="space-y-5 lg:space-y-6">
+              <div className="rounded-2xl border border-slate-800/80 bg-slate-900/80 px-4 py-4 lg:px-5 lg:py-5">
+                <div className="flex items-center gap-x-3">
+                  <Image
+                    width={72}
+                    height={72}
+                    src={project?.avatar}
+                    className="h-14 w-14 rounded-2xl border border-slate-700/70 object-cover"
+                    alt={project?.author}
+                  />
+                  <div className="space-y-1">
+                    <p className="text-sm font-semibold text-slate-50">
+                      <TextAnimate animation="blurInUp" by="word">
+                        {project?.author}
+                      </TextAnimate>
+                    </p>
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-slate-400">
+                      Added on{" "}
+                      <span className="text-slate-100">
+                        {format(project?.createdAt, "dd MMM yyyy")}
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
-            )}
 
-            <div className="mt-6">
-              <div className="flex items-center gap-x-2">
-                <Image
-                  width={100}
-                  height={100}
-                  src={project?.avatar}
-                  className="w-12 h-12 rounded-lg"
-                  alt={project?.author}
-                />
-                <div>
-                  <p>
-                    <TextAnimate animation="blurInUp" by="word">
-                      {project?.author}
-                    </TextAnimate>
-                  </p>
-                  <span className="text-xs leading-tight ">
-                    Added At: {format(project?.createdAt, "dd/MM/yyyy")}
-                    {/* Added At: {project?.createdAt} */}
-                  </span>
+              <div className="rounded-2xl border border-slate-800/80 bg-slate-900/80 px-4 py-4 lg:px-5 lg:py-5">
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
+                  Explore project
+                </p>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <a href={project?.sourceCode} target="_blank">
+                    <HoverBorderGradient
+                      containerClassName="rounded-xl"
+                      as="button"
+                      className="flex w-full items-center justify-center gap-2 bg-slate-900 px-4 py-2.5 text-sm font-medium text-slate-50"
+                    >
+                      <FaGithub className="text-base" />
+                      Github
+                    </HoverBorderGradient>
+                  </a>
+
+                  {project?.backendSourceCode && (
+                    <a href={project?.backendSourceCode} target="_blank">
+                      <HoverBorderGradient
+                        containerClassName="rounded-xl"
+                        as="button"
+                        className="flex w-full items-center justify-center gap-2 bg-slate-900 px-4 py-2.5 text-sm font-medium text-slate-50"
+                      >
+                        <FaGithub className="text-base" />
+                        Backend
+                      </HoverBorderGradient>
+                    </a>
+                  )}
                 </div>
-              </div>
-            </div>
-            <div className="flex items-center mt-6 gap-x-5">
-              <a href={project?.sourceCode} target="_blank">
-                <HoverBorderGradient
-                  containerClassName="rounded-lg"
-                  as="button"
-                  className="dark:bg-slate-900 bg-slate-100  text-slate-700 dark:text-slate-100 flex items-center space-x-2"
-                >
-                  <FaGithub className="font-extrabold text-lg mr-2" /> Github
-                </HoverBorderGradient>
-              </a>
-              {project?.backendSourceCode && (
-                <a href={project?.backendSourceCode} target="_blank">
-                  <HoverBorderGradient
-                    containerClassName="rounded-lg"
-                    as="button"
-                    className="dark:bg-slate-900 bg-slate-100  text-slate-700 dark:text-slate-100 flex items-center space-x-2"
-                  >
-                    <FaGithub className="font-extrabold text-lg mr-2" /> Backend
-                  </HoverBorderGradient>
-                </a>
-              )}
 
-              {project?.liveLink && (
-                <a href={project?.liveLink} target="_blank">
-                  <HoverBorderGradient
-                    containerClassName="rounded-lg"
-                    as="button"
-                    className="dark:bg-indigo-600 bg-indigo-600 text-slate-100 dark:text-slate-100 flex items-center space-x-2"
-                  >
-                    <MdOpenInNew className="font-extrabold text-lg mr-2" /> Live
-                  </HoverBorderGradient>
-                </a>
-              )}
-            </div>
+                {project?.liveLink && (
+                  <div className="mt-3">
+                    <a href={project?.liveLink} target="_blank">
+                      <HoverBorderGradient
+                        containerClassName="rounded-xl"
+                        as="button"
+                        className="flex w-full items-center justify-center gap-2 bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-slate-50"
+                      >
+                        <MdOpenInNew className="text-base" />
+                        Live preview
+                      </HoverBorderGradient>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </aside>
           </div>
         </div>
       </div>
