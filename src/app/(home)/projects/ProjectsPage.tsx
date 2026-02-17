@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { LightRays } from "@/components/ui/light-rays";
 import Meteors from "@/components/ui/meteors";
@@ -8,7 +9,7 @@ import ShineBorder from "@/components/ui/shine-border";
 import { TextAnimate } from "@/components/ui/text-animate";
 import getProject from "@/config/config";
 import CardSkeleton from "@/ui/Skeletons/CardSkeleton";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -30,15 +31,26 @@ const fadeInUp = {
   },
 };
 
+const PROJECTS_PER_PAGE = 9;
+
 function Project() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["projects"],
-    queryFn: async () => {
-      return await getProject();
-    },
-    staleTime: 60000,
-  });
-  const projects = data?.project;
+  const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } =
+    useInfiniteQuery({
+      queryKey: ["projects-paginated"],
+      queryFn: async ({ pageParam = 1 }) =>
+        await getProject(pageParam, PROJECTS_PER_PAGE),
+      getNextPageParam: (lastPage) => {
+        if (lastPage?.hasMore && lastPage?.page < lastPage?.totalPages) {
+          return lastPage.page + 1;
+        }
+        return undefined;
+      },
+      staleTime: 60000,
+    });
+
+  const projects =
+    data?.pages?.flatMap((page: any) => page?.project ?? []) ?? [];
+  const totalProjects = data?.pages?.[0]?.total ?? projects.length ?? 0;
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/track-visit`, {
       method: "GET",
@@ -69,7 +81,7 @@ function Project() {
           <p className="lg:max-w-4xl text-base mb-2">
             Showcasing a selection of the{" "}
             <NumberTicker
-              value={data?.project?.length || 0}
+              value={totalProjects}
               className="whitespace-pre-wrap text-base font-medium tracking-tighter text-black dark:text-white"
             />{" "}
             projects I’ve developed with passion and dedication.
@@ -197,6 +209,19 @@ function Project() {
               </ShineBorder>
             ))}
         </div>
+
+        {hasNextPage && (
+          <div className="mt-10 flex justify-center">
+            <Button
+              type="button"
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+              className="rounded-lg bg-indigo-600 px-6 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors disabled:opacity-60"
+            >
+              {isFetchingNextPage ? "Loading..." : "Load More"}
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
