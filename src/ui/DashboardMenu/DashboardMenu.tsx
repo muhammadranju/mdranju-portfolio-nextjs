@@ -86,13 +86,16 @@ const NavLinks: NavLink[] = [
 const MenuLink = forwardRef<HTMLAnchorElement, MenuLinkProps>(
   ({ href, children, className, ...rest }, ref) => {
     return (
-      <Link href={href} passHref legacyBehavior>
-        <a ref={ref} className={className} {...rest}>
-          {children}
-        </a>
+      <Link
+        href={href}
+        ref={ref}
+        className={className}
+        {...rest}
+      >
+        {children}
       </Link>
     );
-  }
+  },
 );
 
 MenuLink.displayName = "MenuLink";

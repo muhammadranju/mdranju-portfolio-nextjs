@@ -16,15 +16,7 @@ import {
 import { RiJavascriptFill } from "react-icons/ri";
 import { SiExpress, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 
-/* eslint-disable react/no-unescaped-entities */
-const words = [
-  "Full-Stack",
-  "Backend",
-  "Frontend",
-  "Next.js",
-  "Node.js",
-  "React.js",
-];
+const words = ["Full-Stack", "Backend", "Frontend"];
 function HeroSection() {
   return (
     <div className="relative w-full lg:py-40 lg:pt-40 md:py-20 md:pt-0    antialiased  overflow-hidden ">
@@ -48,27 +40,27 @@ function HeroSection() {
               <SparklesText className="mx-3" text="Hey folks👋" />
             </div>
             <h1 className="max-w-4xl text-3xl  font-black tracking-tight md:text-4xl lg:text-6xl flex">
-              <span className="mr-3">I'm</span>
+              <span className="mr-3">I&apos;m</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-600/70 to-90%">
                 Muhammad Ranju
               </span>
             </h1>
             <h2 className="font-bold lg:text-2xl md:text-xl sm:text-lg flex flex-row items-center">
-              <span className="">I'm a</span>
+              <span className="">I&apos;m a</span>
               <div className="">
                 <FlipWords words={words} />
                 Developer.
               </div>
             </h2>
-            <p className=" text-base font-semibold lg:w-4/5">
-              Welcome to my portfolio! I hope you enjoy your visit. I specialize
-              in Back-End development with Node.js and Front-End development
-              with React.js. I have worked on various projects, including a Real{" "}
-              LMS System, E-Commerce, Link-Shortener, Using Modern Technologies
-              like React.js, Next.js, Shadcn , Tailwindcss, MongoDB, and more. I
-              am passionate about learning new technologies and building
-              solutions that make a difference. Thank you for visiting my
-              portfolio! <br /> I hope you like my work.{" "}
+            <p className=" text-base font-semibold lg:w-[70%]">
+              I’m a full-stack developer specializing in Node.js and React.js.
+              I’ve built projects like Learning Management Systems, E-Commerce
+              platforms, Food Catering websites, Traditional Architecture sites,
+              Medication Management Systems, and more. Using React.js, Next.js,
+              Tailwind CSS, Shadcn, MongoDB, I create fast, scalable, and
+              user-friendly applications. I’m passionate about learning new
+              technologies and building solutions that make a difference.
+              Explore my work and see how I turn ideas into reality.{" "}
               <Highlighter action="underline" color="#FF9800">
                 Happy coding! 🧑🏻‍💻
               </Highlighter>{" "}
@@ -96,33 +88,6 @@ function HeroSection() {
                 <FaXTwitter className="h-7 w-7" />
               </a>
             </div>
-            {/* <div>
-              <div className="flex mt-4 gap-x-2 border-white border-collapse rounded">
-                <a
-                  href="../../full_stack_developer_resume.pdf"
-                  target="_blank"
-                  download="full_stack_developer_resume_of_mdranju.pdf"
-                >
-                  <ShimmerButton className="shadow-2xl">
-                    <span className="whitespace-pre-wrap flex items-center text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
-                      My Resume
-                      <MdDownload className="ml-1 " />
-                    </span>
-                  </ShimmerButton>
-                </a>
-
-                <Link href="/contact">
-                  <HoverBorderGradient
-                    containerClassName="rounded-full"
-                    as="button"
-                    className="bg-slate-900 lg:py-3 py-1.5   text-white flex items-center space-x-2"
-                  >
-                    <span>Contact Me</span>
-                    <Sparkles className="h-4 w-4" />
-                  </HoverBorderGradient>
-                </Link>
-              </div>
-            </div> */}
           </div>
 
           <div className="relative flex px-20 lg:h-[500px] h-[430px] w-full  flex-col items-center justify-center overflow-hidden ">

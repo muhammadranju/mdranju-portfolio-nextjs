@@ -18,10 +18,9 @@ export default function ScrollProgress({ className }: ScrollProgressProps) {
 
   return (
     <motion.div
-      // ["#6366f1", "#6006f1", "#7322f1"]
       className={cn(
         "fixed inset-x-0 top-0 z-[1000] h-1 origin-left bg-gradient-to-r from-[#6366f1] via-[#6006f1] to-[#7322f1]",
-        className
+        className,
       )}
       style={{
         scaleX,
